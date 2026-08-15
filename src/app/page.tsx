@@ -30,35 +30,38 @@ export default function Home() {
 
       {/* Hari Pelaksanaan Section */}
       <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24 bg-neutral-light-bg">
-          <div className="section-container">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark text-center mb-12">
+        <div className="w-full py-16 md:py-24 bg-[#EDECE6]">
+          <div className="section-container max-w-6xl mx-auto px-4">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#121E42] text-center mb-12">
               Hari Pelaksanaan
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {schedule.map((day) => (
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {schedule.slice(0, 3).map((day) => (
                 <Link
                   key={day.id}
                   href={`/hari-pelaksanaan/${day.day}`}
-                  className="group"
+                  className="group block relative h-[400px] rounded-3xl overflow-hidden shadow-xl border border-[#121E42]/20 transition-all duration-300 hover:scale-[1.02]"
                 >
-                  <Card hoverable>
-                    <div className="p-6 text-center">
-                      <div className="font-serif text-4xl font-bold text-primary-dark mb-2">
-                        {day.day}
-                      </div>
-                      <p className="font-sans font-semibold text-gray-800">{day.title}</p>
-                      <p className="font-sans text-sm text-gray-500 mt-2">{day.date}</p>
-                    </div>
-                  </Card>
+                  <img 
+                    src={`https://picsum.photos/seed/schedule-${day.day}/600/800`} 
+                    alt={day.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" 
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/90 via-[#121E42]/40 to-transparent flex flex-col justify-end p-6 text-[#EDECE6]">
+                    <p className="text-sm font-semibold text-[#EDECE6]/80 mb-1">{day.date}</p>
+                    <h3 className="font-serif text-2xl font-bold text-[#EDECE6] tracking-tight">{day.title}</h3>
+                  </div>
                 </Link>
               ))}
             </div>
-            <div className="text-center mt-8">
+
+            <div className="text-center mt-12">
               <Link href="/hari-pelaksanaan">
-                <Button variant="outline" size="lg">
+                <button className="bg-[#364A8C] hover:bg-[#121E42] text-[#EDECE6] font-semibold px-8 py-3.5 rounded-full shadow-md transition-colors">
                   Lihat Semua Hari
-                </Button>
+                </button>
               </Link>
             </div>
           </div>
