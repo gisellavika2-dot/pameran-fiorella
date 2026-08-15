@@ -23,17 +23,36 @@ function relativePosition(index: number, active: number, length: number) {
 export default function EventCarousel({ items }: { items: ScheduleDay[] }) {
   const [active, setActive] = useState(Math.floor(items.length / 2));
   const [paused, setPaused] = useState(false);
+  const [wrappingIndex, setWrappingIndex] = useState<number | null>(null);
+  const activeRef = useRef(active);
   const transitionLocked = useRef(false);
   const transitionTimer = useRef<number | null>(null);
 
   const move = useCallback((step: 1 | -1) => {
-    if (transitionLocked.current) return;
+    if (transitionLocked.current || items.length < 2) return;
+
     transitionLocked.current = true;
-    setActive((current) => (current + step + items.length) % items.length);
+    const current = activeRef.current;
+    const next = (current + step + items.length) % items.length;
+
+    if (items.length === 5) {
+      const wrappingPosition = step === 1 ? -2 : 2;
+      const wrappingIndex = items.findIndex(
+        (_, index) => relativePosition(index, current, items.length) === wrappingPosition,
+      );
+
+      if (wrappingIndex !== -1) {
+        setWrappingIndex(wrappingIndex);
+      }
+    }
+
+    activeRef.current = next;
+    setActive(next);
     transitionTimer.current = window.setTimeout(() => {
+      setWrappingIndex(null);
       transitionLocked.current = false;
     }, 720);
-  }, [items.length]);
+  }, [items]);
 
   useEffect(() => {
     if (paused || items.length < 2) return;
@@ -62,7 +81,7 @@ export default function EventCarousel({ items }: { items: ScheduleDay[] }) {
           return (
             <Link
               href={`/hari-pelaksanaan/${day.day}`}
-              className="event-card"
+              className={`event-card${wrappingIndex === index ? " is-wrapping" : ""}`}
               data-position={position}
               aria-label={`${day.title}, ${day.date}`}
               aria-current={position === 0 ? "true" : undefined}

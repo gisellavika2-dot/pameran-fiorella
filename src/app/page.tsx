@@ -23,8 +23,8 @@ export default function Home() {
             <Link className="figma-button" href="/tentang-fiorella">Selengkapnya <span>→</span></Link>
           </div>
         </div>
-        <svg className="hero-wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 0H1440V54C1300 39 1235 88 1100 94C908 103 825 39 652 48C488 56 405 121 244 103C143 92 74 47 0 34V0Z" />
+        <svg className="hero-wave" viewBox="0 0 1440 128" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 0H1440V72C1260 46 1110 42 952 71C765 105 635 129 447 108C270 89 159 47 0 33V0Z" />
         </svg>
       </section>
 
