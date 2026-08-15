@@ -3,16 +3,9 @@ import Link from "next/link";
 import { divisions } from "@/data/divisions";
 import { schedule } from "@/data/schedule";
 import DivisionAccordion from "@/components/ui/DivisionAccordion";
+import EventCarousel from "@/components/ui/EventCarousel";
 
 const photoTones = ["tone-blue", "tone-lilac", "tone-sky", "tone-cream", "tone-navy"];
-const eventImages = [
-  "/figma/event-side-left.png",
-  "/figma/event-side-left.png",
-  "/figma/event-main.png",
-  "/figma/event-side-right.png",
-  "/figma/event-side-right.png",
-];
-
 export default function Home() {
   return (
     <main className="home-page">
@@ -38,14 +31,7 @@ export default function Home() {
       <section className="editorial-section events-section">
         <p className="section-kicker">Linimasa kegiatan</p>
         <h2>Hari Pelaksanaan</h2>
-        <div className="event-deck">
-          {schedule.slice(0, 5).map((day, index) => (
-            <Link href={`/hari-pelaksanaan/${day.day}`} className={`event-card event-${index + 1}`} key={day.id}>
-              <Image src={eventImages[index]} alt={`Dokumentasi ${day.title}`} fill sizes="(max-width: 760px) 100vw, 34vw" />
-              <div className="event-caption"><span>{day.date}</span><strong>{day.title}</strong><small>Hari {day.day}</small></div>
-            </Link>
-          ))}
-        </div>
+        <EventCarousel items={schedule.slice(0, 5)} />
         <Link className="text-link" href="/hari-pelaksanaan">Lihat seluruh rangkaian <span>→</span></Link>
       </section>
 
