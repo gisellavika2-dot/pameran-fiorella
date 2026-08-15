@@ -12,10 +12,12 @@ export default function Home() {
     <ScrollSnapContainer>
       {/* Hero Section */}
       <ScrollSnapSection>
-        <div className="bg-black text-white w-full py-20 md:py-32">
+        <div className="bg-primary-dark text-neutral-light-bg w-full py-20 md:py-32">
           <div className="section-container text-center">
-            <h1 className="section-title text-white mb-4">Fiorella</h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <h1 className="font-serif text-5xl md:text-6xl font-bold leading-tight mb-4">
+              Fiorella
+            </h1>
+            <p className="font-sans text-lg md:text-xl text-primary-light mb-8 max-w-2xl mx-auto">
               Pameran Foto dan Video - Menampilkan dokumentasi kegiatan dari
               berbagai divisi
             </p>
@@ -28,9 +30,11 @@ export default function Home() {
 
       {/* Hari Pelaksanaan Section */}
       <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24 bg-gray-50">
+        <div className="w-full py-16 md:py-24 bg-neutral-light-bg">
           <div className="section-container">
-            <h2 className="section-title text-center mb-12">Hari Pelaksanaan</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark text-center mb-12">
+              Hari Pelaksanaan
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {schedule.map((day) => (
                 <Link
@@ -40,11 +44,11 @@ export default function Home() {
                 >
                   <Card hoverable>
                     <div className="p-6 text-center">
-                      <div className="text-4xl font-bold text-black mb-2">
+                      <div className="font-serif text-4xl font-bold text-primary-dark mb-2">
                         {day.day}
                       </div>
-                      <p className="font-semibold text-gray-800">{day.title}</p>
-                      <p className="text-sm text-gray-500 mt-2">{day.date}</p>
+                      <p className="font-sans font-semibold text-gray-800">{day.title}</p>
+                      <p className="font-sans text-sm text-gray-500 mt-2">{day.date}</p>
                     </div>
                   </Card>
                 </Link>
@@ -65,7 +69,9 @@ export default function Home() {
       <ScrollSnapSection>
         <div className="w-full py-16 md:py-24">
           <div className="section-container">
-            <h2 className="section-title text-center mb-12">Divisi</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark text-center mb-12">
+              Divisi
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {divisions.map((division) => (
                 <Link
@@ -76,13 +82,15 @@ export default function Home() {
                   <Card hoverable>
                     <div className="p-6">
                       <div className="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
-                        <span className="text-gray-400 text-sm">Logo Divisi</span>
+                        <span className="font-sans text-gray-400 text-sm">Logo Divisi</span>
                       </div>
-                      <h3 className="font-bold text-lg mb-2">{division.name}</h3>
-                      <p className="text-gray-600 text-sm mb-4">
+                      <h3 className="font-serif font-bold text-lg text-primary-dark mb-2">
+                        {division.name}
+                      </h3>
+                      <p className="font-sans text-gray-600 text-sm mb-4">
                         {division.description}
                       </p>
-                      <p className="text-xs text-gray-500">
+                      <p className="font-sans text-xs text-gray-500">
                         {division.coordinatorName}
                       </p>
                     </div>
@@ -96,12 +104,14 @@ export default function Home() {
 
       {/* Dibalik Kepanitiaan Section */}
       <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24 bg-gray-50">
+        <div className="w-full py-16 md:py-24 bg-neutral-light-bg">
           <div className="section-container">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="section-title mb-4">Dibalik Kepanitiaan</h2>
-                <p className="text-gray-600 mb-6">
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark mb-4">
+                  Dibalik Kepanitiaan
+                </h2>
+                <p className="font-sans text-gray-600 mb-6">
                   Lihat perjalanan dan kerja keras tim yang telah membuat Fiorella
                   menjadi sebuah pameran yang luar biasa.
                 </p>
@@ -112,7 +122,7 @@ export default function Home() {
                 </Link>
               </div>
               <div className="h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500">Foto Tim</span>
+                <span className="font-sans text-gray-500">Foto Tim</span>
               </div>
             </div>
           </div>
@@ -125,11 +135,13 @@ export default function Home() {
           <div className="section-container">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500">Karya Sayembara</span>
+                <span className="font-sans text-gray-500">Karya Sayembara</span>
               </div>
               <div>
-                <h2 className="section-title mb-4">Sayembara Visual</h2>
-                <p className="text-gray-600 mb-6">
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark mb-4">
+                  Sayembara Visual
+                </h2>
+                <p className="font-sans text-gray-600 mb-6">
                   Jelajahi koleksi karya visual terbaik dari sayembara Fiorella.
                   Temukan foto dan video yang menginspirasi.
                 </p>

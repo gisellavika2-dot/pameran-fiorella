@@ -22,7 +22,7 @@ export default function RootLayout({
       <body>
         <CustomCursor />
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

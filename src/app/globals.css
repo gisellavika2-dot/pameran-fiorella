@@ -113,16 +113,19 @@ select {
   will-change: transform;
 }
 
-/* ===== Scroll Snap (untuk halaman dengan section) ===== */
+/* ===== Scroll Snap (untuk halaman dengan section) =====
+   Tinggi dikurangi tinggi Header (--header-height) supaya container
+   ini adalah SATU-SATUNYA area yang scroll. Window/body tidak ikut
+   scroll, sehingga tidak ada double scrollbar. */
 .scroll-snap-container {
-  height: 100vh;
+  height: calc(100vh - var(--header-height, 64px));
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 
 .scroll-snap-section {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height, 64px));
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;

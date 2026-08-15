@@ -13,13 +13,15 @@ export default function TentangFiorellaPage() {
           <div className="section-container">
             <Link
               href="/"
-              className="text-blue-600 hover:underline mb-8 inline-block"
+              className="font-sans text-primary-dark hover:text-[#364A8C] underline mb-8 inline-block"
             >
               ← Kembali ke Home
             </Link>
-            <div className="py-12 bg-black text-white rounded-lg p-12">
-              <h1 className="section-title text-white mb-4">Tentang Fiorella</h1>
-              <p className="text-xl text-gray-200 leading-relaxed max-w-3xl">
+            <div className="py-12 bg-primary-dark text-neutral-light-bg rounded-lg p-12">
+              <h1 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+                Tentang Fiorella
+              </h1>
+              <p className="font-sans text-lg md:text-xl text-primary-light leading-relaxed max-w-3xl">
                 Fiorella adalah sebuah pameran foto dan video yang menampilkan
                 dokumentasi lengkap dari sebuah kegiatan besar. Melalui lensa
                 para fotografer berbakat, kami mengabadikan setiap momen
@@ -32,9 +34,9 @@ export default function TentangFiorellaPage() {
 
       {/* Values Section */}
       <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24 bg-gray-50">
+        <div className="w-full py-16 md:py-24 bg-neutral-light-bg">
           <div className="section-container">
-            <h2 className="text-2xl font-bold mb-8 text-center">
+            <h2 className="font-serif text-2xl font-bold text-primary-dark mb-8 text-center">
               Nilai Fiorella
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -56,8 +58,10 @@ export default function TentangFiorellaPage() {
                 },
               ].map((value, idx) => (
                 <div key={idx} className="bg-white p-8 rounded-lg text-center">
-                  <h3 className="font-bold text-lg mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="font-serif font-bold text-lg text-primary-dark mb-2">
+                    {value.title}
+                  </h3>
+                  <p className="font-sans text-gray-600">{value.description}</p>
                 </div>
               ))}
             </div>
@@ -69,10 +73,10 @@ export default function TentangFiorellaPage() {
       <ScrollSnapSection>
         <div className="w-full py-16 md:py-24">
           <div className="section-container">
-            <h2 className="text-2xl font-bold mb-8 text-center">
+            <h2 className="font-serif text-2xl font-bold text-primary-dark mb-8 text-center">
               Dokumentasi Fiorella
             </h2>
-            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="font-sans text-center text-gray-600 mb-8 max-w-2xl mx-auto">
               Jelajahi koleksi lengkap dokumentasi Fiorella melalui berbagai
               kategori. Dari foto hari demi hari, hingga galeri khusus dari
               setiap divisi.
@@ -81,10 +85,12 @@ export default function TentangFiorellaPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <div className="bg-gray-300 rounded-lg h-64 flex items-center justify-center mb-4">
-                  <span className="text-gray-500">Foto Dokumentasi 1</span>
+                  <span className="font-sans text-gray-500">Foto Dokumentasi 1</span>
                 </div>
-                <h3 className="font-bold text-lg">Galeri Keseluruhan</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="font-serif font-bold text-lg text-primary-dark">
+                  Galeri Keseluruhan
+                </h3>
+                <p className="font-sans text-gray-600 mb-4">
                   Lihat semua foto dan video dari seluruh acara Fiorella.
                 </p>
                 <Link href="/hari-pelaksanaan">
@@ -96,10 +102,12 @@ export default function TentangFiorellaPage() {
 
               <div>
                 <div className="bg-gray-300 rounded-lg h-64 flex items-center justify-center mb-4">
-                  <span className="text-gray-500">Foto Dokumentasi 2</span>
+                  <span className="font-sans text-gray-500">Foto Dokumentasi 2</span>
                 </div>
-                <h3 className="font-bold text-lg">Divisi</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="font-serif font-bold text-lg text-primary-dark">
+                  Divisi
+                </h3>
+                <p className="font-sans text-gray-600 mb-4">
                   Jelajahi karya spesifik dari masing-masing divisi.
                 </p>
                 <Link href="/">
