@@ -16,45 +16,11 @@ export default function Home() {
           <div className="hero-mark">
             <Image src="/figma/fiorella-blue.png" alt="Fiorella" width={318} height={426} priority />
           </div>
-        </div>
-      </ScrollSnapSection>
-
-      {/* Hari Pelaksanaan Section */}
-      <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24 bg-[#EDECE6]">
-          <div className="section-container max-w-6xl mx-auto px-4">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#121E42] text-center mb-12">
-              Hari Pelaksanaan
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {schedule.slice(0, 3).map((day) => (
-                <Link
-                  key={day.id}
-                  href={`/hari-pelaksanaan/${day.day}`}
-                  className="group block relative h-[400px] rounded-3xl overflow-hidden shadow-xl border border-[#121E42]/20 transition-all duration-300 hover:scale-[1.02]"
-                >
-                  <img 
-                    src={`https://picsum.photos/seed/schedule-${day.day}/600/800`} 
-                    alt={day.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" 
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/90 via-[#121E42]/40 to-transparent flex flex-col justify-end p-6 text-[#EDECE6]">
-                    <p className="text-sm font-semibold text-[#EDECE6]/80 mb-1">{day.date}</p>
-                    <h3 className="font-serif text-2xl font-bold text-[#EDECE6] tracking-tight">{day.title}</h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <Link href="/hari-pelaksanaan">
-                <button className="bg-[#364A8C] hover:bg-[#121E42] text-[#EDECE6] font-semibold px-8 py-3.5 rounded-full shadow-md transition-colors">
-                  Lihat Semua Hari
-                </button>
-              </Link>
-            </div>
+          <div className="hero-copy">
+            <span className="eyebrow">“bunga kecil”</span>
+            <h1>Fiorella</h1>
+            <p>Tempat karya, cerita, dan kebersamaan tumbuh menjadi satu. Sebuah pameran dokumentasi perjalanan OMB UMN 2026.</p>
+            <Link className="figma-button" href="/tentang-fiorella">Selengkapnya <span>→</span></Link>
           </div>
         </div>
         <svg className="hero-wave" viewBox="0 0 1440 128" preserveAspectRatio="none" aria-hidden="true">
