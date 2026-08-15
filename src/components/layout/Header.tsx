@@ -1,71 +1,23 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { NAVIGATION, SITE_NAME } from "@/data/constants";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+const links = [
+  ["Beranda", "/"], ["Hari Pelaksanaan", "/hari-pelaksanaan"], ["Foto Divisi", "/#divisi"],
+  ["Dibalik Kepanitiaan", "/dibalik-kepanitiaan"], ["Sayembara Visual", "/sayembara"], ["Tentang Fiorella", "/tentang-fiorella"],
+];
+
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="font-bold text-xl">
-            {SITE_NAME}
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-8">
-            {NAVIGATION.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-gray-700 hover:text-black transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <nav className="md:hidden pb-4 flex flex-col gap-2">
-            {NAVIGATION.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-gray-700 hover:text-black transition-colors py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        )}
-      </div>
-    </header>
-  );
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  return <header className="site-header">
+    <Link href="/" className="mobile-brand"><Image src="/logo/Logo_White.png" alt="Fiorella" width={92} height={34} /></Link>
+    <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Buka navigasi">{open ? "Tutup" : "Menu"}</button>
+    <nav className={open ? "nav-pill nav-open" : "nav-pill"}>
+      {links.map(([label, href]) => <Link key={label} href={href} className={pathname === href ? "active" : ""} onClick={() => setOpen(false)}>{label}</Link>)}
+    </nav>
+  </header>;
 }

@@ -1,160 +1,95 @@
-// src/app/page.tsx
-
+import Image from "next/image";
 import Link from "next/link";
 import { divisions } from "@/data/divisions";
 import { schedule } from "@/data/schedule";
-import Button from "@/components/ui/Button";
-import Card from "@/components/ui/Card";
-import { ScrollSnapContainer, ScrollSnapSection } from "@/components/ui/ScrollSnap";
+import DivisionAccordion from "@/components/ui/DivisionAccordion";
+import EventCarousel from "@/components/ui/EventCarousel";
 
+const photoTones = ["tone-blue", "tone-lilac", "tone-sky", "tone-cream", "tone-navy"];
 export default function Home() {
   return (
-    <ScrollSnapContainer>
-      {/* Hero Section */}
-      <ScrollSnapSection>
-        <div className="bg-primary-dark text-neutral-light-bg w-full py-20 md:py-32">
-          <div className="section-container text-center">
-            <h1 className="font-serif text-5xl md:text-6xl font-bold leading-tight mb-4">
-              Fiorella
-            </h1>
-            <p className="font-sans text-lg md:text-xl text-primary-light mb-8 max-w-2xl mx-auto">
-              Pameran Foto dan Video - Menampilkan dokumentasi kegiatan dari
-              berbagai divisi
-            </p>
-            <Button variant="secondary" size="lg">
-              Jelajahi Sekarang
-            </Button>
+    <main className="home-page">
+      <section className="hero-section">
+        <div className="hero-ornament hero-ornament-one" />
+        <div className="hero-ornament hero-ornament-two" />
+        <div className="hero-card">
+          <div className="hero-mark">
+            <Image src="/figma/fiorella-blue.png" alt="Fiorella" width={318} height={426} priority />
           </div>
         </div>
       </ScrollSnapSection>
 
       {/* Hari Pelaksanaan Section */}
       <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24 bg-neutral-light-bg">
-          <div className="section-container">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark text-center mb-12">
+        <div className="w-full py-16 md:py-24 bg-[#EDECE6]">
+          <div className="section-container max-w-6xl mx-auto px-4">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#121E42] text-center mb-12">
               Hari Pelaksanaan
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {schedule.map((day) => (
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {schedule.slice(0, 3).map((day) => (
                 <Link
                   key={day.id}
                   href={`/hari-pelaksanaan/${day.day}`}
-                  className="group"
+                  className="group block relative h-[400px] rounded-3xl overflow-hidden shadow-xl border border-[#121E42]/20 transition-all duration-300 hover:scale-[1.02]"
                 >
-                  <Card hoverable>
-                    <div className="p-6 text-center">
-                      <div className="font-serif text-4xl font-bold text-primary-dark mb-2">
-                        {day.day}
-                      </div>
-                      <p className="font-sans font-semibold text-gray-800">{day.title}</p>
-                      <p className="font-sans text-sm text-gray-500 mt-2">{day.date}</p>
-                    </div>
-                  </Card>
+                  <img 
+                    src={`https://picsum.photos/seed/schedule-${day.day}/600/800`} 
+                    alt={day.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" 
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/90 via-[#121E42]/40 to-transparent flex flex-col justify-end p-6 text-[#EDECE6]">
+                    <p className="text-sm font-semibold text-[#EDECE6]/80 mb-1">{day.date}</p>
+                    <h3 className="font-serif text-2xl font-bold text-[#EDECE6] tracking-tight">{day.title}</h3>
+                  </div>
                 </Link>
               ))}
             </div>
-            <div className="text-center mt-8">
+
+            <div className="text-center mt-12">
               <Link href="/hari-pelaksanaan">
-                <Button variant="outline" size="lg">
+                <button className="bg-[#364A8C] hover:bg-[#121E42] text-[#EDECE6] font-semibold px-8 py-3.5 rounded-full shadow-md transition-colors">
                   Lihat Semua Hari
-                </Button>
+                </button>
               </Link>
             </div>
           </div>
         </div>
-      </ScrollSnapSection>
+        <svg className="hero-wave" viewBox="0 0 1440 128" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 0H1440V72C1260 46 1110 42 952 71C765 105 635 129 447 108C270 89 159 47 0 33V0Z" />
+        </svg>
+      </section>
 
-      {/* Foto Divisi Section */}
-      <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24">
-          <div className="section-container">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark text-center mb-12">
-              Divisi
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {divisions.map((division) => (
-                <Link
-                  key={division.id}
-                  href={`/divisi/${division.id}`}
-                  className="group"
-                >
-                  <Card hoverable>
-                    <div className="p-6">
-                      <div className="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center group-hover:bg-gray-300 transition-colors">
-                        <span className="font-sans text-gray-400 text-sm">Logo Divisi</span>
-                      </div>
-                      <h3 className="font-serif font-bold text-lg text-primary-dark mb-2">
-                        {division.name}
-                      </h3>
-                      <p className="font-sans text-gray-600 text-sm mb-4">
-                        {division.description}
-                      </p>
-                      <p className="font-sans text-xs text-gray-500">
-                        {division.coordinatorName}
-                      </p>
-                    </div>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </ScrollSnapSection>
+      <section className="editorial-section events-section">
+        <p className="section-kicker">Linimasa kegiatan</p>
+        <h2>Hari Pelaksanaan</h2>
+        <EventCarousel items={schedule.slice(0, 5)} />
+        <Link className="text-link" href="/hari-pelaksanaan">Lihat seluruh rangkaian <span>→</span></Link>
+      </section>
 
-      {/* Dibalik Kepanitiaan Section */}
-      <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24 bg-neutral-light-bg">
-          <div className="section-container">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark mb-4">
-                  Dibalik Kepanitiaan
-                </h2>
-                <p className="font-sans text-gray-600 mb-6">
-                  Lihat perjalanan dan kerja keras tim yang telah membuat Fiorella
-                  menjadi sebuah pameran yang luar biasa.
-                </p>
-                <Link href="/dibalik-kepanitiaan">
-                  <Button variant="primary" size="lg">
-                    Baca Selengkapnya
-                  </Button>
-                </Link>
-              </div>
-              <div className="h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-                <span className="font-sans text-gray-500">Foto Tim</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ScrollSnapSection>
+      <section id="divisi" className="editorial-section divisions-section">
+        <p className="section-kicker">Orang-orang di balik cerita</p>
+        <h2>Foto Divisi</h2>
+        <DivisionAccordion items={divisions} />
+      </section>
 
-      {/* Sayembara Visual Section */}
-      <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24">
-          <div className="section-container">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-                <span className="font-sans text-gray-500">Karya Sayembara</span>
-              </div>
-              <div>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark mb-4">
-                  Sayembara Visual
-                </h2>
-                <p className="font-sans text-gray-600 mb-6">
-                  Jelajahi koleksi karya visual terbaik dari sayembara Fiorella.
-                  Temukan foto dan video yang menginspirasi.
-                </p>
-                <Link href="/sayembara">
-                  <Button variant="primary" size="lg">
-                    Lihat Sayembara
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
+      <section className="editorial-section behind-section">
+        <p className="section-kicker">Yang tak terlihat di panggung</p>
+        <h2>Dibalik Kepanitiaan</h2>
+        <div className="mosaic" aria-label="Kolase dokumentasi panitia">
+          {Array.from({ length: 12 }, (_, i) => <div className={`mosaic-cell ${photoTones[i % photoTones.length]}`} key={i}><span>{String(i + 1).padStart(2, "0")}</span></div>)}
         </div>
-      </ScrollSnapSection>
-    </ScrollSnapContainer>
+        <Link className="figma-button dark-button" href="/dibalik-kepanitiaan">Hasil Dokumentasi <span>→</span></Link>
+      </section>
+
+      <section className="editorial-section contest-section">
+        <p className="section-kicker">Ruang untuk berkarya</p>
+        <h2>Sayembara Visual</h2>
+        <div className="coming-card"><span>Segera hadir</span><strong>Coming Soon</strong><p>Karya terpilih sedang kami siapkan untuk dipamerkan.</p></div>
+        <Link className="text-link" href="/sayembara">Kunjungi sayembara <span>→</span></Link>
+      </section>
+    </main>
   );
 }
