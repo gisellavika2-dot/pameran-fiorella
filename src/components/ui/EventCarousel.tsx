@@ -24,9 +24,11 @@ export default function EventCarousel({ items }: { items: ScheduleDay[] }) {
   const [active, setActive] = useState(Math.floor(items.length / 2));
   const [paused, setPaused] = useState(false);
   const [wrappingIndex, setWrappingIndex] = useState<number | null>(null);
+  const [isJumping, setIsJumping] = useState(false);
   const activeRef = useRef(active);
   const transitionLocked = useRef(false);
   const transitionTimer = useRef<number | null>(null);
+  const jumpTimer = useRef<number | null>(null);
 
   const move = useCallback((step: 1 | -1) => {
     if (transitionLocked.current || items.length < 2) return;
@@ -63,12 +65,13 @@ export default function EventCarousel({ items }: { items: ScheduleDay[] }) {
   useEffect(() => {
     return () => {
       if (transitionTimer.current !== null) window.clearTimeout(transitionTimer.current);
+      if (jumpTimer.current !== null) window.clearTimeout(jumpTimer.current);
     };
   }, []);
 
   return (
     <div
-      className="event-carousel"
+      className={`event-carousel${isJumping ? " is-jumping" : ""}`}
       aria-label="Hari pelaksanaan Fiorella"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -117,6 +120,12 @@ export default function EventCarousel({ items }: { items: ScheduleDay[] }) {
               key={day.id}
               className={index === active ? "is-active" : ""}
               onClick={() => {
+                const distance = Math.abs(index - activeRef.current);
+                if (distance > 1 && distance < items.length - 1) {
+                  setIsJumping(true);
+                  if (jumpTimer.current !== null) window.clearTimeout(jumpTimer.current);
+                  jumpTimer.current = window.setTimeout(() => setIsJumping(false), 50);
+                }
                 activeRef.current = index;
                 setActive(index);
               }}
