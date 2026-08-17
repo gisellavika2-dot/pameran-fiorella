@@ -21,6 +21,7 @@ const divisionLogos = [
 export default function DivisionAccordion({ items }: { items: Division[] }) {
   const [active, setActive] = useState(Math.floor(items.length / 2));
   const accordionRef = useRef<HTMLDivElement>(null);
+  const navContainerRef = useRef<HTMLDivElement>(null);
   const wheelLock = useRef(false);
   const touchStart = useRef<number | null>(null);
   const hasManuallyNavigated = useRef(false);
@@ -35,9 +36,9 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
     }
   }, []);
 
-  const move = (direction: -1 | 1) => {
+  const selectDivision = (index: number) => {
     disableAutoAdvance();
-    setActive((current) => (current + direction + items.length) % items.length);
+    setActive(index);
   };
 
   const getPosition = (index: number) => {
@@ -49,6 +50,18 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
 
     return position;
   };
+
+  useEffect(() => {
+    if (!navContainerRef.current) return;
+    const activeItem = navContainerRef.current.children[active] as HTMLElement;
+    if (activeItem) {
+      activeItem.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [active]);
 
   useEffect(() => {
     const accordion = accordionRef.current;
@@ -95,7 +108,10 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
         onTouchEnd={(event) => {
           if (touchStart.current === null) return;
           const distance = touchStart.current - event.changedTouches[0].clientX;
-          if (Math.abs(distance) > 35) move(distance > 0 ? 1 : -1);
+          if (Math.abs(distance) > 35) {
+            disableAutoAdvance();
+            setActive((current) => (current + (distance > 0 ? 1 : -1) + items.length) % items.length);
+          }
           touchStart.current = null;
         }}
         aria-label="Daftar 11 divisi"
@@ -111,15 +127,11 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
               key={division.id}
               className={`division-panel division-panel-${index} ${isActive ? "is-active" : "is-closed"}`}
               data-position={visualPosition}
-              onClick={() => {
-                disableAutoAdvance();
-                setActive(index);
-              }}
+              onClick={() => selectDivision(index)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
-                  disableAutoAdvance();
-                  setActive(index);
+                  selectDivision(index);
                 }
               }}
               role="button"
@@ -137,17 +149,41 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                 />
                 <div className="division-panel-copy" aria-hidden={!isActive}>
                   <h3>{division.name}</h3>
-                  <p>{division.coordinatorRole}</p>
+                  <p>{division.nameEng}</p>
                 </div>
               </div>
             </article>
           );
         })}
       </div>
-      <div className="division-controls">
-        <button onClick={() => move(-1)} aria-label="Divisi sebelumnya">←</button>
-        <button onClick={() => move(1)} aria-label="Divisi berikutnya">→</button>
-      </div>
+
+      <nav 
+        ref={navContainerRef}
+        className="flex justify-center mt-16 division-nav-thumbnails"
+        aria-label="Navigasi Divisi"
+      >
+        {items.map((division, index) => {
+          const isActive = index === active; 
+          return (
+            <button
+              key={`thumb-${division.id}`}
+              onClick={() => selectDivision(index)}
+              className={`division-nav-item ${isActive ? "opacity-100 scale-200 mx-8" : "hover:opacity-100 hover:scale-150"} mx-4`}
+              aria-label={`Pilih ${division.name}`}
+              aria-pressed={isActive}
+            >
+              <div className="division-thumb-circle">
+                <Image
+                  src={divisionLogos[index % divisionLogos.length]}
+                  alt=""
+                  width={60}
+                  height={60}
+                />
+              </div>
+            </button>
+          );
+        })}
+      </nav>
     </div>
   );
 }
