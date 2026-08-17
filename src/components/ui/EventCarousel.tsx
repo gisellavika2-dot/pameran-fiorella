@@ -110,9 +110,21 @@ export default function EventCarousel({ items }: { items: ScheduleDay[] }) {
       </div>
 
       <div className="event-carousel-controls" aria-label="Navigasi hari pelaksanaan">
-        <button type="button" onClick={() => move(-1)} aria-label="Hari sebelumnya">←</button>
-        <span>{String(active + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</span>
-        <button type="button" onClick={() => move(1)} aria-label="Hari berikutnya">→</button>
+        <div className="event-carousel-pagination" aria-label="Pilih hari pelaksanaan">
+          {items.map((day, index) => (
+            <button
+              type="button"
+              key={day.id}
+              className={index === active ? "is-active" : ""}
+              onClick={() => {
+                activeRef.current = index;
+                setActive(index);
+              }}
+              aria-label={`Pilih ${day.title}`}
+              aria-current={index === active ? "true" : undefined}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
