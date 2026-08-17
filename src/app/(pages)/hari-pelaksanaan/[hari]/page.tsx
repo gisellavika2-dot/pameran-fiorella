@@ -1,9 +1,18 @@
 // src/app/(pages)/hari-pelaksanaan/[hari]/page.tsx
 'use client';
 
+import Image from "next/image";
 import React, { use, useRef } from 'react';
 import Link from "next/link";
 import { schedule } from "@/data/schedule";
+
+const eventImages = [
+  "/figma/event-main.png",
+  "/figma/event-side-right.png",
+  "/figma/event-side-left.png",
+  "/figma/division-event.png",
+  "/figma/division-documentation.png",
+];
 
 interface PageProps {
   params: Promise<{
@@ -85,37 +94,38 @@ export default function HariDetailPage({ params }: PageProps) {
       onMouseMove={handleContainerMouseMove}
       onMouseUp={handleContainerMouseUp}
       onMouseLeave={handleContainerMouseUp}
-      className="relative min-h-screen bg-[#EDECE6] text-[#121E42] flex flex-col items-center overflow-y-auto overflow-x-hidden pt-12 font-sans select-none"
+      className="hari-detail-page relative min-h-screen bg-[#EDECE6] text-[#121E42] flex flex-col items-center overflow-y-auto overflow-x-hidden pt-12 font-sans select-none"
     >
       {/* Top Navigation */}
-      <div className="w-full max-w-5xl flex justify-between items-center mb-8 z-10 pointer-events-auto px-4 md:px-0">
-        <Link className="bg-[#364A8C] text-[#EDECE6] px-5 py-2 rounded-full text-sm font-medium hover:bg-[#121E42] transition-all shadow-md" href="/hari-pelaksanaan">
-          Hari Pelaksanaan
-        </Link>
-        <Link className="w-10 h-10 rounded-full bg-[#364A8C]/10 hover:bg-[#364A8C]/20 flex items-center justify-center transition-all text-[#121E42] font-bold text-xl" href="/hari-pelaksanaan">
+      <div className="w-full max-w-7xl flex justify-end items-center mb-8 z-10 pointer-events-auto px-4 md:px-0">
+        <Link
+          className="w-10 h-10 rounded-full bg-[#364A8C]/10 hover:bg-[#364A8C]/20 flex items-center justify-center transition-all text-[#121E42] font-bold text-xl"
+          href="/hari-pelaksanaan"
+        >
           ✕
         </Link>
       </div>
 
       {/* Main Header Information */}
-      <div className="w-full max-w-5xl bg-transparent flex flex-col gap-6 mb-16 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
-        <div className="w-full h-[480px] rounded-[2rem] overflow-hidden shadow-lg bg-gray-300">
-          <img src={`https://picsum.photos/seed/schedule-${scheduleDay.day}/1000/800`} alt={scheduleDay.title} className="w-full h-full object-cover pointer-events-none" />
+      <div className="w-full max-w-7xl bg-transparent flex flex-col gap-7 mb-16 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
+        <div className="relative w-full h-[62vh] min-h-[560px] max-h-[780px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#121E42] border border-[#EDECE6]/20">
+          <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill priority sizes="(max-width: 768px) 100vw, 90vw" className="object-cover pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/75 via-transparent to-transparent pointer-events-none" />
         </div>
-        <div className="flex flex-col gap-2 px-2 md:px-4">
+        <div className="flex flex-col gap-2 px-2 md:px-6">
           <p className="text-[#364A8C] text-lg font-semibold">{scheduleDay.date}</p>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#121E42] tracking-tight">{scheduleDay.title}</h1>
+          <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#121E42] tracking-tight">{scheduleDay.title}</h1>
           <p className="text-[#121E42]/80 text-base leading-relaxed max-w-4xl mt-2">{scheduleDay.description}</p>
         </div>
       </div>
 
       {/* Galeri Dokumentasi */}
       <div className="w-full flex flex-col gap-8 mb-32 z-10 pointer-events-auto py-6">
-        <hr className="w-full border-[#121E42]"/>
+        <hr className="w-full border-[#121E42]/20"/>
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-center text-[#121E42] px-4">
           Galeri Dokumentasi
         </h2>
-        <hr className="w-full border-[#121E42] mb-10"/>
+        <hr className="w-full border-[#121E42]/20 mb-10"/>
         
         <div className="flex flex-col gap-4 w-full mt-2">
           {/* Baris 1: Kanan */}
@@ -177,8 +187,6 @@ export default function HariDetailPage({ params }: PageProps) {
           Lihat Google Drive
         </a>
       </div>
-
-      <footer className="w-full h-32 bg-[#121E42] mt-auto rounded-t-[2.5rem] z-10 shrink-0" />
 
       <style jsx global>{`
         @keyframes marqueeRight {
