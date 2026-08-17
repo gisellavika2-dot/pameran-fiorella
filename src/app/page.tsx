@@ -7,7 +7,12 @@ import { schedule } from "@/data/schedule";
 import DivisionAccordion from "@/components/ui/DivisionAccordion";
 import EventCarousel from "@/components/ui/EventCarousel";
 
-const photoTones = ["tone-blue", "tone-lilac", "tone-sky", "tone-cream", "tone-navy"];
+const behindTheScenesRows = [
+  [0, 1, 2, 3],
+  [4, 5, 6, 7],
+  [8, 9, 10, 11],
+];
+
 export default function Home() {
   return (
     <main className="home-page">
@@ -78,7 +83,21 @@ export default function Home() {
         <p className="section-kicker">Yang tak terlihat di panggung</p>
         <h2>Dibalik Kepanitiaan</h2>
         <div className="mosaic" aria-label="Kolase dokumentasi panitia">
-          {Array.from({ length: 12 }, (_, i) => <div className={`mosaic-cell ${photoTones[i % photoTones.length]}`} key={i}><span>{String(i + 1).padStart(2, "0")}</span></div>)}
+          {behindTheScenesRows.map((row, rowIndex) => (
+            <div className={`mosaic-row ${rowIndex === 1 ? "mosaic-row-left" : "mosaic-row-right"}`} key={rowIndex}>
+              {Array.from({ length: 4 }, (_, setIndex) => (
+                <div className="mosaic-track" key={setIndex}>
+                  {row.map((photoIndex) => (
+                    <div className="mosaic-cell" key={photoIndex}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={`https://picsum.photos/seed/fiorella-panitia-${photoIndex}/560/320`} alt="Placeholder dokumentasi panitia" />
+                      <span>{String(photoIndex + 1).padStart(2, "0")}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
         <Link className="figma-button dark-button" href="/dibalik-kepanitiaan">Hasil Dokumentasi <span>→</span></Link>
       </section>
