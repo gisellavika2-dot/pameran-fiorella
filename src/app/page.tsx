@@ -25,42 +25,11 @@ export default function Home() {
               Jelajahi Sekarang
             </Button>
           </div>
-        </div>
-      </ScrollSnapSection>
-
-      {/* Hari Pelaksanaan Section */}
-      <ScrollSnapSection>
-        <div className="w-full py-16 md:py-24 bg-neutral-light-bg">
-          <div className="section-container">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-dark text-center mb-12">
-              Hari Pelaksanaan
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {schedule.map((day) => (
-                <Link
-                  key={day.id}
-                  href={`/hari-pelaksanaan/${day.day}`}
-                  className="group"
-                >
-                  <Card hoverable>
-                    <div className="p-6 text-center">
-                      <div className="font-serif text-4xl font-bold text-primary-dark mb-2">
-                        {day.day}
-                      </div>
-                      <p className="font-sans font-semibold text-gray-800">{day.title}</p>
-                      <p className="font-sans text-sm text-gray-500 mt-2">{day.date}</p>
-                    </div>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-            <div className="text-center mt-8">
-              <Link href="/hari-pelaksanaan">
-                <Button variant="outline" size="lg">
-                  Lihat Semua Hari
-                </Button>
-              </Link>
-            </div>
+          <div className="hero-copy">
+            <span className="eyebrow">“bunga kecil”</span>
+            <h1>Fiorella</h1>
+            <p>Tempat karya, cerita, dan kebersamaan tumbuh menjadi satu. Sebuah pameran dokumentasi perjalanan OMB UMN 2026.</p>
+            <Link className="figma-button" href="/tentang-fiorella">Selengkapnya <span>→</span></Link>
           </div>
         </div>
       </ScrollSnapSection>

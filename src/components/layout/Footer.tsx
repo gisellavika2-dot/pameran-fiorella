@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SITE_NAME } from "@/data/constants";
 
 export default function Footer() {
@@ -21,25 +22,25 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">Menu</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="/" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-white transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/hari-pelaksanaan"
                   className="hover:text-white transition-colors"
                 >
                   Hari Pelaksanaan
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/tentang-fiorella"
                   className="hover:text-white transition-colors"
                 >
                   Tentang Fiorella
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
