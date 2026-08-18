@@ -19,6 +19,7 @@ export default function HariPelaksanaanPage() {
   const [isJumping, setIsJumping] = useState(false);
   const dragStartY = useRef<number | null>(null);
   const dragged = useRef(false);
+  const isScrolling = useRef(false);
 
   function move(direction: -1 | 1) {
     setActiveIndex((current) => (current + direction + schedule.length) % schedule.length);
@@ -36,6 +37,24 @@ export default function HariPelaksanaanPage() {
     if (position > schedule.length / 2) position -= schedule.length;
     if (position < -schedule.length / 2) position += schedule.length;
     return position;
+  }
+
+  function handleWheel(event: React.WheelEvent) {
+    if (isScrolling.current) return;
+
+    if (Math.abs(event.deltaY) > 22) {
+      isScrolling.current = true;
+      
+      if (event.deltaY > 0) {
+        move(1);
+      } else {
+        move(-1);
+      }
+
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 500);
+    }
   }
 
   function isInteractiveTarget(target: EventTarget | null) {
@@ -70,92 +89,98 @@ export default function HariPelaksanaanPage() {
   }
 
   return (
-    <section
-      className={`schedule-page${dragStartY.current === null ? "" : " is-dragging"}${isJumping ? " is-jumping" : ""}`}
-      style={{ "--schedule-drag-offset": `${dragOffset}px` } as React.CSSProperties}
-      onPointerDownCapture={handlePointerDown}
-      onPointerMoveCapture={handlePointerMove}
-      onPointerUpCapture={handlePointerEnd}
-      onPointerCancelCapture={handlePointerEnd}
-      onDragStart={(event) => event.preventDefault()}
-    >
-      <Link className="schedule-page-marker" href="/">Hari Pelaksanaan</Link>
-      <div className="schedule-drag-hint" aria-hidden="true">Tarik untuk melihat hari lainnya</div>
+    <main className="relative min-h-screen">
+      <style jsx global>{`
+        body:has(.schedule-page) .site-header {
+          display: flex;
+        }
+      `}</style>
 
-      <div
-        className="schedule-deck"
-        aria-label="Daftar hari pelaksanaan. Tarik ke atas atau ke bawah untuk berpindah hari."
-        onWheel={(event) => event.preventDefault()}
-        onKeyDown={(event) => {
-          if (event.key === "ArrowDown") {
-            event.preventDefault();
-            move(1);
-          }
-          if (event.key === "ArrowUp") {
-            event.preventDefault();
-            move(-1);
-          }
-        }}
-        role="region"
-        tabIndex={0}
+      {/* Konten Utama */}
+      <section
+        className={`schedule-page pt-20 ${dragStartY.current === null ? "" : " is-dragging"}${isJumping ? " is-jumping" : ""}`}
+        style={{ "--schedule-drag-offset": `${dragOffset}px` } as React.CSSProperties}
+        onWheel={handleWheel}
+        onPointerDownCapture={handlePointerDown}
+        onPointerMoveCapture={handlePointerMove}
+        onPointerUpCapture={handlePointerEnd}
+        onPointerCancelCapture={handlePointerEnd}
+        onDragStart={(event) => event.preventDefault()}
       >
-        {schedule.map((day, index) => {
-          const position = relativePosition(index);
-          return (
-            <article
-              key={day.id}
-              className="schedule-card"
-              data-position={position}
-              aria-current={position === 0 ? "true" : undefined}
-              aria-label={`${day.title}, ${day.date}`}
-              draggable={false}
-            >
-              <Image
-                src={eventImages[index]}
-                alt={`Dokumentasi ${day.title}`}
-                fill
+        <div
+          className="schedule-deck"
+          aria-label="Daftar hari pelaksanaan."
+          onKeyDown={(event) => {
+            if (event.key === "ArrowDown") {
+              event.preventDefault();
+              move(1);
+            }
+            if (event.key === "ArrowUp") {
+              event.preventDefault();
+              move(-1);
+            }
+          }}
+          role="region"
+          tabIndex={0}
+        >
+          {schedule.map((day, index) => {
+            const position = relativePosition(index);
+            return (
+              <article
+                key={day.id}
+                className="schedule-card"
+                data-position={position}
+                aria-current={position === 0 ? "true" : undefined}
+                aria-label={`${day.title}, ${day.date}`}
                 draggable={false}
-                priority={index < 2}
-                sizes="(max-width: 760px) 90vw, min(76vw, 1120px)"
-              />
-              <div className="schedule-card-shade" />
-              <div className="schedule-card-content">
-                <p className="font-Castoro">{day.date}</p>
-                <h1>{day.title}</h1>
-                <div className="schedule-card-bottom">
-                  <span>{day.description}</span>
+              >
+                <Image
+                  src={eventImages[index]}
+                  alt={`Dokumentasi ${day.title}`}
+                  fill
+                  draggable={false}
+                  priority={index < 2}
+                  sizes="(max-width: 760px) 90vw, min(76vw, 1120px)"
+                />
+                <div className="schedule-card-shade" />
+                <div className="schedule-card-content">
+                  <p className="font-Castoro">{day.date}</p>
+                  <h1>{day.title}</h1>
+                  <div className="schedule-card-bottom">
+                    <span>{day.description}</span>
 
-                  <Link
-                    href={`/hari-pelaksanaan/${day.day}`}
-                    className="bg-[#EDECE6] border border-[#364A8C] text-[#364A8C] px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider shrink-0 hover:bg-white hover:text-[#121E42] transition-colors shadow-lg flex items-center gap-2 pointer-events-auto font-['Figtree']"
-                    onClick={(event) => {
-                      if (dragged.current || position !== 0) {
-                        event.preventDefault();
-                        dragged.current = false;
-                      }
-                    }}
-                  >
-                    Lihat Dokumentasi &rarr;
-                  </Link>
+                    <Link
+                      href={`/hari-pelaksanaan/${day.day}`}
+                      className="bg-[#EDECE6] border border-[#364A8C] text-[#364A8C] px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider shrink-0 hover:bg-white hover:text-[#121E42] transition-colors shadow-lg flex items-center gap-2 pointer-events-auto font-['Figtree']"
+                      onClick={(event) => {
+                        if (dragged.current || position !== 0) {
+                          event.preventDefault();
+                          dragged.current = false;
+                        }
+                      }}
+                    >
+                      Lihat Dokumentasi &rarr;
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </article>
-          );
-        })}
-      </div>
+              </article>
+            );
+          })}
+        </div>
 
-      <div className="schedule-pagination" aria-label="Navigasi hari pelaksanaan">
-        {schedule.map((day, index) => (
-          <button
-            type="button"
-            key={day.id}
-            className={index === activeIndex ? "is-active" : ""}
-            onClick={() => selectDay(index)}
-            aria-label={`Pilih ${day.title}`}
-            aria-current={index === activeIndex ? "true" : undefined}
-          />
-        ))}
-      </div>
-    </section>
+        <div className="schedule-pagination" aria-label="Navigasi hari pelaksanaan">
+          {schedule.map((day, index) => (
+            <button
+              type="button"
+              key={day.id}
+              className={index === activeIndex ? "is-active" : ""}
+              onClick={() => selectDay(index)}
+              aria-label={`Pilih ${day.title}`}
+              aria-current={index === activeIndex ? "true" : undefined}
+            />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
