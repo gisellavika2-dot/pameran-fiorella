@@ -14,6 +14,7 @@ export default function HariPelaksanaanPage() {
   const [isJumping, setIsJumping] = useState(false);
   const dragStartY = useRef<number | null>(null);
   const dragged = useRef(false);
+
   const wheelOffset = useRef(0);
   const wheelLocked = useRef(false);
 
@@ -35,6 +36,24 @@ export default function HariPelaksanaanPage() {
     if (position > schedule.length / 2) position -= schedule.length;
     if (position < -schedule.length / 2) position += schedule.length;
     return position;
+  }
+
+  function handleWheel(event: React.WheelEvent) {
+    if (isScrolling.current) return;
+
+    if (Math.abs(event.deltaY) > 22) {
+      isScrolling.current = true;
+      
+      if (event.deltaY > 0) {
+        move(1);
+      } else {
+        move(-1);
+      }
+
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 500);
+    }
   }
 
   function isInteractiveTarget(target: EventTarget | null) {

@@ -1,272 +1,345 @@
-"use client";
-
-import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import image1 from "./images/car2.webp";
+import image2 from "./images/car3.webp";
+import image3 from "./images/car4.webp";
 
-// ==========================================
-// SUB-KOMPONEN: ANIMASI ORBIT DINAMIS
-// ==========================================
-const OrbitSystem = () => {
-  const [angle, setAngle] = useState(0);
-  const requestRef = useRef<number>(0);
-  const isHoveredRef = useRef(false);
-  const lastTimeRef = useRef<number>(0);
+const values = [
+  {
+    number: "01",
+    title: "Bertumbuh",
+    description:
+      "Setiap karya menjadi ruang untuk melihat proses, keberanian, dan perubahan kecil yang membentuk perjalanan bersama.",
+  },
+  {
+    number: "02",
+    title: "Terhubung",
+    description:
+      "Fiorella merangkai manusia, suasana, dan cerita agar momen yang terlihat personal dapat dirasakan sebagai pengalaman kolektif.",
+  },
+  {
+    number: "03",
+    title: "Terekam",
+    description:
+      "Dokumentasi tidak berhenti sebagai arsip; ia menjadi jejak yang menjaga detail, emosi, dan makna acara tetap hidup.",
+  },
+];
 
-  // Animasi berputar menggunakan frame browser (60fps)
-  const animate = (time: number) => {
-    if (!lastTimeRef.current) lastTimeRef.current = time;
-    const deltaTime = time - lastTimeRef.current;
+const documentationCards: Array<{
+  title: string;
+  label: string;
+  image: StaticImageData;
+  gradient: string;
+}> = [
+  {
+    title: "Hari 1 Pameran Fiorella",
+    label: "Arsip Foto",
+    image: image1,
+    gradient: "from-[#121E42]/95 via-[#364A8C]/45 to-transparent",
+  },
+  {
+    title: "Hari 2 Pameran Fiorella",
+    label: "Arsip Foto",
+    image: image2,
+    gradient: "from-[#364A8C]/95 via-[#6590C2]/35 to-transparent",
+  },
+  {
+    title: "Penayangan After Movie",
+    label: "Arsip Video",
+    image: image3,
+    gradient: "from-[#121E42]/95 via-[#121E42]/35 to-transparent",
+  },
+];
 
-    if (!isHoveredRef.current) {
-      // Kecepatan putar
-      setAngle((prev) => (prev + deltaTime * 0.015) % 360);
-    }
-    
-    lastTimeRef.current = time;
-    requestRef.current = requestAnimationFrame(animate);
-  };
+const ArrowIcon = () => (
+  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M14 5l7 7m0 0l-7 7m7-7H3"
+    />
+  </svg>
+);
 
-  useEffect(() => {
-    requestRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
-    };
-  }, []);
+const SectionHeader = ({
+  eyebrow,
+  title,
+  description,
+  dark = false,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  dark?: boolean;
+}) => (
+  <div className="mx-auto mb-12 max-w-3xl text-center">
+    <p
+      className={`mb-4 text-[11px] font-bold uppercase tracking-[0.28em] ${
+        dark ? "text-[#364A8C]" : "text-[#A8C4D4]"
+      }`}
+    >
+      {eyebrow}
+    </p>
+    <h2
+      className={`font-serif text-4xl font-normal leading-none tracking-[-0.04em] md:text-6xl ${
+        dark ? "text-[#121E42]" : "text-[#EDECE6]"
+      }`}
+    >
+      {title}
+    </h2>
+    {description ? (
+      <p
+        className={`mx-auto mt-5 max-w-2xl text-sm leading-relaxed md:text-base ${
+          dark ? "text-[#121E42]/70" : "text-[#EDECE6]/75"
+        }`}
+      >
+        {description}
+      </p>
+    ) : null}
+  </div>
+);
 
-  // Data Nilai
-  const orbitItems = [
-    { id: 1, label: "01", title: "Nilai Pertama", offset: -90 }, // Start di atas
-    { id: 2, label: "02", title: "Nilai Kedua", offset: 30 },    // Kanan bawah
-    { id: 3, label: "03", title: "Nilai Ketiga", offset: 150 },  // Kiri bawah
-  ];
-
+const ValueShowcase = () => {
   return (
-    <div className="
-      relative
-      w-[280px] h-[280px]
-      sm:w-[320px] sm:h-[320px]
-      md:w-[500px] md:h-[500px]
-      mt-10
-    ">
-      <div className="
-        absolute inset-0 m-auto
-        w-28 h-28
-        md:w-[180px] md:h-[180px]
-        bg-[#121E42]
-        rounded-full
-        flex items-center justify-center
-        z-30
-        shadow-2xl
-        transition-transform
-        hover:scale-105
-        cursor-default
-        p-5
-        border-2 border-[#A8C4D4]/40
-      ">
-        <div className="relative w-20 h-20 md:w-[130px] md:h-[130px]">
-          <Image
-            src="/logo/Pictorial w_o type.png"
-            alt="Logo Center"
-            fill
-            className="object-contain"
-          />
+    <div className="relative mx-auto grid w-full max-w-6xl items-center gap-6 lg:grid-cols-[1fr_0.85fr_1fr]">
+      {/* Garis tengah di-comment di sini (hilangkan tanda komentar untuk memunculkan kembali) */}
+      {/* <div className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[1px] w-[78%] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-[#EDECE6]/30 to-transparent lg:block" /> */}
+
+      {/* 1. Nilai 01 & 02 (Order 1 di Mobile & Desktop) */}
+      <div className="order-1 space-y-6 lg:order-1 lg:pr-4">
+        {values.slice(0, 2).map((value) => (
+          <article
+            key={value.number}
+            className="group relative overflow-hidden rounded-[2rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-6 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 md:p-7"
+          >
+            <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#A8C4D4]/20 blur-2xl transition group-hover:bg-[#A8C4D4]/30" />
+            <span className="font-serif text-5xl leading-none text-[#A8C4D4]/70">
+              {value.number}
+            </span>
+            <h3 className="mt-5 font-serif text-3xl font-normal tracking-[-0.03em] text-[#EDECE6]">
+              {value.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-[#EDECE6]/72 md:text-base">
+              {value.description}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      {/* 2. Nilai 03 & Kesimpulan (Order 2 di Mobile, Order 3 di Desktop) */}
+      <div className="order-2 space-y-6 lg:order-3 lg:pl-4">
+        {values.slice(2).map((value) => (
+          <article
+            key={value.number}
+            className="group relative overflow-hidden rounded-[2rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-6 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 md:p-7"
+          >
+            <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#A8C4D4]/20 blur-2xl transition group-hover:bg-[#A8C4D4]/30" />
+            <span className="font-serif text-5xl leading-none text-[#A8C4D4]/70">
+              {value.number}
+            </span>
+            <h3 className="mt-5 font-serif text-3xl font-normal tracking-[-0.03em] text-[#EDECE6]">
+              {value.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-[#EDECE6]/72 md:text-base">
+              {value.description}
+            </p>
+          </article>
+        ))}
+
+        <div className="rounded-[2rem] border border-[#EDECE6]/18 bg-[#121E42]/28 p-6 text-sm leading-relaxed text-[#EDECE6]/74 backdrop-blur-md">
+          Tiga nilai ini menjadi benang merah agar pameran tidak hanya menampilkan dokumentasi, tetapi juga menghadirkan alasan mengapa momen tersebut layak dikenang.
         </div>
       </div>
 
-
-      {/* Orbit Track Garis Putus-putus */}
-      <div className="absolute inset-0 rounded-full border-[1.5px] border-dashed border-[#EDECE6]/40 pointer-events-none" />
-
-      {/* Render Node Orbit */}
-      {orbitItems.map((item) => {
-        // Kalkulasi Trigonometri (Math.sin & Math.cos) untuk koordinat X dan Y
-        const currentAngle = (angle + item.offset) * (Math.PI / 180);
-        const x = 50 + 50 * Math.cos(currentAngle);
-        const y = 50 + 50 * Math.sin(currentAngle);
-        
-        // Cek apakah item sedang berada di bagian bawah lingkaran (Y > 50%)
-        const isBottom = y > 50;
-
-        return (
-          <div
-            key={item.id}
-            className="absolute z-40"
-            style={{ 
-              top: `${y}%`, 
-              left: `${x}%`, 
-              transform: "translate(-50%, -50%)" 
-            }}
-          >
-            <div
-              className="relative group/item flex flex-col items-center justify-center"
-              onMouseEnter={() => (isHoveredRef.current = true)}
-              onMouseLeave={() => (isHoveredRef.current = false)}
-            >
-              {/* Lingkaran Angka */}
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-[#EDECE6] text-[#121E42] rounded-full flex items-center justify-center font-serif text-lg md:text-xl shadow-lg hover:scale-110 hover:bg-[#A8C4D4] hover:text-[#121E42] transition-all cursor-pointer">
-                {item.label}
-              </div>
-
-              {/* 
-                Tooltip Dinamis 
-                Muncul di ATAS bola jika bola di bawah (isBottom)
-                Muncul di BAWAH bola jika bola di atas (!isBottom)
-              */}
-              <div
-                className={`absolute ${
-                  isBottom ? "bottom-full mb-4" : "top-full mt-4"
-                } left-1/2 -translate-x-1/2 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 bg-[#EDECE6] text-[#121E42] p-4 rounded-xl shadow-2xl text-sm w-56 text-center pointer-events-none z-50 font-sans`}
-              >
-                <strong className="block mb-1 font-serif text-[#364A8C] text-base">
-                  {item.title}
-                </strong>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-            </div>
-          </div>
-        );
-      })}
+      {/* 3. Logo Fiorella (Order 3 di Mobile / Paling Bawah, Order 2 di Desktop / Tengah) */}
+      <div className="order-3 relative mx-auto flex aspect-square w-full max-w-[360px] items-center justify-center rounded-full border border-[#EDECE6]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(168,196,212,0.32),rgba(237,236,230,0.08)_44%,rgba(18,30,66,0.18)_70%)] p-8 shadow-[0_30px_90px_rgba(18,30,66,0.28)] lg:order-2">
+        <div className="absolute inset-6 rounded-full border border-dashed border-[#EDECE6]/24" />
+        <div className="absolute inset-14 rounded-full bg-[#EDECE6]/12 blur-xl" />
+        <div className="relative grid h-44 w-44 place-items-center rounded-full bg-[#EDECE6] p-8 shadow-2xl md:h-52 md:w-52">
+          <Image
+            src="/logo/Pictorial w_o type.png"
+            alt="Logo Fiorella"
+            fill
+            sizes="208px"
+            className="object-contain p-8"
+          />
+        </div>
+      </div>
     </div>
   );
 };
 
+const DocumentationCard = ({
+  title,
+  label,
+  image,
+  gradient,
+  index,
+}: {
+  title: string;
+  label: string;
+  image: StaticImageData;
+  gradient: string;
+  index: number;
+}) => (
+  <article
+    className="group relative w-full overflow-hidden rounded-[2rem] shadow-2xl shadow-[#121E42]/20 md:rounded-[2.5rem]"
+  >
+    <div className="relative h-72 w-full md:h-[430px]">
+      <Image
+        src={image}
+        alt={title}
+        fill
+        sizes="(max-width: 768px) 100vw, 896px"
+        className="object-cover object-center transition duration-700 group-hover:scale-105"
+      />
+      <div className={`absolute inset-0 bg-gradient-to-t ${gradient}`} />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_16%,rgba(237,236,230,0.25),transparent_28%)] opacity-70" />
+    </div>
 
-// ==========================================
-// HALAMAN UTAMA
-// ==========================================
+    <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-10">
+      <div className="flex items-center justify-between gap-4">
+        <span className="rounded-full border border-[#EDECE6]/30 bg-[#EDECE6]/14 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#EDECE6] backdrop-blur-md">
+          {label}
+        </span>
+        <span className="font-serif text-5xl leading-none text-[#EDECE6]/30">
+          0{index + 1}
+        </span>
+      </div>
+
+      <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
+        <div>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#A8C4D4]">
+            Dokumentasi Fiorella
+          </p>
+          <h3 className="max-w-lg font-serif text-3xl font-normal leading-tight tracking-[-0.035em] text-[#EDECE6] md:text-5xl">
+            {title}
+          </h3>
+        </div>
+        <Link
+          href="#"
+          className="inline-flex shrink-0 items-center gap-3 rounded-full bg-[#EDECE6] px-5 py-3 text-sm font-bold text-[#121E42] shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-white md:px-6"
+        >
+          Akses Drive
+          <ArrowIcon />
+        </Link>
+      </div>
+    </div>
+  </article>
+);
+
 export default function TentangFiorellaPage() {
   return (
-    <main
-      className="relative min-h-screen text-[#EDECE6] font-sans overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(180deg, #121E42 0%, #283C66 20%, #364A8C 45%, #6590C2 70%, #364A8C 88%, #121E42 100%)",
-      }}
-    >
+    <main className="relative min-h-screen overflow-hidden bg-[#121E42] font-sans text-[#EDECE6]">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_16%_18%,rgba(101,144,194,0.42),transparent_30%),radial-gradient(circle_at_86%_12%,rgba(168,196,212,0.22),transparent_28%),linear-gradient(155deg,#121E42_0%,#24386F_52%,#364A8C_100%)] px-4 py-24 md:px-8 md:py-32">
+        <div className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#6590C2]/18 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-8 right-0 h-96 w-96 rounded-full bg-[#A8C4D4]/14 blur-3xl" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-20 md:py-28 space-y-32">
+        <div className="relative z-10 mx-auto max-w-6xl space-y-8">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#EDECE6] p-8 text-[#121E42] shadow-[0_30px_90px_rgba(18,30,66,0.28)] md:rounded-[3rem] md:p-14 lg:p-16">
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#A8C4D4]/55 blur-3xl" />
+            <div className="absolute bottom-0 left-0 h-36 w-full bg-gradient-to-t from-white/28 to-transparent" />
 
-        {/* 1. HERO SECTION & KARTU TEMA */}
-        <section className="space-y-6">
-          <div className="bg-[#EDECE6] rounded-3xl p-10 md:p-16 flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
-            <div className="w-50 h-50 md:w-88 md:h-88 mb-2 relative">
-              <Image
-                src="/logo/Logo_Blue.png"
-                alt="Fiorella Logo"
-                fill
-                className="object-contain"
-              />
+            <div className="relative grid items-center gap-10 lg:grid-cols-[0.72fr_1fr] lg:gap-14">
+              <div className="mx-auto flex w-full max-w-sm flex-col items-center text-center">
+                <div className="relative mb-3 aspect-[4/3] w-full max-w-[400px]">
+                  <Image
+                    src="/logo/Logo_Blue.png"
+                    alt="Fiorella Logo"
+                    fill
+                    priority
+                    sizes="360px"
+                    className="object-contain"
+                  />
+                </div>
+                <p className="font-serif text-2xl italic tracking-[-0.02em] text-[#6590C2] md:text-3xl">
+                  “bunga kecil”
+                </p>
+              </div>
+
+              <div className="relative">
+                <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.28em] text-[#364A8C]">
+                  Tentang Pameran
+                </p>
+                <h1 className="font-serif text-5xl font-normal leading-none tracking-[-0.055em] text-[#121E42] md:text-7xl">
+                  Merangkai momen menjadi cerita yang mekar.
+                </h1>
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#121E42]/72 md:text-lg">
+                  Fiorella adalah sebuah pameran foto dan video yang menampilkan dokumentasi lengkap dari sebuah kegiatan besar. Melalui lensa para fotografer berbakat, kami mengabadikan setiap momen berharga yang terjadi selama acara berlangsung.
+                </p>
+              </div>
             </div>
-            <p className="font-serif text-xl md:text-2xl italic text-[#6590C2] mb-8">
-              "bunga kecil"
-            </p>
-            <p className="font-sans text-[#121E42] max-w-2xl leading-relaxed">
-              Fiorella adalah sebuah pameran foto dan video yang menampilkan dokumentasi lengkap dari sebuah kegiatan besar. Melalui lensa para fotografer berbakat, kami mengabadikan setiap momen berharga yang terjadi selama acara berlangsung.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#EDECE6] rounded-3xl p-8 shadow-xl transition-transform hover:-translate-y-1">
-              <h2 className="font-serif text-2xl font-bold text-[#121E42] mb-4">Tema Besar</h2>
-              <p className="font-sans text-[#121E42]/80 leading-relaxed text-sm md:text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <article className="group relative overflow-hidden rounded-[2rem] border border-[#EDECE6]/16 bg-[#EDECE6]/95 p-7 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 md:p-9">
+              <div className="absolute right-6 top-6 font-serif text-6xl leading-none text-[#A8C4D4]/50">
+                01
+              </div>
+              <h2 className="font-serif text-3xl font-normal tracking-[-0.035em] text-[#121E42] md:text-4xl">
+                Tema Besar
+              </h2>
+              <br></br>
+              <p className="mt-4 text-sm leading-relaxed text-[#121E42]/72 md:text-base">
+                Tema besar Fiorella menjadi payung cerita yang menyatukan dokumentasi visual, suasana acara, dan pengalaman peserta ke dalam satu alur yang mudah dipahami pengunjung.
               </p>
-            </div>
-            <div className="bg-[#EDECE6] rounded-3xl p-8 shadow-xl transition-transform hover:-translate-y-1">
-              <h2 className="font-serif text-2xl font-bold text-[#121E42] mb-4">Konsep Besar</h2>
-              <p className="font-sans text-[#121E42]/80 leading-relaxed text-sm md:text-base">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </article>
+
+            <article className="group relative overflow-hidden rounded-[2rem] border border-[#EDECE6]/16 bg-[#A8C4D4] p-7 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 md:p-9">
+              <div className="absolute -bottom-16 -right-10 h-44 w-44 rounded-full bg-[#EDECE6]/50 blur-2xl" />
+              <div className="absolute right-6 top-6 font-serif text-6xl leading-none text-[#EDECE6]/55">
+                02
+              </div>
+              <h2 className="font-serif text-3xl font-normal tracking-[-0.035em] text-[#121E42] md:text-4xl">
+                Konsep Besar
+              </h2>
+              <br></br>
+              <p className="relative mt-4 text-sm leading-relaxed text-[#121E42]/72 md:text-base">
+                Konsep besar Fiorella mengolah dokumentasi sebagai ruang apresiasi: rapi sebagai arsip, hangat sebagai kenangan, dan tetap ekspresif sebagai karya pameran.
               </p>
-            </div>
+            </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 2. SECTION NILAI UTAMA (ORBIT) */}
-        <section className="flex flex-col items-center justify-center py-10">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#EDECE6] mb-8 drop-shadow-md">
-            Nilai Utama
-          </h2>
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_22%,rgba(237,236,230,0.16),transparent_26%),radial-gradient(circle_at_82%_68%,rgba(168,196,212,0.34),transparent_30%),linear-gradient(160deg,#364A8C_0%,#6590C2_58%,#A8C4D4_100%)] px-4 py-24 md:px-8 md:py-32">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#364A8C]/45 to-transparent" />
+        <div className="relative z-10 mx-auto max-w-6xl">
+          <SectionHeader
+            eyebrow=""
+            title="Nilai Utama"
+            description="Nilai utama disusun sebagai panduan membaca pameran: bagaimana momen bertumbuh, saling terhubung, lalu terekam menjadi jejak yang bisa dikunjungi kembali."
+          />
 
-          <OrbitSystem />
-        </section>
+          <ValueShowcase />
+        </div>
+      </section>
 
-        {/* 3. SECTION DOKUMENTASI */}
-        <section className="flex flex-col items-center">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#EDECE6] mb-12 drop-shadow-md">
-            Dokumentasi
-          </h2>
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_16%_8%,rgba(168,196,212,0.55),transparent_28%),linear-gradient(180deg,#EDECE6_0%,#DCE7EB_42%,#121E42_100%)] px-4 py-24 md:px-8 md:py-32">
+        <div className="pointer-events-none absolute -right-28 top-12 h-80 w-80 rounded-full bg-[#6590C2]/25 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-5xl">
+          <SectionHeader
+            eyebrow=""
+            title="Dokumentasi"
+            description="Kumpulan dokumentasi disusun agar pengunjung dapat mengakses kembali foto, video, dan suasana penting Fiorella secara ringkas."
+            dark
+          />
 
-          <div className="w-full max-w-4xl space-y-8">
-            {/* Kartu Hari 1 */}
-            <div className="group relative w-full h-64 md:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1000&auto=format&fit=crop')" }}
+          <div className="space-y-8 md:space-y-10">
+            {documentationCards.map((card, index) => (
+              <DocumentationCard
+                key={card.title}
+                title={card.title}
+                label={card.label}
+                image={card.image}
+                gradient={card.gradient}
+                index={index}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/95 via-[#121E42]/40 to-transparent" />
-              <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#EDECE6] max-w-sm">
-                    Hari 1 Pameran Fiorella
-                  </h3>
-                  <Link href="#" className="flex items-center gap-2 bg-[#EDECE6] text-[#121E42] px-5 py-3 rounded-full font-sans text-sm md:text-base font-semibold transition-transform hover:scale-105 hover:bg-white shadow-lg shrink-0">
-                    Akses Drive
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Kartu Hari 2 */}
-            <div className="group relative w-full h-64 md:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000&auto=format&fit=crop')" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/95 via-[#121E42]/40 to-transparent" />
-              <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#EDECE6] max-w-sm">
-                    Hari 2 Pameran Fiorella
-                  </h3>
-                  <Link href="#" className="flex items-center gap-2 bg-[#EDECE6] text-[#121E42] px-5 py-3 rounded-full font-sans text-sm md:text-base font-semibold transition-transform hover:scale-105 hover:bg-white shadow-lg shrink-0">
-                    Akses Drive
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Kartu After Movie */}
-            <div className="group relative w-full h-64 md:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1000&auto=format&fit=crop')" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/95 via-[#121E42]/40 to-transparent" />
-              <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#EDECE6] max-w-sm">
-                    Penayangan After Movie
-                  </h3>
-                  <Link href="#" className="flex items-center gap-2 bg-[#EDECE6] text-[#121E42] px-5 py-3 rounded-full font-sans text-sm md:text-base font-semibold transition-transform hover:scale-105 hover:bg-white shadow-lg shrink-0">
-                    Akses Drive
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
-
-      </div>
+        </div>
+      </section>
     </main>
   );
 }
