@@ -17,8 +17,9 @@ h1,h2,h3,strong { font-family:Georgia, "Times New Roman", serif; }
 .hero-section:after { display:none; }
 .hero-wave { position:absolute; z-index:1; left:0; bottom:0; width:100%; height:var(--hero-wave-height); display:block; pointer-events:none; }
 .hero-wave path { fill:var(--ink); }
-.hero-card { z-index:4; width:min(1256px,100%); height:min(608px,calc(100svh - 208px)); min-height:472px; padding:clamp(36px,min(6vw,7vh),90px); display:grid; grid-template-columns:.8fr 1.2fr; align-items:center; gap:7vw; border-radius:49px; color:var(--ink); background:var(--paper); position:relative; overflow:hidden; box-shadow:none; }
-.hero-card:before { display:none; }
+.hero-card { z-index:4; width:min(1256px,100%); height:min(608px,calc(100svh - 208px)); min-height:472px; padding:clamp(36px,min(6vw,7vh),90px); display:grid; grid-template-columns:.8fr 1.2fr; align-items:center; gap:7vw; border:1px solid rgba(255,255,255,.68); border-radius:49px; color:var(--ink); background:radial-gradient(circle at 88% 13%,rgba(255,194,213,.28),transparent 30%),radial-gradient(circle at 15% 84%,rgba(255,226,232,.44),transparent 34%),radial-gradient(circle at 50% 0%,rgba(255,255,255,.7),transparent 38%),linear-gradient(135deg,rgba(249,247,241,.96) 0%,rgba(237,236,230,.92) 48%,rgba(231,237,240,.96) 100%); position:relative; overflow:hidden; box-shadow:0 30px 90px rgba(18,30,66,.2),0 12px 34px rgba(255,194,213,.12),inset 0 1px 0 rgba(255,255,255,.78); backdrop-filter:blur(18px); }
+.hero-card:before { content:""; position:absolute; inset:auto -82px -112px auto; width:410px; height:410px; display:block; border-radius:50%; background:radial-gradient(circle,rgba(255,184,207,.42) 0%,rgba(168,196,212,.25) 42%,transparent 70%); filter:blur(54px); pointer-events:none; }
+.hero-card:after { content:""; position:absolute; left:-110px; top:-118px; width:340px; height:340px; border-radius:50%; background:radial-gradient(circle,rgba(255,233,238,.68) 0%,rgba(255,255,255,.35) 42%,transparent 72%); filter:blur(58px); pointer-events:none; }
 .hero-mark { position:relative; aspect-ratio:1; display:grid; place-items:center; }
 .hero-mark img { width:100%; height:100%; object-fit:contain; }
 .hero-copy { position:relative; max-width:580px; }
