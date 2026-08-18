@@ -105,8 +105,8 @@ const ValueShowcase = () => {
     <div className="relative mx-auto grid w-full max-w-6xl items-center gap-6 lg:grid-cols-[1fr_0.85fr_1fr]">
       <div className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[1px] w-[78%] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-[#EDECE6]/30 to-transparent lg:block" />
 
-      {/* Kolom Kiri (Kartu 01 & 02) */}
-      <div className="space-y-6 lg:pr-4">
+      {/* 1. Nilai 01 & 02 (Order 1 di Mobile & Desktop) */}
+      <div className="order-1 space-y-6 lg:order-1 lg:pr-4">
         {values.slice(0, 2).map((value) => (
           <article
             key={value.number}
@@ -126,23 +126,8 @@ const ValueShowcase = () => {
         ))}
       </div>
 
-      {/* Kolom Tengah (Logo Center) */}
-      <div className="relative mx-auto flex aspect-square w-full max-w-[360px] items-center justify-center rounded-full border border-[#EDECE6]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(168,196,212,0.32),rgba(237,236,230,0.08)_44%,rgba(18,30,66,0.18)_70%)] p-8 shadow-[0_30px_90px_rgba(18,30,66,0.28)]">
-        <div className="absolute inset-6 rounded-full border border-dashed border-[#EDECE6]/24" />
-        <div className="absolute inset-14 rounded-full bg-[#EDECE6]/12 blur-xl" />
-        <div className="relative grid h-44 w-44 place-items-center rounded-full bg-[#EDECE6] p-8 shadow-2xl md:h-52 md:w-52">
-          <Image
-            src="/logo/Pictorial w_o type.png"
-            alt="Logo Fiorella"
-            fill
-            sizes="208px"
-            className="object-contain p-8"
-          />
-        </div>
-      </div>
-
-      {/* Kolom Kanan (Kartu 03 & Keterangan) */}
-      <div className="space-y-6 lg:pl-4">
+      {/* 2. Nilai 03 & Kesimpulan (Order 2 di Mobile, Order 3 di Desktop) */}
+      <div className="order-2 space-y-6 lg:order-3 lg:pl-4">
         {values.slice(2).map((value) => (
           <article
             key={value.number}
@@ -163,6 +148,21 @@ const ValueShowcase = () => {
 
         <div className="rounded-[2rem] border border-[#EDECE6]/18 bg-[#121E42]/28 p-6 text-sm leading-relaxed text-[#EDECE6]/74 backdrop-blur-md">
           Tiga nilai ini menjadi benang merah agar pameran tidak hanya menampilkan dokumentasi, tetapi juga menghadirkan alasan mengapa momen tersebut layak dikenang.
+        </div>
+      </div>
+
+      {/* 3. Logo Fiorella (Order 3 di Mobile / Paling Bawah, Order 2 di Desktop / Tengah) */}
+      <div className="order-3 relative mx-auto flex aspect-square w-full max-w-[360px] items-center justify-center rounded-full border border-[#EDECE6]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(168,196,212,0.32),rgba(237,236,230,0.08)_44%,rgba(18,30,66,0.18)_70%)] p-8 shadow-[0_30px_90px_rgba(18,30,66,0.28)] lg:order-2">
+        <div className="absolute inset-6 rounded-full border border-dashed border-[#EDECE6]/24" />
+        <div className="absolute inset-14 rounded-full bg-[#EDECE6]/12 blur-xl" />
+        <div className="relative grid h-44 w-44 place-items-center rounded-full bg-[#EDECE6] p-8 shadow-2xl md:h-52 md:w-52">
+          <Image
+            src="/logo/Pictorial w_o type.png"
+            alt="Logo Fiorella"
+            fill
+            sizes="208px"
+            className="object-contain p-8"
+          />
         </div>
       </div>
     </div>
