@@ -158,7 +158,7 @@ const ValueShowcase = () => {
         <div className="absolute inset-14 rounded-full bg-[#EDECE6]/12 blur-xl" />
         <div className="relative grid h-44 w-44 place-items-center rounded-full bg-[#EDECE6] p-8 shadow-2xl md:h-52 md:w-52">
           <Image
-            src="/logo/Pictorial w_o type.png"
+            src="/logo/Logo_Blue.png"
             alt="Logo Fiorella"
             fill
             sizes="208px"
