@@ -126,12 +126,16 @@ export default function Home() {
                 <div className="mosaic-track" key={setIndex}>
                   {row.map((photoIndex) => (
                     <div className="mosaic-cell" key={photoIndex}>
+<<<<<<< HEAD
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={`https://picsum.photos/seed/fiorella-panitia-${photoIndex}/560/320`}
                         alt="Placeholder dokumentasi panitia"
                       />
                       <span>{String(photoIndex + 1).padStart(2, "0")}</span>
+=======
+                      <img src={`https://picsum.photos/seed/fiorella-panitia-${photoIndex}/560/320`} alt="Placeholder dokumentasi panitia" />
+>>>>>>> e87fd6e (feat: add BehindTheScenesCanvas component and integrate it into the page; update styles and remove unused elements)
                     </div>
                   ))}
                 </div>
