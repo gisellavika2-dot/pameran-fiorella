@@ -105,19 +105,19 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Sayembara Visual Section (Versi Sebelum Rilis) */}
+     {/* Sayembara Visual Section (Versi Sebelum Rilis) */}
       <section id="sayembara" className="editorial-section contest-section px-4 md:px-8">
         <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/70 bg-[radial-gradient(ellipse_at_top_right,rgba(237,236,230,0.98),rgba(209,226,236,0.92)_58%,rgba(168,196,212,0.95)_100%)] p-7 shadow-[0_22px_70px_rgba(18,30,66,0.14)] backdrop-blur-md md:rounded-[2.5rem] md:p-12 lg:p-16">
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center lg:gap-12">
             {/* Sisi Kiri: Judul & Keterangan */}
-            <div className="max-w-xl text-left">
+            <div className="flex w-full max-w-xl flex-col items-start text-left">
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#364A8C]">
                 Sayembara Visual
               </p>
-              <h2 className="font-serif text-3xl font-normal leading-[0.98] tracking-[-0.04em] text-[#121E42] md:text-5xl lg:text-6xl">
-                Pemenang Sayembara Visual
+              <h2 className="w-full !mx-0 !text-left font-serif text-3xl font-normal leading-[0.98] tracking-[-0.04em] text-[#121E42] md:text-5xl lg:text-6xl">
+                Pemenang <br /> Sayembara Visual
               </h2>
-              <p className="mt-5 max-w-lg text-sm leading-relaxed text-[#121E42]/75 md:text-base">
+              <p className="mt-5 max-w-lg text-left text-sm leading-relaxed text-[#121E42]/75 md:text-base">
                 Pemenang sayembara visual akan diumumkan pada penayangan after movie.
               </p>
             </div>
