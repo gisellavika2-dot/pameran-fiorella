@@ -277,12 +277,10 @@ export default function TentangFiorellaPage() {
               <div className="absolute right-6 top-6 font-serif text-6xl leading-none text-[#A8C4D4]/50">
                 01
               </div>
-              <p className="mb-8 text-[11px] font-bold uppercase tracking-[0.24em] text-[#364A8C]">
-                Narasi Utama
-              </p>
               <h2 className="font-serif text-3xl font-normal tracking-[-0.035em] text-[#121E42] md:text-4xl">
                 Tema Besar
               </h2>
+              <br></br>
               <p className="mt-4 text-sm leading-relaxed text-[#121E42]/72 md:text-base">
                 Tema besar Fiorella menjadi payung cerita yang menyatukan dokumentasi visual, suasana acara, dan pengalaman peserta ke dalam satu alur yang mudah dipahami pengunjung.
               </p>
@@ -293,12 +291,10 @@ export default function TentangFiorellaPage() {
               <div className="absolute right-6 top-6 font-serif text-6xl leading-none text-[#EDECE6]/55">
                 02
               </div>
-              <p className="mb-8 text-[11px] font-bold uppercase tracking-[0.24em] text-[#364A8C]">
-                Arah Visual
-              </p>
               <h2 className="font-serif text-3xl font-normal tracking-[-0.035em] text-[#121E42] md:text-4xl">
                 Konsep Besar
               </h2>
+              <br></br>
               <p className="relative mt-4 text-sm leading-relaxed text-[#121E42]/72 md:text-base">
                 Konsep besar Fiorella mengolah dokumentasi sebagai ruang apresiasi: rapi sebagai arsip, hangat sebagai kenangan, dan tetap ekspresif sebagai karya pameran.
               </p>
@@ -311,8 +307,8 @@ export default function TentangFiorellaPage() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#364A8C]/45 to-transparent" />
         <div className="relative z-10 mx-auto max-w-6xl">
           <SectionHeader
-            eyebrow="Nilai Utama"
-            title="Tiga nilai yang menjaga Fiorella tetap bermakna."
+            eyebrow=""
+            title="Nilai Utama"
             description="Nilai utama disusun sebagai panduan membaca pameran: bagaimana momen bertumbuh, saling terhubung, lalu terekam menjadi jejak yang bisa dikunjungi kembali."
           />
 
@@ -324,8 +320,8 @@ export default function TentangFiorellaPage() {
         <div className="pointer-events-none absolute -right-28 top-12 h-80 w-80 rounded-full bg-[#6590C2]/25 blur-3xl" />
         <div className="relative z-10 mx-auto max-w-5xl">
           <SectionHeader
-            eyebrow="Dokumentasi"
-            title="Arsip visual dari hari yang ingin dikenang."
+            eyebrow=""
+            title="Dokumentasi"
             description="Kumpulan dokumentasi disusun agar pengunjung dapat mengakses kembali foto, video, dan suasana penting Fiorella secara ringkas."
             dark
           />
