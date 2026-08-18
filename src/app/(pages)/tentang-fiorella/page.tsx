@@ -146,10 +146,6 @@ const ValueShowcase = () => {
             </p>
           </article>
         ))}
-
-        <div className="rounded-[2rem] border border-[#EDECE6]/18 bg-[#121E42]/28 p-6 text-sm leading-relaxed text-[#EDECE6]/74 backdrop-blur-md">
-          Tiga nilai ini menjadi benang merah agar pameran tidak hanya menampilkan dokumentasi, tetapi juga menghadirkan alasan mengapa momen tersebut layak dikenang.
-        </div>
       </div>
 
       {/* 3. Logo Fiorella (Order 3 di Mobile / Paling Bawah, Order 2 di Desktop / Tengah) */}
