@@ -58,9 +58,7 @@ export default function Home() {
                 <div className="mosaic-track" key={setIndex}>
                   {row.map((photoIndex) => (
                     <div className="mosaic-cell" key={photoIndex}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={`https://picsum.photos/seed/fiorella-panitia-${photoIndex}/560/320`} alt="Placeholder dokumentasi panitia" />
-                      <span>{String(photoIndex + 1).padStart(2, "0")}</span>
                     </div>
                   ))}
                 </div>
