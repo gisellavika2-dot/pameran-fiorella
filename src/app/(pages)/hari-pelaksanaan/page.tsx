@@ -38,24 +38,6 @@ export default function HariPelaksanaanPage() {
     return position;
   }
 
-  function handleWheel(event: React.WheelEvent) {
-    if (isScrolling.current) return;
-
-    if (Math.abs(event.deltaY) > 22) {
-      isScrolling.current = true;
-      
-      if (event.deltaY > 0) {
-        move(1);
-      } else {
-        move(-1);
-      }
-
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 500);
-    }
-  }
-
   function isInteractiveTarget(target: EventTarget | null) {
     return target instanceof Element && target.closest("a, button") !== null;
   }
@@ -97,7 +79,6 @@ export default function HariPelaksanaanPage() {
 
   return (
     <section className={`schedule-page${isDragging ? " is-dragging" : ""}${isJumping ? " is-jumping" : ""}`} style={{ "--schedule-drag-offset": `${dragOffset}px` } as React.CSSProperties} onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
-      <Link className="schedule-page-marker" href="/">Hari Pelaksanaan</Link>
       <div className="schedule-drag-hint" aria-hidden="true">Tarik untuk melihat hari lainnya</div>
       <div className="schedule-deck" aria-label="Daftar hari pelaksanaan. Tarik ke atas atau ke bawah untuk berpindah hari." onWheel={handleWheel} role="region" tabIndex={0}>
         {schedule.map((day, index) => {
