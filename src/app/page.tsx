@@ -38,6 +38,7 @@ export default function Home() {
               Tempat karya, cerita, dan kebersamaan tumbuh menjadi satu. Sebuah
               pameran dokumentasi perjalanan OMB UMN 2026.
             </p>
+            {/*  */}
             <Link className="figma-button" href="/tentang-fiorella">
               Selengkapnya <span>→</span>
             </Link>
