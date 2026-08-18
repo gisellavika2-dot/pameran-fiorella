@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Link from "next/link";
 
 const photos = [
   { id: "01", title: "Ruang rapat", message: "Setiap gagasan besar selalu dimulai dari percakapan kecil di satu meja." },
@@ -59,8 +58,8 @@ export default function BehindTheScenesCanvas() {
     setDragging(false);
   }
 
-  return <section className="behind-canvas-page" aria-labelledby="behind-title">
-    <Link id="behind-title" className="behind-canvas-title" href="/">Dibalik Kepanitiaan</Link>
+  return <section className="behind-canvas-page" aria-label="Dibalik Kepanitiaan">
+    <a className="behind-drive-link" href="https://drive.google.com" target="_blank" rel="noopener noreferrer">Lihat Google Drive </a>
     <p className="behind-canvas-instruction">tarik untuk menjelajah, klik foto untuk pesan</p>
     <div className={`behind-canvas behind-photo-wall${dragging ? " is-dragging" : ""}`} onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} role="application" aria-label="Dinding foto dokumentasi panitia">
       <div className="behind-photo-wall-world" style={{ transform: `translate3d(calc(-50% + ${offset.x}px), calc(-50% + ${offset.y}px), 0)` }}>
