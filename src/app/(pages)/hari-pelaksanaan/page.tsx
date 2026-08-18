@@ -14,12 +14,9 @@ export default function HariPelaksanaanPage() {
   const [isJumping, setIsJumping] = useState(false);
   const dragStartY = useRef<number | null>(null);
   const dragged = useRef(false);
-<<<<<<< HEAD
   const isScrolling = useRef(false);
-=======
   const wheelOffset = useRef(0);
   const wheelLocked = useRef(false);
->>>>>>> e87fd6e (feat: add BehindTheScenesCanvas component and integrate it into the page; update styles and remove unused elements)
 
   function move(direction: -1 | 1) {
     setActiveIndex((current) => (current + direction + schedule.length) % schedule.length);
@@ -99,7 +96,6 @@ export default function HariPelaksanaanPage() {
   }
 
   return (
-<<<<<<< HEAD
     <main className="relative min-h-screen">
       <style jsx global>{`
         body:has(.schedule-page) .site-header {
@@ -193,7 +189,6 @@ export default function HariPelaksanaanPage() {
         </div>
       </section>
     </main>
-=======
     <section className={`schedule-page${isDragging ? " is-dragging" : ""}${isJumping ? " is-jumping" : ""}`} style={{ "--schedule-drag-offset": `${dragOffset}px` } as React.CSSProperties} onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
       <Link className="schedule-page-marker" href="/">Hari Pelaksanaan</Link>
       <div className="schedule-drag-hint" aria-hidden="true">Tarik untuk melihat hari lainnya</div>
@@ -211,6 +206,5 @@ export default function HariPelaksanaanPage() {
         {schedule.map((day, index) => <button type="button" key={day.id} className={index === activeIndex ? "is-active" : ""} onClick={() => selectDay(index)} aria-label={`Pilih ${day.title}`} aria-current={index === activeIndex ? "true" : undefined} />)}
       </div>
     </section>
->>>>>>> e87fd6e (feat: add BehindTheScenesCanvas component and integrate it into the page; update styles and remove unused elements)
   );
 }

@@ -30,7 +30,6 @@ export default function Home() {
               priority 
             />
           </div>
-<<<<<<< HEAD
         </div>
       </ScrollSnapSection>
 
@@ -67,7 +66,6 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
-=======
           
           <div className="hero-copy flex flex-col items-start justify-center">
             <span className="eyebrow">“bunga kecil”</span>
@@ -79,7 +77,6 @@ export default function Home() {
             <Link className="figma-button" href="/tentang-fiorella">
               Selengkapnya <span>→</span>
             </Link>
->>>>>>> ea1002a (benerin margin logo di home)
           </div>
         </div>
 
@@ -126,16 +123,12 @@ export default function Home() {
                 <div className="mosaic-track" key={setIndex}>
                   {row.map((photoIndex) => (
                     <div className="mosaic-cell" key={photoIndex}>
-<<<<<<< HEAD
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={`https://picsum.photos/seed/fiorella-panitia-${photoIndex}/560/320`}
                         alt="Placeholder dokumentasi panitia"
                       />
                       <span>{String(photoIndex + 1).padStart(2, "0")}</span>
-=======
-                      <img src={`https://picsum.photos/seed/fiorella-panitia-${photoIndex}/560/320`} alt="Placeholder dokumentasi panitia" />
->>>>>>> e87fd6e (feat: add BehindTheScenesCanvas component and integrate it into the page; update styles and remove unused elements)
                     </div>
                   ))}
                 </div>
