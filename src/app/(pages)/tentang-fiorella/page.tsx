@@ -103,7 +103,8 @@ const SectionHeader = ({
 const ValueShowcase = () => {
   return (
     <div className="relative mx-auto grid w-full max-w-6xl items-center gap-6 lg:grid-cols-[1fr_0.85fr_1fr]">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[1px] w-[78%] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-[#EDECE6]/30 to-transparent lg:block" />
+      {/* Garis tengah di-comment di sini (hilangkan tanda komentar untuk memunculkan kembali) */}
+      {/* <div className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[1px] w-[78%] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-[#EDECE6]/30 to-transparent lg:block" /> */}
 
       {/* 1. Nilai 01 & 02 (Order 1 di Mobile & Desktop) */}
       <div className="order-1 space-y-6 lg:order-1 lg:pr-4">
