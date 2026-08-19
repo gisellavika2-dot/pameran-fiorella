@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Division } from "@/data/divisions";
 
@@ -140,17 +141,45 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
               aria-hidden={!isVisible}
               aria-label={`Tampilkan divisi ${division.name}`}
             >
-              <div className="division-panel-footer">
-                <Image
-                  src={divisionLogos[index % divisionLogos.length]}
-                  alt={`Logo ${division.name}`}
-                  width={72}
-                  height={72}
-                />
-                <div className="division-panel-copy" aria-hidden={!isActive}>
-                  <h3>{division.name}</h3>
-                  <p>{division.nameEng}</p>
+              <div className="division-panel-footer flex items-center justify-between w-full">
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={divisionLogos[index % divisionLogos.length]}
+                    alt={`Logo ${division.name}`}
+                    width={72}
+                    height={72}
+                  />
+                  <div className="division-panel-copy" aria-hidden={!isActive}>
+                    <h3>{division.name}</h3>
+                    <p>{division.nameEng}</p>
+                  </div>
                 </div>
+
+                {/* Tombol Selengkapnya di Pojok Kanan Bawah Footer */}
+                {isActive && (
+                  <Link
+                    href={`/divisi/${division.id}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-primary-dark hover:bg-[#364A8C] rounded-full transition-all duration-200 shadow-md hover:shadow-lg shrink-0"
+                    aria-label={`Lihat detail divisi ${division.name}`}
+                  >
+                    <span>Selengkapnya</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      className="w-4 h-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </Link>
+                )}
               </div>
             </article>
           );
