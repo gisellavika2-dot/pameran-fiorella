@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  ["Beranda", "/"], ["Hari Pelaksanaan", "/hari-pelaksanaan"], ["Foto Divisi", "/divisi"],
-  ["Dibalik Kepanitiaan", "/dibalik-kepanitiaan"], ["Sayembara Visual", "/sayembara"], ["Tentang Fiorella", "/tentang-fiorella"], ["Arsip", "/arsip"],
+  ["Beranda", "/"], ["Hari Pelaksanaan", "/hari-pelaksanaan"], ["Foto Divisi", "/#divisi"],
+  ["Dibalik Kepanitiaan", "/dibalik-kepanitiaan"], ["Sayembara Visual", "/#sayembara"], ["Tentang Fiorella", "/tentang-fiorella"],
 ];
 
 export default function Header() {

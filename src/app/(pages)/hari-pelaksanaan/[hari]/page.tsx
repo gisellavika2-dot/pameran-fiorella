@@ -96,18 +96,8 @@ export default function HariDetailPage({ params }: PageProps) {
       onMouseLeave={handleContainerMouseUp}
       className="hari-detail-page relative min-h-screen bg-[#EDECE6] text-[#121E42] flex flex-col items-center overflow-y-auto overflow-x-hidden pt-12 font-sans select-none"
     >
-      {/* Top Navigation */}
-      <div className="w-full max-w-7xl flex justify-end items-center mb-8 z-10 pointer-events-auto px-4 md:px-0">
-        <Link
-          className="w-10 h-10 rounded-full bg-[#364A8C]/10 hover:bg-[#364A8C]/20 flex items-center justify-center transition-all text-[#121E42] font-bold text-xl"
-          href="/hari-pelaksanaan"
-        >
-          ✕
-        </Link>
-      </div>
-
       {/* Main Header Information */}
-      <div className="w-full max-w-7xl bg-transparent flex flex-col gap-7 mb-16 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
+      <div className="w-full max-w-7xl bg-transparent flex flex-col gap-7 mb-16 pt-28 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
         <div className="relative w-full h-[62vh] min-h-[560px] max-h-[780px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#121E42] border border-[#EDECE6]/20">
           <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill priority sizes="(max-width: 768px) 100vw, 90vw" className="object-cover pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/75 via-transparent to-transparent pointer-events-none" />
