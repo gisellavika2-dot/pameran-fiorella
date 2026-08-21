@@ -224,9 +224,12 @@ const DocumentationCard = ({
 
 export default function TentangFiorellaPage() {
   return (
-    <main className="relative w-full bg-[#121E42] font-sans text-[#EDECE6]">
+    // 1. Ubah <main> menjadi area scroll utama (membatasi tinggi & menyalakan snap)
+    <main className="relative w-full h-[100dvh] overflow-y-auto overflow-x-hidden snap-y snap-mandatory bg-[#121E42] font-sans text-[#EDECE6]">
+      
       {/* SECTION 1: Tentang Pameran */}
-      <section className="relative flex min-h-screen w-full snap-start flex-col justify-center bg-[radial-gradient(circle_at_16%_18%,rgba(101,144,194,0.42),transparent_30%),radial-gradient(circle_at_86%_12%,rgba(168,196,212,0.22),transparent_28%),linear-gradient(155deg,#121E42_0%,#24386F_52%,#364A8C_100%)] px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
+      {/* 2. Gunakan tag <section> dengan penambahan snap-start dan snap-always */}
+      <section className="relative flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center bg-[radial-gradient(circle_at_16%_18%,rgba(101,144,194,0.42),transparent_30%),radial-gradient(circle_at_86%_12%,rgba(168,196,212,0.22),transparent_28%),linear-gradient(155deg,#121E42_0%,#24386F_52%,#364A8C_100%)] px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#6590C2]/18 blur-3xl" />
           <div className="absolute bottom-8 right-0 h-96 w-96 rounded-full bg-[#A8C4D4]/14 blur-3xl" />
@@ -298,7 +301,7 @@ export default function TentangFiorellaPage() {
       </section>
 
       {/* SECTION 2: Nilai Utama */}
-      <section className="relative flex min-h-screen w-full snap-start flex-col justify-center bg-[radial-gradient(circle_at_18%_22%,rgba(237,236,230,0.16),transparent_26%),radial-gradient(circle_at_82%_68%,rgba(168,196,212,0.34),transparent_30%),linear-gradient(160deg,#364A8C_0%,#6590C2_58%,#A8C4D4_100%)] px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
+      <section className="relative flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center bg-[radial-gradient(circle_at_18%_22%,rgba(237,236,230,0.16),transparent_26%),radial-gradient(circle_at_82%_68%,rgba(168,196,212,0.34),transparent_30%),linear-gradient(160deg,#364A8C_0%,#6590C2_58%,#A8C4D4_100%)] px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#364A8C]/45 to-transparent" />
         </div>
@@ -307,13 +310,12 @@ export default function TentangFiorellaPage() {
             title="Nilai Utama"
             description="Nilai utama disusun sebagai panduan membaca pameran: bagaimana momen bertumbuh, saling terhubung, lalu terekam menjadi jejak yang bisa dikunjungi kembali."
           />
-
           <ValueShowcase />
         </div>
       </section>
 
       {/* SECTION 3: Dokumentasi */}
-      <section className="relative flex min-h-screen w-full snap-start flex-col justify-center overflow-hidden bg-[radial-gradient(circle_at_16%_8%,rgba(168,196,212,0.55),transparent_28%),linear-gradient(180deg,#EDECE6_0%,#DCE7EB_42%,#121E42_100%)] px-5 pt-24 pb-16 sm:px-6 md:px-8 md:py-26">
+      <section className="relative flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center overflow-hidden bg-[radial-gradient(circle_at_16%_8%,rgba(168,196,212,0.55),transparent_28%),linear-gradient(180deg,#EDECE6_0%,#DCE7EB_42%,#121E42_100%)] px-5 pt-24 pb-16 sm:px-6 md:px-8 md:py-26">
         <div className="pointer-events-none absolute -right-28 top-12 h-80 w-80 rounded-full bg-[#6590C2]/25 blur-3xl" />
         <div className="relative z-10 mx-auto w-full max-w-5xl">
           <SectionHeader
@@ -321,7 +323,6 @@ export default function TentangFiorellaPage() {
             description="Kumpulan dokumentasi disusun agar pengunjung dapat mengakses kembali foto, video, dan suasana penting Fiorella secara ringkas."
             dark
           />
-
           <div className="space-y-4 md:space-y-6">
             {documentationCards.map((card, index) => (
               <DocumentationCard
@@ -336,6 +337,7 @@ export default function TentangFiorellaPage() {
           </div>
         </div>
       </section>
+
     </main>
   );
 }

@@ -111,6 +111,9 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
               key={division.id}
               className={`division-panel division-panel-${index} ${isActive ? "is-active" : "is-closed"}`}
               data-position={visualPosition}
+
+              onMouseDown={(event) => event.preventDefault()}
+              
               onClick={() => {
                 disableAutoAdvance();
                 setActive(index);
