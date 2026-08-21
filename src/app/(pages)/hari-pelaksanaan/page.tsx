@@ -83,7 +83,7 @@ export default function HariPelaksanaanPage() {
       <div className="schedule-deck" aria-label="Daftar hari pelaksanaan. Tarik ke atas atau ke bawah untuk berpindah hari." onWheel={handleWheel} role="region" tabIndex={0}>
         {schedule.map((day, index) => {
           const position = relativePosition(index);
-          return <article key={day.id} className="schedule-card" data-position={position} aria-current={position === 0 ? "true" : undefined}>
+          return <article key={day.id} className="schedule-card" data-position={position} aria-current={position === 0 ? "true" : undefined} style={{ "--schedule-card-gap": "32px" } as React.CSSProperties}>
             <Image src={eventImages[index]} alt={`Dokumentasi ${day.title}`} fill draggable={false} priority={index < 2} sizes="(max-width: 760px) 90vw, min(76vw, 1120px)" />
             <div className="schedule-card-shade" />
             <div className="schedule-card-content"><p>{day.date}</p><h1>{day.title}</h1><div className="schedule-card-bottom"><span>{day.description}</span><Link href={`/hari-pelaksanaan/${day.day}`} className="schedule-card-cta" onClick={(event) => { if (dragged.current || position !== 0) event.preventDefault(); }}>Lihat Dokumentasi <i>→</i></Link></div></div>

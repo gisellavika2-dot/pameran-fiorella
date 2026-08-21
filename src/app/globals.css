@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root { --ink:#121e42; --blue:#364a8c; --sky:#a8c4d4; --paper:#edece6; --white:#fff; --header-height:88px; }
@@ -148,6 +148,304 @@ body:has(.hari-detail-page) .site-header{display:none}
 .behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 1),.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 2),.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 3){transform:translateX(-30px)}.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 4),.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 5),.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 6){transform:translateX(30px)}.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 1):hover,.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 2):hover,.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 3):hover{transform:translateX(-30px) scale(1.02)}.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 4):hover,.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 5):hover,.behind-photo-wall-tile .behind-wall-photo:nth-child(6n + 6):hover{transform:translateX(30px) scale(1.02)}
 .behind-photo-flip-back{background:radial-gradient(circle at 13% 14%,rgba(168,196,212,.75),transparent 30%),radial-gradient(circle at 88% 86%,rgba(101,144,194,.34),transparent 36%),var(--paper)}.behind-photo-flip-back i{font-size:11px;font-style:normal;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}.behind-photo-flip-back b{max-width:620px;letter-spacing:-.035em}.behind-photo-flip-line{width:52px;height:1px;background:var(--blue)}.behind-photo-flip-back p{color:var(--ink)}.behind-photo-flip-back small{padding:8px 13px;border:1px solid rgba(54,74,140,.25);border-radius:999px;color:var(--blue);opacity:1}.behind-drive-link{position:absolute;z-index:5;bottom:52px;left:50%;display:inline-flex;align-items:center;gap:26px;padding:13px 22px;border:1px solid rgba(237,236,230,.5);border-radius:999px;background:var(--paper);color:var(--blue);font-size:12px;font-weight:500;line-height:1.5;text-decoration:none;box-shadow:0 10px 24px rgba(0,0,0,.2);transform:translateX(-50%);transition:background .2s ease,color .2s ease,transform .2s ease}.behind-drive-link span{font-size:20px;line-height:1}.behind-drive-link:hover{background:var(--sky);color:var(--ink);transform:translateX(-50%) translateY(-2px)}@media(max-width:760px){.behind-drive-link{bottom:50px;padding:10px 18px;font-size:11px}.behind-canvas-instruction{bottom:18px;font-size:9px}}
 body:has(.behind-canvas-page) .site-header{position:fixed!important;z-index:999!important;display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:none}body:has(.behind-canvas-page) .nav-pill{pointer-events:auto}
+
+/* Container Utama */
+.behind-photo-story {
+  position: relative;
+  width: min(60vw, 860px);
+  height: min(60svh, 580px);
+  perspective: 1400px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* --- TAMPILAN AMPLOP REALISTIS & SMOOTH --- */
+.behind-envelope {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: 12px;
+  background: #b5cddc; /* Blue pastel soft */
+  box-shadow: 0 24px 48px rgba(18, 30, 66, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+  overflow: hidden;
+}
+
+/* Lipatan Samping Amplop dengan Sudut Membulat Smooth */
+.behind-envelope-body {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: 
+    linear-gradient(to top, rgba(0,0,0,0.06), transparent 40%),
+    linear-gradient(135deg, #a7c2d3 0%, #b8d0e0 100%);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 50%);
+  border-radius: 12px;
+  filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.08));
+}
+
+/* Flap Atas Amplop */
+.behind-envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  z-index: 4;
+  background: linear-gradient(180deg, #c5dbe8 0%, #a2c0d2 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  filter: drop-shadow(0 4px 6px rgba(18, 30, 66, 0.15));
+}
+
+.behind-envelope-title {
+  position: absolute;
+  z-index: 5;
+  top: 55%;
+  left: 50%;
+  color: #364a8c;
+  font-family: Castoro, Georgia, serif;
+  font-size: clamp(24px, 3vw, 38px);
+  font-style: italic;
+  line-height: 1.1;
+  text-align: center;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.behind-envelope-stamp {
+  position: absolute;
+  z-index: 5;
+  right: 6%;
+  bottom: 8%;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 66px;
+  border: 2px dashed #364a8c;
+  border-radius: 4px;
+  background: #fdfbf7;
+  color: #364a8c;
+  font-family: Castoro, Georgia, serif;
+  font-size: 32px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* --- ELEMEN FOTO (STAGE 2) --- */
+.behind-photo-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 18px 18px 44px;
+  background: var(--paper);
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(40px) scale(0.94) rotateY(0deg);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  backface-visibility: hidden;
+}
+
+/* --- ELEMEN POSTCARD / SURAT (STAGE 3) --- */
+.behind-photo-letter {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+  grid-template-rows: auto 1fr;
+  gap: 22px;
+  padding: clamp(28px, 4vw, 56px);
+  background: var(--paper);
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0) scale(0.96) rotateY(180deg);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  backface-visibility: hidden;
+}
+
+/* --- LOGIK DARI SETIAP STAGE --- */
+
+/* State 1: Envelope */
+.behind-photo-story-envelope .behind-envelope {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* State 2: Photo (Amplop Terbuka, Foto Terangkat Ke Atas) */
+.behind-photo-story-photo .behind-envelope {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.95);
+}
+.behind-photo-story-photo .behind-envelope-flap {
+  transform: rotateX(160deg);
+}
+.behind-photo-story-photo .behind-photo-reveal {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1) rotateY(0deg);
+}
+
+/* State 3: Letter / Postcard (Foto Membalik Memperlihatkan Pesan) */
+.behind-photo-story-letter .behind-envelope {
+  opacity: 0;
+  pointer-events: none;
+}
+.behind-photo-story-letter .behind-photo-reveal {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0) scale(1) rotateY(-180deg);
+}
+.behind-photo-story-letter .behind-photo-letter {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1) rotateY(0deg);
+}
+
+/* Keep the existing interaction flow while giving every photo a postcard edge. */
+.behind-wall-photo {
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.behind-postcard-frame {
+  padding: 9px 9px 30px;
+  background: var(--paper);
+  border: 8px solid transparent;
+  border-image: repeating-linear-gradient(45deg, var(--blue) 0 8px, var(--paper) 8px 16px) 8;
+  box-shadow: 0 15px 32px rgba(18, 30, 66, 0.3), inset 0 0 0 1px rgba(18, 30, 66, 0.16);
+}
+
+.behind-postcard-frame img {
+  border: 1px solid rgba(18, 30, 66, 0.28);
+}
+
+.behind-postcard-label {
+  right: 10px;
+  bottom: 7px;
+  color: var(--blue);
+  font-family: Figtree, Arial, sans-serif;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.behind-photo-reveal {
+  padding: 18px 18px 44px;
+  border: 0;
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: 0 28px 70px rgba(18, 30, 66, 0.42);
+}
+
+.behind-photo-reveal .behind-postcard-frame {
+  height: 100%;
+  padding: 12px 12px 34px;
+  border-width: 11px;
+  border-image-slice: 11;
+  box-shadow: 0 16px 34px rgba(18, 30, 66, 0.24), inset 0 0 0 1px rgba(18, 30, 66, 0.15);
+}
+
+.behind-photo-reveal .behind-postcard-label {
+  right: 15px;
+  bottom: 8px;
+  font-size: 10px;
+}
+
+.behind-photo-letter {
+  border: 12px solid transparent;
+  border-image: repeating-linear-gradient(45deg, var(--blue) 0 9px, var(--paper) 9px 18px) 12;
+  border-radius: 0;
+  box-shadow: 0 28px 70px rgba(18, 30, 66, 0.42), inset 0 0 0 1px rgba(18, 30, 66, 0.12);
+}
+
+@media (max-width: 760px) {
+  .behind-postcard-frame {
+    padding: 6px 6px 21px;
+    border-width: 5px;
+    border-image-slice: 5;
+  }
+  .behind-postcard-label {
+    right: 7px;
+    bottom: 4px;
+    font-size: 6px;
+  }
+  .behind-photo-reveal .behind-postcard-frame {
+    padding: 8px 8px 25px;
+    border-width: 7px;
+    border-image-slice: 7;
+  }
+  .behind-photo-reveal .behind-postcard-label {
+    right: 10px;
+    bottom: 5px;
+    font-size: 8px;
+  }
+}
+
+/* The photo is only its postcard frame, and message lines align to the writing rule. */
+.behind-photo-reveal {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.behind-photo-reveal .behind-postcard-frame {
+  height: 100%;
+  padding: 12px 12px 34px;
+}
+.behind-postcard-message {
+  gap: 0;
+  padding-top: 64px;
+  background: repeating-linear-gradient(to bottom, transparent 0 31px, rgba(18, 30, 66, .35) 31px 32px);
+}
+.behind-postcard-message p {
+  margin: 0;
+  padding: 0;
+  font-family: Figtree, Arial, sans-serif;
+  font-size: clamp(13px, 1.5vw, 17px);
+  line-height: 32px;
+}
+.behind-photo-reveal .behind-postcard-label {
+  max-width: calc(100% - 24px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .behind-photo-reveal .behind-postcard-frame { padding: 8px 8px 25px; }
+  .behind-postcard-message {
+    padding-top: 54px;
+    background: repeating-linear-gradient(to bottom, transparent 0 26px, rgba(18, 30, 66, .35) 26px 27px);
+  }
+  .behind-postcard-message p { font-size: 11px; line-height: 27px; }
+  .behind-photo-reveal .behind-postcard-label { max-width: calc(100% - 16px); }
+}
+
+/* Typography and baseline lock for the postcard writing area. */
+.behind-envelope-title{display:grid;place-items:center;width:86px;height:86px;padding:13px;border:1px solid var(--blue);border-radius:50%;background:var(--paper);box-shadow:0 3px 0 rgba(18,30,66,.16);transform:translate(-50%,-50%) rotate(-3deg)}.behind-envelope-title img{display:block;max-width:100%;max-height:100%;object-fit:contain}.behind-photo-letter,.behind-photo-letter i,.behind-photo-letter b,.behind-photo-letter p,.behind-photo-letter small{font-family:Figtree,Arial,sans-serif}.behind-photo-letter .behind-postcard-back-heading strong{font-family:Castoro,Georgia,serif;font-weight:400}.behind-photo-letter .behind-postcard-back-heading small{font-family:Figtree,Arial,sans-serif}.behind-photo-letter .behind-postcard-message{gap:0;padding-top:64px;background:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(18,30,66,.35) 31px 32px)}.behind-photo-letter .behind-postcard-message>i{display:block;height:32px;line-height:32px}.behind-photo-letter .behind-postcard-message p{margin:0;line-height:32px}.behind-photo-letter .behind-postcard-message small{line-height:32px}@media(max-width:760px){.behind-envelope-title{width:58px;height:58px;padding:9px}.behind-photo-letter .behind-postcard-message{padding-top:54px;background:repeating-linear-gradient(to bottom,transparent 0 26px,rgba(18,30,66,.35) 26px 27px)}.behind-photo-letter .behind-postcard-message>i,.behind-photo-letter .behind-postcard-message small,.behind-photo-letter .behind-postcard-message p{height:auto;line-height:27px}}
+
+/* Each written item occupies a ruled row; decorative marks never shift the text. */
+.behind-photo-letter .behind-postcard-message{display:grid;grid-template-rows:32px auto 32px;align-content:start;align-items:start;text-align:left}.behind-photo-letter .behind-postcard-message>i{grid-row:1;align-self:start}.behind-photo-letter .behind-postcard-message p{grid-row:2;align-self:start;max-width:100%;padding-top:0;text-align:left}.behind-photo-letter .behind-postcard-message small{grid-row:3;align-self:start;justify-self:end;margin:0;background:transparent}.behind-photo-letter .behind-postcard-stamp,.behind-photo-letter .behind-postcard-postmark{position:absolute}.behind-photo-letter .behind-postcard-stamp{top:0;right:0}.behind-photo-letter .behind-postcard-postmark{top:27px;right:48px}.behind-photo-letter .behind-postcard-message p::first-line{line-height:32px}@media(max-width:760px){.behind-photo-letter .behind-postcard-message{grid-template-rows:27px auto 27px}.behind-photo-letter .behind-postcard-message p::first-line{line-height:27px}.behind-photo-letter .behind-postcard-postmark{top:22px;right:34px}}
+
+/* Spacing between the stacked photo cards on the main Hari Pelaksanaan page. */
+.schedule-card[data-position="1"]{transform:translate3d(-50%,calc(-50% + 68svh + var(--schedule-card-gap,0px) + var(--schedule-drag-offset,0px)),0) scale(.98)}.schedule-card[data-position="-1"]{transform:translate3d(-50%,calc(-50% - 68svh - var(--schedule-card-gap,0px) + var(--schedule-drag-offset,0px)),0) scale(.98)}@media(max-width:760px){.schedule-card[data-position="1"]{transform:translate3d(-50%,calc(-50% + 72svh + var(--schedule-card-gap,0px) + var(--schedule-drag-offset,0px)),0) scale(.97)}.schedule-card[data-position="-1"]{transform:translate3d(-50%,calc(-50% - 72svh - var(--schedule-card-gap,0px) + var(--schedule-drag-offset,0px)),0) scale(.97)}}
+
+/* Dibalik Kepanitiaan design-system alignment. */
+.behind-canvas-page,.behind-canvas-page button,.behind-canvas-page a{font-family:Figtree,Arial,sans-serif}.behind-canvas-page{background:var(--ink);color:var(--paper)}.behind-canvas-page:before{background:radial-gradient(circle at 9% 16%,rgba(101,144,194,.58),transparent 31%),radial-gradient(circle at 88% 30%,rgba(54,74,140,.72),transparent 38%),radial-gradient(ellipse at 52% -12%,rgba(168,196,212,.2),transparent 48%),linear-gradient(135deg,var(--ink) 0%,#192a5a 48%,var(--blue) 100%)}.behind-canvas-instruction{font-family:Figtree,Arial,sans-serif;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:.12em}.behind-drive-link{border-color:rgba(237,236,230,.5);background:var(--paper);color:var(--blue);font-family:Figtree,Arial,sans-serif;font-size:12px;font-weight:500;line-height:1.5}.behind-photo-viewer{background:rgba(54,74,140,.93)}.behind-photo-viewer-close{border-color:rgba(237,236,230,.7);color:var(--paper);font-family:Figtree,Arial,sans-serif}.behind-postcard-frame{background:var(--paper);border-image:repeating-linear-gradient(45deg,var(--blue) 0 8px,var(--paper) 8px 16px) 8}.behind-postcard-label{font-family:Figtree,Arial,sans-serif;font-size:12px;font-style:normal;font-weight:500;line-height:1.5;letter-spacing:.1em}.behind-photo-letter{background:var(--paper);color:var(--ink)}.behind-photo-letter .behind-postcard-back-heading small,.behind-photo-letter .behind-postcard-address,.behind-photo-letter .behind-postcard-address i,.behind-photo-letter .behind-postcard-address b,.behind-photo-letter .behind-postcard-message,.behind-photo-letter .behind-postcard-message>i,.behind-photo-letter .behind-postcard-message p,.behind-photo-letter .behind-postcard-message small,.behind-photo-letter .behind-postcard-postmark{font-family:Figtree,Arial,sans-serif}.behind-photo-letter .behind-postcard-back-heading strong{font-family:Castoro,Georgia,serif;font-size:clamp(36px,4vw,60px);font-weight:400;line-height:1.2;letter-spacing:-.02em}.behind-photo-letter .behind-postcard-back-heading small,.behind-photo-letter .behind-postcard-address i,.behind-photo-letter .behind-postcard-message>i,.behind-photo-letter .behind-postcard-message small{font-size:12px;font-weight:500;line-height:1.5;letter-spacing:.14em}.behind-photo-letter .behind-postcard-address b{font-size:14px;font-weight:400;line-height:1.5}.behind-photo-letter .behind-postcard-message{grid-template-rows:24px auto 24px;padding-top:48px;background:repeating-linear-gradient(to bottom,transparent 0 23px,rgba(18,30,66,.35) 23px 24px)}.behind-photo-letter .behind-postcard-message>i{height:24px;line-height:24px}.behind-photo-letter .behind-postcard-message p{font-size:14px;font-weight:400;line-height:24px}.behind-photo-letter .behind-postcard-message small{height:24px;line-height:24px}.behind-photo-letter .behind-postcard-message p::first-line{line-height:24px}.behind-photo-letter .behind-postcard-stamp{font-family:Castoro,Georgia,serif}.behind-envelope-title{border-color:var(--blue);background:var(--paper)}
+@media(max-width:1024px){.behind-photo-letter .behind-postcard-back-heading strong{font-size:clamp(32px,5vw,48px)}.behind-photo-letter .behind-postcard-message{padding-top:40px}}@media(max-width:760px){.behind-canvas-instruction,.behind-drive-link{font-size:10px;line-height:1.5}.behind-postcard-label{font-size:9px}.behind-photo-letter .behind-postcard-back-heading strong{font-size:30px;line-height:1.2}.behind-photo-letter .behind-postcard-back-heading small,.behind-photo-letter .behind-postcard-address i,.behind-photo-letter .behind-postcard-message>i,.behind-photo-letter .behind-postcard-message small{font-size:9px}.behind-photo-letter .behind-postcard-address b{font-size:11px}.behind-photo-letter .behind-postcard-message{grid-template-rows:20px auto 20px;padding-top:40px;background:repeating-linear-gradient(to bottom,transparent 0 19px,rgba(18,30,66,.35) 19px 20px)}.behind-photo-letter .behind-postcard-message>i,.behind-photo-letter .behind-postcard-message small{height:20px;line-height:20px}.behind-photo-letter .behind-postcard-message p{font-size:12px;line-height:20px}.behind-photo-letter .behind-postcard-message p::first-line{line-height:20px}}
+
+/* Postcard back follows the reference layout: heading left, note and stamp right. */
+.behind-photo-letter{grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);grid-template-rows:1fr;gap:0;padding:clamp(34px,5vw,64px)}.behind-postcard-back-heading{display:flex;flex-direction:column;justify-content:center;gap:10px;padding:12px clamp(22px,4vw,54px) 12px 0;color:var(--ink)}.behind-postcard-back-heading small{font-family:Figtree,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}.behind-postcard-back-heading strong{font-family:Castoro,Georgia,serif;font-size:clamp(34px,4.5vw,58px);font-weight:400;letter-spacing:-.04em;line-height:.95}.behind-postcard-divider{position:absolute;top:clamp(34px,5vw,64px);bottom:clamp(34px,5vw,64px);left:45%;width:1px;background:rgba(18,30,66,.48)}.behind-postcard-address{position:absolute;left:clamp(34px,5vw,64px);bottom:clamp(34px,5vw,64px);display:grid;grid-template-columns:44px 1fr;column-gap:10px;row-gap:6px;width:calc(45% - clamp(48px,7vw,84px));font-family:Figtree,Arial,sans-serif}.behind-postcard-address i{font-family:Figtree,Arial,sans-serif;font-size:10px;font-style:normal;font-weight:600;letter-spacing:.14em;text-transform:uppercase}.behind-postcard-address b{padding-bottom:5px;border-bottom:1px solid rgba(18,30,66,.5);font-family:Figtree,Arial,sans-serif;font-size:12px;font-weight:500}.behind-postcard-message{position:relative;display:flex;flex-direction:column;gap:10px;padding:clamp(58px,7vw,82px) 0 0 clamp(28px,4vw,48px);font-family:Figtree,Arial,sans-serif;background:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(18,30,66,.35) 31px 32px)}.behind-postcard-message>i{font-family:Figtree,Arial,sans-serif;font-size:10px;font-style:normal;font-weight:600;letter-spacing:.14em;text-transform:uppercase}.behind-postcard-message p{max-width:34ch;margin:4px 0 0;font-family:Figtree,Arial,sans-serif;font-size:clamp(13px,1.5vw,17px);font-weight:400;line-height:1.75}.behind-postcard-message small{align-self:flex-end;margin-top:auto;padding:5px 0;background:var(--paper);font-family:Figtree,Arial,sans-serif;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}.behind-postcard-stamp{top:0;right:0;font-family:Castoro,Georgia,serif}.behind-postcard-postmark{top:30px;right:48px;font-family:Figtree,Arial,sans-serif}@media(max-width:760px){.behind-photo-letter{padding:28px}.behind-postcard-back-heading strong{font-size:29px}.behind-postcard-divider{top:28px;bottom:28px;left:44%}.behind-postcard-address{left:28px;bottom:28px;grid-template-columns:34px 1fr;width:calc(44% - 36px)}.behind-postcard-address i{font-size:7px}.behind-postcard-address b{font-size:9px}.behind-postcard-message{gap:7px;padding:48px 0 0 22px;background:repeating-linear-gradient(to bottom,transparent 0 26px,rgba(18,30,66,.35) 26px 27px)}.behind-postcard-message>i,.behind-postcard-message small{font-size:7px}.behind-postcard-message p{font-size:11px;line-height:1.55}.behind-postcard-postmark{top:23px;right:34px}}
 html {
   /* scroll-snap-type: y mandatory; */
   scroll-behavior: smooth;

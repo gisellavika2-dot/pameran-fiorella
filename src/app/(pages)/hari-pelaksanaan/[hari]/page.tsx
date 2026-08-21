@@ -96,6 +96,14 @@ export default function HariDetailPage({ params }: PageProps) {
       onMouseLeave={handleContainerMouseUp}
       className="hari-detail-page relative min-h-screen bg-[#EDECE6] text-[#121E42] flex flex-col items-center overflow-y-auto overflow-x-hidden pt-12 font-sans select-none"
     >
+      <Link
+        href="/hari-pelaksanaan"
+        className="fixed right-5 top-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-[#121E42]/20 bg-[#EDECE6]/95 pb-1 text-3xl font-light leading-none text-[#121E42] shadow-lg backdrop-blur transition hover:scale-105 hover:bg-[#121E42] hover:text-[#EDECE6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#364A8C] md:right-8 md:top-8"
+        aria-label="Kembali ke Hari Pelaksanaan"
+        title="Kembali ke Hari Pelaksanaan"
+      >
+        <span aria-hidden="true">×</span>
+      </Link>
       {/* Main Header Information */}
       <div className="w-full max-w-7xl bg-transparent flex flex-col gap-7 mb-16 pt-28 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
         <div className="relative w-full h-[62vh] min-h-[560px] max-h-[780px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#121E42] border border-[#EDECE6]/20">
