@@ -273,9 +273,6 @@ export default function TentangFiorellaPage() {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
             <article className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/95 p-5 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 sm:p-6 md:rounded-[2rem] md:p-7">
-              <div className="absolute right-5 top-5 font-serif text-4xl leading-none text-[#A8C4D4]/50 md:text-6xl">
-                01
-              </div>
               <h2 className="font-serif text-2xl font-normal tracking-[-0.035em] text-[#121E42] md:text-3xl">
                 Tema Besar
               </h2>
@@ -286,9 +283,6 @@ export default function TentangFiorellaPage() {
 
             <article className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#A8C4D4] p-5 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 sm:p-6 md:rounded-[2rem] md:p-7">
               <div className="absolute -bottom-16 -right-10 h-44 w-44 rounded-full bg-[#EDECE6]/50 blur-2xl" />
-              <div className="absolute right-5 top-5 font-serif text-4xl leading-none text-[#EDECE6]/55 md:text-6xl">
-                02
-              </div>
               <h2 className="font-serif text-2xl font-normal tracking-[-0.035em] text-[#121E42] md:text-3xl">
                 Konsep Besar
               </h2>
