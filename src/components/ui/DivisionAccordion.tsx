@@ -25,21 +25,24 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
   const navContainerRef = useRef<HTMLDivElement>(null);
   const wheelLock = useRef(false);
   const touchStart = useRef<number | null>(null);
-  const hasManuallyNavigated = useRef(false);
-  const autoAdvanceTimer = useRef<number | null>(null);
+  
   const isInitialMount = useRef(true);
+  const autoAdvanceTimer = useRef<NodeJS.Timeout | null>(null);
+  const pauseTimer = useRef<NodeJS.Timeout | null>(null);
+  const isPaused = useRef(false);
 
-  const disableAutoAdvance = useCallback(() => {
-    hasManuallyNavigated.current = true;
+  const pauseAutoAdvance = useCallback(() => {
+    isPaused.current = true;
 
-    if (autoAdvanceTimer.current !== null) {
-      window.clearInterval(autoAdvanceTimer.current);
-      autoAdvanceTimer.current = null;
-    }
+    if (pauseTimer.current) clearTimeout(pauseTimer.current);
+
+    pauseTimer.current = setTimeout(() => {
+      isPaused.current = false;
+    }, 3000);
   }, []);
 
   const selectDivision = (index: number) => {
-    disableAutoAdvance();
+    pauseAutoAdvance();
     setActive(index);
   };
 
@@ -77,38 +80,17 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
   }, [active]);
 
   useEffect(() => {
-    const accordion = accordionRef.current;
-    if (!accordion) return;
+    if (items.length <= 1) return;
 
-    const handleWheel = (event: WheelEvent) => {
-      event.preventDefault();
-      event.stopPropagation();
-      if (wheelLock.current || Math.abs(event.deltaX) + Math.abs(event.deltaY) < 8) return;
-
-      wheelLock.current = true;
-      disableAutoAdvance();
-      const direction = (event.deltaX || event.deltaY) > 0 ? 1 : -1;
-      setActive((current) => (current + direction + items.length) % items.length);
-      window.setTimeout(() => { wheelLock.current = false; }, 320);
-    };
-
-    accordion.addEventListener("wheel", handleWheel, { passive: false });
-    return () => accordion.removeEventListener("wheel", handleWheel);
-  }, [disableAutoAdvance, items.length]);
-
-  useEffect(() => {
-    if (hasManuallyNavigated.current || items.length <= 1) return;
-
-    autoAdvanceTimer.current = window.setInterval(() => {
-      if (hasManuallyNavigated.current) return;
-      setActive((current) => (current + 1) % items.length);
-    }, 8000);
+    autoAdvanceTimer.current = setInterval(() => {
+      if (!isPaused.current) {
+        setActive((current) => (current + 1) % items.length);
+      }
+    }, 3000);
 
     return () => {
-      if (autoAdvanceTimer.current !== null) {
-        window.clearInterval(autoAdvanceTimer.current);
-        autoAdvanceTimer.current = null;
-      }
+      if (autoAdvanceTimer.current) clearInterval(autoAdvanceTimer.current);
+      if (pauseTimer.current) clearTimeout(pauseTimer.current);
     };
   }, [items.length]);
 
@@ -122,7 +104,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
           if (touchStart.current === null) return;
           const distance = touchStart.current - event.changedTouches[0].clientX;
           if (Math.abs(distance) > 35) {
-            disableAutoAdvance();
+            pauseAutoAdvance();
             setActive((current) => (current + (distance > 0 ? 1 : -1) + items.length) % items.length);
           }
           touchStart.current = null;
@@ -133,20 +115,15 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
           const position = getPosition(index);
           const visualPosition = Math.max(-2, Math.min(2, position));
           const isActive = position === 0;
-          const isVisible = Math.abs(position) <= 1;
+          const isVisible = Math.abs(position) <= 2;
 
           return (
             <article
               key={division.id}
-              className={`h-128 division-panel division-panel-${index} ${isActive ? "is-active" : "is-closed"}`}
+              className={`h-80 division-panel division-panel-${index} ${isActive ? "is-active" : "is-closed"}`}
               data-position={visualPosition}
-
               onMouseDown={(event) => event.preventDefault()}
-              
-              onClick={() => {
-                disableAutoAdvance();
-                setActive(index);
-              }}
+              onClick={() => selectDivision(index)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
@@ -173,7 +150,6 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                   </div>
                 </div>
 
-                {/* Tombol Selengkapnya di Pojok Kanan Bawah Footer */}
                 {isActive && (
                   <Link
                     href={`/divisi/${division.id}`}
