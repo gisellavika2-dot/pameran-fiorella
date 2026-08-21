@@ -11,7 +11,8 @@ const links = [
   ["Foto Divisi", "/#divisi"],
   ["Dibalik Kepanitiaan", "/dibalik-kepanitiaan"], 
   ["Sayembara Visual", "/#sayembara"], 
-  ["Tentang Fiorella", "/tentang-fiorella"],
+  ["Tentang Fiorella", "/tentang-fiorella"], 
+  ["Arsip", "/arsip"],
 ];
 
 export default function Header() {
