@@ -32,6 +32,7 @@ export interface Division {
   warna1: string;
   warna2: string;
   warna3: string;
+  galeriFoto: string[];
 }
 
 export const divisions: Division[] = [
@@ -73,7 +74,21 @@ export const divisions: Division[] = [
     warna1: "#37449C",
     warna2: "#7F8DBA",
     warna3: "#D4D6D8",
+    galeriFoto: [
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+    ],
   },
+
+
+
   {
     id: "2",
     logo: "/figma/division-dokum.webp",
@@ -101,7 +116,13 @@ export const divisions: Division[] = [
     warna1: "#F47421",
     warna2: "#F4AE6E",
     warna3: "#FCD34D",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "3",
     logo: "/figma/division-keamanan.webp",
@@ -114,9 +135,10 @@ export const divisions: Division[] = [
         idSesi: "sesi-1",
         namaSesi: "Sesi 1",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Birendra_1.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_1_2.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_3.JPG",
+          "/galeriFotoDivisi/foto_sementara.JPG",
+          "/galeriFotoDivisi/foto_sementara.JPG",
+          "/galeriFotoDivisi/foto_sementara.JPG",
+
         ],
       },
       {
@@ -140,7 +162,13 @@ export const divisions: Division[] = [
     warna1: "#000000",
     warna2: "#6B6968",
     warna3: "#999DA0",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "4",
     logo: "/figma/division-konsum.webp",
@@ -167,7 +195,13 @@ export const divisions: Division[] = [
     warna1: "#C67F4E",
     warna2: "#DCA37D",
     warna3: "#F4AE6E",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "5",
     logo: "/figma/division-medis.webp",
@@ -207,7 +241,13 @@ export const divisions: Division[] = [
     warna1: "#0FAB70",
     warna2: "#8ACB99",
     warna3: "#A7F3D0",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "6",
     logo: "/figma/division-perkap.webp",
@@ -236,7 +276,13 @@ export const divisions: Division[] = [
     warna1: "#84499D",
     warna2: "#C598C8",
     warna3: "#E9D5FF",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "7",
     logo: "/figma/division-pic.webp",
@@ -313,7 +359,13 @@ export const divisions: Division[] = [
     warna1: "#F3819C",
     warna2: "#FACBDC",
     warna3: "#FCE7F3",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "8",
     logo: "/figma/division-pr.webp",
@@ -345,7 +397,13 @@ export const divisions: Division[] = [
     warna1: "#6B6968",
     warna2: "#999DA0",
     warna3: "#D4D6D8",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "9",
     logo: "/figma/division-visual.webp",
@@ -373,7 +431,13 @@ export const divisions: Division[] = [
     warna1: "#5EC7D0",
     warna2: "#9FDAE2",
     warna3: "#CFFAFE",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "10",
     logo: "/figma/division-website.webp",
@@ -403,7 +467,13 @@ export const divisions: Division[] = [
     warna1: "#F7CE1C",
     warna2: "#F8E58D",
     warna3: "#FEF08A",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
+
+
+
   {
     id: "11",
     logo: "/figma/division-acara.webp",
@@ -431,6 +501,9 @@ export const divisions: Division[] = [
     warna1: "#EB1A3F",
     warna2: "#F05E5E",
     warna3: "#FECDD3",
+    galeriFoto: [
+      "/galeriFotoDivisi/a/",
+    ],
   },
 ];
 

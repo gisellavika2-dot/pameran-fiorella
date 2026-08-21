@@ -126,8 +126,11 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
           return (
             <article
               key={division.id}
-              className={`division-panel division-panel-${index} ${isActive ? "is-active" : "is-closed"}`}
+              className={`h-128 division-panel division-panel-${index} ${isActive ? "is-active" : "is-closed"}`}
               data-position={visualPosition}
+              
+              onMouseDown={(event) => event.preventDefault()}
+
               onClick={() => selectDivision(index)}
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
@@ -188,7 +191,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
 
       <nav 
         ref={navContainerRef}
-        className="flex justify-center mt-16 division-nav-thumbnails"
+        className="flex justify-center mt-8 division-nav-thumbnails"
         aria-label="Navigasi Divisi"
       >
         {items.map((division, index) => {

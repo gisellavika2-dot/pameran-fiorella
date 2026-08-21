@@ -1,7 +1,7 @@
 // src/app/(pages)/divisi/[id]/page.tsx
 "use client";
 
-import { useState, use } from "react";
+import { useState, use, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getDivisionById } from "@/data/divisions";
@@ -19,6 +19,21 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
   const division = getDivisionById(id);
   const [activeSesiIndex, setActiveSesiIndex] = useState(0);
   const [activeFotoIndex, setActiveFotoIndex] = useState(0);  
+
+  const [randomPhotos, setRandomPhotos] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (division?.galeriFoto && division.galeriFoto.length > 0) {
+      const shuffled = [...division.galeriFoto];
+      
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      setRandomPhotos(shuffled.slice(0, 9));
+    }
+  }, [division?.galeriFoto]);
 
   if (!division) {
     return (
@@ -76,6 +91,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
         </div>
       </ScrollSnapSection>
 
+      {/* FOTO DIVISI  */}
       <ScrollSnapSection>
         <div className="flex flex-wrap justify-center w-full py-16 md:py-24 bg-neutral-light-bg">
           <div className="section-container flex flex-col items-center">
@@ -171,6 +187,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
         </div>
       </ScrollSnapSection>
 
+{/* SARYA  */}
       <ScrollSnapSection>
         <div className="w-full py-16 md:py-24">
           <div className="section-container">
@@ -210,17 +227,9 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
             </h2>
             <div className="flex flex-wrap justify-center gap-6">
               {division.cardFoto.flatMap((group) => group.isi).map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-xl overflow-hidden shadow-md w-64 aspect-[3/4] flex flex-col"
-                >
+                <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-md w-64 aspect-[3/4] flex flex-col">
                   <div className="relative w-full h-full bg-gray-100">
-                    <Image
-                      src={item.foto}
-                      alt={item.nama}
-                      fill
-                      className="object-cover"
-                    />
+                    <Image src={item.foto} alt={item.nama} fill className="object-cover"/>
                   </div>
                 </div>
               ))}
@@ -229,11 +238,38 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
             </div>
         </div>
       </ScrollSnapSection>
+
       <ScrollSnapSection>
-        <div className="w-full">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold mb-10 text-center" style={{ color: division.warna1 }}>
-            Dokumentasi Divisi
-          </h2>
+        <div className="w-full py-16 md:py-24">
+          <div className="section-container flex flex-col items-center">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center" style={{ color: division.warna1 }}>
+              Galeri Dokumentasi Divisi
+            </h2>
+
+            {randomPhotos.length > 0 ? (
+              <div className="grid grid-cols-3 gap-3 md:gap-4 w-full max-w-4xl mx-auto">
+                {randomPhotos.map((item, idx) => {
+                  const isNinth = idx === 8;
+                  return (
+                    <div
+                      key={`${item}-${idx}`}
+                      className={`bg-white rounded-xl overflow-hidden shadow-md aspect-[16/9] relative transition-transform duration-300 hover:scale-[1.02] ${
+                        isNinth ? "col-span-3 sm:col-span-1" : "col-span-1"
+                      }`}
+                    >
+                      <Image src={item} alt={`Dokumentasi ${division.name} ${idx + 1}`} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover"/>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="grid grid-cols-3 gap-3 md:gap-4 w-full max-w-4xl mx-auto">
+                {Array.from({ length: 9 }).map((_, idx) => (
+                  <div key={idx} className={`aspect-[3/4] bg-gray-200 animate-pulse rounded-xl ${ idx === 8 ? "col-span-3 sm:col-span-1" : "col-span-1"}`}/>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </ScrollSnapSection>
     </ScrollSnapContainer>

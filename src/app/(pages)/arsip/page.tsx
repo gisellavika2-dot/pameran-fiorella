@@ -19,7 +19,7 @@ const archiveData: ArchiveItem[] = [
     themeName: "Cala Sahita",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2021",
-    bgImage: "/bgArsip/.jpg",
+    bgImage: "/logoArsip/bgArsip/bg2021.jpg",
     logoImage: "/logoArsip/calasahita.png",
     externalUrl: "https://doc.umn.ac.id/calasahita",
   },
@@ -29,7 +29,7 @@ const archiveData: ArchiveItem[] = [
     themeName: "Kartala",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2022",
-    bgImage: "/bgArsip/.jpg",
+    bgImage: "/logoArsip/bgArsip/bg2022.jpg",
     logoImage: "/logoArsip/kartala.png",
     externalUrl: "https://doc.umn.ac.id/kartala",
   },
@@ -39,7 +39,7 @@ const archiveData: ArchiveItem[] = [
     themeName: "Ananta",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2022",
-    bgImage: "/bgArsip/.jpg",
+    bgImage: "/logoArsip/bgArsip/bg2023.jpg",
     logoImage: "/logoArsip/Ananta.png",
     externalUrl: "https://doc.umn.ac.id/ananta",
   },
@@ -49,7 +49,7 @@ const archiveData: ArchiveItem[] = [
     themeName: "Meliora",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2024",
-    bgImage: "/bgArsip/.jpg",
+    bgImage: "/logoArsip/bgArsip/bg2024.jpg",
     logoImage: "/logoArsip/Meliora.png",
     externalUrl: "https://doc.umn.ac.id/meliora",
   },
@@ -59,7 +59,7 @@ const archiveData: ArchiveItem[] = [
     themeName: "Aeterna",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2025",
-    bgImage: "/bgArsip/.jpg",
+    bgImage: "/logoArsip/bgArsip/bg2025.jpg",
     logoImage: "/logoArsip/aeterna.png",
     externalUrl: "https://doc.umn.ac.id/aeterna",
   },
@@ -86,7 +86,7 @@ export default function ArsipPage() {
             rel="noopener noreferrer"
             className="w-full max-w-sm sm:max-w-none sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] group relative aspect-[4/3.5] rounded-2xl overflow-hidden bg-slate-900 border border-white/10 shadow-xl transition-all duration-300 hover:scale-[1.02]"
             >
-                <div className="relative w-56 sm:w-64 h-32 sm:h-36 transition-transform duration-300 group-hover:scale-105">
+                <div className="relative w-full h-full opacity-40 transition-transform duration-300 group-hover:scale-105">
                 <Image
                 src={item.bgImage}
                 alt={`Background ${item.fullTitle}`}
