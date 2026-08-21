@@ -142,6 +142,13 @@ export default function BehindTheScenesCanvas() {
         </div>
       )}
 
+      <style jsx global>{`
+        .behind-photo-viewer { background: rgba(18, 30, 66, .38) !important; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+        .behind-envelope { background: linear-gradient(145deg, #121E42 0%, #364A8C 56%, #6590C2 100%); box-shadow: 0 28px 62px rgba(18, 30, 66, .46), inset 0 1px 0 rgba(255, 255, 255, .18), inset 0 -18px 30px rgba(18, 30, 66, .24); }
+        .behind-envelope::before, .behind-envelope::after { background: linear-gradient(155deg, #6590C2 0%, #364A8C 58%, #121E42 100%); border-top: 2px solid rgba(237, 236, 230, .18); box-shadow: inset 0 12px 20px rgba(18, 30, 66, .2), 0 -8px 16px rgba(18, 30, 66, .22); }
+        .behind-envelope-flap { background: linear-gradient(160deg, #A8C4D4 0%, #6590C2 43%, #364A8C 100%); border-bottom: 3px solid rgba(18, 30, 66, .48); box-shadow: 0 16px 24px rgba(18, 30, 66, .48), inset 0 2px 0 rgba(237, 236, 230, .28); }
+        .behind-envelope-paper { border: 1px solid rgba(18, 30, 66, .18); box-shadow: 0 10px 20px rgba(18, 30, 66, .34); }
+      `}</style>
     </section>
   );
 }
