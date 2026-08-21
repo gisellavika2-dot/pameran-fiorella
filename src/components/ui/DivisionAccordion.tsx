@@ -27,6 +27,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
   const touchStart = useRef<number | null>(null);
   const hasManuallyNavigated = useRef(false);
   const autoAdvanceTimer = useRef<number | null>(null);
+  const isInitialMount = useRef(true);
 
   const disableAutoAdvance = useCallback(() => {
     hasManuallyNavigated.current = true;
@@ -53,13 +54,24 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
   };
 
   useEffect(() => {
-    if (!navContainerRef.current) return;
-    const activeItem = navContainerRef.current.children[active] as HTMLElement;
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    const container = navContainerRef.current;
+    if (!container) return;
+
+    const activeItem = container.children[active] as HTMLElement;
     if (activeItem) {
-      activeItem.scrollIntoView({
+      const scrollLeft =
+        activeItem.offsetLeft -
+        container.clientWidth / 2 +
+        activeItem.clientWidth / 2;
+
+      container.scrollTo({
+        left: scrollLeft,
         behavior: "smooth",
-        block: "nearest",
-        inline: "center",
       });
     }
   }, [active]);
