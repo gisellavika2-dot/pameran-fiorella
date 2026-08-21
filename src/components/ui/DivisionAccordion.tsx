@@ -128,12 +128,6 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
               key={division.id}
               className={`h-128 division-panel division-panel-${index} ${isActive ? "is-active" : "is-closed"}`}
               data-position={visualPosition}
-<<<<<<< HEAD
-              
-              onMouseDown={(event) => event.preventDefault()}
-
-              onClick={() => selectDivision(index)}
-=======
 
               onMouseDown={(event) => event.preventDefault()}
               
@@ -141,7 +135,6 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                 disableAutoAdvance();
                 setActive(index);
               }}
->>>>>>> b36217ad7dbee7bcca2b418815bf8b1c3c43d2a9
               onKeyDown={(event) => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
