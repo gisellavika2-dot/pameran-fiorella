@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { divisions } from "@/data/divisions";
 import { schedule } from "@/data/schedule";
 import DivisionAccordion from "@/components/ui/DivisionAccordion";
@@ -15,44 +16,45 @@ export default function Home() {
   return (
     <main className="home-page">
       {/* Hero Section */}
-      <section className="hero-section">
+      <section
+        className="hero-section"
+        style={{ "--hero-wave-height": "0px", background: "var(--ink)" } as CSSProperties}
+      >
         <div className="hero-ornament hero-ornament-one" />
         <div className="hero-ornament hero-ornament-two" />
         
         <div className="hero-card flex flex-col items-center justify-center gap-8 p-8 md:flex-row md:gap-12 md:p-14">
+          {/* Logo Fiorella */}
           <div className="hero-mark flex shrink-0 items-center justify-center">
             <Image 
-              src="/figma/fiorella-blue.png" 
+              src="/logo/fiorella-blue-mark.png" 
               alt="Fiorella" 
-              width={280} 
-              height={380} 
+              width={432} 
+              height={407} 
               className="h-auto w-full max-w-[240px] object-contain md:max-w-[280px]"
               priority 
             />
           </div>
           
-          <div className="hero-copy flex flex-col items-start justify-center">
-            <span className="eyebrow">“bunga kecil”</span>
+          {/* Hero Text */}
+          {/* Mengubah items-start menjadi items-center di mobile (md:items-start untuk layar desktop) */}
+          <div className="hero-copy flex flex-col items-center text-center md:items-start md:text-left justify-center">
+            
+            {/* Menambahkan mt-4 atau mt-6 agar ada jarak dari logo di mobile */}
+            <span className="eyebrow mt-4 md:mt-0">“bunga kecil”</span>
+            
             <h1>Fiorella</h1>
+            
             <p>
               Tempat karya, cerita, dan kebersamaan tumbuh menjadi satu. Sebuah
               pameran dokumentasi perjalanan OMB UMN 2026.
             </p>
-            {/*  */}
+            
             <Link className="figma-button" href="/tentang-fiorella">
               Selengkapnya <span>→</span>
             </Link>
           </div>
         </div>
-
-        <svg
-          className="hero-wave"
-          viewBox="0 0 1440 128"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d="M0 0H1440V72C1260 46 1110 42 952 71C765 105 635 129 447 108C270 89 159 47 0 33V0Z" />
-        </svg>
       </section>
 
       {/* Hari Pelaksanaan Section */}
