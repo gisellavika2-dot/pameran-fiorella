@@ -114,7 +114,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
       >
         {items.map((division, index) => {
           const position = getPosition(index);
-          const visualPosition = Math.max(-2, Math.min(2, position));
+          const visualPosition = Math.max(-3, Math.min(3, position));
           const isActive = position === 0;
           const isVisible = Math.abs(position) <= 2;
 
