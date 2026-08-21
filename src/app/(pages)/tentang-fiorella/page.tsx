@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image, { type StaticImageData } from "next/image";
 import image1 from "./images/car2.webp";
@@ -68,21 +70,23 @@ const SectionHeader = ({
   description,
   dark = false,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   dark?: boolean;
 }) => (
-  <div className="mx-auto mb-12 max-w-3xl text-center">
-    <p
-      className={`mb-4 text-[11px] font-bold uppercase tracking-[0.28em] ${
-        dark ? "text-[#364A8C]" : "text-[#A8C4D4]"
-      }`}
-    >
-      {eyebrow}
-    </p>
+  <div className="mx-auto mb-6 max-w-3xl text-center md:mb-8">
+    {eyebrow ? (
+      <p
+        className={`mb-3 text-[11px] font-bold uppercase tracking-[0.28em] ${
+          dark ? "text-[#364A8C]" : "text-[#A8C4D4]"
+        }`}
+      >
+        {eyebrow}
+      </p>
+    ) : null}
     <h2
-      className={`font-serif text-4xl font-normal leading-none tracking-[-0.04em] md:text-6xl ${
+      className={`font-serif text-3xl font-normal leading-none tracking-[-0.04em] md:text-5xl ${
         dark ? "text-[#121E42]" : "text-[#EDECE6]"
       }`}
     >
@@ -90,7 +94,7 @@ const SectionHeader = ({
     </h2>
     {description ? (
       <p
-        className={`mx-auto mt-5 max-w-2xl text-sm leading-relaxed md:text-base ${
+        className={`mx-auto mt-3 max-w-2xl text-xs leading-relaxed md:mt-4 md:text-base ${
           dark ? "text-[#121E42]/70" : "text-[#EDECE6]/75"
         }`}
       >
@@ -102,63 +106,57 @@ const SectionHeader = ({
 
 const ValueShowcase = () => {
   return (
-    <div className="relative mx-auto grid w-full max-w-6xl items-center gap-6 lg:grid-cols-[1fr_0.85fr_1fr]">
-      {/* Garis tengah di-comment di sini (hilangkan tanda komentar untuk memunculkan kembali) */}
-      {/* <div className="pointer-events-none absolute left-1/2 top-1/2 hidden h-[1px] w-[78%] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-transparent via-[#EDECE6]/30 to-transparent lg:block" /> */}
-
-      {/* 1. Nilai 01 & 02 (Order 1 di Mobile & Desktop) */}
-      <div className="order-1 space-y-6 lg:order-1 lg:pr-4">
+    <div className="relative mx-auto grid w-full max-w-6xl items-center gap-5 lg:grid-cols-[1fr_0.85fr_1fr] lg:gap-6">
+      <div className="order-1 space-y-4 lg:order-1 lg:pr-4">
         {values.slice(0, 2).map((value) => (
           <article
             key={value.number}
-            className="group relative overflow-hidden rounded-[2rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-6 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 md:p-7"
+            className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-5 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 sm:p-6 md:rounded-[2rem] md:p-7"
           >
             <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#A8C4D4]/20 blur-2xl transition group-hover:bg-[#A8C4D4]/30" />
-            <span className="font-serif text-5xl leading-none text-[#A8C4D4]/70">
+            <span className="font-serif text-4xl leading-none text-[#A8C4D4]/70 md:text-5xl">
               {value.number}
             </span>
-            <h3 className="mt-5 font-serif text-3xl font-normal tracking-[-0.03em] text-[#EDECE6]">
+            <h3 className="mt-3 font-serif text-2xl font-normal tracking-[-0.03em] text-[#EDECE6] md:text-3xl">
               {value.title}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#EDECE6]/72 md:text-base">
+            <p className="mt-2 text-xs leading-relaxed text-[#EDECE6]/72 md:text-base">
               {value.description}
             </p>
           </article>
         ))}
       </div>
 
-      {/* 2. Nilai 03 & Kesimpulan (Order 2 di Mobile, Order 3 di Desktop) */}
-      <div className="order-2 space-y-6 lg:order-3 lg:pl-4">
+      <div className="order-2 space-y-4 lg:order-3 lg:pl-4">
         {values.slice(2).map((value) => (
           <article
             key={value.number}
-            className="group relative overflow-hidden rounded-[2rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-6 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 md:p-7"
+            className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-5 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 sm:p-6 md:rounded-[2rem] md:p-7"
           >
             <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#A8C4D4]/20 blur-2xl transition group-hover:bg-[#A8C4D4]/30" />
-            <span className="font-serif text-5xl leading-none text-[#A8C4D4]/70">
+            <span className="font-serif text-4xl leading-none text-[#A8C4D4]/70 md:text-5xl">
               {value.number}
             </span>
-            <h3 className="mt-5 font-serif text-3xl font-normal tracking-[-0.03em] text-[#EDECE6]">
+            <h3 className="mt-3 font-serif text-2xl font-normal tracking-[-0.03em] text-[#EDECE6] md:text-3xl">
               {value.title}
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[#EDECE6]/72 md:text-base">
+            <p className="mt-2 text-xs leading-relaxed text-[#EDECE6]/72 md:text-base">
               {value.description}
             </p>
           </article>
         ))}
       </div>
 
-      {/* 3. Logo Fiorella (Order 3 di Mobile / Paling Bawah, Order 2 di Desktop / Tengah) */}
-      <div className="order-3 relative mx-auto flex aspect-square w-full max-w-[360px] items-center justify-center rounded-full border border-[#EDECE6]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(168,196,212,0.32),rgba(237,236,230,0.08)_44%,rgba(18,30,66,0.18)_70%)] p-8 shadow-[0_30px_90px_rgba(18,30,66,0.28)] lg:order-2">
-        <div className="absolute inset-6 rounded-full border border-dashed border-[#EDECE6]/24" />
-        <div className="absolute inset-14 rounded-full bg-[#EDECE6]/12 blur-xl" />
-        <div className="relative grid h-44 w-44 place-items-center rounded-full bg-[#EDECE6] p-8 shadow-2xl md:h-52 md:w-52">
+      <div className="order-3 relative mx-auto mt-2 flex aspect-square w-full max-w-[220px] items-center justify-center rounded-full border border-[#EDECE6]/20 bg-[radial-gradient(circle_at_50%_42%,rgba(168,196,212,0.32),rgba(237,236,230,0.08)_44%,rgba(18,30,66,0.18)_70%)] p-6 shadow-[0_30px_90px_rgba(18,30,66,0.28)] sm:max-w-[260px] lg:order-2 lg:mt-0 md:max-w-[340px]">
+        <div className="absolute inset-4 rounded-full border border-dashed border-[#EDECE6]/24" />
+        <div className="absolute inset-10 rounded-full bg-[#EDECE6]/12 blur-xl" />
+        <div className="relative grid h-32 w-32 place-items-center rounded-full bg-[#EDECE6] p-6 shadow-2xl md:h-48 md:w-48">
           <Image
             src="/logo/Logo_Blue.png"
             alt="Logo Fiorella"
             fill
             sizes="208px"
-            className="object-contain p-8"
+            className="object-contain p-6"
           />
         </div>
       </div>
@@ -179,10 +177,8 @@ const DocumentationCard = ({
   gradient: string;
   index: number;
 }) => (
-  <article
-    className="group relative w-full overflow-hidden rounded-[2rem] shadow-2xl shadow-[#121E42]/20 md:rounded-[2.5rem]"
-  >
-    <div className="relative h-72 w-full md:h-[430px]">
+  <article className="group relative w-full overflow-hidden rounded-[1.5rem] shadow-2xl shadow-[#121E42]/20 md:rounded-[2.5rem]">
+    <div className="relative h-64 w-full sm:h-72 md:h-[320px]">
       <Image
         src={image}
         alt={title}
@@ -191,31 +187,32 @@ const DocumentationCard = ({
         className="object-cover object-center transition duration-700 group-hover:scale-105"
       />
       <div className={`absolute inset-0 bg-gradient-to-t ${gradient}`} />
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#121E42]/85 via-[#121E42]/25 to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_16%,rgba(237,236,230,0.25),transparent_28%)] opacity-70" />
     </div>
 
-    <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-10">
+    <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-5 md:p-8">
       <div className="flex items-center justify-between gap-4">
-        <span className="rounded-full border border-[#EDECE6]/30 bg-[#EDECE6]/14 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#EDECE6] backdrop-blur-md">
+        <span className="rounded-full border border-[#EDECE6]/30 bg-[#EDECE6]/14 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#EDECE6] backdrop-blur-md md:px-4 md:py-2 md:text-[10px]">
           {label}
         </span>
-        <span className="font-serif text-5xl leading-none text-[#EDECE6]/30">
+        <span className="font-serif text-3xl leading-none text-[#EDECE6]/30 md:text-5xl">
           0{index + 1}
         </span>
       </div>
 
-      <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
+      <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
         <div>
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#A8C4D4]">
+          <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.24em] text-[#A8C4D4] md:mb-2 md:text-xs">
             Dokumentasi Fiorella
           </p>
-          <h3 className="max-w-lg font-serif text-3xl font-normal leading-tight tracking-[-0.035em] text-[#EDECE6] md:text-5xl">
+          <h3 className="max-w-lg font-serif text-xl font-normal leading-tight tracking-[-0.035em] text-[#EDECE6] md:text-4xl">
             {title}
           </h3>
         </div>
         <Link
           href="#"
-          className="inline-flex shrink-0 items-center gap-3 rounded-full bg-[#EDECE6] px-5 py-3 text-sm font-bold text-[#121E42] shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-white md:px-6"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#EDECE6] px-4 py-2 text-xs font-bold text-[#121E42] shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-white md:gap-3 md:px-6 md:py-3 md:text-sm"
         >
           Akses Drive
           <ArrowIcon />
@@ -227,19 +224,25 @@ const DocumentationCard = ({
 
 export default function TentangFiorellaPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#121E42] font-sans text-[#EDECE6]">
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_16%_18%,rgba(101,144,194,0.42),transparent_30%),radial-gradient(circle_at_86%_12%,rgba(168,196,212,0.22),transparent_28%),linear-gradient(155deg,#121E42_0%,#24386F_52%,#364A8C_100%)] px-4 py-24 md:px-8 md:py-32">
-        <div className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#6590C2]/18 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-8 right-0 h-96 w-96 rounded-full bg-[#A8C4D4]/14 blur-3xl" />
+    // 1. Ubah <main> menjadi area scroll utama (membatasi tinggi & menyalakan snap)
+    <main className="relative w-full h-[100dvh] overflow-y-auto overflow-x-hidden snap-y snap-mandatory bg-[#121E42] font-sans text-[#EDECE6]">
+      
+      {/* SECTION 1: Tentang Pameran */}
+      {/* 2. Gunakan tag <section> dengan penambahan snap-start dan snap-always */}
+      <section className="relative flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center bg-[radial-gradient(circle_at_16%_18%,rgba(101,144,194,0.42),transparent_30%),radial-gradient(circle_at_86%_12%,rgba(168,196,212,0.22),transparent_28%),linear-gradient(155deg,#121E42_0%,#24386F_52%,#364A8C_100%)] px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#6590C2]/18 blur-3xl" />
+          <div className="absolute bottom-8 right-0 h-96 w-96 rounded-full bg-[#A8C4D4]/14 blur-3xl" />
+        </div>
 
-        <div className="relative z-10 mx-auto max-w-6xl space-y-8">
-          <div className="relative overflow-hidden rounded-[2rem] bg-[#EDECE6] p-8 text-[#121E42] shadow-[0_30px_90px_rgba(18,30,66,0.28)] md:rounded-[3rem] md:p-14 lg:p-16">
+        <div className="relative z-10 mx-auto w-full max-w-6xl space-y-5 md:space-y-6">
+          <div className="relative overflow-hidden rounded-[1.5rem] bg-[#EDECE6] p-6 text-[#121E42] shadow-[0_30px_90px_rgba(18,30,66,0.28)] sm:p-7 md:rounded-[2.5rem] md:p-10 lg:p-12">
             <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#A8C4D4]/55 blur-3xl" />
             <div className="absolute bottom-0 left-0 h-36 w-full bg-gradient-to-t from-white/28 to-transparent" />
 
-            <div className="relative grid items-center gap-10 lg:grid-cols-[0.72fr_1fr] lg:gap-14">
-              <div className="mx-auto flex w-full max-w-sm flex-col items-center text-center">
-                <div className="relative mb-3 aspect-[4/3] w-full max-w-[400px]">
+            <div className="relative grid items-center gap-6 lg:grid-cols-[0.6fr_1fr] lg:gap-10">
+              <div className="mx-auto flex w-full max-w-xs flex-col items-center text-center">
+                <div className="relative mb-2 aspect-[4/3] w-full max-w-[220px] sm:max-w-[280px] md:max-w-[340px]">
                   <Image
                     src="/logo/Logo_Blue.png"
                     alt="Fiorella Logo"
@@ -249,49 +252,41 @@ export default function TentangFiorellaPage() {
                     className="object-contain"
                   />
                 </div>
-                <p className="font-serif text-2xl italic tracking-[-0.02em] text-[#6590C2] md:text-3xl">
-                  “bunga kecil”
+                <p className="font-serif text-lg italic tracking-[-0.02em] text-[#6590C2] sm:text-xl md:text-2xl">
+                  "bunga kecil"
                 </p>
               </div>
 
               <div className="relative">
-                <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.28em] text-[#364A8C]">
+                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#364A8C] md:text-[11px]">
                   Tentang Pameran
                 </p>
-                <h1 className="font-serif text-5xl font-normal leading-none tracking-[-0.055em] text-[#121E42] md:text-7xl">
+                <h1 className="font-serif text-2xl font-normal leading-tight tracking-[-0.05em] text-[#121E42] sm:text-3xl md:text-6xl">
                   Merangkai momen menjadi cerita yang mekar.
                 </h1>
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#121E42]/72 md:text-lg">
+                <p className="mt-3 max-w-2xl text-xs leading-relaxed text-[#121E42]/72 md:mt-4 md:text-base">
                   Fiorella adalah sebuah pameran foto dan video yang menampilkan dokumentasi lengkap dari sebuah kegiatan besar. Melalui lensa para fotografer berbakat, kami mengabadikan setiap momen berharga yang terjadi selama acara berlangsung.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <article className="group relative overflow-hidden rounded-[2rem] border border-[#EDECE6]/16 bg-[#EDECE6]/95 p-7 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 md:p-9">
-              <div className="absolute right-6 top-6 font-serif text-6xl leading-none text-[#A8C4D4]/50">
-                01
-              </div>
-              <h2 className="font-serif text-3xl font-normal tracking-[-0.035em] text-[#121E42] md:text-4xl">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+            <article className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/95 p-5 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 sm:p-6 md:rounded-[2rem] md:p-7">
+              <h2 className="font-serif text-2xl font-normal tracking-[-0.035em] text-[#121E42] md:text-3xl">
                 Tema Besar
               </h2>
-              <br></br>
-              <p className="mt-4 text-sm leading-relaxed text-[#121E42]/72 md:text-base">
+              <p className="mt-2 text-xs leading-relaxed text-[#121E42]/72 md:mt-3 md:text-sm">
                 Tema besar Fiorella menjadi payung cerita yang menyatukan dokumentasi visual, suasana acara, dan pengalaman peserta ke dalam satu alur yang mudah dipahami pengunjung.
               </p>
             </article>
 
-            <article className="group relative overflow-hidden rounded-[2rem] border border-[#EDECE6]/16 bg-[#A8C4D4] p-7 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 md:p-9">
+            <article className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#A8C4D4] p-5 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 sm:p-6 md:rounded-[2rem] md:p-7">
               <div className="absolute -bottom-16 -right-10 h-44 w-44 rounded-full bg-[#EDECE6]/50 blur-2xl" />
-              <div className="absolute right-6 top-6 font-serif text-6xl leading-none text-[#EDECE6]/55">
-                02
-              </div>
-              <h2 className="font-serif text-3xl font-normal tracking-[-0.035em] text-[#121E42] md:text-4xl">
+              <h2 className="font-serif text-2xl font-normal tracking-[-0.035em] text-[#121E42] md:text-3xl">
                 Konsep Besar
               </h2>
-              <br></br>
-              <p className="relative mt-4 text-sm leading-relaxed text-[#121E42]/72 md:text-base">
+              <p className="relative mt-2 text-xs leading-relaxed text-[#121E42]/72 md:mt-3 md:text-sm">
                 Konsep besar Fiorella mengolah dokumentasi sebagai ruang apresiasi: rapi sebagai arsip, hangat sebagai kenangan, dan tetap ekspresif sebagai karya pameran.
               </p>
             </article>
@@ -299,30 +294,30 @@ export default function TentangFiorellaPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_18%_22%,rgba(237,236,230,0.16),transparent_26%),radial-gradient(circle_at_82%_68%,rgba(168,196,212,0.34),transparent_30%),linear-gradient(160deg,#364A8C_0%,#6590C2_58%,#A8C4D4_100%)] px-4 py-24 md:px-8 md:py-32">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#364A8C]/45 to-transparent" />
-        <div className="relative z-10 mx-auto max-w-6xl">
+      {/* SECTION 2: Nilai Utama */}
+      <section className="relative flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center bg-[radial-gradient(circle_at_18%_22%,rgba(237,236,230,0.16),transparent_26%),radial-gradient(circle_at_82%_68%,rgba(168,196,212,0.34),transparent_30%),linear-gradient(160deg,#364A8C_0%,#6590C2_58%,#A8C4D4_100%)] px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#364A8C]/45 to-transparent" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-6xl">
           <SectionHeader
-            eyebrow=""
             title="Nilai Utama"
             description="Nilai utama disusun sebagai panduan membaca pameran: bagaimana momen bertumbuh, saling terhubung, lalu terekam menjadi jejak yang bisa dikunjungi kembali."
           />
-
           <ValueShowcase />
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_16%_8%,rgba(168,196,212,0.55),transparent_28%),linear-gradient(180deg,#EDECE6_0%,#DCE7EB_42%,#121E42_100%)] px-4 py-24 md:px-8 md:py-32">
+      {/* SECTION 3: Dokumentasi */}
+      <section className="relative flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center overflow-hidden bg-[radial-gradient(circle_at_16%_8%,rgba(168,196,212,0.55),transparent_28%),linear-gradient(180deg,#EDECE6_0%,#DCE7EB_42%,#121E42_100%)] px-5 pt-24 pb-16 sm:px-6 md:px-8 md:py-26">
         <div className="pointer-events-none absolute -right-28 top-12 h-80 w-80 rounded-full bg-[#6590C2]/25 blur-3xl" />
-        <div className="relative z-10 mx-auto max-w-5xl">
+        <div className="relative z-10 mx-auto w-full max-w-5xl">
           <SectionHeader
-            eyebrow=""
             title="Dokumentasi"
             description="Kumpulan dokumentasi disusun agar pengunjung dapat mengakses kembali foto, video, dan suasana penting Fiorella secara ringkas."
             dark
           />
-
-          <div className="space-y-8 md:space-y-10">
+          <div className="space-y-4 md:space-y-6">
             {documentationCards.map((card, index) => (
               <DocumentationCard
                 key={card.title}
@@ -336,6 +331,7 @@ export default function TentangFiorellaPage() {
           </div>
         </div>
       </section>
+
     </main>
   );
 }
