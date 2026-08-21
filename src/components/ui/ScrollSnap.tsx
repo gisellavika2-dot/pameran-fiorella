@@ -1,6 +1,7 @@
 // src/components/ui/ScrollSnap.tsx
 
 import { ReactNode } from "react";
+import "./ScrollSnap.css";
 
 export function ScrollSnapContainer({ children }: { children: ReactNode }) {
   return <div className="scroll-snap-container">{children}</div>;

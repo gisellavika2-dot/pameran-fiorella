@@ -3,6 +3,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import "./CustomCursor.css";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);

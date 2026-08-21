@@ -1,0 +1,60 @@
+body:has(.hari-detail-page) .site-header {
+  display: none;
+}
+.hari-detail-page {
+  background:
+    radial-gradient(
+      circle at 10% 12%,
+      rgba(168, 196, 212, 0.62),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 88% 32%,
+      rgba(101, 144, 194, 0.2),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 62% 88%,
+      rgba(168, 196, 212, 0.34),
+      transparent 30%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fc 54%, #edece6 100%);
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 35s linear infinite;
+}
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 35s linear infinite;
+}
+.animate-marquee-right:hover,
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

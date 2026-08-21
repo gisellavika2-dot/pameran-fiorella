@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import "./BehindTheScenesCanvas.css";
 
 const photos = [
   { id: "01", title: "Ruang rapat", message: "Setiap gagasan besar selalu dimulai dari percakapan kecil di satu meja." },
@@ -141,59 +142,6 @@ export default function BehindTheScenesCanvas() {
         </div>
       )}
 
-      <style jsx global>{`
-        .behind-wall-photo {
-          overflow: visible;
-          border: 0;
-          border-radius: 0;
-          background: transparent;
-          box-shadow: none;
-        }
-        .behind-postcard-frame {
-          position: relative;
-          display: block;
-          box-sizing: border-box;
-          width: 100%;
-          height: 100%;
-          padding: 10px 10px 28px;
-          background: var(--paper);
-          border: 1px solid rgba(54, 74, 140, .38);
-          box-shadow: 0 14px 30px rgba(18, 30, 66, .3), inset 0 0 0 3px rgba(168, 196, 212, .45);
-          transform: rotate(-1.1deg);
-          transition: transform .2s ease, box-shadow .2s ease;
-        }
-        .behind-wall-photo:nth-child(even) .behind-postcard-frame { transform: rotate(1deg); }
-        .behind-wall-photo:hover .behind-postcard-frame {
-          box-shadow: 0 18px 36px rgba(18, 30, 66, .38), inset 0 0 0 3px rgba(168, 196, 212, .65);
-        }
-        .behind-postcard-frame img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border: 1px solid rgba(54, 74, 140, .45);
-        }
-        .behind-postcard-label {
-          position: absolute;
-          right: 12px;
-          bottom: 7px;
-          color: var(--blue);
-          font-family: Georgia, "Times New Roman", serif;
-          font-size: 9px;
-          font-style: italic;
-          letter-spacing: .12em;
-          text-transform: uppercase;
-        }
-        .behind-photo-flip-front { padding: 22px 22px 46px; background: var(--paper); }
-        .behind-photo-flip-front .behind-postcard-frame-large { padding: 12px 12px 30px; }
-        .behind-photo-flip-front .behind-postcard-frame-large img { height: 100%; }
-        .behind-photo-flip-front small { bottom: 12px; }
-        @media (max-width: 760px) {
-          .behind-postcard-frame { padding: 7px 7px 22px; }
-          .behind-postcard-label { right: 8px; bottom: 5px; font-size: 7px; }
-          .behind-photo-flip-front { padding: 14px 14px 38px; }
-        }
-      `}</style>
     </section>
   );
 }

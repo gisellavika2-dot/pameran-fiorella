@@ -5,6 +5,7 @@ import { divisions } from "@/data/divisions";
 import { schedule } from "@/data/schedule";
 import DivisionAccordion from "@/components/ui/DivisionAccordion";
 import EventCarousel from "@/components/ui/EventCarousel";
+import "./home.css";
 
 const behindTheScenesRows = [
   [0, 1, 2, 3],

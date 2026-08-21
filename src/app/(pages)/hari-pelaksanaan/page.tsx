@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { schedule } from "@/data/schedule";
+import "./hari-pelaksanaan.css";
 
 const eventImages = ["/figma/event-main.png", "/figma/event-side-right.png", "/figma/event-side-left.png", "/figma/division-event.png", "/figma/division-documentation.png"];
 

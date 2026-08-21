@@ -1,0 +1,14 @@
+.scroll-snap-container {
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+.scroll-snap-section {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always; /* Mencegah scroll wheel/touchpad bablas 2 section */
+}

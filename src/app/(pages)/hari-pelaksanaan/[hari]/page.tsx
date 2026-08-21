@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { use, useRef } from 'react';
 import Link from "next/link";
 import { schedule } from "@/data/schedule";
+import "./hari-detail.css";
 
 const eventImages = [
   "/figma/event-main.png",
@@ -186,37 +187,6 @@ export default function HariDetailPage({ params }: PageProps) {
         </a>
       </div>
 
-      <style jsx global>{`
-        @keyframes marqueeRight {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0%); }
-        }
-        @keyframes marqueeLeft {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee-right {
-          display: flex;
-          width: max-content;
-          animation: marqueeRight 35s linear infinite;
-        }
-        .animate-marquee-left {
-          display: flex;
-          width: max-content;
-          animation: marqueeLeft 35s linear infinite;
-        }
-        .animate-marquee-right:hover,
-        .animate-marquee-left:hover {
-          animation-play-state: paused;
-        }
-        .scrollbar-none::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-none {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </main>
   );
 }

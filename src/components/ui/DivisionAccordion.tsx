@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Division } from "@/data/divisions";
+import "./DivisionAccordion.css";
 
 const divisionLogos = [
   "/figma/division-bph.webp",
