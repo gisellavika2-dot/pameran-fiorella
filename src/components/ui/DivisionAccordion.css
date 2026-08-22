@@ -285,7 +285,7 @@
   border-color: #f21842;
 }
 .division-accordion {
-  height: 606px;
+  height: 400px;
 }
 @media (max-width: 760px) {
   .division-accordion {
@@ -343,7 +343,7 @@
     font-size: 22px;
   }
 }
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   .division-panel,
   .division-panel-footer > img,
   .division-panel-copy,
@@ -351,4 +351,4 @@
     animation: none !important;
     transition: none !important;
   }
-}
+} */
