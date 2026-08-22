@@ -22,6 +22,8 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
 
   const [randomPhotos, setRandomPhotos] = useState<string[]>([]);
 
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   useEffect(() => {
     if (division?.galeriFoto && division.galeriFoto.length > 0) {
       const shuffled = [...division.galeriFoto];
@@ -253,11 +255,18 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
                   return (
                     <div
                       key={`${item}-${idx}`}
+                      onClick={() => setSelectedImage(item)}
                       className={`bg-white rounded-xl overflow-hidden shadow-md aspect-[16/9] relative transition-transform duration-300 hover:scale-[1.02] ${
                         isNinth ? "col-span-3 sm:col-span-1" : "col-span-1"
                       }`}
                     >
-                      <Image src={item} alt={`Dokumentasi ${division.name} ${idx + 1}`} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover"/>
+                      <Image
+                        src={item}
+                        alt={`Dokumentasi ${division.name} ${idx + 1}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                        className="object-cover"
+                      />
                     </div>
                   );
                 })}
@@ -269,6 +278,26 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
                 ))}
               </div>
             )}
+
+            {selectedImage && (
+            <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200" onClick={() => setSelectedImage(null)}>
+              <button onClick={() => setSelectedImage(null)} className="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl font-bold z-10 w-10 h-10 flex items-center justify-center bg-black/50 rounded-full" aria-label="Tutup foto" >
+                &times;
+              </button>
+
+              <div className="relative max-w-5xl w-full max-h-[90vh] aspect-[16/9] rounded-xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+                <Image
+                  src={selectedImage}
+                  alt="Dokumentasi Membesar"
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
+            )}
+
           </div>
         </div>
       </ScrollSnapSection>
