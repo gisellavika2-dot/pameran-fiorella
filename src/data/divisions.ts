@@ -26,6 +26,7 @@ export interface Division {
   name: string;
   nameEng: string;
   description: string;
+  tugas: string;
   fotoDivisi: SesiFoto[];
   sarya: CardSarya[];
   cardFoto: CardFoto[];
@@ -41,8 +42,8 @@ export const divisions: Division[] = [
     logo: "/figma/division-bph.webp",
     name: "Adhikara",
     nameEng: "Executive",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Yang memiliki wewenang, otoritas, dan kompeten.",
+    tugas : "Divisi Adhikara bertugas sebagai pusat kendali yang menentukan langkah dan pedoman bagi seluruh panitia OMB UMN 2026 NEXT.",
     fotoDivisi: [
       {
         fotos: [
@@ -94,8 +95,8 @@ export const divisions: Division[] = [
     logo: "/figma/division-dokum.webp",
     name: "Sanchita",
     nameEng: "Documentation",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Terkumpul, tersimpan, tertata",
+    tugas: "Divisi Sanchita mengabadikan seluruh kegiatan agar dapat dikenang dan menjadi arsip OMB UMN 2026 NEXT.",
     fotoDivisi: [
       {
         fotos: [
@@ -128,16 +129,16 @@ export const divisions: Division[] = [
     logo: "/figma/division-keamanan.webp",
     name: "Birendra",
     nameEng: "Guardians",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Raja yang berani, pelindung",
+    tugas: "Divisi Birendra menjaga tertib dan keamanan seluruh kegiatan OMB UMN 2026 NEXT.",
     fotoDivisi: [
       {
         idSesi: "sesi-1",
         namaSesi: "Sesi 1",
         fotos: [
-          "/galeriFotoDivisi/foto_sementara.JPG",
-          "/galeriFotoDivisi/foto_sementara.JPG",
-          "/galeriFotoDivisi/foto_sementara.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_1.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_3.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_4.JPG",
 
         ],
       },
@@ -145,9 +146,9 @@ export const divisions: Division[] = [
         idSesi: "sesi-2",
         namaSesi: "Sesi 2",
         fotos: [
+          "/fotoDivisi/Foto Divisi_Birendra_1_2.JPG",
           "/fotoDivisi/Foto Divisi_Birendra_3_2.JPG",
           "/fotoDivisi/Foto Divisi_Birendra_4_2.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_1.JPG",
         ],
       },
     ],
@@ -175,7 +176,8 @@ export const divisions: Division[] = [
     name: "Nayaka",
     nameEng: "Food & Beverage",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Baik, bermanfaat, nyaman",
+    tugas: "Divisi Nayaka memastikan semua kebutuhan konsumsi terpenuhi agar peserta nyaman selama kegiatan.",
     fotoDivisi: [
       {
         fotos: [
@@ -208,7 +210,8 @@ export const divisions: Division[] = [
     name: "Janardana",
     nameEng: "Medic",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Pelindung manusia / penyelamat.",
+    tugas: "Divisi Janardana memberikan pertolongan dan menjaga keselamatan peserta selama kegiatan berlangsung.",
     fotoDivisi: [
       {
         idSesi: "sesi-1",
@@ -254,7 +257,8 @@ export const divisions: Division[] = [
     name: "Daraka",
     nameEng: "Equipment",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Yang menahan, yang menopang, yang memelihara",
+    tugas: "Divisi Daraka memastikan semua kebutuhan teknis siap agar kegiatan berjalan lancar.",
     fotoDivisi: [
       {
         fotos: [
@@ -288,8 +292,8 @@ export const divisions: Division[] = [
     logo: "/figma/division-pic.webp",
     name: "Artha",
     nameEng: "Person in Charge (PIC)",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Tujuan, maksud, arti / kepentingan",
+    tugas: "Divisi Artha membimbing dan mengarahkan anggota berdasarkan pengetahuan dan pengalaman yang dimiliki.",
     fotoDivisi: [
       {
         idSesi: "sesi-1",
@@ -372,7 +376,8 @@ export const divisions: Division[] = [
     name: "Anantara",
     nameEng: "Public Relations",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Antara, ditengah, penghubung, interval",
+    tugas: "Divisi Anantara menjaga komunikasi yang lancar dan menghubungkan semua pihak terkait kegiatan OMB UMN 2026 NEXT.",
     fotoDivisi: [
       {
         fotos: [
@@ -410,7 +415,8 @@ export const divisions: Division[] = [
     name: "Swarna",
     nameEng: "Visual",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Emas, cahaya, kemilau",
+    tugas: "Divisi Swarna mengekspresikan kreativitas melalui desain dan visual kegiatan OMB UMN 2026 NEXT.",
     fotoDivisi: [
       {
         fotos: [
@@ -444,7 +450,8 @@ export const divisions: Division[] = [
     name: "Rachana",
     nameEng: "Website",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Ciptaan, karya, rancangan",
+    tugas: "Divisi Rachana menyebarkan informasi secara luas, jelas, dan tepat waktu.",
     fotoDivisi: [
       {
         fotos: [
@@ -480,7 +487,8 @@ export const divisions: Division[] = [
     name: "Sanchara",
     nameEng: "Event",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Pergerakan, perjalanan, alur / flow",
+    tugas: "Divisi Sanchara bertugas mengatur jalannya kegiatan agar tersusun rapi, mengalir, dan berkesan dari awal hingga akhir.",
     fotoDivisi: [
       {
         fotos: [

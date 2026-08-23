@@ -67,13 +67,13 @@ const archiveData: ArchiveItem[] = [
 
 export default function ArsipPage() {
   return (
-    <main className="min-h-screen bg-[#0d1117] text-white py-16 px-4 sm:px-8 lg:px-8">
+    <main className="min-h-screen bg-[linear-gradient(150deg,#121E42_10%,#6590C2_50%,#A8C4D4_70%,#EDECE6_100%)] text-white py-16 px-4 sm:px-8 lg:px-8">
       <div className="max-w-7xl mx-auto text-center mb-12 mt-16">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
+        <h1 className="text-3xl md:text-6xl font-bold tracking-tight mb-3">
           Arsip OMB UMN
         </h1>
-        <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">
-          Lorem ipsum
+        <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
+          Kumpulan dokumentasi, momen bersejarah, dan rekam jejak pelaksanaan Orientasi Mahasiswa Baru Universitas Multimedia Nusantara lintas generasi.
         </p>
       </div>
 
