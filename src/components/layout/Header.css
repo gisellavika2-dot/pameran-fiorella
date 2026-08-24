@@ -29,6 +29,10 @@
   body:has(.behind-canvas-page) .nav-pill,
   body:has(.behind-canvas-page) .nav-pill a { pointer-events: auto; }
 }
+@media (max-width: 480px) {
+  .menu-button span { display: none; }
+  .menu-button { justify-content: center; width: 40px; padding: 0; }
+}
 @media (max-width:380px) {
   .menu-button span { display: none; }
   .menu-button { justify-content: center; width: 40px; padding: 0; }
