@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import HomeBehindGallery from "@/components/ui/HomeBehindGallery";
 import type { CSSProperties } from "react";
 import { divisions } from "@/data/divisions";
 import { schedule } from "@/data/schedule";
@@ -79,26 +80,7 @@ export default function Home() {
       <section className="editorial-section behind-section">
         <p className="section-kicker">Yang tak terlihat di panggung</p>
         <h2>Dibalik Kepanitiaan</h2>
-        <div className="mosaic" aria-label="Kolase dokumentasi panitia">
-          {behindTheScenesRows.map((row, rowIndex) => (
-            <div
-              className={`mosaic-row ${
-                rowIndex === 1 ? "mosaic-row-left" : "mosaic-row-right"
-              }`}
-              key={rowIndex}
-            >
-              {Array.from({ length: 4 }, (_, setIndex) => (
-                <div className="mosaic-track" key={setIndex}>
-                  {row.map((photoIndex) => (
-                    <div className="mosaic-cell" key={photoIndex}>
-                      <img src={`https://picsum.photos/seed/fiorella-panitia-${photoIndex}/560/320`} alt="Placeholder dokumentasi panitia" />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+        <HomeBehindGallery rows={behindTheScenesRows} />
         <Link className="figma-button dark-button" href="/dibalik-kepanitiaan">
           Hasil Dokumentasi <span>→</span>
         </Link>

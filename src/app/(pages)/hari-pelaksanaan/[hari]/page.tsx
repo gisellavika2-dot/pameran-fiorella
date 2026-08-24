@@ -2,7 +2,7 @@
 'use client';
 
 import Image from "next/image";
-import React, { use, useRef } from 'react';
+import React, { use, useRef, useState } from 'react';
 import Link from "next/link";
 import { schedule } from "@/data/schedule";
 import "./hari-detail.css";
@@ -30,6 +30,7 @@ export default function HariDetailPage({ params }: PageProps) {
   const marquee1Ref = useRef<HTMLDivElement>(null);
   const marquee2Ref = useRef<HTMLDivElement>(null);
   const marquee3Ref = useRef<HTMLDivElement>(null);
+  const [selectedGalleryPhoto, setSelectedGalleryPhoto] = useState<string | null>(null);
 
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -99,29 +100,29 @@ export default function HariDetailPage({ params }: PageProps) {
     >
       <Link
         href="/hari-pelaksanaan"
-        className="fixed right-5 top-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-[#121E42]/20 bg-[#EDECE6]/95 pb-1 text-3xl font-light leading-none text-[#121E42] shadow-lg backdrop-blur transition hover:scale-105 hover:bg-[#121E42] hover:text-[#EDECE6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#364A8C] md:right-8 md:top-8"
+        className="hari-detail-close fixed right-5 top-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-[#121E42]/20 bg-[#EDECE6]/95 pb-1 text-3xl font-light leading-none text-[#121E42] shadow-lg backdrop-blur transition hover:scale-105 hover:bg-[#121E42] hover:text-[#EDECE6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#364A8C] md:right-8 md:top-8"
         aria-label="Kembali ke Hari Pelaksanaan"
         title="Kembali ke Hari Pelaksanaan"
       >
         <span aria-hidden="true">×</span>
       </Link>
       {/* Main Header Information */}
-      <div className="w-full max-w-7xl bg-transparent flex flex-col gap-7 mb-16 pt-28 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
-        <div className="relative w-full h-[62vh] min-h-[560px] max-h-[780px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#121E42] border border-[#EDECE6]/20">
+      <div className="hari-detail-hero w-full max-w-7xl bg-transparent flex flex-col gap-7 mb-16 pt-28 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
+        <div className="hari-detail-hero-image relative w-full h-[62vh] min-h-[560px] max-h-[780px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#121E42] border border-[#EDECE6]/20">
           <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill priority sizes="(max-width: 768px) 100vw, 90vw" className="object-cover pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/75 via-transparent to-transparent pointer-events-none" />
         </div>
-        <div className="flex flex-col gap-2 px-2 md:px-6">
-          <p className="text-[#364A8C] text-lg font-semibold">{scheduleDay.date}</p>
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#121E42] tracking-tight">{scheduleDay.title}</h1>
-          <p className="text-[#121E42]/80 text-base leading-relaxed max-w-4xl mt-2">{scheduleDay.description}</p>
+        <div className="hari-detail-copy flex flex-col gap-2 px-2 md:px-6">
+          <p className="hari-detail-date text-[#364A8C] text-lg font-semibold">{scheduleDay.date}</p>
+          <h1 className="hari-detail-title text-4xl md:text-6xl font-serif font-bold text-[#121E42] tracking-tight">{scheduleDay.title}</h1>
+          <p className="hari-detail-description text-[#121E42]/80 text-base leading-relaxed max-w-4xl mt-2">{scheduleDay.description}</p>
         </div>
       </div>
 
       {/* Galeri Dokumentasi */}
-      <div className="w-full flex flex-col gap-8 mb-32 z-10 pointer-events-auto py-6">
+      <div className="hari-detail-gallery w-full flex flex-col gap-8 mb-32 z-10 pointer-events-auto py-6">
         <hr className="w-full border-[#121E42]/20"/>
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center text-[#121E42] px-4">
+        <h2 className="hari-detail-gallery-title text-3xl md:text-4xl font-serif font-bold text-center text-[#121E42] px-4">
           Galeri Dokumentasi
         </h2>
         <hr className="w-full border-[#121E42]/20 mb-10"/>
@@ -137,10 +138,10 @@ export default function HariDetailPage({ params }: PageProps) {
             className="flex w-max animate-marquee-right gap-4 overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-none select-none"
           >
             {Array.from({ length: 15 }).map((_, idx) => (
-              <div key={`row1-${idx}`} className="w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center pointer-events-none">
+              <button type="button" key={`row1-${idx}`} onClick={() => setSelectedGalleryPhoto(`https://picsum.photos/seed/row1-${scheduleDay.day}-${idx}/900/540`)} className="hari-detail-gallery-card w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`https://picsum.photos/seed/row1-${scheduleDay.day}-${idx}/300/180`} alt="Gallery" className="w-full h-full object-cover" />
-              </div>
+              </button>
             ))}
           </div>
 
@@ -154,9 +155,9 @@ export default function HariDetailPage({ params }: PageProps) {
             className="flex w-max animate-marquee-left gap-4 overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-none select-none"
           >
             {Array.from({ length: 15 }).map((_, idx) => (
-              <div key={`row2-${idx}`} className="w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center pointer-events-none">
+              <button type="button" key={`row2-${idx}`} onClick={() => setSelectedGalleryPhoto(`https://picsum.photos/seed/row2-${scheduleDay.day}-${idx}/900/540`)} className="hari-detail-gallery-card w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
                 <img src={`https://picsum.photos/seed/row2-${scheduleDay.day}-${idx}/300/180`} alt="Gallery" className="w-full h-full object-cover" />
-              </div>
+              </button>
             ))}
           </div>
 
@@ -170,9 +171,9 @@ export default function HariDetailPage({ params }: PageProps) {
             className="flex w-max animate-marquee-right gap-4 overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-none select-none"
           >
             {Array.from({ length: 15 }).map((_, idx) => (
-              <div key={`row3-${idx}`} className="w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center pointer-events-none">
+              <button type="button" key={`row3-${idx}`} onClick={() => setSelectedGalleryPhoto(`https://picsum.photos/seed/row3-${scheduleDay.day}-${idx}/900/540`)} className="hari-detail-gallery-card w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
                 <img src={`https://picsum.photos/seed/row3-${scheduleDay.day}-${idx}/300/180`} alt="Gallery" className="w-full h-full object-cover" />
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -181,11 +182,20 @@ export default function HariDetailPage({ params }: PageProps) {
           href="https://drive.google.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="mx-auto bg-[#364A8C] hover:bg-[#121E42] text-[#EDECE6] font-semibold px-8 py-3.5 rounded-full shadow-md transition-colors mt-4"
+          className="hari-detail-drive mx-auto bg-[#364A8C] hover:bg-[#121E42] text-[#EDECE6] font-semibold px-8 py-3.5 rounded-full shadow-md transition-colors mt-4"
         >
           Lihat Google Drive
         </a>
       </div>
+
+      {selectedGalleryPhoto && (
+        <div className="inline-photo-popover" role="dialog" aria-modal="true" aria-label="Pratinjau dokumentasi" onClick={() => setSelectedGalleryPhoto(null)}>
+          <div className="inline-photo-popover-card" onClick={(event) => event.stopPropagation()}>
+            <button type="button" onClick={() => setSelectedGalleryPhoto(null)} aria-label="Tutup pratinjau">×</button>
+            <img src={selectedGalleryPhoto} alt="Dokumentasi acara diperbesar" />
+          </div>
+        </div>
+      )}
 
     </main>
   );

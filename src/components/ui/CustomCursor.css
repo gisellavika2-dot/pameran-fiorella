@@ -8,7 +8,7 @@
   pointer-events: none;
   z-index: 9999;
 }
-@media (max-width: 760px) {
+@media (max-width: 960px), (hover: none), (pointer: coarse) {
   .custom-cursor {
     display: none;
   }
