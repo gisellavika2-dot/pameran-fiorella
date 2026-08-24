@@ -47,14 +47,52 @@ body:has(.hari-detail-page) .site-header {
   width: max-content;
   animation: marqueeLeft 35s linear infinite;
 }
-.animate-marquee-right:hover,
-.animate-marquee-left:hover {
-  animation-play-state: paused;
-}
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 .scrollbar-none {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.hari-detail-copy,
+.hari-detail-drive,
+.hari-detail-close { font-family: Figtree, Arial, sans-serif; }
+.hari-detail-title,
+.hari-detail-gallery-title { font-family: Castoro, Georgia, serif; }
+
+@media (max-width: 1024px) {
+  .hari-detail-hero { max-width: calc(100% - 32px); padding-top: 96px; }
+  .hari-detail-hero-image { height: min(58svh, 640px); min-height: 440px; border-radius: 30px; }
+  .hari-detail-title { font-size: clamp(36px, 6vw, 54px); line-height: 1.08; }
+  .hari-detail-description { font-size: 15px; }
+}
+
+@media (max-width: 760px) {
+  .hari-detail-page { padding-top: 0; }
+  .hari-detail-close { top: max(14px, env(safe-area-inset-top)); right: 14px; width: 42px; height: 42px; font-size: 27px; }
+  .hari-detail-hero { max-width: 100%; gap: 20px; margin-bottom: 56px; padding: 76px 14px 0; }
+  .hari-detail-hero-image { height: min(52svh, 480px); min-height: 300px; border-radius: 22px; }
+  .hari-detail-copy { gap: 6px; padding-inline: 4px; }
+  .hari-detail-date { font-size: clamp(13px, 4vw, 16px); }
+  .hari-detail-title { font-size: clamp(30px, 10vw, 42px); line-height: 1.08; overflow-wrap: anywhere; }
+  .hari-detail-description { margin-top: 4px; font-size: clamp(13px, 3.7vw, 15px); line-height: 1.6; }
+  .hari-detail-gallery { gap: 22px; margin-bottom: 72px; padding-block: 0 24px; }
+  .hari-detail-gallery-title { font-size: clamp(25px, 8vw, 34px); }
+  .hari-detail-gallery hr { margin-bottom: 8px; }
+  .hari-detail-gallery > div { gap: 10px; }
+  .hari-detail-gallery-card { width: clamp(220px, 72vw, 280px); height: auto; aspect-ratio: 5 / 3; border-radius: 10px; }
+  .hari-detail-drive { display: inline-flex; justify-content: center; width: calc(100% - 32px); min-height: 46px; margin-top: 8px; padding: 12px 20px; font-size: 13px; }
+}
+
+@media (max-width: 380px) {
+  .hari-detail-hero { padding-inline: 10px; }
+  .hari-detail-hero-image { min-height: 260px; border-radius: 18px; }
+  .hari-detail-title { font-size: 29px; }
+  .hari-detail-gallery-card { width: 210px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-right,
+  .animate-marquee-left { animation-play-state: paused; }
 }
