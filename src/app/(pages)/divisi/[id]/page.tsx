@@ -71,7 +71,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
     <ScrollSnapContainer>
       <ScrollSnapSection>
         <div className="w-full min-h-screen flex flex-col justify-center" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
-          <div className="absolute inset-0 z-0 bg-[linear-gradient(150deg,rgba(0,0,0,0.2)_80%,rgba(255,255,255,255.4)_100%)]">
+          <div className="absolute inset-0 z-0 ">
             <Image
               src={
                 division.fotoDivisi?.[activeSesiIndex]?.fotos?.[2] ||
