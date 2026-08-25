@@ -57,7 +57,7 @@ export default function Footer() {
 
         <div className="text-center text-gray-400">
           <p>
-            &copy; Rachana, Sanchita UMN NEXT 2026.
+            &copy; Rachana, Sanchita, Swarna UMN NEXT 2026.
           </p>
         </div>
       </div>
