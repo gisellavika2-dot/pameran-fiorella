@@ -107,10 +107,7 @@ const SectionHeader = ({
 const ValueShowcase = () => {
   return (
     <div className="flex w-full max-w-6xl mx-auto flex-col gap-6 md:gap-8">
-      {/* BARIS 1: [Nilai 1] - [Logo] - [Nilai 2] (desktop) */}
       <div className="grid w-full items-center gap-5 lg:grid-cols-[1fr_0.85fr_1fr] lg:gap-6">
-        
-        {/* KIRI: Nilai 1 */}
         <article className="group relative order-1 h-full overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-5 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 sm:p-6 md:rounded-[2rem] md:p-7">
           <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#A8C4D4]/20 blur-2xl transition group-hover:bg-[#A8C4D4]/30" />
           <span className="font-serif text-4xl leading-none text-[#A8C4D4]/70 md:text-5xl">
@@ -124,7 +121,6 @@ const ValueShowcase = () => {
           </p>
         </article>
 
-        {/* TENGAH: Logo (hanya tampil di desktop) */}
         <div className="relative order-3 mx-auto mt-4 mb-4 hidden aspect-square w-full max-w-[220px] items-center justify-center rounded-full border border-[#EDECE6]/20 bg-[#EDECE6]/10 p-6 shadow-[0_30px_90px_rgba(18,30,66,0.28)] backdrop-blur-md sm:max-w-[260px] lg:order-2 lg:my-0 lg:flex md:max-w-[340px]">
           <div className="absolute inset-4 rounded-full border border-dashed border-[#EDECE6]/24" />
           <div className="absolute inset-10 rounded-full bg-[#EDECE6]/12 blur-xl" />
@@ -139,7 +135,6 @@ const ValueShowcase = () => {
           </div>
         </div>
 
-        {/* KANAN: Nilai 2 */}
         <article className="group relative order-2 h-full overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-5 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 sm:p-6 md:rounded-[2rem] md:p-7 lg:order-3">
           <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#A8C4D4]/20 blur-2xl transition group-hover:bg-[#A8C4D4]/30" />
           <span className="font-serif text-4xl leading-none text-[#A8C4D4]/70 md:text-5xl">
@@ -152,10 +147,8 @@ const ValueShowcase = () => {
             {values[1].description}
           </p>
         </article>
-
       </div>
 
-      {/* BARIS 2: [Nilai 3] */}
       <article className="group relative w-full overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-5 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-[#EDECE6]/15 sm:p-6 md:rounded-[2rem] md:p-8">
         <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-[#A8C4D4]/20 blur-3xl transition group-hover:bg-[#A8C4D4]/30" />
         <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:gap-8 lg:gap-12">
@@ -175,7 +168,6 @@ const ValueShowcase = () => {
         </div>
       </article>
 
-      {/* Logo versi mobile */}
       <div className="relative mx-auto flex aspect-square w-full max-w-[220px] items-center justify-center rounded-full border border-[#EDECE6]/20 bg-[#EDECE6]/10 p-6 shadow-[0_30px_90px_rgba(18,30,66,0.28)] backdrop-blur-md sm:max-w-[260px] lg:hidden">
         <div className="absolute inset-4 rounded-full border border-dashed border-[#EDECE6]/24" />
         <div className="absolute inset-10 rounded-full bg-[#EDECE6]/12 blur-xl" />
@@ -189,7 +181,6 @@ const ValueShowcase = () => {
           />
         </div>
       </div>
-      
     </div>
   );
 };
@@ -255,14 +246,8 @@ const DocumentationCard = ({
 export default function TentangFiorellaPage() {
   return (
     <main className="relative w-full h-[100dvh] overflow-y-auto overflow-x-hidden snap-y snap-mandatory font-sans text-[#EDECE6]">
-      
-      {/* BACKGROUND UTUH: grad3.jpg akan diam di belakang, tidak terputus */}
-      <div className="fixed inset-0 -z-10 h-full w-full bg-[url('/gradients/grad2_v.png')] bg-cover bg-center bg-no-repeat" />
-
-      {/* SECTION 1: Tentang Pameran (bg-transparent agar background belakang terlihat) */}
-      <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center bg-transparent px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
+      <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center bg-[url('/gradients/tentang/grad1.png')] bg-cover bg-center bg-no-repeat px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
         <div className="relative z-10 mx-auto w-full max-w-6xl space-y-5 md:space-y-6">
-          
           <div className="relative overflow-hidden rounded-[1.5rem] bg-[#EDECE6] p-6 text-[#121E42] shadow-[0_30px_90px_rgba(18,30,66,0.28)] sm:p-7 md:rounded-[2.5rem] md:p-10 lg:p-12">
             <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#A8C4D4]/55 blur-3xl" />
             <div className="absolute bottom-0 left-0 h-36 w-full bg-gradient-to-t from-white/28 to-transparent" />
@@ -272,7 +257,7 @@ export default function TentangFiorellaPage() {
                 <div className="relative aspect-[4/3] w-full max-w-[220px] sm:max-w-[280px] md:max-w-[340px]">
                   <Image
                     src="/logo/fiorella-blue-mark.png"
-                    alt="Fiorella Logo"
+                    alt="Logo Fiorella"
                     fill
                     priority
                     sizes="360px"
@@ -282,9 +267,7 @@ export default function TentangFiorellaPage() {
               </div>
 
               <div className="relative flex flex-col justify-center">
-                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#364A8C] md:text-[11px]">
-                   
-                </p>
+                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#364A8C] md:text-[11px]"></p>
                 <h1 className="font-serif text-4xl font-normal leading-tight tracking-[-0.02em] text-[#6590C2] sm:text-5xl md:text-7xl">
                   Fiorella
                 </h1>
@@ -329,8 +312,7 @@ export default function TentangFiorellaPage() {
         </div>
       </section>
 
-      {/* SECTION 2: Filosofi dan Nilai (bg-transparent) */}
-      <section className="relative z-10 flex min-h-[100dvh] h-max w-full snap-start snap-always flex-col justify-center bg-transparent px-5 pt-28 pb-24 sm:px-6 md:px-8 md:pt-30">
+      <section className="relative z-10 flex min-h-[100dvh] h-max w-full snap-start snap-always flex-col justify-center bg-[url('/gradients/tentang/grad2.png')] bg-cover bg-center bg-no-repeat px-5 pt-28 pb-24 sm:px-6 md:px-8 md:pt-30">
         <div className="relative z-10 mx-auto w-full max-w-6xl">
           <SectionHeader
             title="Filosofi dan Nilai"
@@ -338,7 +320,6 @@ export default function TentangFiorellaPage() {
           />
           
           <div className="mt-4 flex flex-col gap-6 md:mt-8 md:gap-10">
-            {/* Card Filosofi */}
             <article className="group relative w-full overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-6 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:bg-[#EDECE6]/15 md:rounded-[2rem] md:p-8 lg:p-10">
               <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#A8C4D4]/20 blur-3xl transition group-hover:bg-[#A8C4D4]/30" />
               <div className="relative">
@@ -366,8 +347,7 @@ export default function TentangFiorellaPage() {
         </div>
       </section>
 
-      {/* SECTION 3: Dokumentasi (bg-transparent) */}
-      <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center overflow-hidden bg-transparent px-5 pt-28 pb-16 sm:px-6 md:px-8 md:py-26 md:pt-30">
+      <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center overflow-hidden bg-[url('/gradients/tentang/grad3.png')] bg-cover bg-center bg-no-repeat px-5 pt-28 pb-16 sm:px-6 md:px-8 md:py-26 md:pt-30">
         <div className="relative z-10 mx-auto w-full max-w-5xl">
           <SectionHeader
             title="Dokumentasi"
@@ -387,7 +367,6 @@ export default function TentangFiorellaPage() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
