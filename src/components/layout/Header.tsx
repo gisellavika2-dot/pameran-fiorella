@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import "./Header.css";
 
@@ -19,7 +19,6 @@ const links = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setOpen(false); // Selalu tutup menu mobile saat link diklik
@@ -57,11 +56,12 @@ export default function Header() {
         className="menu-button" 
         onClick={() => setOpen(!open)} 
         aria-expanded={open} 
-        aria-label="Buka navigasi"
+        aria-label={open ? "Tutup navigasi" : "Buka navigasi"}
       >
-        {open ? "Tutup" : "Menu"}
+        <span>{open ? "Tutup" : "Menu"}</span>
+        <i aria-hidden="true" />
       </button>
-      <nav className={open ? "nav-pill nav-open" : "nav-pill"}>
+      <nav className={open ? "nav-pill nav-open" : "nav-pill"} aria-label="Navigasi utama">
         {links.map(([label, href]) => (
           <Link 
             key={label} 
