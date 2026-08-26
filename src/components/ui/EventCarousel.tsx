@@ -7,11 +7,11 @@ import type { ScheduleDay } from "@/data/schedule";
 import "./EventCarousel.css";
 
 const eventImages = [
-  "/figma/SIO.webp",
-  "/figma/Penanaman.webp",
-  "/figma/PENYINARAN.webp",
-  "/figma/PEREKAHAN.webp",
-  "/figma/STS.webp",
+  "/figma/landing/1.webp",
+  "/figma/landing/2.webp",
+  "/figma/landing/3.webp",
+  "/figma/landing/4.webp",
+  "/figma/landing/5.webp",
 ];
 
 function relativePosition(index: number, active: number, length: number) {

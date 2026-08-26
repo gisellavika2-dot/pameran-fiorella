@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Division } from "@/data/divisions";
+import type { DivisionPreview } from "@/data/divisions";
 import "./DivisionAccordion.css";
 
 const divisionLogos = [
@@ -25,7 +25,7 @@ const activePanelSizes = "(max-width: 768px) 340px, 60vw";
 const sidePanelSizes = "(max-width: 768px) 1px, 700px";
 const AUTO_ADVANCE_MS = 2700;
 
-export default function DivisionAccordion({ items }: { items: Division[] }) {
+export default function DivisionAccordion({ items }: { items: DivisionPreview[] }) {
   const [active, setActive] = useState(0);
   const [isInView, setIsInView] = useState(false);
   const accordionRef = useRef<HTMLDivElement>(null);
@@ -149,7 +149,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
           const visualPosition = Math.max(-3, Math.min(3, position));
           const isActive = position === 0;
           const isVisible = Math.abs(position) <= 2;
-          const photo = division.galeriFoto?.[0] ?? division.bg;
+          const photo = division.landingPreview;
 
           return (
             <article
@@ -176,7 +176,6 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                   src={photo}
                   alt=""
                   fill
-                  loading="eager"
                   sizes={isActive ? activePanelSizes : sidePanelSizes}
                 />
               )}
@@ -187,7 +186,6 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                     alt={`Logo ${division.name}`}
                     width={72}
                     height={72}
-                    loading="eager"
                   />
                   <div className="division-panel-copy" aria-hidden={!isActive}>
                     <h3 className="text-white">{division.name}</h3>

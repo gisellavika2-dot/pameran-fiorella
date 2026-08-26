@@ -32,17 +32,16 @@
   pointer-events: none;
   contain: layout paint;
   transition:
-    left 0.72s cubic-bezier(0.22, 1, 0.36, 1),
-    width 0.72s cubic-bezier(0.22, 1, 0.36, 1),
-    padding 0.72s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.32s ease,
-    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.5s ease;
+    left 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.26s ease,
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .division-panel-image {
   z-index: 0;
   object-fit: cover;
   pointer-events: none;
+  transform: translateZ(0);
 }
 .division-panel[data-position="-3"] {
   left: calc(0px - var(--division-edge) - var(--division-gap));
@@ -339,8 +338,6 @@
       rgba(18, 30, 66, 0.62),
       rgba(18, 30, 66, 0.28)
     );
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
   }
 
   .division-panel-identity {
@@ -450,7 +447,7 @@
   }
 }
 
-/* @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   .division-panel,
   .division-panel-footer > img,
   .division-panel-copy,
@@ -458,4 +455,4 @@
     animation: none !important;
     transition: none !important;
   }
-} */
+}

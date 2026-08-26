@@ -7,9 +7,12 @@ import Footer from "@/components/layout/Footer";
 import SitePreloader from "@/components/layout/SitePreloader";
 import SupergrafisField from "@/components/layout/SupergrafisField";
 import { SITE_NAME, SITE_DESCRIPTION } from "@/data/constants";
-import { importedSiteImageSources } from "@/data/imported-site-images";
-import { getPublicImageSources } from "@/lib/public-image-sources";
 import "./globals.css";
+
+const shellImageSources = [
+  "/logo/fiorella-blue-mark.webp",
+  "/logo/Logo_White.webp",
+];
 
 const castoro = Castoro({
   weight: "400",
@@ -39,14 +42,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const imageSources = Array.from(
-    new Set([...getPublicImageSources(), ...importedSiteImageSources]),
-  );
-
   return (
     <html lang="id" className={`${castoro.variable} ${figtree.variable}`}>
       <body className="site-preload-pending flex min-h-screen flex-col">
-        <SitePreloader imageSources={imageSources} />
+        <SitePreloader imageSources={shellImageSources} />
         <Header />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />

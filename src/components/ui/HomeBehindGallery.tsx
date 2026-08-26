@@ -16,7 +16,20 @@ import sancharaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SANCHARA_1.we
 import sanchitaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Sanchita_1.webp";
 import swarnaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SWARNA_1.webp";
 
-const photos = [adhikaraPhoto, anantaraPhoto, arthaTwoPhoto, arthaThreePhoto, birendraPhoto, darakaPhoto, janardanaOnePhoto, janardanaTwoPhoto, nayakaPhoto, sancharaPhoto, sanchitaPhoto, swarnaPhoto];
+const photos = [
+  { preview: "/fotoKepanitiaan/landing/1.webp", full: adhikaraPhoto },
+  { preview: "/fotoKepanitiaan/landing/2.webp", full: anantaraPhoto },
+  { preview: "/fotoKepanitiaan/landing/3.webp", full: arthaTwoPhoto },
+  { preview: "/fotoKepanitiaan/landing/4.webp", full: arthaThreePhoto },
+  { preview: "/fotoKepanitiaan/landing/5.webp", full: birendraPhoto },
+  { preview: "/fotoKepanitiaan/landing/6.webp", full: darakaPhoto },
+  { preview: "/fotoKepanitiaan/landing/7.webp", full: janardanaOnePhoto },
+  { preview: "/fotoKepanitiaan/landing/8.webp", full: janardanaTwoPhoto },
+  { preview: "/fotoKepanitiaan/landing/9.webp", full: nayakaPhoto },
+  { preview: "/fotoKepanitiaan/landing/10.webp", full: sancharaPhoto },
+  { preview: "/fotoKepanitiaan/landing/11.webp", full: sanchitaPhoto },
+  { preview: "/fotoKepanitiaan/landing/12.webp", full: swarnaPhoto },
+];
 
 type HomeBehindGalleryProps = {
   rows: number[][];
@@ -33,10 +46,10 @@ export default function HomeBehindGallery({ rows }: HomeBehindGalleryProps) {
             {Array.from({ length: 4 }, (_, setIndex) => (
               <div className="mosaic-track" key={setIndex}>
                 {row.map((photoIndex) => {
-                  const src = photos[photoIndex % photos.length];
+                  const photo = photos[photoIndex % photos.length];
                   return (
-                    <button className="mosaic-cell" type="button" key={photoIndex} onClick={() => setSelectedPhoto(src)} aria-label="Perbesar dokumentasi panitia">
-                      <Image src={src} alt="Dokumentasi panitia Fiorella" fill loading={setIndex === 0 ? "eager" : "lazy"} sizes="(max-width: 760px) 190px, 280px" />
+                    <button className="mosaic-cell" type="button" key={photoIndex} onClick={() => setSelectedPhoto(photo.full)} aria-label="Perbesar dokumentasi panitia">
+                      <Image src={photo.preview} alt="Dokumentasi panitia Fiorella" fill loading="lazy" sizes="(max-width: 760px) 190px, 280px" />
                     </button>
                   );
                 })}

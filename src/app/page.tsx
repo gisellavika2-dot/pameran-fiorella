@@ -3,7 +3,7 @@ import Link from "next/link";
 import HomeBehindGallery from "@/components/ui/HomeBehindGallery";
 import SmoothSectionScroller from "@/components/ui/SmoothSectionScroller";
 import type { CSSProperties } from "react";
-import { divisions } from "@/data/divisions";
+import { divisionPreviews } from "@/data/divisions";
 import { schedule } from "@/data/schedule";
 import DivisionAccordion from "@/components/ui/DivisionAccordion";
 import EventCarousel from "@/components/ui/EventCarousel";
@@ -78,7 +78,7 @@ export default function Home() {
       <section id="divisi" className="editorial-section divisions-section">
         <p className="section-kicker">Orang-orang di balik cerita</p>
         <h2>Divisi UMN NEXT 2026</h2>
-        <DivisionAccordion items={divisions} />
+        <DivisionAccordion items={divisionPreviews} />
       </section>
 
       {/* Dibalik Kepanitiaan Section */}

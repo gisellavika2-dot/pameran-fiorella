@@ -40,7 +40,13 @@ export interface Division {
   warna3: string;
   galeriFoto: string[];
   bg: string;
+  landingPreview: string;
 }
+
+export type DivisionPreview = Pick<
+  Division,
+  "id" | "logo" | "name" | "nameEng" | "landingPreview"
+>;
 
 export const divisions: Division[] = [
   {
@@ -86,6 +92,7 @@ export const divisions: Division[] = [
       "/fotoDivisi/Foto Divisi_Adhikara_6.webp",
     ],
     bg: "/fotoDivisi/Foto Divisi_Adhikara_6.webp",
+    landingPreview: "/fotoDivisi/landing/1-adhikara.webp",
   },
 
 
@@ -125,6 +132,7 @@ export const divisions: Division[] = [
       "/fotoDivisi/Foto Divisi_Anantara_4.webp",
     ],
     bg: "/fotoDivisi/Foto Divisi_Anantara_4.webp",
+    landingPreview: "/fotoDivisi/landing/2-anantara.webp",
   },
 
 
@@ -208,6 +216,7 @@ export const divisions: Division[] = [
     warna3: "#FEF0F5",
     galeriFoto: ["/fotoDivisi/BGARTHA.webp"],
     bg: "/fotoDivisi/BGARTHA.webp",
+    landingPreview: "/fotoDivisi/landing/3-artha.webp",
   },
 
 
@@ -251,6 +260,7 @@ export const divisions: Division[] = [
     warna3: "#D6D5D5",
     galeriFoto: ["/fotoDivisi/Foto Divisi_Birendra_4.webp"],
     bg: "/fotoDivisi/Foto Divisi_Birendra_4.webp",
+    landingPreview: "/fotoDivisi/landing/4-birendra.webp",
   },
 
 
@@ -283,6 +293,7 @@ export const divisions: Division[] = [
     warna3: "#EFE3F0",
     galeriFoto: ["/fotoDivisi/Foto Divisi_Daraka_6.webp"],
     bg: "/fotoDivisi/Foto Divisi_Daraka_6.webp",
+    landingPreview: "/fotoDivisi/landing/5-daraka.webp",
   },
 
 
@@ -328,6 +339,7 @@ export const divisions: Division[] = [
     warna3: "#DEF0E2",
     galeriFoto: ["/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.webp"],
     bg: "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.webp",
+    landingPreview: "/fotoDivisi/landing/6-janardana.webp",
   },
 
 
@@ -358,6 +370,7 @@ export const divisions: Division[] = [
     warna3: "#F5E5DB",
     galeriFoto: ["/fotoDivisi/Foto Divisi_Nayaka_5.webp"],
     bg: "/fotoDivisi/Foto Divisi_Nayaka_5.webp",
+    landingPreview: "/fotoDivisi/landing/7-nayaka.webp",
   },
 
 
@@ -398,6 +411,7 @@ export const divisions: Division[] = [
     warna3: "#FDF8DF",
     galeriFoto: ["/fotoDivisi/Foto Divisi_Rachana_5.webp"],
     bg: "/fotoDivisi/Foto Divisi_Rachana_5.webp",
+    landingPreview: "/fotoDivisi/landing/8-rachana.webp",
   },
 
 
@@ -429,6 +443,7 @@ export const divisions: Division[] = [
     warna3: "#FBD2D2",
     galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchara_6.webp"],
     bg: "/fotoDivisi/Foto Divisi_Sanchara_6.webp",
+    landingPreview: "/fotoDivisi/landing/9-sanchara.webp",
   },
 
 
@@ -475,6 +490,7 @@ export const divisions: Division[] = [
     warna3: "#FCE8D6",
     galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchita_6.webp"],
     bg: "/fotoDivisi/Foto Divisi_Sanchita_6.webp",
+    landingPreview: "/fotoDivisi/landing/10-sanchita.webp",
   },
 
 
@@ -515,8 +531,19 @@ export const divisions: Division[] = [
     warna3: "#E2F3F6",
     galeriFoto: ["/fotoDivisi/Foto Divisi_Swarna_3.webp"],
     bg: "/fotoDivisi/Foto Divisi_Swarna_3.webp",
+    landingPreview: "/fotoDivisi/landing/11-swarna.webp",
   },
 ];
+
+export const divisionPreviews: DivisionPreview[] = divisions.map(
+  ({ id, logo, name, nameEng, landingPreview }) => ({
+    id,
+    logo,
+    name,
+    nameEng,
+    landingPreview,
+  }),
+);
 
 export const getDivisionById = (id: string): Division | undefined => {
   return divisions.find((div) => div.id === id);
