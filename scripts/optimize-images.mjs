@@ -42,9 +42,9 @@ function outputSettings(relativePath, metadata) {
   const isPortrait = normalized.startsWith("public/divisi/");
   const isEventGallery = normalized.includes("/hari-pelaksanaan/");
   const isCommitteeGallery = normalized.includes("/dibalik-kepanitiaan/");
+  const isDivisionGallery = normalized.includes("/fotodivisi/");
   const isPhoto =
     normalized.includes("/haripelaksanaan/") ||
-    normalized.includes("/fotodivisi/") ||
     normalized.includes("/fotokepanitiaan/") ||
     normalized.includes("/tentang-fiorella/images/") ||
     normalized.includes("/galerifotodivisi/") ||
@@ -55,6 +55,10 @@ function outputSettings(relativePath, metadata) {
 
   if (isLandingPreview) {
     return { maxEdge: 1440, quality: 80, alphaQuality: 100 };
+  }
+
+  if (isDivisionGallery) {
+    return { maxEdge: 2400, quality: 90, alphaQuality: 100 };
   }
 
   if (isPortrait) {
