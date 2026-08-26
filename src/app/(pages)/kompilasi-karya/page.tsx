@@ -68,7 +68,7 @@ export default function KompilasiKaryaPage() {
                     </div>
                   </div>
                 </div>
-                <h3 className="font-sans font-semibold text-primary-dark mt-3 mb-1">
+                <h3 className="font-serif font-semibold text-primary-dark mt-3 mb-1">
                   Judul Video {item}
                 </h3>
                 <p className="font-sans text-sm text-gray-600">Pembuat Video</p>

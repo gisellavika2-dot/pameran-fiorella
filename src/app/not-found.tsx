@@ -25,7 +25,7 @@ export default function NotFound() {
         404
       </span>
 
-      <p className="mt-5 font-serif text-xl leading-snug text-[var(--paper)] sm:mt-8 sm:text-3xl lg:text-4xl">
+      <p className="mt-5 font-sans text-xl leading-snug text-[var(--paper)] sm:mt-8 sm:text-3xl lg:text-4xl">
         Nyari halaman apa sih?
       </p>
 

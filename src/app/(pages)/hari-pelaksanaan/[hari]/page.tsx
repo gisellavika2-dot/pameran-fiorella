@@ -4,88 +4,88 @@ import Image, { type StaticImageData } from "next/image";
 import React, { use, useRef, useState } from 'react';
 import Link from "next/link";
 import { schedule } from "@/data/schedule";
-import sioA2 from "../SIO/SIO_a (2).jpg";
-import sioC from "../SIO/SIO_c.jpg";
-import sioC2 from "../SIO/SIO_c (2).jpg";
-import sioM from "../SIO/SIO_m.jpg";
-import sioM2 from "../SIO/SIO_m (2).jpg";
-import sioP from "../SIO/SIO_p.jpg";
-import sioP2 from "../SIO/SIO_p (2).jpg";
-import sioR from "../SIO/SIO_r.jpg";
-import sioR2 from "../SIO/SIO_r (2).jpg";
-import sioT from "../SIO/SIO_t.jpg";
-import sioT2 from "../SIO/SIO_t (2).jpg";
-import sioT3 from "../SIO/SIO_t (3).jpg";
-import sioVin from "../SIO/SIO_vin.jpg";
-import sioVin2 from "../SIO/SIO_vin (2).jpg";
-import penanaman2 from "../Penanaman/PENANAMAN_2.jpg";
-import penanaman3 from "../Penanaman/PENANAMAN_3.jpg";
-import penanamanA from "../Penanaman/Penanaman_a.jpg";
-import penanamanA2 from "../Penanaman/Penanaman_a (2).jpg";
-import penanamanC1 from "../Penanaman/PENANAMAN_c (1).jpg";
-import penanamanC2 from "../Penanaman/PENANAMAN_c (2).jpg";
-import penanamanClara3 from "../Penanaman/Penanaman_Clara Dorothea Widjaja_3.jpg";
-import penanamanP1 from "../Penanaman/Penanaman_p (1).jpg";
-import penanamanP2 from "../Penanaman/Penanaman_p (2).jpg";
-import penanamanR1 from "../Penanaman/Penanaman_r (1).jpg";
-import penanamanR2 from "../Penanaman/Penanaman_r (2).jpg";
-import penanamanT1 from "../Penanaman/Penanaman_t (1).jpg";
-import penanamanT2 from "../Penanaman/Penanaman_t (2).jpg";
-import penanamanVin1 from "../Penanaman/PENANAMAN_vin (1).jpg";
-import penanamanVin2 from "../Penanaman/PENANAMAN_vin (2).jpg";
-import penyinaranA1 from "../Penyinaran/Penyinaran_a (1).jpg";
-import penyinaranA2 from "../Penyinaran/Penyinaran_a (2).jpg";
-import penyinaranC1 from "../Penyinaran/PENYINARAN_c (1).jpg";
-import penyinaranC2 from "../Penyinaran/PENYINARAN_c (2).jpg";
-import penyinaranClara2 from "../Penyinaran/Penyinaran_Clara_2.jpg";
-import penyinaranM1 from "../Penyinaran/PENYINARAN_m (1).jpg";
-import penyinaranM2 from "../Penyinaran/PENYINARAN_m (2).jpg";
-import penyinaranP1 from "../Penyinaran/Penyinaran_p (1).jpg";
-import penyinaranP2 from "../Penyinaran/Penyinaran_p (2).jpg";
-import penyinaranR1 from "../Penyinaran/Penyinaran_r (1).jpg";
-import penyinaranR2 from "../Penyinaran/Penyinaran_r (2).jpg";
-import penyinaranVin1 from "../Penyinaran/PENYINARAN_vin (1).jpg";
-import penyinaranVin2 from "../Penyinaran/PENYINARAN_vin (2).jpg";
-import penyinaranT1 from "../Penyinaran/PENYIRAMAN_t (1).jpg";
-import penyinaranT2 from "../Penyinaran/PENYIRAMAN_t (2).jpg";
-import perekahan1 from "../Perekahan/Perekahan (1).jpg";
-import perekahan2 from "../Perekahan/Perekahan (2).jpg";
-import perekahan3 from "../Perekahan/Perekahan (3).jpg";
-import perekahan4 from "../Perekahan/Perekahan (4).jpg";
-import perekahan5 from "../Perekahan/Perekahan (5).jpg";
-import perekahan6 from "../Perekahan/Perekahan (6).jpg";
-import perekahan7 from "../Perekahan/Perekahan (7).jpg";
-import perekahan8 from "../Perekahan/Perekahan (8).jpg";
-import perekahan9 from "../Perekahan/Perekahan (9).jpg";
-import perekahan10 from "../Perekahan/Perekahan (10).jpg";
-import perekahan11 from "../Perekahan/Perekahan (11).jpg";
-import perekahan12 from "../Perekahan/Perekahan (12).jpg";
-import perekahan13 from "../Perekahan/Perekahan (13).jpg";
-import perekahan14 from "../Perekahan/Perekahan (14).jpg";
-import perekahan15 from "../Perekahan/Perekahan (15).jpg";
-import sts1 from "../STS/STS (1).jpg";
-import sts2 from "../STS/STS (2).jpg";
-import sts3 from "../STS/STS (3).jpg";
-import sts4 from "../STS/STS (4).jpg";
-import sts5 from "../STS/STS (5).jpg";
-import sts6 from "../STS/STS (6).jpg";
-import sts7 from "../STS/STS (7).jpg";
-import sts8 from "../STS/STS (8).jpg";
-import sts9 from "../STS/STS (9).jpg";
-import sts10 from "../STS/STS (10).jpg";
-import sts11 from "../STS/STS (11).jpg";
-import sts12 from "../STS/STS (12).jpg";
-import sts13 from "../STS/STS (13).jpg";
-import sts14 from "../STS/STS (14).jpg";
-import sts15 from "../STS/STS (15).jpg";
+import sioA2 from "../SIO/SIO_a (2).webp";
+import sioC from "../SIO/SIO_c.webp";
+import sioC2 from "../SIO/SIO_c (2).webp";
+import sioM from "../SIO/SIO_m.webp";
+import sioM2 from "../SIO/SIO_m (2).webp";
+import sioP from "../SIO/SIO_p.webp";
+import sioP2 from "../SIO/SIO_p (2).webp";
+import sioR from "../SIO/SIO_r.webp";
+import sioR2 from "../SIO/SIO_r (2).webp";
+import sioT from "../SIO/SIO_t.webp";
+import sioT2 from "../SIO/SIO_t (2).webp";
+import sioT3 from "../SIO/SIO_t (3).webp";
+import sioVin from "../SIO/SIO_vin.webp";
+import sioVin2 from "../SIO/SIO_vin (2).webp";
+import penanaman2 from "../Penanaman/PENANAMAN_2.webp";
+import penanaman3 from "../Penanaman/PENANAMAN_3.webp";
+import penanamanA from "../Penanaman/Penanaman_a.webp";
+import penanamanA2 from "../Penanaman/Penanaman_a (2).webp";
+import penanamanC1 from "../Penanaman/PENANAMAN_c (1).webp";
+import penanamanC2 from "../Penanaman/PENANAMAN_c (2).webp";
+import penanamanClara3 from "../Penanaman/Penanaman_Clara Dorothea Widjaja_3.webp";
+import penanamanP1 from "../Penanaman/Penanaman_p (1).webp";
+import penanamanP2 from "../Penanaman/Penanaman_p (2).webp";
+import penanamanR1 from "../Penanaman/Penanaman_r (1).webp";
+import penanamanR2 from "../Penanaman/Penanaman_r (2).webp";
+import penanamanT1 from "../Penanaman/Penanaman_t (1).webp";
+import penanamanT2 from "../Penanaman/Penanaman_t (2).webp";
+import penanamanVin1 from "../Penanaman/PENANAMAN_vin (1).webp";
+import penanamanVin2 from "../Penanaman/PENANAMAN_vin (2).webp";
+import penyinaranA1 from "../Penyinaran/Penyinaran_a (1).webp";
+import penyinaranA2 from "../Penyinaran/Penyinaran_a (2).webp";
+import penyinaranC1 from "../Penyinaran/PENYINARAN_c (1).webp";
+import penyinaranC2 from "../Penyinaran/PENYINARAN_c (2).webp";
+import penyinaranClara2 from "../Penyinaran/Penyinaran_Clara_2.webp";
+import penyinaranM1 from "../Penyinaran/PENYINARAN_m (1).webp";
+import penyinaranM2 from "../Penyinaran/PENYINARAN_m (2).webp";
+import penyinaranP1 from "../Penyinaran/Penyinaran_p (1).webp";
+import penyinaranP2 from "../Penyinaran/Penyinaran_p (2).webp";
+import penyinaranR1 from "../Penyinaran/Penyinaran_r (1).webp";
+import penyinaranR2 from "../Penyinaran/Penyinaran_r (2).webp";
+import penyinaranVin1 from "../Penyinaran/PENYINARAN_vin (1).webp";
+import penyinaranVin2 from "../Penyinaran/PENYINARAN_vin (2).webp";
+import penyinaranT1 from "../Penyinaran/PENYIRAMAN_t (1).webp";
+import penyinaranT2 from "../Penyinaran/PENYIRAMAN_t (2).webp";
+import perekahan1 from "../Perekahan/Perekahan (1).webp";
+import perekahan2 from "../Perekahan/Perekahan (2).webp";
+import perekahan3 from "../Perekahan/Perekahan (3).webp";
+import perekahan4 from "../Perekahan/Perekahan (4).webp";
+import perekahan5 from "../Perekahan/Perekahan (5).webp";
+import perekahan6 from "../Perekahan/Perekahan (6).webp";
+import perekahan7 from "../Perekahan/Perekahan (7).webp";
+import perekahan8 from "../Perekahan/Perekahan (8).webp";
+import perekahan9 from "../Perekahan/Perekahan (9).webp";
+import perekahan10 from "../Perekahan/Perekahan (10).webp";
+import perekahan11 from "../Perekahan/Perekahan (11).webp";
+import perekahan12 from "../Perekahan/Perekahan (12).webp";
+import perekahan13 from "../Perekahan/Perekahan (13).webp";
+import perekahan14 from "../Perekahan/Perekahan (14).webp";
+import perekahan15 from "../Perekahan/Perekahan (15).webp";
+import sts1 from "../STS/STS (1).webp";
+import sts2 from "../STS/STS (2).webp";
+import sts3 from "../STS/STS (3).webp";
+import sts4 from "../STS/STS (4).webp";
+import sts5 from "../STS/STS (5).webp";
+import sts6 from "../STS/STS (6).webp";
+import sts7 from "../STS/STS (7).webp";
+import sts8 from "../STS/STS (8).webp";
+import sts9 from "../STS/STS (9).webp";
+import sts10 from "../STS/STS (10).webp";
+import sts11 from "../STS/STS (11).webp";
+import sts12 from "../STS/STS (12).webp";
+import sts13 from "../STS/STS (13).webp";
+import sts14 from "../STS/STS (14).webp";
+import sts15 from "../STS/STS (15).webp";
 import "./hari-detail.css";
 
 const eventImages = [
-  "/figma/SIO.jpg",
-  "/figma/Penanaman.jpg",
-  "/figma/PENYINARAN.jpg",
-  "/figma/PEREKAHAN.jpg",
-  "/figma/STS.jpg",
+  "/figma/SIO.webp",
+  "/figma/Penanaman.webp",
+  "/figma/PENYINARAN.webp",
+  "/figma/PEREKAHAN.webp",
+  "/figma/STS.webp",
 ];
 
 const driveLinks = [
@@ -111,7 +111,7 @@ const sioGalleryImages = [
   sioT3,
   sioVin,
   sioVin2,
-  "/figma/SIO.jpg",
+  "/figma/SIO.webp",
 ];
 
 const galleryImagesByDay: Array<Array<string | StaticImageData>> = [
@@ -224,7 +224,7 @@ export default function HariDetailPage({ params }: PageProps) {
       </Link>
       <div className="pointer-events-auto z-10 mb-16 flex w-full max-w-7xl flex-col gap-7 bg-transparent px-4 pt-10 text-[#121E42] md:px-0 max-[1024px]:max-w-[calc(100%_-_32px)] max-[760px]:mb-14 max-[760px]:max-w-full max-[760px]:gap-5 max-[760px]:px-3.5 max-[760px]:pt-[58px] max-[380px]:px-2.5">
         <div className="relative mx-auto aspect-[2/1] w-full max-w-5xl overflow-hidden rounded-[2.5rem] border border-[#EDECE6]/20 bg-[#121E42] shadow-2xl max-[1024px]:min-h-0 max-[1024px]:rounded-[30px] max-[760px]:rounded-[22px] max-[380px]:rounded-[18px]">
-          <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill priority sizes="(max-width: 768px) 100vw, 90vw" className="object-cover object-center pointer-events-none" />
+          <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill loading="eager" sizes="(max-width: 768px) 100vw, 90vw" className="object-cover object-center pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/75 via-transparent to-transparent pointer-events-none" />
         </div>
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 px-2 md:px-6 max-[760px]:gap-1.5 max-[760px]:px-1">

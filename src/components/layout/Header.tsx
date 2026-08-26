@@ -50,6 +50,23 @@ export default function Header() {
     }
   };
 
+  const handleBrandClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setOpen(false);
+
+    if (pathname !== "/") return;
+
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (window.location.hash) {
+      window.history.pushState(null, "", "/");
+    } else {
+      window.history.replaceState(null, "", "/");
+    }
+
+    setActiveHash("#home");
+  };
+
   const isActiveLink = (href: string) => {
     const [linkPath, linkHash = ""] = href.split("#");
     if (pathname !== linkPath) return false;
@@ -61,8 +78,8 @@ export default function Header() {
 
   return (
     <header className="site-header">
-      <Link href="/" className="mobile-brand">
-        <Image src="/logo/Logo_White.png" alt="Fiorella" width={92} height={34} />
+      <Link href="/" className="mobile-brand" onClick={handleBrandClick}>
+        <Image src="/logo/Logo_White.webp" alt="Fiorella" width={38} height={50} />
       </Link>
       <button 
         className="menu-button" 
@@ -74,6 +91,19 @@ export default function Header() {
         <i aria-hidden="true" />
       </button>
       <nav className={open ? "nav-pill nav-open" : "nav-pill"} aria-label="Navigasi utama">
+        <Link
+          href="/"
+          className="desktop-brand"
+          aria-label="Fiorella — Beranda"
+          onClick={handleBrandClick}
+        >
+          <Image
+            src="/logo/fiorella-blue-mark.webp"
+            alt=""
+            width={30}
+            height={29}
+          />
+        </Link>
         {links.map(([label, href]) => (
           <Link 
             key={label} 

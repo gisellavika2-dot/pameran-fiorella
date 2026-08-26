@@ -36,9 +36,9 @@ const config: Config = {
       // TYPOGRAPHY - Font families
       // ============================================
       fontFamily: {
-        serif: ["Castoro", "serif"],      // Headlines
-        sans: ["Figtree", "sans-serif"],  // Body text
-        display: ["Castoro", "serif"],    // Display/Hero
+        serif: ["var(--font-castoro)", "serif"],      // Headlines
+        sans: ["var(--font-figtree)", "sans-serif"],  // Body text
+        display: ["var(--font-castoro)", "serif"],    // Display/Hero
       },
 
       // ============================================

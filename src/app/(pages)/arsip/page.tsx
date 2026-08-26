@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 interface ArchiveItem {
   id: string;
@@ -19,8 +18,8 @@ const archiveData: ArchiveItem[] = [
     themeName: "Cala Sahita",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2021",
-    bgImage: "/logoArsip/bgArsip/bg2021.jpg",
-    logoImage: "/logoArsip/calasahita.png",
+    bgImage: "/logoArsip/bgArsip/bg2021.webp",
+    logoImage: "/logoArsip/calasahita.webp",
     externalUrl: "https://doc.umn.ac.id/calasahita",
   },
   {
@@ -29,8 +28,8 @@ const archiveData: ArchiveItem[] = [
     themeName: "Kartala",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2022",
-    bgImage: "/logoArsip/bgArsip/bg2022.jpg",
-    logoImage: "/logoArsip/kartala.png",
+    bgImage: "/logoArsip/bgArsip/bg2022.webp",
+    logoImage: "/logoArsip/kartala.webp",
     externalUrl: "https://doc.umn.ac.id/kartala",
   },
   {
@@ -39,8 +38,8 @@ const archiveData: ArchiveItem[] = [
     themeName: "Ananta",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2023",
-    bgImage: "/logoArsip/bgArsip/bg2023.jpg",
-    logoImage: "/logoArsip/Ananta.png",
+    bgImage: "/logoArsip/bgArsip/bg2023.webp",
+    logoImage: "/logoArsip/Ananta.webp",
     externalUrl: "https://doc.umn.ac.id/ananta",
   },
   {
@@ -49,8 +48,8 @@ const archiveData: ArchiveItem[] = [
     themeName: "Meliora",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2024",
-    bgImage: "/logoArsip/bgArsip/bg2024.jpg",
-    logoImage: "/logoArsip/Meliora.png",
+    bgImage: "/logoArsip/bgArsip/bg2024.webp",
+    logoImage: "/logoArsip/Meliora.webp",
     externalUrl: "https://doc.umn.ac.id/meliora",
   },
   {
@@ -60,14 +59,14 @@ const archiveData: ArchiveItem[] = [
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2025",
     bgImage: "/logoArsip/bgArsip/bg2025.webp",
-    logoImage: "/logoArsip/aeterna.png",
+    logoImage: "/logoArsip/aeterna.webp",
     externalUrl: "https://doc.umn.ac.id/aeterna",
   },
 ];
 
 export default function ArsipPage() {
   return (
-    <main className="min-h-screen bg-[url('/gradients/grad3.jpg')] bg-cover text-white py-16 px-4 sm:px-8 lg:px-8">
+    <main className="min-h-screen bg-[url('/gradients/grad3.webp')] bg-cover text-white py-16 px-4 sm:px-8 lg:px-8">
       <div className="max-w-7xl mx-auto text-center mb-12 mt-16">
         <h1 className="text-3xl md:text-6xl font-bold tracking-tight mb-3">
           Arsip OMB UMN
@@ -78,7 +77,7 @@ export default function ArsipPage() {
       </div>
 
         <div className="flex flex-wrap justify-center gap-6 lg:gap-8 max-w-7xl mx-auto">
-        {archiveData.map((item) => (
+        {archiveData.map((item, index) => (
             <a
             key={item.id}
             href={item.externalUrl}
@@ -89,9 +88,11 @@ export default function ArsipPage() {
                 <div className="relative w-full h-full opacity-40 transition-transform duration-300 group-hover:scale-105">
                 <Image
                 src={item.bgImage}
-                alt={`Background ${item.fullTitle}`}
-                fill
-                className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
+                 alt={`Background ${item.fullTitle}`}
+                 fill
+                 loading={index < 3 ? "eager" : "lazy"}
+                 sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(50vw - 36px), 384px"
+                 className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
               />
             </div>
 
@@ -101,6 +102,7 @@ export default function ArsipPage() {
                     src={item.logoImage}
                     alt={`Logo ${item.themeName}`}
                     fill
+                    sizes="(max-width: 640px) 224px, 256px"
                     className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
                 />
                 </div>

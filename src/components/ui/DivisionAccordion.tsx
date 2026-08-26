@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Division } from "@/data/divisions";
+import type { DivisionPreview } from "@/data/divisions";
 import "./DivisionAccordion.css";
 
 const divisionLogos = [
@@ -20,8 +20,14 @@ const divisionLogos = [
   "/figma/division-visual.webp",
 ];
 
-export default function DivisionAccordion({ items }: { items: Division[] }) {
+const activePanelSizes = "(max-width: 768px) 340px, 60vw";
+// Side panels are narrow but tall, so cover-cropping needs a source sized by height.
+const sidePanelSizes = "(max-width: 768px) 1px, 700px";
+const AUTO_ADVANCE_MS = 2700;
+
+export default function DivisionAccordion({ items }: { items: DivisionPreview[] }) {
   const [active, setActive] = useState(0);
+  const [isInView, setIsInView] = useState(false);
   const accordionRef = useRef<HTMLDivElement>(null);
   const navContainerRef = useRef<HTMLDivElement>(null);
   
@@ -59,6 +65,34 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
   };
 
   useEffect(() => {
+    const accordion = accordionRef.current;
+    if (!accordion) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { rootMargin: "200px 0px", threshold: 0.01 },
+    );
+
+    observer.observe(accordion);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInView || items.length <= 1) return;
+
+    autoAdvanceTimer.current = setInterval(() => {
+      if (!isPaused.current) {
+        setActive((current) => (current + 1) % items.length);
+      }
+    }, AUTO_ADVANCE_MS);
+
+    return () => {
+      if (autoAdvanceTimer.current) clearInterval(autoAdvanceTimer.current);
+      autoAdvanceTimer.current = null;
+    };
+  }, [isInView, items.length]);
+
+  useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
       return;
@@ -82,19 +116,10 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
   }, [active]);
 
   useEffect(() => {
-    if (items.length <= 1) return;
-
-    autoAdvanceTimer.current = setInterval(() => {
-      if (!isPaused.current) {
-        setActive((current) => (current + 1) % items.length);
-      }
-    }, 3000);
-
     return () => {
-      if (autoAdvanceTimer.current) clearInterval(autoAdvanceTimer.current);
       if (pauseTimer.current) clearTimeout(pauseTimer.current);
     };
-  }, [items.length]);
+  }, []);
 
   return (
     <div className="division-accordion-shell">
@@ -124,12 +149,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
           const visualPosition = Math.max(-3, Math.min(3, position));
           const isActive = position === 0;
           const isVisible = Math.abs(position) <= 2;
-
-          const [randomPhoto] = useState(() => {
-            if (!division.galeriFoto || division.galeriFoto.length === 0) return "";
-            const maxIndex = Math.min(division.galeriFoto.length, 10);
-            return division.galeriFoto[Math.floor(Math.random() * maxIndex)];
-          });
+          const photo = division.landingPreview;
 
           return (
             <article
@@ -149,17 +169,18 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
               aria-current={isActive ? "true" : undefined}
               aria-hidden={!isVisible}
               aria-label={`Tampilkan divisi ${division.name}`}
-              style={{
-                      backgroundImage: `linear-gradient(150deg, rgba(17,30,66,0.5) 10%, rgba(101,144,194,0.5) 50%, rgba(168,196,212,0.5) 70%, rgba(237,236,230,0.5) 120%), url('${
-                        division.galeriFoto?.[Math.floor(Math.random() * Math.min(division.galeriFoto.length, 10))] || ""
-                      }')`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                    }}
             >
+              {isInView && isVisible && photo && (
+                <Image
+                  className="division-panel-image"
+                  src={photo}
+                  alt=""
+                  fill
+                  sizes={isActive ? activePanelSizes : sidePanelSizes}
+                />
+              )}
               <div className="division-panel-footer flex items-center justify-between w-full">
-                <div className="flex items-center gap-4">
+                <div className="division-panel-identity flex items-center gap-4">
                   <Image
                     src={divisionLogos[index % divisionLogos.length]}
                     alt={`Logo ${division.name}`}
@@ -178,7 +199,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                     onClick={(e) => e.stopPropagation()}
                     onTouchStart={(e) => e.stopPropagation()}
                     onTouchEnd={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-primary-dark hover:bg-[#364A8C] rounded-full transition-all duration-200 shadow-md hover:shadow-lg shrink-0"
+                    className="division-panel-link inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-primary-dark hover:bg-[#364A8C] rounded-full transition-all duration-200 shadow-md hover:shadow-lg shrink-0"
                     aria-label={`Lihat detail divisi ${division.name}`}
                   >
                     <span>Selengkapnya</span>

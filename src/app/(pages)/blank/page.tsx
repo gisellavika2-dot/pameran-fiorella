@@ -33,14 +33,15 @@ export default function BlankPage() {
 
         <div className="relative min-h-80 overflow-hidden bg-[#364a8c]">
           <Image
-            src="/figma/event-main.png"
+            src="/figma/event-main.webp"
             alt="Fiorella visual exhibition"
             fill
-            priority
+            loading="eager"
+            sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover opacity-80 mix-blend-luminosity"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121e42]/80 via-transparent to-[#a8c4d4]/20" />
-          <p className="absolute bottom-8 left-8 max-w-52 font-serif text-3xl leading-none text-[#edece6] sm:bottom-12 sm:left-12">
+          <p className="absolute bottom-8 left-8 max-w-52 font-sans text-3xl leading-none text-[#edece6] sm:bottom-12 sm:left-12">
             An archive in motion.
           </p>
           <div className="absolute right-6 top-6 grid size-16 place-items-center rounded-full border border-[#edece6]/50 text-xs font-bold tracking-widest text-[#edece6]">

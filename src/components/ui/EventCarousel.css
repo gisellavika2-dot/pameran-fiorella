@@ -1,12 +1,18 @@
 .event-carousel {
   width: min(1280px, 100%);
-  margin-inline: auto;
 }
 .event-deck {
   width: 100%;
   height: min(52svh, 500px);
   position: relative;
   overflow: visible;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.event-deck.is-dragging {
+  cursor: grabbing;
 }
 .event-card {
   --event-opacity: 1;
@@ -116,6 +122,8 @@
   margin: 8px 0;
 }
 .event-carousel-controls {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,59 +153,73 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 17px;
+  gap: 0;
   min-width: 164px;
-  padding: 11px 17px;
+  padding: 3px 8px;
   border-radius: 999px;
   background: var(--paper);
   box-shadow: 0 8px 18px rgba(18, 30, 66, 0.14);
 }
 .event-carousel-controls .event-carousel-pagination button {
-  width: 13px;
-  height: 13px;
+  position: relative;
+  width: 30px;
+  height: 30px;
   margin: 0;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: #7196c9;
+  background: transparent;
   color: transparent;
+  cursor: pointer;
+}
+.event-carousel-controls .event-carousel-pagination button::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #7196c9;
+  transform: translate(-50%, -50%);
   transition:
     background 0.2s ease,
     box-shadow 0.2s ease;
 }
-.event-carousel-controls .event-carousel-pagination button.is-active,
-.event-carousel-controls .event-carousel-pagination button:hover {
+.event-carousel-controls .event-carousel-pagination button.is-active::before,
+.event-carousel-controls .event-carousel-pagination button:hover::before {
   background: var(--ink);
-  color: transparent;
   box-shadow: 0 0 0 7px rgba(18, 30, 66, 0.14);
+}
+.event-carousel-controls .event-carousel-pagination button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
 }
 @media (max-width: 760px) {
   .event-deck {
     height: min(48svh, 390px);
-    overflow: visible;
+    overflow: hidden;
+    touch-action: pan-y;
   }
   .event-card {
-    width: 78vw;
+    width: min(88vw, 420px) !important;
     height: calc(100% - 20px);
     padding: 20px;
     border-radius: 28px;
+    -webkit-user-drag: none;
   }
   .event-card[data-position="0"] {
     --event-scale: 1;
     --event-shift: 0px;
+    opacity: 1 !important;
+    visibility: visible;
   }
-  .event-card[data-position="-1"] {
-    --event-scale: 0.949;
-    --event-shift: -26vw;
-  }
-  .event-card[data-position="1"] {
-    --event-scale: 0.949;
-    --event-shift: 26vw;
-  }
-  .event-card[data-position="-2"],
-  .event-card[data-position="2"] {
+  .event-card:not([data-position="0"]) {
     --event-opacity: 0;
-    pointer-events: none;
+    --event-shift: 0px;
+    opacity: 0 !important;
+    visibility: hidden;
+    pointer-events: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {

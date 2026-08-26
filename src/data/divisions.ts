@@ -40,7 +40,13 @@ export interface Division {
   warna3: string;
   galeriFoto: string[];
   bg: string;
+  landingPreview: string;
 }
+
+export type DivisionPreview = Pick<
+  Division,
+  "id" | "logo" | "name" | "nameEng" | "landingPreview"
+>;
 
 export const divisions: Division[] = [
   {
@@ -53,28 +59,28 @@ export const divisions: Division[] = [
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-          "/fotoDivisi/Foto Divisi_Adhikara_4.JPG",
-          "/fotoDivisi/Foto Divisi_Adhikara_6.JPG",
+          "/fotoDivisi/Foto Divisi_Adhikara_2.webp",
+          "/fotoDivisi/Foto Divisi_Adhikara_4.webp",
+          "/fotoDivisi/Foto Divisi_Adhikara_6.webp",
         ],
       },
     ],
     sarya: [
-      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/IGA.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/DANIEL.gif" },
-      { nama: "SARYA 3", fotoSarya: "/divisi/sarya/JOY.gif" },
+      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/IGA.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/DANIEL.webp" },
+      { nama: "SARYA 3", fotoSarya: "/divisi/sarya/JOY.webp" },
     ],
     cardFoto: [
       {
         role: "BPH",
         title: "Badan Pengurus Harian",
         isi: [
-          { nama: "NAMA", foto: "/divisi/koor/GVEN.gif" },
-          { nama: "NAMA", foto: "/divisi/koor/JELI.gif" },
-          { nama: "NAMA", foto: "/divisi/koor/DEZA.gif" },
-          { nama: "NAMA", foto: "/divisi/koor/NIKI.gif" },
-          { nama: "NAMA", foto: "/divisi/koor/CACA.gif" },
-          { nama: "NAMA", foto: "/divisi/koor/RAIN.gif" },
+          { nama: "NAMA", foto: "/divisi/koor/GVEN.webp" },
+          { nama: "NAMA", foto: "/divisi/koor/JELI.webp" },
+          { nama: "NAMA", foto: "/divisi/koor/DEZA.webp" },
+          { nama: "NAMA", foto: "/divisi/koor/NIKI.webp" },
+          { nama: "NAMA", foto: "/divisi/koor/CACA.webp" },
+          { nama: "NAMA", foto: "/divisi/koor/RAIN.webp" },
         ],
       },
     ],
@@ -83,9 +89,10 @@ export const divisions: Division[] = [
     warna2: "#7F8DBA",
     warna3: "#DBDFEC",
     galeriFoto: [
-      "/fotoDivisi/Foto Divisi_Adhikara_6.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_6.webp",
     ],
-    bg: "/fotoDivisi/Foto Divisi_Adhikara_6.JPG",
+    bg: "/fotoDivisi/Foto Divisi_Adhikara_6.webp",
+    landingPreview: "/fotoDivisi/landing/1-adhikara.webp",
   },
 
 
@@ -99,32 +106,33 @@ export const divisions: Division[] = [
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Anantara_2.JPG",
-          "/fotoDivisi/Foto Divisi_Anantara_3.JPG",
-          "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
+          "/fotoDivisi/Foto Divisi_Anantara_2.webp",
+          "/fotoDivisi/Foto Divisi_Anantara_3.webp",
+          "/fotoDivisi/Foto Divisi_Anantara_4.webp",
         ],
       },
     ],
     sarya: [
-      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/IONA.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/LYA.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/PATRICIA.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/ANGEL.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/TIARA.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/RACHEL.gif" },
+      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/IONA.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/LYA.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/PATRICIA.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/ANGEL.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/TIARA.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/RACHEL.webp" },
     ],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/ERSA.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/SHANIA.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/ERSA.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/SHANIA.webp" }] },
     ],
     anggota: [],
     warna1: "#6B6968",
     warna2: "#999DA0",
     warna3: "#F3F4F4",
     galeriFoto: [
-      "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
+      "/fotoDivisi/Foto Divisi_Anantara_4.webp",
     ],
-    bg: "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
+    bg: "/fotoDivisi/Foto Divisi_Anantara_4.webp",
+    landingPreview: "/fotoDivisi/landing/2-anantara.webp",
   },
 
 
@@ -140,74 +148,75 @@ export const divisions: Division[] = [
         idSesi: "sesi-1",
         namaSesi: "Row 1",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Artha_35.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_36.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_37.JPG",
+          "/fotoDivisi/Foto Divisi_Artha_35.webp",
+          "/fotoDivisi/Foto Divisi_Artha_36.webp",
+          "/fotoDivisi/Foto Divisi_Artha_37.webp",
         ],
       },
       {
         idSesi: "sesi-2",
         namaSesi: "Row 2",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Artha_8.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_9.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_10.JPG",
+          "/fotoDivisi/Foto Divisi_Artha_8.webp",
+          "/fotoDivisi/Foto Divisi_Artha_9.webp",
+          "/fotoDivisi/Foto Divisi_Artha_10.webp",
         ],
       },
       {
         idSesi: "sesi-3",
         namaSesi: "Row 3",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Artha_14.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_15.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_17.JPG",
+          "/fotoDivisi/Foto Divisi_Artha_14.webp",
+          "/fotoDivisi/Foto Divisi_Artha_15.webp",
+          "/fotoDivisi/Foto Divisi_Artha_17.webp",
         ],
       },
       {
         idSesi: "sesi-4",
         namaSesi: "Row 4",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Artha_19.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_20.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_21.JPG",
+          "/fotoDivisi/Foto Divisi_Artha_19.webp",
+          "/fotoDivisi/Foto Divisi_Artha_20.webp",
+          "/fotoDivisi/Foto Divisi_Artha_21.webp",
         ],
       },
       {
         idSesi: "sesi-5",
         namaSesi: "Row 5",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Artha_25.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_26.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_28.JPG",
+          "/fotoDivisi/Foto Divisi_Artha_25.webp",
+          "/fotoDivisi/Foto Divisi_Artha_26.webp",
+          "/fotoDivisi/Foto Divisi_Artha_28.webp",
         ],
       },
       {
         idSesi: "sesi-6",
         namaSesi: "Row 6",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Artha_30.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_31.JPG",
-          "/fotoDivisi/Foto Divisi_Artha_33.JPG",
+          "/fotoDivisi/Foto Divisi_Artha_30.webp",
+          "/fotoDivisi/Foto Divisi_Artha_31.webp",
+          "/fotoDivisi/Foto Divisi_Artha_33.webp",
         ],
       },
     ],
     sarya: [
-      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/FIO.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/IRENE.gif" },
-      { nama: "SARYA 3", fotoSarya: "/divisi/sarya/SYLVA.gif" },
+      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/FIO.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/IRENE.webp" },
+      { nama: "SARYA 3", fotoSarya: "/divisi/sarya/SYLVA.webp" },
     ],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/AIMAN.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/JOANA.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/RAY.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/LADY.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/AIMAN.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/JOANA.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/RAY.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/LADY.webp" }] },
     ],
     anggota: [],
     warna1: "#F3819C",
     warna2: "#FACBDC",
     warna3: "#FEF0F5",
-    galeriFoto: ["/fotoDivisi/BGARTHA.jpg"],
-    bg: "/fotoDivisi/BGARTHA.jpg",
+    galeriFoto: ["/fotoDivisi/BGARTHA.webp"],
+    bg: "/fotoDivisi/BGARTHA.webp",
+    landingPreview: "/fotoDivisi/landing/3-artha.webp",
   },
 
 
@@ -223,34 +232,35 @@ export const divisions: Division[] = [
         idSesi: "sesi-1",
         namaSesi: "Sesi 1",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Birendra_1.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_3.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_4.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_1.webp",
+          "/fotoDivisi/Foto Divisi_Birendra_3.webp",
+          "/fotoDivisi/Foto Divisi_Birendra_4.webp",
         ],
       },
       {
         idSesi: "sesi-2",
         namaSesi: "Sesi 2",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Birendra_1_2.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_3_2.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_4_2.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_1_2.webp",
+          "/fotoDivisi/Foto Divisi_Birendra_3_2.webp",
+          "/fotoDivisi/Foto Divisi_Birendra_4_2.webp",
         ],
       },
     ],
     sarya: [
-      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/BIMA.gif" },
+      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/BIMA.webp" },
     ],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/ALYA.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/FREDY.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/ALYA.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/FREDY.webp" }] },
     ],
     anggota: [],
     warna1: "#000000",
     warna2: "#6B6968",
     warna3: "#D6D5D5",
-    galeriFoto: ["/fotoDivisi/Foto Divisi_Birendra_4.JPG"],
-    bg: "/fotoDivisi/Foto Divisi_Birendra_4.JPG",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Birendra_4.webp"],
+    bg: "/fotoDivisi/Foto Divisi_Birendra_4.webp",
+    landingPreview: "/fotoDivisi/landing/4-birendra.webp",
   },
 
 
@@ -264,25 +274,26 @@ export const divisions: Division[] = [
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Daraka_1.JPG",
-          "/fotoDivisi/Foto Divisi_Daraka_3.JPG",
-          "/fotoDivisi/Foto Divisi_Daraka_6.JPG",
+          "/fotoDivisi/Foto Divisi_Daraka_1.webp",
+          "/fotoDivisi/Foto Divisi_Daraka_3.webp",
+          "/fotoDivisi/Foto Divisi_Daraka_6.webp",
         ],
       },
     ],
-    sarya: [{ nama: "SARYA 1", fotoSarya: "/divisi/sarya/SETO.gif" }],
+    sarya: [{ nama: "SARYA 1", fotoSarya: "/divisi/sarya/SETO.webp" }],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/OLAF.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/RICHI.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/GAB2.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/IRFAN.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/OLAF.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/RICHI.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/GAB2.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/IRFAN.webp" }] },
     ],
     anggota: [],
     warna1: "#84499D",
     warna2: "#C598C8",
     warna3: "#EFE3F0",
-    galeriFoto: ["/fotoDivisi/Foto Divisi_Daraka_6.JPG"],
-    bg: "/fotoDivisi/Foto Divisi_Daraka_6.JPG",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Daraka_6.webp"],
+    bg: "/fotoDivisi/Foto Divisi_Daraka_6.webp",
+    landingPreview: "/fotoDivisi/landing/5-daraka.webp",
   },
 
 
@@ -298,36 +309,37 @@ export const divisions: Division[] = [
         idSesi: "sesi-1",
         namaSesi: "Sesi 1",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_2.JPG",
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_4.JPG",
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_2.webp",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_4.webp",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.webp",
         ],
       },
       {
         idSesi: "sesi-2",
         namaSesi: "Sesi 2",
         fotos: [
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_1.JPG",
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_3.JPG",
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_5.JPG",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_1.webp",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_3.webp",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_5.webp",
         ],
       },
     ],
     sarya: [
-      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/NUR.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/RIA.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/LINDA.gif" },
+      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/NUR.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/RIA.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/LINDA.webp" },
     ],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/DEVINA.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/SHERYL.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/DEVINA.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/SHERYL.webp" }] },
     ],
     anggota: [],
     warna1: "#0FAB70",
     warna2: "#8ACB99",
     warna3: "#DEF0E2",
-    galeriFoto: ["/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG"],
-    bg: "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.webp"],
+    bg: "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.webp",
+    landingPreview: "/fotoDivisi/landing/6-janardana.webp",
   },
 
 
@@ -341,23 +353,24 @@ export const divisions: Division[] = [
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Nayaka_1.JPG",
-          "/fotoDivisi/Foto Divisi_Nayaka_3.JPG",
-          "/fotoDivisi/Foto Divisi_Nayaka_5.JPG",
+          "/fotoDivisi/Foto Divisi_Nayaka_1.webp",
+          "/fotoDivisi/Foto Divisi_Nayaka_3.webp",
+          "/fotoDivisi/Foto Divisi_Nayaka_5.webp",
         ],
       },
     ],
-    sarya: [{ nama: "SARYA 1", fotoSarya: "/divisi/sarya/DAME.gif" }],
+    sarya: [{ nama: "SARYA 1", fotoSarya: "/divisi/sarya/DAME.webp" }],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/JESS.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/BINA.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/JESS.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/BINA.webp" }] },
     ],
     anggota: [],
     warna1: "#C67F4E",
     warna2: "#DCA37D",
     warna3: "#F5E5DB",
-    galeriFoto: ["/fotoDivisi/Foto Divisi_Nayaka_5.JPG"],
-    bg: "/fotoDivisi/Foto Divisi_Nayaka_5.JPG",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Nayaka_5.webp"],
+    bg: "/fotoDivisi/Foto Divisi_Nayaka_5.webp",
+    landingPreview: "/fotoDivisi/landing/7-nayaka.webp",
   },
 
 
@@ -371,33 +384,34 @@ export const divisions: Division[] = [
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Rachana_1.JPG",
-          "/fotoDivisi/Foto Divisi_Rachana_3.JPG",
-          "/fotoDivisi/Foto Divisi_Rachana_5.JPG",
+          "/fotoDivisi/Foto Divisi_Rachana_1.webp",
+          "/fotoDivisi/Foto Divisi_Rachana_3.webp",
+          "/fotoDivisi/Foto Divisi_Rachana_5.webp",
         ],
       },
     ],
     sarya: [
-      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/DICKY.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/APRIL.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/ALDO.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/KEVIN.gif" },
+      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/DICKY.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/APRIL.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/ALDO.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/KEVIN.webp" },
     ],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/VIKA.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/STERN.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/VIKA.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/STERN.webp" }] },
     ],
     anggota: [
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/TIPEN.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/HAKIM.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/FELI.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/EMMAN.gif" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/TIPEN.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/HAKIM.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/FELI.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/EMMAN.webp" },
     ],
     warna1: "#F7CE1C",
     warna2: "#F8E58D",
     warna3: "#FDF8DF",
-    galeriFoto: ["/fotoDivisi/Foto Divisi_Rachana_5.JPG"],
-    bg: "/fotoDivisi/Foto Divisi_Rachana_5.JPG",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Rachana_5.webp"],
+    bg: "/fotoDivisi/Foto Divisi_Rachana_5.webp",
+    landingPreview: "/fotoDivisi/landing/8-rachana.webp",
   },
 
 
@@ -411,24 +425,25 @@ export const divisions: Division[] = [
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Sanchara_1.JPG",
-          "/fotoDivisi/Foto Divisi_Sanchara_4.JPG",
-          "/fotoDivisi/Foto Divisi_Sanchara_6.JPG",
+          "/fotoDivisi/Foto Divisi_Sanchara_1.webp",
+          "/fotoDivisi/Foto Divisi_Sanchara_4.webp",
+          "/fotoDivisi/Foto Divisi_Sanchara_6.webp",
         ],
       },
     ],
-    sarya: [{ nama: "SARYA 1", fotoSarya: "/divisi/sarya/YOVI.gif" }],
+    sarya: [{ nama: "SARYA 1", fotoSarya: "/divisi/sarya/YOVI.webp" }],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/NORU.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/ODRE.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/GAB.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/NORU.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/ODRE.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/GAB.webp" }] },
     ],
     anggota: [],
     warna1: "#EB1A3F",
     warna2: "#F05E5E",
     warna3: "#FBD2D2",
-    galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchara_6.JPG"],
-    bg: "/fotoDivisi/Foto Divisi_Sanchara_6.JPG",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchara_6.webp"],
+    bg: "/fotoDivisi/Foto Divisi_Sanchara_6.webp",
+    landingPreview: "/fotoDivisi/landing/9-sanchara.webp",
   },
 
 
@@ -442,39 +457,40 @@ export const divisions: Division[] = [
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Sanchita_1.JPG",
-          "/fotoDivisi/Foto Divisi_Sanchita_2.JPG",
-          "/fotoDivisi/Foto Divisi_Sanchita_6.JPG",
+          "/fotoDivisi/Foto Divisi_Sanchita_1.webp",
+          "/fotoDivisi/Foto Divisi_Sanchita_2.webp",
+          "/fotoDivisi/Foto Divisi_Sanchita_6.webp",
         ],
       },
     ],
     sarya: [
-      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/AGUS.gif" },
-      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/KIKY.gif" },
+      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/AGUS.webp" },
+      { nama: "SARYA 2", fotoSarya: "/divisi/sarya/KIKY.webp" },
     ],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/CLARA.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/SEAN.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/CLARA.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/SEAN.webp" }] },
     ],
     anggota: [
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/CILLA.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/CELLO.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/MARVEL.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/MATHEW.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/MELVIN.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/ABI.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/PETER.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/RICHARD.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/JASON.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/TOBY.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/SAM.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/SATRIA.gif" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/CILLA.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/CELLO.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/MARVEL.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/MATHEW.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/MELVIN.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/ABI.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/PETER.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/RICHARD.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/JASON.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/TOBY.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/SAM.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/SATRIA.webp" },
     ],
     warna1: "#F47421",
     warna2: "#F4AE6E",
     warna3: "#FCE8D6",
-    galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchita_6.JPG"],
-    bg: "/fotoDivisi/Foto Divisi_Sanchita_6.JPG",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchita_6.webp"],
+    bg: "/fotoDivisi/Foto Divisi_Sanchita_6.webp",
+    landingPreview: "/fotoDivisi/landing/10-sanchita.webp",
   },
 
 
@@ -488,35 +504,46 @@ export const divisions: Division[] = [
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Swarna_1.JPG",
-          "/fotoDivisi/Foto Divisi_Swarna_2.JPG",
-          "/fotoDivisi/Foto Divisi_Swarna_3.JPG",
+          "/fotoDivisi/Foto Divisi_Swarna_1.webp",
+          "/fotoDivisi/Foto Divisi_Swarna_2.webp",
+          "/fotoDivisi/Foto Divisi_Swarna_3.webp",
         ],
       },
     ],
     sarya: [
-      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/LUQY.gif" },
+      { nama: "SARYA 1", fotoSarya: "/divisi/sarya/LUQY.webp" },
     ],
     cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/AUREL.gif" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/CHERYL.gif" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/AUREL.webp" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/divisi/koor/CHERYL.webp" }] },
     ],
     anggota: [
-      { nama: "Anggota 1", fotoAnggota: "/divisi/sarya/CINDY.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/sarya/HASNA.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/sarya/LEVINA.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/sarya/BEATRICE.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/sarya/JOSEFIN.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/sarya/MARVEL2.gif" },
-      { nama: "Anggota 1", fotoAnggota: "/divisi/sarya/STHEVANIE.gif" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/CINDY.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/HASNA.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/LEVINA.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/BEATRICE.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/JOSEFIN.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/MARVEL2.webp" },
+      { nama: "Anggota 1", fotoAnggota: "/divisi/anggota/STHEVANIE.webp" },
     ],
     warna1: "#5EC7D0",
     warna2: "#9FDAE2",
     warna3: "#E2F3F6",
-    galeriFoto: ["/fotoDivisi/Foto Divisi_Swarna_3.JPG"],
-    bg: "/fotoDivisi/Foto Divisi_Swarna_3.JPG",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Swarna_3.webp"],
+    bg: "/fotoDivisi/Foto Divisi_Swarna_3.webp",
+    landingPreview: "/fotoDivisi/landing/11-swarna.webp",
   },
 ];
+
+export const divisionPreviews: DivisionPreview[] = divisions.map(
+  ({ id, logo, name, nameEng, landingPreview }) => ({
+    id,
+    logo,
+    name,
+    nameEng,
+    landingPreview,
+  }),
+);
 
 export const getDivisionById = (id: string): Division | undefined => {
   return divisions.find((div) => div.id === id);
