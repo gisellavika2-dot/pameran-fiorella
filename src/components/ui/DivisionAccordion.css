@@ -1,6 +1,5 @@
 .division-accordion-shell {
   width: min(1240px, 100%);
-  margin-inline: auto;
 }
 .division-accordion {
   --division-gap: 14px;
@@ -171,7 +170,7 @@
     transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .division-panel-copy h3 {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-castoro), Georgia, serif;
   font-size: 28px;
   font-weight: 400;
   margin: 0 0 5px;

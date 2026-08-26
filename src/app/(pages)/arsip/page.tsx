@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 interface ArchiveItem {
   id: string;
@@ -78,7 +77,7 @@ export default function ArsipPage() {
       </div>
 
         <div className="flex flex-wrap justify-center gap-6 lg:gap-8 max-w-7xl mx-auto">
-        {archiveData.map((item) => (
+        {archiveData.map((item, index) => (
             <a
             key={item.id}
             href={item.externalUrl}
@@ -89,9 +88,11 @@ export default function ArsipPage() {
                 <div className="relative w-full h-full opacity-40 transition-transform duration-300 group-hover:scale-105">
                 <Image
                 src={item.bgImage}
-                alt={`Background ${item.fullTitle}`}
-                fill
-                className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
+                 alt={`Background ${item.fullTitle}`}
+                 fill
+                 loading={index < 3 ? "eager" : "lazy"}
+                 sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(50vw - 36px), 384px"
+                 className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-110"
               />
             </div>
 
@@ -101,6 +102,7 @@ export default function ArsipPage() {
                     src={item.logoImage}
                     alt={`Logo ${item.themeName}`}
                     fill
+                    sizes="(max-width: 640px) 224px, 256px"
                     className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
                 />
                 </div>

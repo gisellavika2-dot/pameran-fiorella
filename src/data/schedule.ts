@@ -13,7 +13,7 @@ export const schedule: ScheduleDay[] = [
     date: "15 Agustus 2026",
     title: "Sesi Informasi Online",
     description:
-      "Merupakan rangkaian pemaparan materi yang dilaksanakan oleh divisi Wistara atau Public Relations agar para peserta dapat mendengarkan segala informasi yang dibutuhkan sebagai persiapan menyambut UMN NEXT 2026.",
+      "Merupakan rangkaian pemaparan materi yang dilaksanakan oleh divisi Anantara atau Public Relations agar para peserta dapat mendengarkan segala informasi yang dibutuhkan sebagai persiapan menyambut UMN NEXT 2026.",
   },
   {
     id: 2,

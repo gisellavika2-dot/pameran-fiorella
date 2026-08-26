@@ -1,5 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-figtree);
+  --font-serif: var(--font-castoro);
+  --font-display: var(--font-castoro);
+}
 
 :root {
   --ink: #121e42;
@@ -30,7 +35,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  font-family: Figtree, Arial, Helvetica, sans-serif;
+  font-family: var(--font-figtree), Arial, Helvetica, sans-serif;
 }
 
 body > main {
@@ -45,8 +50,18 @@ button,
 
 h1,
 h2,
-h3 {
-  font-family: Castoro, Georgia, "Times New Roman", serif;
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-castoro), Georgia, "Times New Roman", serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 .section-container {
@@ -56,7 +71,7 @@ h3 {
 }
 
 .section-title {
-  font-family: Castoro, Georgia, serif;
+  font-family: var(--font-castoro), Georgia, serif;
 }
 @media (max-width: 760px) {
   body {
@@ -140,6 +155,8 @@ footer {
 
 .behind-canvas-page {
   background: url("/gradients/VARIASI GRADIENT-52.webp") center / cover no-repeat !important;
+}
+
 html:has(.about-page) {
   scroll-snap-type: y mandatory;
   scroll-padding-top: var(--header-height);
@@ -257,5 +274,4 @@ body:has(.behind-canvas-page) .nav-pill {
     height: 32px;
     font-size: 21px;
   }
-}
 }

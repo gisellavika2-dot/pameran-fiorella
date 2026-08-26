@@ -6,6 +6,7 @@ import styles from "./SupergrafisField.module.css";
 const SUPERGRAFIS_SOURCE = "/supergrafis/SUPERGRAFIS-04.webp";
 const GSM_COLORS = ["#121E42", "#364A8C", "#6590C2", "#A8C4D4"];
 const REPEL_RADIUS = 132;
+const PARTICLE_DENSITY = 0.88;
 
 type Particle = {
   alpha: number;
@@ -34,9 +35,10 @@ function seededRandom(seed: number) {
 function createParticles(width: number, height: number): Particle[] {
   const random = seededRandom(Math.round(width * 31 + height * 17));
   const isCompact = width <= 760;
-  const count = isCompact
+  const baseCount = isCompact
     ? Math.max(22, Math.min(34, Math.round(height / 24)))
     : Math.max(38, Math.min(72, Math.round((width * height) / 19000)));
+  const count = Math.round(baseCount * PARTICLE_DENSITY);
 
   return Array.from({ length: count }, (_, index) => {
     const size = isCompact ? 18 + random() * 18 : 26 + random() * 34;

@@ -2,6 +2,7 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import adhikaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/ADHIKARA_1.webp";
 import anantaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Anantara_1.webp";
 import arthaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_2.webp";
@@ -35,7 +36,7 @@ export default function HomeBehindGallery({ rows }: HomeBehindGalleryProps) {
                   const src = photos[photoIndex % photos.length];
                   return (
                     <button className="mosaic-cell" type="button" key={photoIndex} onClick={() => setSelectedPhoto(src)} aria-label="Perbesar dokumentasi panitia">
-                      <Image src={src} alt="Dokumentasi panitia Fiorella" fill sizes="(max-width: 760px) 190px, 280px" />
+                      <Image src={src} alt="Dokumentasi panitia Fiorella" fill loading={setIndex === 0 ? "eager" : "lazy"} sizes="(max-width: 760px) 190px, 280px" />
                     </button>
                   );
                 })}
@@ -44,14 +45,16 @@ export default function HomeBehindGallery({ rows }: HomeBehindGalleryProps) {
           </div>
         ))}
       </div>
-      {selectedPhoto && (
-        <div className="inline-photo-popover" role="dialog" aria-modal="true" aria-label="Pratinjau dokumentasi" onClick={() => setSelectedPhoto(null)}>
-          <div className="inline-photo-popover-card" onClick={(event) => event.stopPropagation()}>
-            <button type="button" onClick={() => setSelectedPhoto(null)} aria-label="Tutup pratinjau">×</button>
-            <Image src={selectedPhoto} alt="Dokumentasi panitia diperbesar" />
-          </div>
-        </div>
-      )}
+      {selectedPhoto &&
+        createPortal(
+          <div className="inline-photo-popover" role="dialog" aria-modal="true" aria-label="Pratinjau dokumentasi" onClick={() => setSelectedPhoto(null)}>
+            <div className="inline-photo-popover-card" onClick={(event) => event.stopPropagation()}>
+              <button type="button" onClick={() => setSelectedPhoto(null)} aria-label="Tutup pratinjau">×</button>
+              <Image src={selectedPhoto} alt="Dokumentasi panitia diperbesar" />
+            </div>
+          </div>,
+          document.body,
+        )}
     </>
   );
 }

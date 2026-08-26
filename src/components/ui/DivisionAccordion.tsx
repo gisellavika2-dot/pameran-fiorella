@@ -23,6 +23,7 @@ const divisionLogos = [
 const activePanelSizes = "(max-width: 768px) 340px, 60vw";
 // Side panels are narrow but tall, so cover-cropping needs a source sized by height.
 const sidePanelSizes = "(max-width: 768px) 1px, 700px";
+const AUTO_ADVANCE_MS = 2700;
 
 export default function DivisionAccordion({ items }: { items: Division[] }) {
   const [active, setActive] = useState(0);
@@ -83,7 +84,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
       if (!isPaused.current) {
         setActive((current) => (current + 1) % items.length);
       }
-    }, 3000);
+    }, AUTO_ADVANCE_MS);
 
     return () => {
       if (autoAdvanceTimer.current) clearInterval(autoAdvanceTimer.current);
@@ -175,6 +176,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                   src={photo}
                   alt=""
                   fill
+                  loading="eager"
                   sizes={isActive ? activePanelSizes : sidePanelSizes}
                 />
               )}
@@ -185,6 +187,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                     alt={`Logo ${division.name}`}
                     width={72}
                     height={72}
+                    loading="eager"
                   />
                   <div className="division-panel-copy" aria-hidden={!isActive}>
                     <h3 className="text-white">{division.name}</h3>

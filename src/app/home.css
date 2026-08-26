@@ -321,7 +321,6 @@
 }
 .mosaic {
   width: calc(100% + 10vw);
-  margin-inline: -5vw;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -416,7 +415,7 @@
   box-shadow: 0 24px 70px rgba(18, 30, 66, 0.2);
 }
 .coming-card strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-castoro), Georgia, "Times New Roman", serif;
   font-size: clamp(50px, 9vw, 120px);
   font-weight: 400;
   letter-spacing: -0.06em;
@@ -510,7 +509,6 @@
   }
   .mosaic {
     width: calc(100% + 36px);
-    margin-inline: -18px;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }

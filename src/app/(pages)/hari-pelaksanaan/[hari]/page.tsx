@@ -224,7 +224,7 @@ export default function HariDetailPage({ params }: PageProps) {
       </Link>
       <div className="pointer-events-auto z-10 mb-16 flex w-full max-w-7xl flex-col gap-7 bg-transparent px-4 pt-10 text-[#121E42] md:px-0 max-[1024px]:max-w-[calc(100%_-_32px)] max-[760px]:mb-14 max-[760px]:max-w-full max-[760px]:gap-5 max-[760px]:px-3.5 max-[760px]:pt-[58px] max-[380px]:px-2.5">
         <div className="relative mx-auto aspect-[2/1] w-full max-w-5xl overflow-hidden rounded-[2.5rem] border border-[#EDECE6]/20 bg-[#121E42] shadow-2xl max-[1024px]:min-h-0 max-[1024px]:rounded-[30px] max-[760px]:rounded-[22px] max-[380px]:rounded-[18px]">
-          <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill priority sizes="(max-width: 768px) 100vw, 90vw" className="object-cover object-center pointer-events-none" />
+          <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill loading="eager" sizes="(max-width: 768px) 100vw, 90vw" className="object-cover object-center pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/75 via-transparent to-transparent pointer-events-none" />
         </div>
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 px-2 md:px-6 max-[760px]:gap-1.5 max-[760px]:px-1">

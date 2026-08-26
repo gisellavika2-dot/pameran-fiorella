@@ -272,7 +272,7 @@ export default function TentangFiorellaPage() {
                       src="/logo/fiorella-blue-mark.webp"
                       alt="Logo Fiorella"
                       fill
-                      priority
+                      loading="eager"
                       sizes="360px"
                       className="object-contain"
                     />
@@ -284,11 +284,11 @@ export default function TentangFiorellaPage() {
                   <h1 className="font-serif text-4xl font-normal leading-tight tracking-[-0.02em] text-[#6590C2] sm:text-5xl md:text-7xl">
                     Fiorella
                   </h1>
-                  <p className="mb-4 mt-1 font-serif text-lg italic tracking-[-0.02em] text-[#364A8C] sm:text-xl md:text-2xl">
+                  <p className="mb-4 mt-1 font-sans text-lg italic tracking-[-0.02em] text-[#364A8C] sm:text-xl md:text-2xl">
                     “bunga kecil”
                   </p>
                   <p className="max-w-2xl text-xs leading-relaxed text-[#121E42]/80 md:text-sm lg:text-base text-justify">
-                    Fiorella merupakan pameran dokumentasi UMN NEXT yang dipersembahkan oleh divisi Sanchita atau dokumentasi. Berasal dari bahasa Italia, Fiorella didefinisikan sebagai bunga kecil yang menjadi representasi dari peserta yang akan mengambil langkah pertama menuju dunia perkuliahan dan melewati proses pertumbuhan sehingga terus berkembang selayaknya sebuah bunga yang tumbuh dari benih yang kecil hingga mekar.
+                    Fiorella merupakan pameran dokumentasi UMN NEXT 2026 yang dipersembahkan oleh divisi Sanchita atau Documentation. Berasal dari bahasa Italia, Fiorella didefinisikan sebagai bunga kecil yang menjadi representasi dari peserta yang akan mengambil langkah pertama menuju dunia perkuliahan dan melewati proses pertumbuhan sehingga terus berkembang selayaknya sebuah bunga yang tumbuh dari benih yang kecil hingga mekar.
                   </p>
                 </div>
               </div>

@@ -56,9 +56,9 @@ export const TYPOGRAPHY = {
   // Font families
   fonts: {
     // Headline: serif, elegant, attention-grabbing
-    headline: "Castoro, serif",
+    headline: "var(--font-castoro), serif",
     // Body: sans-serif, readable, clean
-    body: "Figtree, sans-serif",
+    body: "var(--font-figtree), sans-serif",
     // Fallback
     fallback: "system-ui, -apple-system, sans-serif",
   },
@@ -98,7 +98,7 @@ export const TYPOGRAPHY = {
   styles: {
     // Hero/Main title
     h1: {
-      fontFamily: "Castoro, serif",
+      fontFamily: "var(--font-castoro), serif",
       fontSize: "3.75rem",   // 60px
       lineHeight: 1.2,
       fontWeight: 700,
@@ -106,7 +106,7 @@ export const TYPOGRAPHY = {
     },
     // Section title
     h2: {
-      fontFamily: "Castoro, serif",
+      fontFamily: "var(--font-castoro), serif",
       fontSize: "2.25rem",   // 36px
       lineHeight: 1.2,
       fontWeight: 700,
@@ -114,49 +114,49 @@ export const TYPOGRAPHY = {
     },
     // Subsection title
     h3: {
-      fontFamily: "Castoro, serif",
+      fontFamily: "var(--font-castoro), serif",
       fontSize: "1.875rem",  // 30px
       lineHeight: 1.3,
       fontWeight: 700,
     },
     // Card title / Medium heading
     h4: {
-      fontFamily: "Castoro, serif",
+      fontFamily: "var(--font-castoro), serif",
       fontSize: "1.5rem",    // 24px
       lineHeight: 1.4,
       fontWeight: 600,
     },
     // Small heading
     h5: {
-      fontFamily: "Figtree, sans-serif",
+      fontFamily: "var(--font-castoro), serif",
       fontSize: "1.25rem",   // 20px
       lineHeight: 1.4,
       fontWeight: 600,
     },
     // Label/Tag heading
     h6: {
-      fontFamily: "Figtree, sans-serif",
+      fontFamily: "var(--font-castoro), serif",
       fontSize: "1.125rem",  // 18px
       lineHeight: 1.5,
       fontWeight: 600,
     },
     // Regular body text
     body: {
-      fontFamily: "Figtree, sans-serif",
+      fontFamily: "var(--font-figtree), sans-serif",
       fontSize: "1rem",      // 16px
       lineHeight: 1.5,
       fontWeight: 400,
     },
     // Small body text / Caption
     small: {
-      fontFamily: "Figtree, sans-serif",
+      fontFamily: "var(--font-figtree), sans-serif",
       fontSize: "0.875rem",  // 14px
       lineHeight: 1.5,
       fontWeight: 400,
     },
     // Extra small text / Tag
     xs: {
-      fontFamily: "Figtree, sans-serif",
+      fontFamily: "var(--font-figtree), sans-serif",
       fontSize: "0.75rem",   // 12px
       lineHeight: 1.5,
       fontWeight: 500,

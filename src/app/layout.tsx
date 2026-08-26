@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 
 import type { Metadata, Viewport } from "next";
+import { Castoro, Figtree } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SitePreloader from "@/components/layout/SitePreloader";
@@ -9,6 +10,20 @@ import { SITE_NAME, SITE_DESCRIPTION } from "@/data/constants";
 import { importedSiteImageSources } from "@/data/imported-site-images";
 import { getPublicImageSources } from "@/lib/public-image-sources";
 import "./globals.css";
+
+const castoro = Castoro({
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-castoro",
+  display: "swap",
+});
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  variable: "--font-figtree",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: SITE_NAME,
@@ -29,7 +44,7 @@ export default function RootLayout({
   );
 
   return (
-    <html lang="id">
+    <html lang="id" className={`${castoro.variable} ${figtree.variable}`}>
       <body className="site-preload-pending flex min-h-screen flex-col">
         <SitePreloader imageSources={imageSources} />
         <Header />

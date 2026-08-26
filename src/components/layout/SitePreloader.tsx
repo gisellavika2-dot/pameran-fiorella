@@ -3,9 +3,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import "./SitePreloader.css";
 
-const PRELOAD_STORAGE_KEY = "fiorella-site-assets-v1";
+const PRELOAD_STORAGE_KEY = "fiorella-site-assets-v2";
 const IMAGE_WIDTHS = [32, 48, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1920];
 const PRELOAD_CONCURRENCY = 6;
+const VIDEO_FALLBACK_MS = 20_000;
+const PRELOAD_FALLBACK_MS = 30_000;
 
 type PreloaderPhase = "loading" | "exiting" | "ready";
 
@@ -85,11 +87,20 @@ export default function SitePreloader({ imageSources }: { imageSources: string[]
   const videoFinished = useRef(false);
   const isFinishing = useRef(false);
   const exitTimer = useRef<number | null>(null);
+  const videoFallbackTimer = useRef<number | null>(null);
+  const preloadFallbackTimer = useRef<number | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const finishPreload = useCallback(() => {
     if (isFinishing.current) return;
     isFinishing.current = true;
+
+    if (videoFallbackTimer.current !== null) {
+      window.clearTimeout(videoFallbackTimer.current);
+    }
+    if (preloadFallbackTimer.current !== null) {
+      window.clearTimeout(preloadFallbackTimer.current);
+    }
 
     try {
       window.sessionStorage.setItem(PRELOAD_STORAGE_KEY, "ready");
@@ -107,6 +118,10 @@ export default function SitePreloader({ imageSources }: { imageSources: string[]
   }, [finishPreload]);
 
   const markVideoFinished = useCallback(() => {
+    if (videoFallbackTimer.current !== null) {
+      window.clearTimeout(videoFallbackTimer.current);
+      videoFallbackTimer.current = null;
+    }
     videoFinished.current = true;
     finishWhenReady();
   }, [finishWhenReady]);
@@ -137,27 +152,47 @@ export default function SitePreloader({ imageSources }: { imageSources: string[]
       : displayWidth * 0.6 * density;
     const width = closestImageWidth(targetWidth);
 
-    void warmImageCache(sources, width, controller.signal, (completed) => {
-      const nextProgress = Math.round((completed / sources.length) * 100);
-      setProgress((current) => current === nextProgress ? current : nextProgress);
-    }).then(() => {
-      if (controller.signal.aborted) return;
+    if (sources.length === 0) {
       assetsReady.current = true;
-      setProgress(100);
-      finishWhenReady();
-    });
+      void Promise.resolve().then(() => {
+        if (controller.signal.aborted) return;
+        setProgress(100);
+        finishWhenReady();
+      });
+    } else {
+      void warmImageCache(sources, width, controller.signal, (completed) => {
+        const nextProgress = Math.round((completed / sources.length) * 100);
+        setProgress((current) => current === nextProgress ? current : nextProgress);
+      }).then(() => {
+        if (controller.signal.aborted) return;
+        assetsReady.current = true;
+        setProgress(100);
+        finishWhenReady();
+      });
+    }
 
-    return () => controller.abort();
-  }, [finishPreload, finishWhenReady, imageSources]);
-
-  useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (video) {
+      video.muted = true;
+      const playback = video.play();
+      void playback?.catch(() => setNeedsInteraction(true));
+      videoFallbackTimer.current = window.setTimeout(markVideoFinished, VIDEO_FALLBACK_MS);
+    } else {
+      markVideoFinished();
+    }
 
-    video.muted = false;
-    const playback = video.play();
-    void playback?.catch(() => setNeedsInteraction(true));
-  }, []);
+    preloadFallbackTimer.current = window.setTimeout(finishPreload, PRELOAD_FALLBACK_MS);
+
+    return () => {
+      controller.abort();
+      if (videoFallbackTimer.current !== null) {
+        window.clearTimeout(videoFallbackTimer.current);
+      }
+      if (preloadFallbackTimer.current !== null) {
+        window.clearTimeout(preloadFallbackTimer.current);
+      }
+    };
+  }, [finishPreload, finishWhenReady, imageSources, markVideoFinished]);
 
   useEffect(() => {
     return () => {
@@ -179,7 +214,7 @@ export default function SitePreloader({ imageSources }: { imageSources: string[]
         ref={videoRef}
         className="site-preloader-video"
         src="/bumperVideo/bumperVideo.mp4"
-        autoPlay
+        muted
         playsInline
         preload="auto"
         onPlay={() => setNeedsInteraction(false)}

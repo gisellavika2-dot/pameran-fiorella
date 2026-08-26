@@ -57,7 +57,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
               src={division.bg}
               alt={`Foto Divisi ${division.name}`}
               fill
-              priority
+              loading="eager"
               sizes="100vw"
               className="object-cover opacity-20 mix-blend-overlay z-0"
             />
@@ -388,7 +388,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
                   fill
                   sizes="100vw"
                   className="object-contain"
-                  priority
+                  loading="eager"
                 />
               </div>
             </div>

@@ -39,7 +39,7 @@ export default function Home() {
               width={432} 
               height={407} 
               className="h-auto w-full max-w-[240px] object-contain md:max-w-[280px]"
-              priority 
+              loading="eager"
             />
           </div>
           
@@ -54,7 +54,7 @@ export default function Home() {
             
             <p>
               Tempat karya, cerita, dan kebersamaan tumbuh menjadi satu. Sebuah
-              pameran dokumentasi perjalanan OMB UMN 2026.
+              pameran dokumentasi perjalanan UMN NEXT 2026.
             </p>
             
             <Link className="figma-button" href="/tentang-fiorella">
@@ -65,12 +65,11 @@ export default function Home() {
       </section>
 
       {/* Hari Pelaksanaan Section */}
-      <section className="editorial-section events-section relative isolate overflow-hidden">
-        <Image src="/supergrafis/SUPERGRAFIS-01.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute -left-[16%] -top-[20%] z-0 h-auto w-[clamp(240px,32vw,500px)] opacity-[.16] max-[760px]:-left-[35%] max-[760px]:-top-[8%] max-[760px]:w-[260px] max-[760px]:opacity-[.12]" />
-        <p className="section-kicker relative z-1">Linimasa kegiatan</p>
-        <h2 className="relative z-1">Hari Pelaksanaan</h2>
-        <div className="relative z-1 flex w-full justify-center"><EventCarousel items={schedule.slice(0, 5)} /></div>
-        <Link className="text-link relative z-1" href="/hari-pelaksanaan">
+      <section className="editorial-section events-section">
+        <p className="section-kicker">Linimasa kegiatan</p>
+        <h2>Hari Pelaksanaan</h2>
+        <EventCarousel items={schedule.slice(0, 5)} />
+        <Link className="text-link" href="/hari-pelaksanaan">
           Lihat seluruh rangkaian <span>→</span>
         </Link>
       </section>
@@ -83,12 +82,11 @@ export default function Home() {
       </section>
 
       {/* Dibalik Kepanitiaan Section */}
-      <section className="editorial-section behind-section relative isolate overflow-hidden">
-        <Image src="/supergrafis/SUPERGRAFIS-09.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute -left-[12%] top-[4%] z-0 h-auto w-[clamp(220px,28vw,430px)] -rotate-12 opacity-[.14] max-[760px]:-left-[42%] max-[760px]:top-[12%] max-[760px]:w-[260px] max-[760px]:opacity-[.1]" />
-        <p className="section-kicker relative z-1">Yang tak terlihat di panggung</p>
-        <h2 className="relative z-1">Dibalik Kepanitiaan</h2>
-        <div className="relative z-1 flex w-full justify-center"><HomeBehindGallery rows={behindTheScenesRows} /></div>
-        <Link className="figma-button dark-button relative z-1" href="/dibalik-kepanitiaan">
+      <section className="editorial-section behind-section">
+        <p className="section-kicker">Yang tak terlihat di panggung</p>
+        <h2>Dibalik Kepanitiaan</h2>
+        <HomeBehindGallery rows={behindTheScenesRows} />
+        <Link className="figma-button dark-button" href="/dibalik-kepanitiaan">
           Hasil Dokumentasi <span>→</span>
         </Link>
       </section>
