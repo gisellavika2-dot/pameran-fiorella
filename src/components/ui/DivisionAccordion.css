@@ -1,5 +1,6 @@
 .division-accordion-shell {
   width: min(1240px, 100%);
+  margin-inline: auto;
 }
 .division-accordion {
   --division-gap: 14px;

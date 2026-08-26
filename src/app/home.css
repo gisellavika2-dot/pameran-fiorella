@@ -243,6 +243,7 @@ html:has(.home-page) .site-footer {
 }
 .mosaic {
   width: calc(100% + 10vw);
+  margin-inline: -5vw;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -385,6 +386,7 @@ html:has(.home-page) .site-footer {
   }
   .mosaic {
     width: calc(100% + 36px);
+    margin-inline: -18px;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
