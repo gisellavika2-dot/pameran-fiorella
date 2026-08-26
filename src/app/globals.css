@@ -223,6 +223,10 @@ html:has(.about-page) .site-footer {
   display: none;
 }
 
+.behind-canvas-page {
+  background: url("/gradients/VARIASI GRADIENT-52.jpg") center / cover no-repeat !important;
+}
+
 .inline-photo-popover {
   position: fixed;
   z-index: 1200;
