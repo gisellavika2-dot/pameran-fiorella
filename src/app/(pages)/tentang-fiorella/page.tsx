@@ -245,128 +245,139 @@ const DocumentationCard = ({
 
 export default function TentangFiorellaPage() {
   return (
-    <main className="about-page relative w-full overflow-x-hidden font-sans text-[#EDECE6]">
-      <section id="tentang-fiorella" className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center bg-[url('/gradients/tentang/grad1.png')] bg-cover bg-center bg-no-repeat px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
-        <div className="relative z-10 mx-auto w-full max-w-6xl space-y-5 md:space-y-6">
-          <div className="relative overflow-hidden rounded-[1.5rem] bg-[#EDECE6] p-6 text-[#121E42] shadow-[0_30px_90px_rgba(18,30,66,0.28)] sm:p-7 md:rounded-[2.5rem] md:p-10 lg:p-12">
-            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#A8C4D4]/55 blur-3xl" />
-            <div className="absolute bottom-0 left-0 h-36 w-full bg-gradient-to-t from-white/28 to-transparent" />
+    <main className="relative w-full h-[100dvh] overflow-y-auto overflow-x-hidden snap-y snap-mandatory font-sans text-[#EDECE6]">
+      
+      {/* 
+        WRAPPER BACKGROUND UTUH 
+        Div ini membungkus semua section dan menerapkan grad5_v.png.
+        Background ini diregangkan (size:100%_100%) dari atas section 1 sampai bawah section 3,
+        sehingga akan ikut ter-scroll secara natural seiring pengguna scroll ke bawah.
+      */}
+      <div className="relative w-full bg-[url('/gradients/tentang/grad1_v.png')] bg-[size:100%_100%] bg-top bg-no-repeat">
+        
+        <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
+          <div className="relative z-10 mx-auto w-full max-w-6xl space-y-5 md:space-y-6">
+            <div className="relative overflow-hidden rounded-[1.5rem] bg-[#EDECE6] p-6 text-[#121E42] shadow-[0_30px_90px_rgba(18,30,66,0.28)] sm:p-7 md:rounded-[2.5rem] md:p-10 lg:p-12">
+              <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#A8C4D4]/55 blur-3xl" />
+              <div className="absolute bottom-0 left-0 h-36 w-full bg-gradient-to-t from-white/28 to-transparent" />
 
-            <div className="relative grid items-center gap-6 lg:grid-cols-[0.6fr_1fr] lg:gap-10">
-              <div className="mx-auto flex w-full max-w-xs flex-col items-center justify-center text-center">
-                <div className="relative aspect-[4/3] w-full max-w-[220px] sm:max-w-[280px] md:max-w-[340px]">
-                  <Image
-                    src="/logo/fiorella-blue-mark.png"
-                    alt="Logo Fiorella"
-                    fill
-                    priority
-                    sizes="360px"
-                    className="object-contain"
-                  />
+              <div className="relative grid items-center gap-6 lg:grid-cols-[0.6fr_1fr] lg:gap-10">
+                <div className="mx-auto flex w-full max-w-xs flex-col items-center justify-center text-center">
+                  <div className="relative aspect-[4/3] w-full max-w-[220px] sm:max-w-[280px] md:max-w-[340px]">
+                    <Image
+                      src="/logo/fiorella-blue-mark.png"
+                      alt="Logo Fiorella"
+                      fill
+                      priority
+                      sizes="360px"
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div className="relative flex flex-col justify-center">
-                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#364A8C] md:text-[11px]"></p>
-                <h1 className="font-serif text-4xl font-normal leading-tight tracking-[-0.02em] text-[#6590C2] sm:text-5xl md:text-7xl">
-                  Fiorella
-                </h1>
-                <p className="mb-4 mt-1 font-serif text-lg italic tracking-[-0.02em] text-[#364A8C] sm:text-xl md:text-2xl">
-                  &ldquo;bunga kecil&rdquo;
-                </p>
-                <p className="max-w-2xl text-xs leading-relaxed text-[#121E42]/80 md:text-sm lg:text-base text-justify">
-                  Fiorella merupakan pameran dokumentasi UMN NEXT yang dipersembahkan oleh divisi Sanchita atau dokumentasi. Berasal dari bahasa Italia, Fiorella didefinisikan sebagai bunga kecil yang menjadi representasi dari peserta yang akan mengambil langkah pertama menuju dunia perkuliahan dan melewati proses pertumbuhan sehingga terus berkembang selayaknya sebuah bunga yang tumbuh dari benih yang kecil hingga mekar.
-                </p>
+                <div className="relative flex flex-col justify-center">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#364A8C] md:text-[11px]"></p>
+                  <h1 className="font-serif text-4xl font-normal leading-tight tracking-[-0.02em] text-[#6590C2] sm:text-5xl md:text-7xl">
+                    Fiorella
+                  </h1>
+                  <p className="mb-4 mt-1 font-serif text-lg italic tracking-[-0.02em] text-[#364A8C] sm:text-xl md:text-2xl">
+                    "bunga kecil"
+                  </p>
+                  <p className="max-w-2xl text-xs leading-relaxed text-[#121E42]/80 md:text-sm lg:text-base text-justify">
+                    Fiorella merupakan pameran dokumentasi UMN NEXT yang dipersembahkan oleh divisi Sanchita atau dokumentasi. Berasal dari bahasa Italia, Fiorella didefinisikan sebagai bunga kecil yang menjadi representasi dari peserta yang akan mengambil langkah pertama menuju dunia perkuliahan dan melewati proses pertumbuhan sehingga terus berkembang selayaknya sebuah bunga yang tumbuh dari benih yang kecil hingga mekar.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
-            <article className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/95 p-5 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 sm:p-6 md:rounded-[2rem] md:p-7">
-              <h2 className="font-serif text-2xl font-normal tracking-[-0.035em] text-[#121E42] md:text-3xl">
-                Tema Besar
-              </h2>
-              <h3 className="mt-1 font-serif text-lg italic text-[#6590C2]">
-                “Transformasi melalui Adaptasi”
-              </h3>
-              <p className="mt-3 text-xs leading-relaxed text-[#121E42]/75 md:text-sm text-justify">
-                Tema ini menggambarkan perjalanan seorang mahasiswa baru yang mengalami berbagai perubahan saat memasuki dunia perkuliahan. Seperti bunga kembang sepatu yang mampu tumbuh dan berkembang dalam berbagai kondisi lingkungan, seperti peserta UMN NEXT 2026 yang diharapkan mampu beradaptasi, menghadapi tantangan, dan terus berkembang menjadi pribadi yang lebih baik di dunia perkuliahan.
-              </p>
-            </article>
-
-            <article className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#A8C4D4] p-5 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 sm:p-6 md:rounded-[2rem] md:p-7">
-              <div className="absolute -bottom-16 -right-10 h-44 w-44 rounded-full bg-[#EDECE6]/50 blur-2xl" />
-              <div className="relative">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+              <article className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/95 p-5 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 sm:p-6 md:rounded-[2rem] md:p-7">
                 <h2 className="font-serif text-2xl font-normal tracking-[-0.035em] text-[#121E42] md:text-3xl">
-                  Konsep Besar
+                  Tema Besar
                 </h2>
-                <h3 className="mt-1 font-serif text-lg italic text-[#364A8C]">
-                  “The Traces of Becoming”
+                <h3 className="mt-1 font-serif text-lg italic text-[#6590C2]">
+                  “Transformasi melalui Adaptasi”
                 </h3>
                 <p className="mt-3 text-xs leading-relaxed text-[#121E42]/75 md:text-sm text-justify">
-                  Konsep ini melambangkan proses yang dilalui oleh Pejuang Kembang Sepatu dalam memasuki dunia perkuliahan. Seperti bunga yang awal mula tumbuh dari sebuah benih menjadi bunga yang mekar, Pejuang Kembang Sepatu juga melalui proses pertumbuhan yang panjang dimana setiap langkah berharga. Pameran dirancang sebagai ruang refleksi yang mampu membawa peserta kembali menelusuri perjalanan mereka.
+                  Tema ini menggambarkan perjalanan seorang mahasiswa baru yang mengalami berbagai perubahan saat memasuki dunia perkuliahan. Seperti bunga kembang sepatu yang mampu tumbuh dan berkembang dalam berbagai kondisi lingkungan, seperti peserta UMN NEXT 2026 yang diharapkan mampu beradaptasi, menghadapi tantangan, dan terus berkembang menjadi pribadi yang lebih baik di dunia perkuliahan.
                 </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+              </article>
 
-      <section className="relative z-10 flex min-h-[100dvh] h-max w-full snap-start snap-always flex-col justify-center bg-[url('/gradients/tentang/grad2.png')] bg-cover bg-center bg-no-repeat px-5 pt-28 pb-24 sm:px-6 md:px-8 md:pt-30">
-        <div className="relative z-10 mx-auto w-full max-w-6xl">
-          <SectionHeader
-            title="Filosofi dan Nilai"
-            description="Filosofi adaptasi dan nilai-nilai utama disusun sebagai panduan membaca pameran: bagaimana momen bertumbuh, saling terhubung, lalu terekam menjadi jejak yang bisa dikunjungi kembali."
-          />
-          
-          <div className="mt-4 flex flex-col gap-6 md:mt-8 md:gap-10">
-            <article className="group relative w-full overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-6 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:bg-[#EDECE6]/15 md:rounded-[2rem] md:p-8 lg:p-10">
-              <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#A8C4D4]/20 blur-3xl transition group-hover:bg-[#A8C4D4]/30" />
-              <div className="relative">
-                <div className="flex flex-col gap-2 border-b border-[#EDECE6]/20 pb-4 md:flex-row md:items-end md:justify-between md:pb-6">
-                  <h3 className="font-serif text-3xl font-normal tracking-[-0.035em] text-[#EDECE6] md:text-4xl">
-                    Filosofi
+              <article className="group relative overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#A8C4D4] p-5 text-[#121E42] shadow-2xl shadow-[#121E42]/16 transition duration-300 hover:-translate-y-1 sm:p-6 md:rounded-[2rem] md:p-7">
+                <div className="absolute -bottom-16 -right-10 h-44 w-44 rounded-full bg-[#EDECE6]/50 blur-2xl" />
+                <div className="relative">
+                  <h2 className="font-serif text-2xl font-normal tracking-[-0.035em] text-[#121E42] md:text-3xl">
+                    Konsep Besar
+                  </h2>
+                  <h3 className="mt-1 font-serif text-lg italic text-[#364A8C]">
+                    “The Traces of Becoming”
                   </h3>
-                  <span className="font-serif text-sm italic text-[#A8C4D4] md:text-lg">
-                    “Adaptasi yang Membawa Transformasi”
-                  </span>
-                </div>
-                <div className="mt-4 grid gap-4 text-xs leading-relaxed text-[#EDECE6]/80 md:mt-6 md:grid-cols-2 md:gap-8 md:text-sm lg:text-base text-justify">
-                  <p>
-                    Filosofi ini terinspirasi dari Bunga Kembang Sepatu yang mampu tumbuh dan berkembang di berbagai kondisi lingkungan. Kemampuannya untuk menyesuaikan diri terhadap perubahan mencerminkan perjalanan mahasiswa baru yang sedang memasuki fase kehidupan yang berbeda dari sebelumnya.
-                  </p>
-                  <p>
-                    Sebagai Pejuang Kembang Sepatu, peserta UMN NEXT 2026 diajak untuk memahami bahwa setiap tantangan, perubahan, dan pengalaman baru merupakan bagian dari proses adaptasi yang akan membentuk pertumbuhan diri. Mahasiswa tidak hanya belajar bertahan, tetapi juga siap menghadapi kehidupan perkuliahan.
+                  <p className="mt-3 text-xs leading-relaxed text-[#121E42]/75 md:text-sm text-justify">
+                    Konsep ini melambangkan proses yang dilalui oleh Pejuang Kembang Sepatu dalam memasuki dunia perkuliahan. Seperti bunga yang awal mula tumbuh dari sebuah benih menjadi bunga yang mekar, Pejuang Kembang Sepatu juga melalui proses pertumbuhan yang panjang dimana setiap langkah berharga. Pameran dirancang sebagai ruang refleksi yang mampu membawa peserta kembali menelusuri perjalanan mereka.
                   </p>
                 </div>
-              </div>
-            </article>
-
-            <ValueShowcase />
+              </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center overflow-hidden bg-[url('/gradients/tentang/grad3.png')] bg-cover bg-center bg-no-repeat px-5 pt-28 pb-16 sm:px-6 md:px-8 md:py-26 md:pt-30">
-        <div className="relative z-10 mx-auto w-full max-w-5xl">
-          <SectionHeader
-            title="Dokumentasi"
-            description="Kumpulan dokumentasi disusun agar pengunjung dapat mengakses kembali foto, video, dan suasana penting Fiorella secara ringkas."
-          />
-          <div className="space-y-4 md:space-y-6">
-            {documentationCards.map((card, index) => (
-              <DocumentationCard
-                key={card.title}
-                title={card.title}
-                label={card.label}
-                image={card.image}
-                gradient={card.gradient}
-                index={index}
-              />
-            ))}
+        <section className="relative z-10 flex min-h-[100dvh] h-max w-full snap-start snap-always flex-col justify-center px-5 pt-28 pb-24 sm:px-6 md:px-8 md:pt-30">
+          <div className="relative z-10 mx-auto w-full max-w-6xl">
+            <SectionHeader
+              title="Filosofi dan Nilai"
+              description="Filosofi adaptasi dan nilai-nilai utama disusun sebagai panduan membaca pameran: bagaimana momen bertumbuh, saling terhubung, lalu terekam menjadi jejak yang bisa dikunjungi kembali."
+            />
+            
+            <div className="mt-4 flex flex-col gap-6 md:mt-8 md:gap-10">
+              <article className="group relative w-full overflow-hidden rounded-[1.5rem] border border-[#EDECE6]/16 bg-[#EDECE6]/10 p-6 shadow-2xl shadow-[#121E42]/18 backdrop-blur-md transition duration-300 hover:bg-[#EDECE6]/15 md:rounded-[2rem] md:p-8 lg:p-10">
+                <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#A8C4D4]/20 blur-3xl transition group-hover:bg-[#A8C4D4]/30" />
+                <div className="relative">
+                  <div className="flex flex-col gap-2 border-b border-[#EDECE6]/20 pb-4 md:flex-row md:items-end md:justify-between md:pb-6">
+                    <h3 className="font-serif text-3xl font-normal tracking-[-0.035em] text-[#EDECE6] md:text-4xl">
+                      Filosofi
+                    </h3>
+                    <span className="font-serif text-sm italic text-[#A8C4D4] md:text-lg">
+                      “Adaptasi yang Membawa Transformasi”
+                    </span>
+                  </div>
+                  <div className="mt-4 grid gap-4 text-xs leading-relaxed text-[#EDECE6]/80 md:mt-6 md:grid-cols-2 md:gap-8 md:text-sm lg:text-base text-justify">
+                    <p>
+                      Filosofi ini terinspirasi dari Bunga Kembang Sepatu yang mampu tumbuh dan berkembang di berbagai kondisi lingkungan. Kemampuannya untuk menyesuaikan diri terhadap perubahan mencerminkan perjalanan mahasiswa baru yang sedang memasuki fase kehidupan yang berbeda dari sebelumnya.
+                    </p>
+                    <p>
+                      Sebagai Pejuang Kembang Sepatu, peserta UMN NEXT 2026 diajak untuk memahami bahwa setiap tantangan, perubahan, dan pengalaman baru merupakan bagian dari proses adaptasi yang akan membentuk pertumbuhan diri. Mahasiswa tidak hanya belajar bertahan, tetapi juga siap menghadapi kehidupan perkuliahan.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <ValueShowcase />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center overflow-hidden px-5 pt-28 pb-16 sm:px-6 md:px-8 md:py-26 md:pt-30">
+          <div className="relative z-10 mx-auto w-full max-w-5xl">
+            <SectionHeader
+              title="Dokumentasi"
+              description="Kumpulan dokumentasi disusun agar pengunjung dapat mengakses kembali foto, video, dan suasana penting Fiorella secara ringkas."
+            />
+            <div className="space-y-4 md:space-y-6">
+              {documentationCards.map((card, index) => (
+                <DocumentationCard
+                  key={card.title}
+                  title={card.title}
+                  label={card.label}
+                  image={card.image}
+                  gradient={card.gradient}
+                  index={index}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </div>
     </main>
   );
 }
