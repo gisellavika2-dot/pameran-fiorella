@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import HomeBehindGallery from "@/components/ui/HomeBehindGallery";
+import SmoothSectionScroller from "@/components/ui/SmoothSectionScroller";
 import type { CSSProperties } from "react";
 import { divisions } from "@/data/divisions";
 import { schedule } from "@/data/schedule";
@@ -16,7 +17,10 @@ const behindTheScenesRows = [
 
 export default function Home() {
   return (
-    <main className="home-page">
+    <SmoothSectionScroller
+      className="home-page smooth-section-page"
+      scrollRoot="document"
+    >
       {/* Hero Section */}
       <section
         id="home"
@@ -140,6 +144,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </SmoothSectionScroller>
   );
 }

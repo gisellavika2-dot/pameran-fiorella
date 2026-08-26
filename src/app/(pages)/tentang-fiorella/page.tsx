@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image, { type StaticImageData } from "next/image";
+import SmoothSectionScroller from "@/components/ui/SmoothSectionScroller";
 import image1 from "./images/car2.webp";
 import image2 from "./images/car3.webp";
 import image3 from "./images/car4.webp";
@@ -245,7 +246,10 @@ const DocumentationCard = ({
 
 export default function TentangFiorellaPage() {
   return (
-    <main className="relative w-full h-[100dvh] overflow-y-auto overflow-x-hidden snap-y snap-mandatory font-sans text-[#EDECE6]">
+    <SmoothSectionScroller
+      className="tentang-scroller smooth-section-page relative min-h-[100dvh] w-full font-sans text-[#EDECE6]"
+      scrollRoot="document"
+    >
       
       {/* 
         WRAPPER BACKGROUND UTUH 
@@ -255,7 +259,7 @@ export default function TentangFiorellaPage() {
       */}
       <div className="relative w-full bg-[url('/gradients/tentang/grad1_v.png')] bg-[size:100%_100%] bg-top bg-no-repeat">
         
-        <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
+        <section id="tentang-fiorella" className="relative z-10 flex min-h-[100dvh] w-full flex-col justify-center px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
           <div className="relative z-10 mx-auto w-full max-w-6xl space-y-5 md:space-y-6">
             <div className="relative overflow-hidden rounded-[1.5rem] bg-[#EDECE6] p-6 text-[#121E42] shadow-[0_30px_90px_rgba(18,30,66,0.28)] sm:p-7 md:rounded-[2.5rem] md:p-10 lg:p-12">
               <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#A8C4D4]/55 blur-3xl" />
@@ -281,7 +285,7 @@ export default function TentangFiorellaPage() {
                     Fiorella
                   </h1>
                   <p className="mb-4 mt-1 font-serif text-lg italic tracking-[-0.02em] text-[#364A8C] sm:text-xl md:text-2xl">
-                    "bunga kecil"
+                    “bunga kecil”
                   </p>
                   <p className="max-w-2xl text-xs leading-relaxed text-[#121E42]/80 md:text-sm lg:text-base text-justify">
                     Fiorella merupakan pameran dokumentasi UMN NEXT yang dipersembahkan oleh divisi Sanchita atau dokumentasi. Berasal dari bahasa Italia, Fiorella didefinisikan sebagai bunga kecil yang menjadi representasi dari peserta yang akan mengambil langkah pertama menuju dunia perkuliahan dan melewati proses pertumbuhan sehingga terus berkembang selayaknya sebuah bunga yang tumbuh dari benih yang kecil hingga mekar.
@@ -321,7 +325,7 @@ export default function TentangFiorellaPage() {
           </div>
         </section>
 
-        <section className="relative z-10 flex min-h-[100dvh] h-max w-full snap-start snap-always flex-col justify-center px-5 pt-28 pb-24 sm:px-6 md:px-8 md:pt-30">
+        <section className="relative z-10 flex min-h-[100dvh] h-max w-full flex-col justify-center px-5 pt-28 pb-24 sm:px-6 md:px-8 md:pt-30">
           <div className="relative z-10 mx-auto w-full max-w-6xl">
             <SectionHeader
               title="Filosofi dan Nilai"
@@ -356,7 +360,7 @@ export default function TentangFiorellaPage() {
           </div>
         </section>
 
-        <section className="relative z-10 flex min-h-[100dvh] w-full snap-start snap-always flex-col justify-center overflow-hidden px-5 pt-28 pb-16 sm:px-6 md:px-8 md:py-26 md:pt-30">
+        <section className="relative z-10 flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden px-5 pt-28 pb-16 sm:px-6 md:px-8 md:py-26 md:pt-30">
           <div className="relative z-10 mx-auto w-full max-w-5xl">
             <SectionHeader
               title="Dokumentasi"
@@ -378,6 +382,6 @@ export default function TentangFiorellaPage() {
         </section>
 
       </div>
-    </main>
+    </SmoothSectionScroller>
   );
 }

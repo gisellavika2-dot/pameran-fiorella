@@ -175,6 +175,36 @@ html {
   /* scroll-snap-type: y mandatory; */
   scroll-behavior: smooth;
 }
+
+html:has(.smooth-section-page) {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+html:has(.smooth-section-page[data-scrolling="true"]) {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.smooth-section-page > section,
+.smooth-section-page > div > section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+html:has(.home-page),
+html:has(.tentang-scroller) {
+  scroll-snap-type: none;
+}
+
+html:has(.tentang-scroller) {
+  scrollbar-width: none;
+}
+
+html:has(.tentang-scroller)::-webkit-scrollbar {
+  display: none;
+}
+
 footer {
   /* scroll-snap-align: start; */
 }
@@ -208,15 +238,6 @@ body > main {
 .site-footer p {
   margin: 0;
   font-size: 14px;
-}
-
-html:has(.about-page) {
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: var(--header-height);
-}
-
-html:has(.about-page) .site-footer {
-  margin-top: calc(-1 * var(--footer-height));
 }
 
 .behind-canvas-page::before {
