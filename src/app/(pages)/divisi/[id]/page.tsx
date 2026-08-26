@@ -292,7 +292,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
         )}
       </ScrollSnapSection>
 
-      <ScrollSnapSection>
+      {/* <ScrollSnapSection>
         <div className="min-h-screen w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
           <div className="section-container flex flex-col items-center z-10">
             <h2 className="font-serif text-2xl md:text-5xl font-bold mb-8 text-center" style={{ color: "white" }}>
@@ -351,7 +351,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
 
           </div>
         </div>
-      </ScrollSnapSection>
+      </ScrollSnapSection> */}
     </ScrollSnapContainer>
   );
 }
