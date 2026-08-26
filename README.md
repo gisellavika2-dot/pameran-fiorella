@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fiorella
 
-## Getting Started
+Fiorella is configured as a static Next.js export so it can run directly from
+Plesk's `httpdocs` directory. No Node.js process is required on the server.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production build for Plesk
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Use Node.js 20 or newer, then run:
 
-## Learn More
+```bash
+npm ci
+npm run build:plesk
+```
 
-To learn more about Next.js, take a look at the following resources:
+The deployable website is generated in `out/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy to `httpdocs`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Back up the current contents of the domain's `httpdocs` directory.
+2. Remove the old website files from `httpdocs` so stale Next.js chunks cannot
+   remain. Keep unrelated server-managed files only if your hosting provider
+   requires them.
+3. Upload the **contents** of `out/` into `httpdocs/`. Do not upload the `out`
+   folder itself as an extra nesting level.
+4. Ensure hidden files are included so `out/.htaccess` reaches
+   `httpdocs/.htaccess`.
+5. Open the home page and test a direct visit to a nested route such as
+   `/divisi/1/` and `/hari-pelaksanaan/1/`.
 
-## Deploy on Vercel
+The export uses directory-style URLs (`trailingSlash`) so Apache can serve each
+nested route through its generated `index.html`. The included `.htaccess` sets
+the custom 404 page and safe caching/compression rules when the corresponding
+Apache modules are enabled.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Updating the site
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+After code or asset changes, rebuild and replace the contents of `httpdocs`
+with the newly generated contents of `out/`. Always deploy the HTML and
+`_next/` directory from the same build.

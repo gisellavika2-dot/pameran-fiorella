@@ -4,23 +4,13 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./SitePreloader.css";
 
 const PRELOAD_STORAGE_KEY = "fiorella-site-assets-v2";
-const IMAGE_WIDTHS = [32, 48, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1920];
 const PRELOAD_CONCURRENCY = 6;
 const VIDEO_FALLBACK_MS = 20_000;
 const PRELOAD_FALLBACK_MS = 30_000;
 
 type PreloaderPhase = "loading" | "exiting" | "ready";
 
-function closestImageWidth(target: number) {
-  return IMAGE_WIDTHS.find((width) => width >= target) ?? IMAGE_WIDTHS.at(-1)!;
-}
-
-function optimizedImageUrl(source: string, width: number) {
-  if (/\.svg(?:$|\?)/i.test(source)) return source;
-  return `/_next/image?url=${encodeURIComponent(source)}&w=${width}&q=75`;
-}
-
-function loadImage(source: string, width: number, signal: AbortSignal) {
+function loadImage(source: string, signal: AbortSignal) {
   return new Promise<void>((resolve) => {
     const image = new window.Image();
     let settled = false;
@@ -44,7 +34,7 @@ function loadImage(source: string, width: number, signal: AbortSignal) {
     image.onload = finish;
     image.onerror = finish;
     signal.addEventListener("abort", abort, { once: true });
-    image.src = optimizedImageUrl(source, width);
+    image.src = source;
 
     if (image.complete) finish();
   });
@@ -52,7 +42,6 @@ function loadImage(source: string, width: number, signal: AbortSignal) {
 
 async function warmImageCache(
   sources: string[],
-  width: number,
   signal: AbortSignal,
   onProgress: (completed: number) => void,
 ) {
@@ -65,7 +54,7 @@ async function warmImageCache(
       cursor += 1;
       if (index >= sources.length) return;
 
-      await loadImage(sources[index], width, signal);
+      await loadImage(sources[index], signal);
       completed += 1;
       onProgress(completed);
     }
@@ -145,13 +134,6 @@ export default function SitePreloader({ imageSources }: { imageSources: string[]
 
     const controller = new AbortController();
     const sources = Array.from(new Set(imageSources));
-    const displayWidth = Math.min(window.innerWidth, 1380);
-    const density = Math.min(window.devicePixelRatio || 1, 2);
-    const targetWidth = window.innerWidth <= 768
-      ? Math.min(displayWidth, 384) * density
-      : displayWidth * 0.6 * density;
-    const width = closestImageWidth(targetWidth);
-
     if (sources.length === 0) {
       assetsReady.current = true;
       void Promise.resolve().then(() => {
@@ -160,7 +142,7 @@ export default function SitePreloader({ imageSources }: { imageSources: string[]
         finishWhenReady();
       });
     } else {
-      void warmImageCache(sources, width, controller.signal, (completed) => {
+      void warmImageCache(sources, controller.signal, (completed) => {
         const nextProgress = Math.round((completed / sources.length) * 100);
         setProgress((current) => current === nextProgress ? current : nextProgress);
       }).then(() => {
@@ -173,7 +155,7 @@ export default function SitePreloader({ imageSources }: { imageSources: string[]
 
     const video = videoRef.current;
     if (video) {
-      video.muted = true;
+      video.muted = false;
       const playback = video.play();
       void playback?.catch(() => setNeedsInteraction(true));
       videoFallbackTimer.current = window.setTimeout(markVideoFinished, VIDEO_FALLBACK_MS);
@@ -214,7 +196,6 @@ export default function SitePreloader({ imageSources }: { imageSources: string[]
         ref={videoRef}
         className="site-preloader-video"
         src="/bumperVideo/bumperVideo.mp4"
-        muted
         playsInline
         preload="auto"
         onPlay={() => setNeedsInteraction(false)}
