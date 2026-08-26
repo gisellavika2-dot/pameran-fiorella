@@ -222,11 +222,18 @@
 }
 .events-section {
   background: var(--sky);
+  height: 100svh;
+  min-height: 620px;
+  padding-top: 88px;
+  padding-bottom: 40px;
+}
+.events-section h2 {
+  margin-bottom: 22px;
 }
 .text-link {
   color: var(--paper);
   background: var(--ink);
-  margin-top: 48px;
+  margin-top: 20px;
 }
 .divisions-section {
   background: transparent;
@@ -368,6 +375,17 @@
   }
   .editorial-section h2 {
     margin-bottom: 36px;
+  }
+  .events-section {
+    min-height: 560px;
+    padding: 82px 18px 28px;
+  }
+  .events-section h2 {
+    margin-bottom: 18px;
+  }
+  .events-section .text-link {
+    margin-top: 16px;
+    padding: 11px 18px;
   }
   .mosaic {
     width: calc(100% + 36px);
