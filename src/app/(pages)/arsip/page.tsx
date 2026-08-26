@@ -38,7 +38,7 @@ const archiveData: ArchiveItem[] = [
     year: "2023",
     themeName: "Ananta",
     subTitle: "Pameran Dokumentasi",
-    fullTitle: "OMB UMN 2022",
+    fullTitle: "OMB UMN 2023",
     bgImage: "/logoArsip/bgArsip/bg2023.jpg",
     logoImage: "/logoArsip/Ananta.png",
     externalUrl: "https://doc.umn.ac.id/ananta",
@@ -59,7 +59,7 @@ const archiveData: ArchiveItem[] = [
     themeName: "Aeterna",
     subTitle: "Pameran Dokumentasi",
     fullTitle: "OMB UMN 2025",
-    bgImage: "/logoArsip/bgArsip/bg2025.jpg",
+    bgImage: "/logoArsip/bgArsip/bg2025.webp",
     logoImage: "/logoArsip/aeterna.png",
     externalUrl: "https://doc.umn.ac.id/aeterna",
   },
@@ -67,12 +67,12 @@ const archiveData: ArchiveItem[] = [
 
 export default function ArsipPage() {
   return (
-    <main className="min-h-screen bg-[linear-gradient(150deg,#121E42_10%,#6590C2_50%,#A8C4D4_70%,#EDECE6_100%)] text-white py-16 px-4 sm:px-8 lg:px-8">
+    <main className="min-h-screen bg-[url('/gradients/grad3.jpg')] bg-cover text-white py-16 px-4 sm:px-8 lg:px-8">
       <div className="max-w-7xl mx-auto text-center mb-12 mt-16">
         <h1 className="text-3xl md:text-6xl font-bold tracking-tight mb-3">
           Arsip OMB UMN
         </h1>
-        <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
+        <p className="text-white text-lg sm:text-xl max-w-2xl mx-auto">
           Kumpulan dokumentasi, momen bersejarah, dan rekam jejak pelaksanaan Orientasi Mahasiswa Baru Universitas Multimedia Nusantara lintas generasi.
         </p>
       </div>

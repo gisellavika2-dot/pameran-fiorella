@@ -125,6 +125,12 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
           const isActive = position === 0;
           const isVisible = Math.abs(position) <= 2;
 
+          const [randomPhoto] = useState(() => {
+            if (!division.galeriFoto || division.galeriFoto.length === 0) return "";
+            const maxIndex = Math.min(division.galeriFoto.length, 10);
+            return division.galeriFoto[Math.floor(Math.random() * maxIndex)];
+          });
+
           return (
             <article
               key={division.id}
@@ -143,6 +149,14 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
               aria-current={isActive ? "true" : undefined}
               aria-hidden={!isVisible}
               aria-label={`Tampilkan divisi ${division.name}`}
+              style={{
+                      backgroundImage: `linear-gradient(150deg, rgba(17,30,66,0.5) 10%, rgba(101,144,194,0.5) 50%, rgba(168,196,212,0.5) 70%, rgba(237,236,230,0.5) 120%), url('${
+                        division.galeriFoto?.[Math.floor(Math.random() * Math.min(division.galeriFoto.length, 10))] || ""
+                      }')`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                    }}
             >
               <div className="division-panel-footer flex items-center justify-between w-full">
                 <div className="flex items-center gap-4">
@@ -153,12 +167,12 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                     height={72}
                   />
                   <div className="division-panel-copy" aria-hidden={!isActive}>
-                    <h3>{division.name}</h3>
-                    <p>{division.nameEng}</p>
+                    <h3 className="text-white">{division.name}</h3>
+                    <p className="text-white">{division.nameEng}</p>
                   </div>
                 </div>
 
-                {isActive && (
+                {/* {isActive && (
                   <Link
                     href={`/divisi/${division.id}`}
                     onClick={(e) => e.stopPropagation()}
@@ -183,7 +197,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                       />
                     </svg>
                   </Link>
-                )}
+                )} */}
               </div>
             </article>
           );

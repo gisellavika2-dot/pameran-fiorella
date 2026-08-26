@@ -34,6 +34,7 @@ export interface Division {
   warna2: string;
   warna3: string;
   galeriFoto: string[];
+  bg: string;
 }
 
 export const divisions: Division[] = [
@@ -74,19 +75,14 @@ export const divisions: Division[] = [
     ],
     warna1: "#37449C",
     warna2: "#7F8DBA",
-    warna3: "#D4D6D8",
+    warna3: "#DBDFEC",
     galeriFoto: [
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_6.JPG",
     ],
+    bg: "/fotoDivisi/Foto Divisi_Adhikara_6.JPG",
   },
+
+
   {
     id: "2",
     logo: "/figma/division-pr.webp",
@@ -117,9 +113,14 @@ export const divisions: Division[] = [
     ],
     warna1: "#6B6968",
     warna2: "#999DA0",
-    warna3: "#D4D6D8",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#F3F4F4",
+    galeriFoto: [
+      "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
+    ],
+    bg: "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
   },
+
+
   {
     id: "3",
     logo: "/figma/division-pic.webp",
@@ -195,9 +196,12 @@ export const divisions: Division[] = [
     ],
     warna1: "#F3819C",
     warna2: "#FACBDC",
-    warna3: "#FCE7F3",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#FEF0F5",
+    galeriFoto: ["/fotoDivisi/BGARTHA.jpg"],
+    bg: "/fotoDivisi/BGARTHA.jpg",
   },
+
+
   {
     id: "4",
     logo: "/figma/division-keamanan.webp",
@@ -235,9 +239,12 @@ export const divisions: Division[] = [
     ],
     warna1: "#000000",
     warna2: "#6B6968",
-    warna3: "#999DA0",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#D6D5D5",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Birendra_4.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Birendra_4.JPG",
   },
+
+
   {
     id: "5",
     logo: "/figma/division-perkap.webp",
@@ -263,9 +270,12 @@ export const divisions: Division[] = [
     ],
     warna1: "#84499D",
     warna2: "#C598C8",
-    warna3: "#E9D5FF",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#EFE3F0",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Daraka_6.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Daraka_6.JPG",
   },
+
+
   {
     id: "6",
     logo: "/figma/division-medis.webp",
@@ -304,9 +314,12 @@ export const divisions: Division[] = [
     ],
     warna1: "#0FAB70",
     warna2: "#8ACB99",
-    warna3: "#A7F3D0",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#DEF0E2",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG",
   },
+
+
   {
     id: "7",
     logo: "/figma/division-konsum.webp",
@@ -330,9 +343,12 @@ export const divisions: Division[] = [
     ],
     warna1: "#C67F4E",
     warna2: "#DCA37D",
-    warna3: "#F4AE6E",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#F5E5DB",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Nayaka_5.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Nayaka_5.JPG",
   },
+
+
   {
     id: "8",
     logo: "/figma/division-website.webp",
@@ -361,9 +377,12 @@ export const divisions: Division[] = [
     ],
     warna1: "#F7CE1C",
     warna2: "#F8E58D",
-    warna3: "#FEF08A",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#FDF8DF",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Rachana_5.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Rachana_5.JPG",
   },
+
+
   {
     id: "9",
     logo: "/figma/division-acara.webp",
@@ -388,9 +407,12 @@ export const divisions: Division[] = [
     ],
     warna1: "#EB1A3F",
     warna2: "#F05E5E",
-    warna3: "#FECDD3",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#FBD2D2",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchara_6.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Sanchara_6.JPG",
   },
+
+
   {
     id: "10",
     logo: "/figma/division-dokum.webp",
@@ -417,9 +439,12 @@ export const divisions: Division[] = [
     ],
     warna1: "#F47421",
     warna2: "#F4AE6E",
-    warna3: "#FCD34D",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#FCE8D6",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchita_6.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Sanchita_6.JPG",
   },
+
+
   {
     id: "11",
     logo: "/figma/division-visual.webp",
@@ -446,8 +471,9 @@ export const divisions: Division[] = [
     ],
     warna1: "#5EC7D0",
     warna2: "#9FDAE2",
-    warna3: "#CFFAFE",
-    galeriFoto: ["/galeriFotoDivisi/a/"],
+    warna3: "#E2F3F6",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Swarna_3.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Swarna_3.JPG",
   },
 ];
 

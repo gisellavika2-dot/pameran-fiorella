@@ -70,13 +70,10 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
   return ( 
     <ScrollSnapContainer>
       <ScrollSnapSection>
-        <div className="w-full min-h-screen flex flex-col justify-center" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
+        <div className="w-full min-h-screen flex flex-col justify-center" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 120%)`,}}>
           <div className="absolute inset-0 z-0 ">
             <Image
-              src={
-                division.fotoDivisi?.[activeSesiIndex]?.fotos?.[2] ||
-                "/foto.png"
-              }
+              src={division.bg}
               alt={`Foto Divisi ${division.name}`}
               fill
               priority
@@ -132,7 +129,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
           <div className="section-container flex flex-col items-center z-10">
             <h2
               className="font-serif text-2xl md:text-5xl font-bold mb-8 text-center"
-              style={{ color: "#121E42" }}
+              style={{ color: "white" }}
             >
               Foto Divisi
             </h2>
@@ -228,7 +225,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
           <div className="section-container z-10">
             <h2
               className="flex flex-wrap justify-center font-serif text-2xl md:text-5xl font-bold mb-8"
-              style={{ color: division.warna1 }}
+              style={{ color: "white" }}
             >
               Sarya Divisi
             </h2>
@@ -257,7 +254,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
       <ScrollSnapSection>
         <div className="min-h-screen flex flex-col justify-center w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
           <div className="section-container z-10">
-            <h2 className="font-serif text-2xl md:text-5xl font-bold mb-10 text-center" style={{ color: division.warna1 }}>
+            <h2 className="font-serif text-2xl md:text-5xl font-bold mb-10 text-center" style={{ color: "white" }}>
               Koordinator
             </h2>
             <div className="flex flex-wrap justify-center gap-6">
@@ -277,7 +274,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
       <ScrollSnapSection>
         <div className="min-h-screen w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
           <div className="section-container flex flex-col items-center z-10">
-            <h2 className="font-serif text-2xl md:text-5xl font-bold mb-8 text-center" style={{ color: division.warna1 }}>
+            <h2 className="font-serif text-2xl md:text-5xl font-bold mb-8 text-center" style={{ color: "white" }}>
               Galeri Dokumentasi Divisi
             </h2>
 
