@@ -172,7 +172,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                   </div>
                 </div>
 
-                {/* {isActive && (
+                {isActive && (
                   <Link
                     href={`/divisi/${division.id}`}
                     onClick={(e) => e.stopPropagation()}
@@ -197,7 +197,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                       />
                     </svg>
                   </Link>
-                )} */}
+                )}
               </div>
             </article>
           );

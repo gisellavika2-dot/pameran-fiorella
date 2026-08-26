@@ -227,7 +227,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
               className="flex flex-wrap justify-center font-serif text-2xl md:text-5xl font-bold mb-8"
               style={{ color: "white" }}
             >
-              Sarya Divisi
+              Sarya
             </h2>
             <div className="flex flex-wrap justify-center gap-6">
               {division.sarya.map((item, idx) => (
@@ -270,8 +270,29 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
             </div>
         </div>
       </ScrollSnapSection>
-
+      
       <ScrollSnapSection>
+        {division.anggota && division.anggota.length > 0 && (
+          <div className="min-h-screen flex flex-col justify-center w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
+            <div className="section-container z-10">
+              <h2 className="font-serif text-2xl md:text-5xl font-bold mb-10 text-center" style={{ color: "white" }}>
+                Anggota
+              </h2>
+              <div className="flex flex-wrap justify-center gap-6">
+                {division.anggota.map((item, idx) => (
+                  <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-md w-32 md:w-64 aspect-[3/4] flex flex-col">
+                    <div className="relative w-full h-full bg-gray-100">
+                      <Image src={item.fotoAnggota} alt={item.nama} fill className="object-cover"/>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </ScrollSnapSection>
+
+      {/* <ScrollSnapSection>
         <div className="min-h-screen w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
           <div className="section-container flex flex-col items-center z-10">
             <h2 className="font-serif text-2xl md:text-5xl font-bold mb-8 text-center" style={{ color: "white" }}>
@@ -330,7 +351,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
 
           </div>
         </div>
-      </ScrollSnapSection>
+      </ScrollSnapSection> */}
     </ScrollSnapContainer>
   );
 }
