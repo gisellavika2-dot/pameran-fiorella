@@ -7,7 +7,11 @@ import anantaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Anantara_1.jp
 import arthaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_2.jpg";
 import arthaThreePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_3.jpg";
 import birendraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Birendra_1.jpg";
+import birendraTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Birendra_2.jpg";
 import darakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Daraka_2.jpg";
+import extraOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_1.jpg";
+import extraTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_2.jpg";
+import extraThreePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_3.jpg";
 import janardanaOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_1.jpg";
 import janardanaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_2.jpg";
 import nayakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Nayaka_1.jpg";
@@ -16,18 +20,24 @@ import sanchitaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Sanchita_1.jp
 import swarnaOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SWARNA_1.jpg";
 
 const photos = [
-  { id: "01", src: adhikaraPhoto, title: "Ruang rapat", message: "Setiap gagasan besar selalu dimulai dari percakapan kecil di satu meja." },
-  { id: "02", src: anantaraPhoto, title: "Menyusun cerita", message: "Kami merangkai detail satu per satu agar Fiorella dapat bercerita dengan utuh." },
-  { id: "03", src: arthaTwoPhoto, title: "Hari persiapan", message: "Di balik hari yang indah, ada tangan-tangan yang bekerja jauh sebelum pintu dibuka." },
-  { id: "04", src: arthaThreePhoto, title: "Di meja kerja", message: "Catatan, sketsa, dan banyak percobaan menjadi bagian dari perjalanan kami." },
-  { id: "05", src: birendraPhoto, title: "Mencari bentuk", message: "Tidak semua jawaban datang cepat, tetapi kami selalu menemukan jalan bersama." },
-  { id: "06", src: darakaPhoto, title: "Teman satu tim", message: "Kerja panitia adalah tentang saling menguatkan saat energi mulai menipis." },
-  { id: "07", src: janardanaOnePhoto, title: "Sebelum dimulai", message: "Ada rasa gugup yang berubah menjadi semangat saat semua sudah siap." },
-  { id: "08", src: janardanaTwoPhoto, title: "Di balik layar", message: "Momen yang tidak terlihat sering kali menjadi bagian paling berharga." },
-  { id: "09", src: nayakaPhoto, title: "Malam terakhir", message: "Kami menutup hari dengan lelah, tawa, dan rasa bangga yang sama." },
-  { id: "10", src: sancharaPhoto, title: "Satu frekuensi", message: "Perbedaan ide membawa kami ke hasil yang lebih kaya dan bermakna." },
-  { id: "11", src: sanchitaPhoto, title: "Fiorella 2026", message: "Fiorella tumbuh karena keberanian banyak orang untuk ikut mengambil peran." },
+  { id: "01", src: adhikaraPhoto, title: "Rain", message: "Asik banget liat rein bawa bawa benderaaa! semangat teruss reinn, ditunggu S3 nyaa!" },
+  { id: "02", src: anantaraPhoto, title: "Anantara", message: "Berdua aja nih di poskooooo" },
+  { id: "03", src: arthaTwoPhoto, title: "Lady", message: "Gokilllllll mana gokil" },
+  { id: "04", src: arthaThreePhoto, title: "Panitia", message: "ASEKK ASEKKKK ABEEE" },
+  { id: "05", src: birendraPhoto, title: "Leroy", message: "Kokooo birendraa so coolll! kangen diamanin lagi tiap pagi pagii" },
+  { id: "06", src: darakaPhoto, title: "Daraka", message: "ini dia keiii n the gengg yg selalu semangatt jadi tim hore buat pejuang kembang sepatuuu!" },
+  { id: "07", src: janardanaOnePhoto, title: "Janardana", message: "ini diaaa medic medic kitaa, ditunggu yaa pas udah pada jadi dokterrr" },
+  { id: "08", src: janardanaTwoPhoto, title: "Angel", message: "Angel berikan senyuman terbaikmuh!!!!!!!!!" },
+  { id: "09", src: nayakaPhoto, title: "Posko 4", message: "Pompa yang banyakkkkkk!" },
+  { id: "10", src: sancharaPhoto, title: "Sanchara", message: "kecintaannya bu ika dan mba iga nihh!" },
+  { id: "11", src: sanchitaPhoto, title: "Sanchita", message: "si palinggg kameraaa yang kemana mana pasti bawa pegangan masing masinggg... so proud of you guysss., thanks for the new experiences terutama selama dii UMN NEXT 2026 iniii! lov sansibss banyak banyak" },
   { id: "12", src: swarnaOnePhoto, title: "Hari pameran", message: "Terima kasih telah menjadi bagian dari hari yang kami persiapkan bersama." },
+  { id: "13", src: birendraTwoPhoto, title: "Andrew", message: "Body bag check duluuuu~" },
+  { id: "14", src: extraOnePhoto, title: "Artha", message: "jadi konsepnya day one or one day ni?" },
+  { id: "15", src: anantaraPhoto, title: "Anantara", message: "Berdua aja nih di poskooooo" },
+  { id: "16", src: extraTwoPhoto, title: "PIC", message: "candid bangett ni yaa! keren mpruy mpruy inii" },
+  { id: "17", src: extraThreePhoto, title: "Momen bersama", message: "Momen sederhana bersama menjadi bagian yang tidak terpisahkan dari perjalanan kepanitiaan." },
+  { id: "18", src: adhikaraPhoto, title: "Rain", message: "Asik banget liat rein bawa bawa benderaaa! semangat teruss reinn, ditunggu S3 nyaa!" },
 ];
 
 type Point = { x: number; y: number };
@@ -38,7 +48,6 @@ const wrap = (value: number, size: number) =>
 
 export default function BehindTheScenesCanvas() {
   const [offset, setOffset] = useState<Point>({ x: 0, y: 0 });
-  const [dragging, setDragging] = useState(false);
   const [centering, setCentering] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
   const [viewerStage, setViewerStage] = useState<ViewerStage>("envelope");
@@ -88,7 +97,6 @@ export default function BehindTheScenesCanvas() {
     start.current = { x: event.clientX, y: event.clientY };
     offsetAtStart.current = offset;
     hasMoved.current = false;
-    setDragging(true);
   }
 
   function moveDrag(event: React.PointerEvent<HTMLDivElement>) {
@@ -105,20 +113,18 @@ export default function BehindTheScenesCanvas() {
     if (!hasMoved.current) return;
     setOffset({
       x: wrap(x, isMobileLayout ? 930 : 1260),
-      y: wrap(y, isMobileLayout ? 824 : 1120),
+      y: wrap(y, isMobileLayout ? 1236 : 1680),
     });
   }
 
   function endDrag() {
     pressedPhoto.current = null;
     start.current = null;
-    setDragging(false);
   }
 
   function cancelDrag() {
     pressedPhoto.current = null;
     start.current = null;
-    setDragging(false);
   }
 
   function centerAndOpen(index: number, target: HTMLButtonElement) {
@@ -129,7 +135,7 @@ export default function BehindTheScenesCanvas() {
     setCentering(true);
     setOffset((current) => ({
       x: wrap(current.x + x, 930),
-      y: wrap(current.y + y, 824),
+      y: wrap(current.y + y, 1236),
     }));
 
     if (openTimer.current !== null) window.clearTimeout(openTimer.current);
@@ -177,15 +183,13 @@ export default function BehindTheScenesCanvas() {
 
   return (
     <section className="relative isolate h-svh min-h-[620px] overflow-hidden bg-[radial-gradient(circle_at_10%_15%,rgba(101,144,194,.62),transparent_32%),radial-gradient(circle_at_88%_31%,rgba(54,74,140,.75),transparent_39%),linear-gradient(135deg,#121e42_0%,#192a5a_48%,#364a8c_100%)] font-[Figtree,Arial,sans-serif] text-[var(--paper)] max-[760px]:min-h-[520px]" aria-label="Di balik kepanitiaan">
-      <a className="absolute bottom-[52px] left-1/2 z-5 inline-flex -translate-x-1/2 items-center gap-[22px] rounded-full border border-[rgba(237,236,230,.55)] bg-[var(--paper)] px-5 py-3 text-xs font-semibold text-[var(--blue)] no-underline shadow-[0_10px_24px_rgba(0,0,0,.2)] transition-[background,transform] duration-200 hover:-translate-y-0.5 hover:bg-[var(--sky)] max-[760px]:bottom-[max(42px,env(safe-area-inset-bottom))] max-[760px]:gap-3.5 max-[760px]:px-[15px] max-[760px]:py-[9px] max-[760px]:text-[10px]" href="https://drive.google.com" target="_blank" rel="noopener noreferrer">
+      <a className="absolute bottom-[52px] left-1/2 z-5 inline-flex -translate-x-1/2 items-center gap-[22px] rounded-full border border-[rgba(237,236,230,.55)] bg-[var(--paper)] px-5 py-3 text-xs font-semibold text-[var(--blue)] no-underline shadow-[0_10px_24px_rgba(0,0,0,.2)] transition-[background,transform] duration-200 hover:-translate-y-0.5 hover:bg-[var(--sky)] max-[760px]:bottom-[max(42px,env(safe-area-inset-bottom))] max-[760px]:gap-3.5 max-[760px]:px-[15px] max-[760px]:py-[9px] max-[760px]:text-[10px]" href="https://drive.google.com/drive/folders/1qHcfbiUmdQ52qsOdGLL7JW7yrAYiEDdq?usp=drive_link" target="_blank" rel="noopener noreferrer">
         Lihat Google Drive <span className="text-[17px]" aria-hidden="true">↗</span>
       </a>
-      <p className="pointer-events-none absolute bottom-5 left-1/2 z-4 m-0 w-max -translate-x-1/2 text-[10px] font-semibold tracking-[.12em] text-[rgba(237,236,230,.75)] uppercase max-[760px]:bottom-[max(15px,env(safe-area-inset-bottom))] max-[760px]:text-[8px]">Tarik untuk menjelajah, klik foto untuk membuka postcard</p>
-
-      <div className={`absolute inset-0 touch-none overflow-hidden select-none ${dragging ? "cursor-grabbing" : "cursor-grab"}`} onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={cancelDrag} role="application" aria-label="Dinding foto dokumentasi panitia">
+      <div className="absolute inset-0 touch-none overflow-hidden select-none" onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={cancelDrag} role="application" aria-label="Dinding foto dokumentasi panitia">
         <div className={`absolute top-1/2 left-1/2 h-px w-px will-change-transform ${centering ? "transition-transform duration-400 ease-[cubic-bezier(.22,1,.36,1)]" : ""}`} style={{ transform: `translate3d(calc(-50% + ${offset.x}px), calc(-50% + ${offset.y}px), 0)` }}>
           {[-1, 0, 1].flatMap((tileY) => [-1, 0, 1].map((tileX) => (
-            <div className="pointer-events-none absolute top-[-530px] left-[-600px] grid auto-rows-[220px] grid-cols-[repeat(3,360px)] gap-[60px] [transform:translate3d(calc(var(--tile-x)*1260px),calc(var(--tile-y)*1120px),0)] max-[760px]:top-[-412px] max-[760px]:left-[-465px] max-[760px]:auto-rows-[166px] max-[760px]:grid-cols-[repeat(3,270px)] max-[760px]:gap-10 max-[760px]:[transform:translate3d(calc(var(--tile-x)*930px),calc(var(--tile-y)*824px),0)]" key={`${tileX}-${tileY}`} style={{ "--tile-x": tileX, "--tile-y": tileY } as CSSProperties}>
+            <div className="pointer-events-none absolute top-[-810px] left-[-600px] grid auto-rows-[220px] grid-cols-[repeat(3,360px)] gap-[60px] [transform:translate3d(calc(var(--tile-x)*1260px),calc(var(--tile-y)*1680px),0)] max-[760px]:top-[-598px] max-[760px]:left-[-465px] max-[760px]:auto-rows-[166px] max-[760px]:grid-cols-[repeat(3,270px)] max-[760px]:gap-10 max-[760px]:[transform:translate3d(calc(var(--tile-x)*930px),calc(var(--tile-y)*1236px),0)]" key={`${tileX}-${tileY}`} style={{ "--tile-x": tileX, "--tile-y": tileY } as CSSProperties}>
               {photos.map((photo, index) => (
                 <button className={`group relative h-[220px] overflow-visible border-0 bg-transparent p-0 shadow-none transition-[transform,filter] duration-200 pointer-events-auto hover:z-2 hover:scale-[1.025] hover:brightness-108 max-[760px]:h-[166px] ${index % 6 < 3 ? "-translate-x-[30px] hover:-translate-x-[30px]" : "translate-x-[30px] hover:translate-x-[30px]"}`} type="button" key={photo.id} data-photo-index={index} onPointerDown={handlePhotoPointerDown} onPointerUp={handlePhotoPointerUp} onClick={openPhoto} aria-label={`Buka postcard ${photo.title}`}>
                   <span className="absolute inset-0 overflow-hidden rounded-none border border-[rgba(18,30,66,.58)] bg-[#f3efe4] shadow-[0_16px_34px_rgba(0,0,0,.32)] before:pointer-events-none before:absolute before:inset-[10px_10px_31px] before:z-2 before:border before:border-[rgba(18,30,66,.72)] after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(rgba(18,30,66,.38)_.5px,transparent_.7px)] after:bg-[length:5px_5px] after:opacity-16 after:mix-blend-multiply max-[760px]:before:inset-[8px_8px_25px]">
@@ -216,18 +220,16 @@ export default function BehindTheScenesCanvas() {
               </span>
             </span>
 
-            <span className={`absolute inset-0 grid h-full w-full grid-cols-[.84fr_1px_1.16fr] gap-[clamp(24px,4vw,52px)] overflow-hidden bg-[repeating-linear-gradient(45deg,var(--blue)_0_11px,var(--paper)_11px_22px)] p-[clamp(40px,5.5vw,70px)] shadow-[0_28px_70px_rgba(0,0,0,.42)] [backface-visibility:hidden] transition-[opacity,transform] duration-800 ease-[cubic-bezier(.22,1,.36,1)] before:pointer-events-none before:absolute before:inset-[clamp(10px,1.25vw,15px)] before:z-0 before:bg-white motion-reduce:transition-none max-[760px]:gap-3.5 max-[760px]:p-[22px] max-[480px]:grid-cols-[.78fr_1px_1.22fr] max-[480px]:gap-2.5 max-[480px]:p-4 ${viewerStage === "letter" ? "z-4 opacity-100 [transform:rotateY(0deg)]" : "z-1 opacity-0 [transform:rotateY(180deg)]"}`} aria-hidden={viewerStage !== "letter"}>
+            <span className={`absolute inset-0 grid h-full w-full grid-cols-[.84fr_1px_1.16fr] gap-[clamp(24px,4vw,52px)] overflow-hidden bg-[repeating-linear-gradient(45deg,var(--blue)_0_11px,var(--paper)_11px_22px)] p-[clamp(40px,5.5vw,70px)] shadow-[0_28px_70px_rgba(0,0,0,.42)] [backface-visibility:hidden] transition-[opacity,transform] duration-800 ease-[cubic-bezier(.22,1,.36,1)] before:pointer-events-none before:absolute before:inset-[clamp(10px,1.25vw,15px)] before:z-0 before:bg-white motion-reduce:transition-none max-[760px]:gap-x-1.5 max-[760px]:p-[22px] max-[480px]:grid-cols-[.78fr_1px_1.22fr] max-[480px]:gap-x-1 max-[480px]:p-4 ${viewerStage === "letter" ? "z-4 opacity-100 [transform:rotateY(0deg)]" : "z-1 opacity-0 [transform:rotateY(180deg)]"}`} aria-hidden={viewerStage !== "letter"}>
               <span className="relative z-1 flex min-w-0 flex-col">
                 <small className="text-[clamp(8px,1vw,11px)] font-semibold tracking-[.17em] uppercase max-[480px]:text-[6px]">Postcard</small>
                 <strong className="mt-[clamp(8px,1.2vw,16px)] font-[Castoro,Georgia,serif] text-[clamp(30px,4.4vw,58px)] leading-[.98] font-normal tracking-[-.045em] max-[760px]:text-[clamp(21px,7vw,32px)] max-[480px]:text-xl">Postcard<br />from Fiorella</strong>
-                <span className="mt-auto grid grid-cols-[auto_1fr] gap-x-2.5 gap-y-[7px] text-[clamp(8px,1vw,12px)] max-[760px]:gap-x-1.5 max-[760px]:gap-y-1"><i className="not-italic font-semibold tracking-[.1em] uppercase">From:</i><b className="overflow-hidden border-b border-[rgba(18,30,66,.38)] pb-1 font-medium text-ellipsis whitespace-nowrap max-[480px]:max-w-[13ch]">Panitia Fiorella 2026</b><i className="not-italic font-semibold tracking-[.1em] uppercase">To:</i><b className="overflow-hidden border-b border-[rgba(18,30,66,.38)] pb-1 font-medium text-ellipsis whitespace-nowrap max-[480px]:max-w-[13ch]">{selected.title}</b></span>
+                <span className="mt-auto grid grid-cols-[auto_1fr] gap-x-2.5 gap-y-[7px] text-[clamp(8px,1vw,12px)] max-[760px]:gap-x-1.5 max-[760px]:gap-y-1"><i className="not-italic font-semibold tracking-[.1em] uppercase">From:</i><b className="overflow-hidden border-b border-[rgba(18,30,66,.38)] pb-1 font-medium text-ellipsis whitespace-nowrap max-[480px]:max-w-[13ch]">{selected.title}</b></span>
               </span>
               <span className="relative z-1 h-full w-px bg-[rgba(18,30,66,.42)]" />
-              <span className="relative z-1 flex min-w-0 flex-col bg-[repeating-linear-gradient(to_bottom,transparent_0_31px,rgba(18,30,66,.28)_31px_32px)] pt-[clamp(66px,8vw,94px)] max-[760px]:bg-[repeating-linear-gradient(to_bottom,transparent_0_19px,rgba(18,30,66,.28)_19px_20px)] max-[760px]:pt-11 max-[480px]:pt-9">
-                <span className="absolute top-[clamp(15px,2vw,25px)] right-[clamp(30px,4.5vw,54px)] w-[clamp(62px,8vw,94px)] rotate-8 rounded-[50%] border border-[var(--blue)] p-1.5 text-center text-[clamp(6px,.7vw,8px)] leading-[1.2] text-[var(--blue)]" aria-hidden="true">FIORELLA<br />24 · 08 · 26</span>
-                <span className="absolute top-0 right-0 grid aspect-[.82] w-[clamp(38px,5vw,58px)] place-items-center border-2 border-dashed border-[var(--blue)] font-[Castoro,Georgia,serif] text-[clamp(20px,3vw,36px)] text-[var(--blue)]" aria-hidden="true">F</span>
-                <i className="text-[clamp(8px,1vw,11px)] not-italic font-semibold tracking-[.17em] uppercase max-[480px]:text-[6px]">Catatan dari balik layar</i>
-                <p className="mt-2 mb-0 text-[clamp(11px,1.45vw,16px)] leading-8 max-[760px]:mt-[3px] max-[760px]:text-[clamp(8px,2.6vw,11px)] max-[760px]:leading-[1.8] max-[480px]:text-[8px]">{selected.message}</p>
+              <span className="relative z-1 -ml-[clamp(8px,1.5vw,20px)] flex min-w-0 flex-col bg-[repeating-linear-gradient(to_bottom,transparent_0_31px,rgba(18,30,66,.28)_31px_32px)] pt-[clamp(48px,6vw,68px)] pl-[clamp(8px,1.5vw,20px)] max-[760px]:-ml-1.5 max-[760px]:bg-[repeating-linear-gradient(to_bottom,transparent_0_19px,rgba(18,30,66,.28)_19px_20px)] max-[760px]:[background-position:0_10px] max-[760px]:pt-9 max-[760px]:pl-0 max-[480px]:-ml-1 max-[480px]:pt-8">
+                <span className="absolute top-0 right-0 w-[clamp(62px,8vw,94px)] rotate-8 rounded-[50%] border border-[var(--blue)] p-1.5 text-center text-[clamp(6px,.7vw,8px)] leading-[1.2] text-[var(--blue)]" aria-hidden="true">FIORELLA<br />27 · 08 · 26</span>
+                <p className="m-0 text-[clamp(11px,1.45vw,16px)] leading-8 max-[760px]:text-[clamp(8px,2.6vw,11px)] max-[760px]:leading-5 max-[480px]:text-[8px]">{selected.message}</p>
                 <small className="mt-auto self-end bg-[var(--paper)] py-1 pl-2 text-[clamp(7px,.8vw,9px)] font-semibold tracking-[.08em] uppercase max-[480px]:hidden">Klik untuk kembali ke foto</small>
               </span>
             </span>

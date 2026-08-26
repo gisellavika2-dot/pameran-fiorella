@@ -3,48 +3,60 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Header.css";
 
 const links = [
-  ["Beranda", "/"], 
+  ["Beranda", "/#home"],
   ["Hari Pelaksanaan", "/hari-pelaksanaan"], 
   ["Foto Divisi", "/#divisi"],
   ["Dibalik Kepanitiaan", "/dibalik-kepanitiaan"], 
   ["Sayembara Visual", "/#sayembara"], 
-  ["Tentang Fiorella", "/tentang-fiorella"], 
+  ["Tentang Fiorella", "/tentang-fiorella#tentang-fiorella"],
   ["Arsip", "/arsip"],
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("");
   const pathname = usePathname();
+
+  useEffect(() => {
+    const updateHash = () => setActiveHash(window.location.hash);
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    window.addEventListener("popstate", updateHash);
+
+    return () => {
+      window.removeEventListener("hashchange", updateHash);
+      window.removeEventListener("popstate", updateHash);
+    };
+  }, [pathname]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setOpen(false); // Selalu tutup menu mobile saat link diklik
 
-    // Cek apakah ini link anchor (scroll to section)
-    const isAnchorLink = href.startsWith("/#");
-    
-    // Cek apakah kita sedang berada di halaman Beranda
-    const isAtHomePage = pathname === "/";
+    const targetUrl = new URL(href, window.location.origin);
 
-    if (isAnchorLink) {
-      if (isAtHomePage) {
-        // SKENARIO 1: Sedang di Beranda, lakukan smooth scroll manual
+    if (targetUrl.hash && targetUrl.pathname === pathname) {
+      const elem = document.getElementById(targetUrl.hash.slice(1));
+
+      if (elem) {
         e.preventDefault();
-        const targetId = href.replace("/#", "");
-        const elem = document.getElementById(targetId);
-        
-        if (elem) {
-          elem.scrollIntoView({ behavior: "smooth", block: "start" });
-          // Update URL bar tanpa refresh
-          window.history.pushState(null, "", href);
-        }
+        elem.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", href);
+        setActiveHash(targetUrl.hash);
       }
-      // SKENARIO 2: Jika tidak di Beranda, biarkan Next.js Link bekerja secara default 
-      // (Pindah ke '/' lalu lompat ke hash)
     }
+  };
+
+  const isActiveLink = (href: string) => {
+    const [linkPath, linkHash = ""] = href.split("#");
+    if (pathname !== linkPath) return false;
+    if (!linkHash) return true;
+
+    const currentHash = activeHash || (linkHash === "home" ? "#home" : "");
+    return currentHash === `#${linkHash}`;
   };
 
   return (
@@ -66,8 +78,7 @@ export default function Header() {
           <Link 
             key={label} 
             href={href} 
-            // Aktif jika pathname sama persis, ATAU jika di beranda dan url cocok dengan hash
-            className={pathname === href ? "active" : ""} 
+            className={isActiveLink(href) ? "active" : ""}
             onClick={(e) => handleNavClick(e, href)}
           >
             {label}

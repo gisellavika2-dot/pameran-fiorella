@@ -19,6 +19,7 @@ export default function Home() {
     <main className="home-page">
       {/* Hero Section */}
       <section
+        id="home"
         className="hero-section"
         style={{ "--hero-wave-height": "0px", background: "var(--ink)" } as CSSProperties}
       >

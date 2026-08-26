@@ -1,18 +1,50 @@
 // src/app/(pages)/hari-pelaksanaan/[hari]/page.tsx
 'use client';
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import React, { use, useRef, useState } from 'react';
 import Link from "next/link";
 import { schedule } from "@/data/schedule";
+import sioA2 from "../SIO/SIO_a (2).jpg";
+import sioC from "../SIO/SIO_c.jpg";
+import sioC2 from "../SIO/SIO_c (2).jpg";
+import sioM from "../SIO/SIO_m.jpg";
+import sioM2 from "../SIO/SIO_m (2).jpg";
+import sioP from "../SIO/SIO_p.jpg";
+import sioP2 from "../SIO/SIO_p (2).jpg";
+import sioR from "../SIO/SIO_r.jpg";
+import sioR2 from "../SIO/SIO_r (2).jpg";
+import sioT from "../SIO/SIO_t.jpg";
+import sioT2 from "../SIO/SIO_t (2).jpg";
+import sioT3 from "../SIO/SIO_t (3).jpg";
+import sioVin from "../SIO/SIO_vin.jpg";
+import sioVin2 from "../SIO/SIO_vin (2).jpg";
 import "./hari-detail.css";
 
 const eventImages = [
-  "/figma/event-main.png",
-  "/figma/event-side-right.png",
-  "/figma/event-side-left.png",
-  "/figma/division-event.png",
-  "/figma/division-documentation.png",
+  "/figma/SIO.jpg",
+  "/figma/Penanaman.jpg",
+  "/figma/PENYINARAN.jpg",
+  "/figma/PEREKAHAN.jpg",
+  "/figma/STS.jpg",
+];
+
+const sioGalleryImages = [
+  sioA2,
+  sioC,
+  sioC2,
+  sioM,
+  sioM2,
+  sioP,
+  sioP2,
+  sioR,
+  sioR2,
+  sioT,
+  sioT2,
+  sioT3,
+  sioVin,
+  sioVin2,
+  "/figma/SIO.jpg",
 ];
 
 interface PageProps {
@@ -30,7 +62,7 @@ export default function HariDetailPage({ params }: PageProps) {
   const marquee1Ref = useRef<HTMLDivElement>(null);
   const marquee2Ref = useRef<HTMLDivElement>(null);
   const marquee3Ref = useRef<HTMLDivElement>(null);
-  const [selectedGalleryPhoto, setSelectedGalleryPhoto] = useState<string | null>(null);
+  const [selectedGalleryPhoto, setSelectedGalleryPhoto] = useState<string | StaticImageData | null>(null);
 
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -74,6 +106,24 @@ export default function HariDetailPage({ params }: PageProps) {
     isDragging.current = false;
   };
 
+  function getGalleryPhoto(row: number, index: number) {
+    if (scheduleDay?.day === 1) {
+      return sioGalleryImages[row * 5 + (index % 5)];
+    }
+
+    return `https://picsum.photos/seed/row${row + 1}-${scheduleDay?.day}-${index % 5}/900/540`;
+  }
+
+  function renderGalleryImage(photo: string | StaticImageData) {
+    if (typeof photo === "string") {
+      // Placeholder dokumentasi untuk hari yang asetnya belum tersedia.
+      // eslint-disable-next-line @next/next/no-img-element
+      return <img src={photo} alt={`Dokumentasi ${scheduleDay?.title}`} className="h-full w-full object-cover" />;
+    }
+
+    return <Image src={photo} alt={`Dokumentasi ${scheduleDay?.title}`} fill sizes="300px" className="object-cover" />;
+  }
+
   if (!scheduleDay) {
     return (
       <div className="min-h-screen bg-[#EDECE6] text-[#121E42] flex flex-col items-center justify-center p-6 text-center font-sans">
@@ -107,12 +157,12 @@ export default function HariDetailPage({ params }: PageProps) {
         <span aria-hidden="true">×</span>
       </Link>
       {/* Main Header Information */}
-      <div className="hari-detail-hero w-full max-w-7xl bg-transparent flex flex-col gap-7 mb-16 pt-28 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
-        <div className="hari-detail-hero-image relative w-full h-[62vh] min-h-[560px] max-h-[780px] rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#121E42] border border-[#EDECE6]/20">
-          <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill priority sizes="(max-width: 768px) 100vw, 90vw" className="object-cover pointer-events-none" />
+      <div className="hari-detail-hero w-full max-w-7xl bg-transparent flex flex-col gap-7 mb-16 pt-10 text-[#121E42] z-10 pointer-events-auto px-4 md:px-0">
+        <div className="hari-detail-hero-image relative mx-auto aspect-[2/1] w-full max-w-5xl rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#121E42] border border-[#EDECE6]/20">
+          <Image src={eventImages[scheduleDay.id - 1]} alt={`Dokumentasi ${scheduleDay.title}`} fill priority sizes="(max-width: 768px) 100vw, 90vw" className="object-cover object-center pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#121E42]/75 via-transparent to-transparent pointer-events-none" />
         </div>
-        <div className="hari-detail-copy flex flex-col gap-2 px-2 md:px-6">
+        <div className="hari-detail-copy mx-auto flex w-full max-w-5xl flex-col gap-2 px-2 md:px-6">
           <p className="hari-detail-date text-[#364A8C] text-lg font-semibold">{scheduleDay.date}</p>
           <h1 className="hari-detail-title text-4xl md:text-6xl font-serif font-bold text-[#121E42] tracking-tight">{scheduleDay.title}</h1>
           <p className="hari-detail-description text-[#121E42]/80 text-base leading-relaxed max-w-4xl mt-2">{scheduleDay.description}</p>
@@ -135,14 +185,16 @@ export default function HariDetailPage({ params }: PageProps) {
             onMouseMove={(e) => handleMouseMove(e, marquee1Ref)}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            className="flex w-max animate-marquee-right gap-4 overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-none select-none"
+            className="flex w-max animate-marquee-right gap-4 overflow-x-auto pr-4 scrollbar-none select-none"
           >
-            {Array.from({ length: 15 }).map((_, idx) => (
-              <button type="button" key={`row1-${idx}`} onClick={() => setSelectedGalleryPhoto(`https://picsum.photos/seed/row1-${scheduleDay.day}-${idx}/900/540`)} className="hari-detail-gallery-card w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`https://picsum.photos/seed/row1-${scheduleDay.day}-${idx}/300/180`} alt="Gallery" className="w-full h-full object-cover" />
+            {Array.from({ length: 10 }).map((_, idx) => {
+              const photo = getGalleryPhoto(0, idx);
+              return (
+              <button type="button" key={`row1-${idx}`} onClick={() => setSelectedGalleryPhoto(photo)} className="hari-detail-gallery-card relative w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
+                {renderGalleryImage(photo)}
               </button>
-            ))}
+              );
+            })}
           </div>
 
           {/* Baris 2: Kiri */}
@@ -152,13 +204,16 @@ export default function HariDetailPage({ params }: PageProps) {
             onMouseMove={(e) => handleMouseMove(e, marquee2Ref)}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            className="flex w-max animate-marquee-left gap-4 overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-none select-none"
+            className="flex w-max animate-marquee-left gap-4 overflow-x-auto pr-4 scrollbar-none select-none"
           >
-            {Array.from({ length: 15 }).map((_, idx) => (
-              <button type="button" key={`row2-${idx}`} onClick={() => setSelectedGalleryPhoto(`https://picsum.photos/seed/row2-${scheduleDay.day}-${idx}/900/540`)} className="hari-detail-gallery-card w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
-                <img src={`https://picsum.photos/seed/row2-${scheduleDay.day}-${idx}/300/180`} alt="Gallery" className="w-full h-full object-cover" />
+            {Array.from({ length: 10 }).map((_, idx) => {
+              const photo = getGalleryPhoto(1, idx);
+              return (
+              <button type="button" key={`row2-${idx}`} onClick={() => setSelectedGalleryPhoto(photo)} className="hari-detail-gallery-card relative w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
+                {renderGalleryImage(photo)}
               </button>
-            ))}
+              );
+            })}
           </div>
 
           {/* Baris 3: Kanan */}
@@ -168,13 +223,16 @@ export default function HariDetailPage({ params }: PageProps) {
             onMouseMove={(e) => handleMouseMove(e, marquee3Ref)}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            className="flex w-max animate-marquee-right gap-4 overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-none select-none"
+            className="flex w-max animate-marquee-right gap-4 overflow-x-auto pr-4 scrollbar-none select-none"
           >
-            {Array.from({ length: 15 }).map((_, idx) => (
-              <button type="button" key={`row3-${idx}`} onClick={() => setSelectedGalleryPhoto(`https://picsum.photos/seed/row3-${scheduleDay.day}-${idx}/900/540`)} className="hari-detail-gallery-card w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
-                <img src={`https://picsum.photos/seed/row3-${scheduleDay.day}-${idx}/300/180`} alt="Gallery" className="w-full h-full object-cover" />
+            {Array.from({ length: 10 }).map((_, idx) => {
+              const photo = getGalleryPhoto(2, idx);
+              return (
+              <button type="button" key={`row3-${idx}`} onClick={() => setSelectedGalleryPhoto(photo)} className="hari-detail-gallery-card relative w-[300px] h-[180px] rounded-xl overflow-hidden shadow-sm border border-[#364A8C]/20 shrink-0 bg-gray-200 flex items-center justify-center">
+                {renderGalleryImage(photo)}
               </button>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -192,7 +250,12 @@ export default function HariDetailPage({ params }: PageProps) {
         <div className="inline-photo-popover" role="dialog" aria-modal="true" aria-label="Pratinjau dokumentasi" onClick={() => setSelectedGalleryPhoto(null)}>
           <div className="inline-photo-popover-card" onClick={(event) => event.stopPropagation()}>
             <button type="button" onClick={() => setSelectedGalleryPhoto(null)} aria-label="Tutup pratinjau">×</button>
-            <img src={selectedGalleryPhoto} alt="Dokumentasi acara diperbesar" />
+            {typeof selectedGalleryPhoto === "string" ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={selectedGalleryPhoto} alt="Dokumentasi acara diperbesar" />
+            ) : (
+              <Image src={selectedGalleryPhoto} alt="Dokumentasi acara diperbesar" />
+            )}
           </div>
         </div>
       )}
