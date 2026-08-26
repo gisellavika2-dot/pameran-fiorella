@@ -7,11 +7,11 @@ import type { ScheduleDay } from "@/data/schedule";
 import "./EventCarousel.css";
 
 const eventImages = [
-  "/figma/event-side-left.webp",
-  "/figma/event-side-left.webp",
-  "/figma/event-main.webp",
-  "/figma/event-side-right.webp",
-  "/figma/event-side-right.webp",
+  "/figma/SIO.jpg",
+  "/figma/Penanaman.jpg",
+  "/figma/PENYINARAN.jpg",
+  "/figma/PEREKAHAN.jpg",
+  "/figma/STS.jpg",
 ];
 
 function relativePosition(index: number, active: number, length: number) {
@@ -157,10 +157,9 @@ export default function EventCarousel({ items }: { items: ScheduleDay[] }) {
                 draggable={false}
                 sizes="(max-width: 760px) 78vw, 38vw"
               />
-              <div className="event-caption">
+              <div className="event-caption font-[Figtree,Arial,sans-serif]">
                 <span>{day.date}</span>
-                <strong>{day.title}</strong>
-                <small>Hari {day.day}</small>
+                <strong className="font-[Castoro,Georgia,serif]">{day.title}</strong>
               </div>
             </Link>
           );

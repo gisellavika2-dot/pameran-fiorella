@@ -96,7 +96,10 @@ export default function HariPelaksanaanPage() {
   }
 
   return (
-    <section className="relative isolate h-svh min-h-[620px] touch-none overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.webp')] bg-cover bg-center bg-no-repeat text-[var(--paper)] select-none max-[760px]:min-h-[520px]" onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
+    <section className="relative isolate h-svh min-h-[620px] touch-none overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.jpg')] bg-cover bg-center bg-no-repeat text-[var(--paper)] select-none max-[760px]:min-h-[520px]" onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
+      <Image src="/supergrafis/SUPERGRAFIS-01.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute -top-[18%] -left-[12%] z-0 h-auto w-[clamp(260px,34vw,540px)] opacity-[.2] mix-blend-screen max-[760px]:-top-[6%] max-[760px]:-left-[24%] max-[760px]:w-[260px] max-[760px]:opacity-[.15]" />
+      <Image src="/supergrafis/SUPERGRAFIS-05.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute -right-[14%] -bottom-[30%] z-0 h-auto w-[clamp(300px,40vw,640px)] rotate-12 opacity-[.18] mix-blend-screen max-[760px]:-right-[34%] max-[760px]:-bottom-[8%] max-[760px]:w-[290px] max-[760px]:opacity-[.12]" />
+      <Image src="/supergrafis/SUPERGRAFIS-09.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute top-[12%] right-[3%] z-0 hidden h-auto w-[clamp(150px,18vw,280px)] -rotate-12 opacity-[.12] mix-blend-screen lg:block" />
       <div className="relative z-2 h-full w-full outline-none" aria-label="Daftar hari pelaksanaan. Geser ke atas atau ke bawah untuk berpindah hari." onWheel={handleWheel} role="region" tabIndex={0}>
         {schedule.map((day, index) => {
           const position = relativePosition(index);
