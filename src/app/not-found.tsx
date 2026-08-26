@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-// 404 page, fills the remaining viewport so the footer always sits at the bottom
+// 404 page 
 export default function NotFound() {
   return (
     <div className="flex flex-1 items-center justify-center px-4 pt-[72px] pb-12 sm:px-8 sm:pt-[88px] sm:pb-16 lg:px-12">
@@ -12,7 +12,6 @@ export default function NotFound() {
           <span className="h-px w-6 bg-[var(--sky)] sm:w-10" />
         </div>
 
-        {/* the big number */}
         <span className="block font-serif text-7xl font-bold leading-none tracking-[-0.06em] text-[var(--blue)] sm:text-[8rem] lg:text-[12rem]">
           404
         </span>
