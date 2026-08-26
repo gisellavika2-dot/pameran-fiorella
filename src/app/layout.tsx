@@ -3,7 +3,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import CustomCursor from "@/components/ui/CustomCursor";
 import { SITE_NAME, SITE_DESCRIPTION } from "@/data/constants";
 import "./globals.css";
 

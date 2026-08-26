@@ -5,7 +5,13 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { schedule } from "@/data/schedule";
 
-const eventImages = ["/figma/event-main.png", "/figma/event-side-right.png", "/figma/event-side-left.png", "/figma/division-event.png", "/figma/division-documentation.png"];
+const eventImages = [
+  "/figma/SIO.jpg",
+  "/figma/Penanaman.jpg",
+  "/figma/PENYINARAN.jpg",
+  "/figma/PEREKAHAN.jpg",
+  "/figma/STS.jpg",
+];
 
 export default function HariPelaksanaanPage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -90,9 +96,8 @@ export default function HariPelaksanaanPage() {
   }
 
   return (
-    <section className="relative isolate h-svh min-h-[620px] touch-none cursor-none overflow-hidden bg-[radial-gradient(circle_at_9%_16%,rgba(101,144,194,.58),transparent_31%),radial-gradient(circle_at_88%_30%,rgba(54,74,140,.72),transparent_38%),radial-gradient(ellipse_at_52%_-12%,rgba(168,196,212,.2),transparent_48%),linear-gradient(135deg,#121e42_0%,#192a5a_48%,#2d437f_100%)] text-[var(--paper)] select-none max-[760px]:min-h-[520px]" onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
-      <div className="absolute bottom-7 left-1/2 z-5 -translate-x-1/2 whitespace-nowrap rounded-full border border-[rgba(237,236,230,.2)] bg-[rgba(18,30,66,.56)] px-[19px] py-[9px] font-[Figtree,Arial,sans-serif] text-xs leading-6 font-medium text-[var(--paper)] shadow-[0_8px_20px_rgba(0,0,0,.2)] max-[760px]:hidden" aria-hidden="true">Tarik untuk melihat hari lainnya</div>
-      <div className="relative z-2 h-full w-full cursor-grab outline-none active:cursor-grabbing" aria-label="Daftar hari pelaksanaan. Tarik ke atas atau ke bawah untuk berpindah hari." onWheel={handleWheel} role="region" tabIndex={0}>
+    <section className="relative isolate h-svh min-h-[620px] touch-none overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.jpg')] bg-cover bg-center bg-no-repeat text-[var(--paper)] select-none max-[760px]:min-h-[520px]" onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
+      <div className="relative z-2 h-full w-full outline-none" aria-label="Daftar hari pelaksanaan. Geser ke atas atau ke bawah untuk berpindah hari." onWheel={handleWheel} role="region" tabIndex={0}>
         {schedule.map((day, index) => {
           const position = relativePosition(index);
           const positionClass = position === 0
