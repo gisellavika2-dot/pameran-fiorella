@@ -8,25 +8,26 @@ import "./DivisionAccordion.css";
 
 const divisionLogos = [
   "/figma/division-bph.webp",
-  "/figma/division-dokum.webp",
-  "/figma/division-keamanan.webp",
-  "/figma/division-konsum.webp",
-  "/figma/division-medis.webp",
-  "/figma/division-perkap.webp",
-  "/figma/division-pic.webp",
   "/figma/division-pr.webp",
-  "/figma/division-visual.webp",
+  "/figma/division-pic.webp",
+  "/figma/division-keamanan.webp",
+  "/figma/division-perkap.webp",
+  "/figma/division-medis.webp",
+  "/figma/division-konsum.webp",
   "/figma/division-website.webp",
   "/figma/division-acara.webp",
+  "/figma/division-dokum.webp",
+  "/figma/division-visual.webp",
 ];
 
 export default function DivisionAccordion({ items }: { items: Division[] }) {
-  const [active, setActive] = useState(Math.floor(items.length / 2));
+  const [active, setActive] = useState(0);
   const accordionRef = useRef<HTMLDivElement>(null);
   const navContainerRef = useRef<HTMLDivElement>(null);
-  const wheelLock = useRef(false);
-  const touchStart = useRef<number | null>(null);
   
+  const touchStart = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
   const isInitialMount = useRef(true);
   const autoAdvanceTimer = useRef<NodeJS.Timeout | null>(null);
   const pauseTimer = useRef<NodeJS.Timeout | null>(null);
@@ -100,15 +101,21 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
       <div
         ref={accordionRef}
         className="division-accordion"
-        onTouchStart={(event) => { touchStart.current = event.touches[0].clientX; }}
+        onTouchStart={(event) => { 
+          touchStart.current = event.touches[0].clientX;
+          touchStartY.current = event.touches[0].clientY;
+        }}
         onTouchEnd={(event) => {
-          if (touchStart.current === null) return;
-          const distance = touchStart.current - event.changedTouches[0].clientX;
-          if (Math.abs(distance) > 35) {
+          if (touchStart.current === null || touchStartY.current === null) return;
+          const distanceX = touchStart.current - event.changedTouches[0].clientX;
+          const distanceY = touchStartY.current - event.changedTouches[0].clientY;
+
+          if (Math.abs(distanceX) > Math.abs(distanceY) && Math.abs(distanceX) > 30) {
             pauseAutoAdvance();
-            setActive((current) => (current + (distance > 0 ? 1 : -1) + items.length) % items.length);
+            setActive((current) => (current + (distanceX > 0 ? 1 : -1) + items.length) % items.length);
           }
           touchStart.current = null;
+          touchStartY.current = null;
         }}
         aria-label="Daftar 11 divisi"
       >
@@ -117,6 +124,12 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
           const visualPosition = Math.max(-3, Math.min(3, position));
           const isActive = position === 0;
           const isVisible = Math.abs(position) <= 2;
+
+          const [randomPhoto] = useState(() => {
+            if (!division.galeriFoto || division.galeriFoto.length === 0) return "";
+            const maxIndex = Math.min(division.galeriFoto.length, 10);
+            return division.galeriFoto[Math.floor(Math.random() * maxIndex)];
+          });
 
           return (
             <article
@@ -136,6 +149,14 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
               aria-current={isActive ? "true" : undefined}
               aria-hidden={!isVisible}
               aria-label={`Tampilkan divisi ${division.name}`}
+              style={{
+                      backgroundImage: `linear-gradient(150deg, rgba(17,30,66,0.5) 10%, rgba(101,144,194,0.5) 50%, rgba(168,196,212,0.5) 70%, rgba(237,236,230,0.5) 120%), url('${
+                        division.galeriFoto?.[Math.floor(Math.random() * Math.min(division.galeriFoto.length, 10))] || ""
+                      }')`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                    }}
             >
               <div className="division-panel-footer flex items-center justify-between w-full">
                 <div className="flex items-center gap-4">
@@ -146,15 +167,17 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                     height={72}
                   />
                   <div className="division-panel-copy" aria-hidden={!isActive}>
-                    <h3>{division.name}</h3>
-                    <p>{division.nameEng}</p>
+                    <h3 className="text-white">{division.name}</h3>
+                    <p className="text-white">{division.nameEng}</p>
                   </div>
                 </div>
 
-                {isActive && (
+                {/* {isActive && (
                   <Link
                     href={`/divisi/${division.id}`}
                     onClick={(e) => e.stopPropagation()}
+                    onTouchStart={(e) => e.stopPropagation()}
+                    onTouchEnd={(e) => e.stopPropagation()}
                     className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-primary-dark hover:bg-[#364A8C] rounded-full transition-all duration-200 shadow-md hover:shadow-lg shrink-0"
                     aria-label={`Lihat detail divisi ${division.name}`}
                   >
@@ -174,7 +197,7 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
                       />
                     </svg>
                   </Link>
-                )}
+                )} */}
               </div>
             </article>
           );
@@ -183,25 +206,34 @@ export default function DivisionAccordion({ items }: { items: Division[] }) {
 
       <nav 
         ref={navContainerRef}
-        className="flex justify-center mt-8 division-nav-thumbnails"
+        className="flex justify-start sm:justify-center items-center overflow-x-auto overflow-y-hidden scrollbar-none py-6 px-4 division-nav-thumbnails"
         aria-label="Navigasi Divisi"
+        style={{ WebkitOverflowScrolling: "touch" }}
       >
         {items.map((division, index) => {
           const isActive = index === active; 
           return (
             <button
               key={`thumb-${division.id}`}
+              type="button"
               onClick={() => selectDivision(index)}
-              className={`division-nav-item ${isActive ? "opacity-100 scale-200 mx-8" : "hover:opacity-100 hover:scale-150"} mx-4`}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                selectDivision(index);
+              }}
+              className={`division-nav-item flex-shrink-0 transition-transform duration-300 ${
+                isActive ? "opacity-100 scale-125 mx-6 z-10" : "opacity-60 hover:opacity-100 hover:scale-110 mx-3"
+              }`}
               aria-label={`Pilih ${division.name}`}
               aria-pressed={isActive}
             >
-              <div className="division-thumb-circle">
+              <div className="division-thumb-circle pointer-events-none">
                 <Image
                   src={divisionLogos[index % divisionLogos.length]}
                   alt=""
-                  width={60}
-                  height={60}
+                  width={50}
+                  height={50}
+                  className="object-contain"
                 />
               </div>
             </button>

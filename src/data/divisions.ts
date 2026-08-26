@@ -26,6 +26,7 @@ export interface Division {
   name: string;
   nameEng: string;
   description: string;
+  tugas: string;
   fotoDivisi: SesiFoto[];
   sarya: CardSarya[];
   cardFoto: CardFoto[];
@@ -33,6 +34,7 @@ export interface Division {
   warna2: string;
   warna3: string;
   galeriFoto: string[];
+  bg: string;
 }
 
 export const divisions: Division[] = [
@@ -41,8 +43,8 @@ export const divisions: Division[] = [
     logo: "/figma/division-bph.webp",
     name: "Adhikara",
     nameEng: "Executive",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Yang memiliki wewenang, otoritas, dan kompeten.",
+    tugas: "Divisi Adhikara bertugas sebagai pusat kendali yang menentukan langkah dan pedoman bagi seluruh panitia OMB UMN 2026 NEXT.",
     fotoDivisi: [
       {
         fotos: [
@@ -73,223 +75,59 @@ export const divisions: Division[] = [
     ],
     warna1: "#37449C",
     warna2: "#7F8DBA",
-    warna3: "#D4D6D8",
+    warna3: "#DBDFEC",
     galeriFoto: [
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
-      "/fotoDivisi/Foto Divisi_Adhikara_2.JPG",
+      "/fotoDivisi/Foto Divisi_Adhikara_6.JPG",
     ],
+    bg: "/fotoDivisi/Foto Divisi_Adhikara_6.JPG",
   },
-
 
 
   {
     id: "2",
-    logo: "/figma/division-dokum.webp",
-    name: "Sanchita",
-    nameEng: "Documentation",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    logo: "/figma/division-pr.webp",
+    name: "Anantara",
+    nameEng: "Public Relations",
+    description: "Antara, ditengah, penghubung, interval",
+    tugas: "Divisi Anantara menjaga komunikasi yang lancar dan menghubungkan semua pihak terkait kegiatan OMB UMN 2026 NEXT.",
     fotoDivisi: [
       {
         fotos: [
-          "/fotoDivisi/Foto Divisi_Sanchita_1.JPG",
-          "/fotoDivisi/Foto Divisi_Sanchita_2.JPG",
-          "/fotoDivisi/Foto Divisi_Sanchita_6.JPG",
+          "/fotoDivisi/Foto Divisi_Anantara_2.JPG",
+          "/fotoDivisi/Foto Divisi_Anantara_3.JPG",
+          "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
         ],
       },
     ],
     sarya: [
       { nama: "SARYA 1", fotoSarya: "/foto.png" },
       { nama: "SARYA 2", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
     ],
     cardFoto: [
       { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
       { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
     ],
-    warna1: "#F47421",
-    warna2: "#F4AE6E",
-    warna3: "#FCD34D",
+    warna1: "#6B6968",
+    warna2: "#999DA0",
+    warna3: "#F3F4F4",
     galeriFoto: [
-      "/galeriFotoDivisi/a/",
+      "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
     ],
+    bg: "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
   },
-
 
 
   {
     id: "3",
-    logo: "/figma/division-keamanan.webp",
-    name: "Birendra",
-    nameEng: "Guardians",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    fotoDivisi: [
-      {
-        idSesi: "sesi-1",
-        namaSesi: "Sesi 1",
-        fotos: [
-          "/galeriFotoDivisi/foto_sementara.JPG",
-          "/galeriFotoDivisi/foto_sementara.JPG",
-          "/galeriFotoDivisi/foto_sementara.JPG",
-
-        ],
-      },
-      {
-        idSesi: "sesi-2",
-        namaSesi: "Sesi 2",
-        fotos: [
-          "/fotoDivisi/Foto Divisi_Birendra_3_2.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_4_2.JPG",
-          "/fotoDivisi/Foto Divisi_Birendra_1.JPG",
-        ],
-      },
-    ],
-    sarya: [
-      { nama: "SARYA 1", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-    ],
-    cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-    ],
-    warna1: "#000000",
-    warna2: "#6B6968",
-    warna3: "#999DA0",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
-    ],
-  },
-
-
-
-  {
-    id: "4",
-    logo: "/figma/division-konsum.webp",
-    name: "Nayaka",
-    nameEng: "Food & Beverage",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    fotoDivisi: [
-      {
-        fotos: [
-          "/fotoDivisi/Foto Divisi_Nayaka_1.JPG",
-          "/fotoDivisi/Foto Divisi_Nayaka_3.JPG",
-          "/fotoDivisi/Foto Divisi_Nayaka_5.JPG",
-        ],
-      },
-    ],
-    sarya: [
-      { nama: "SARYA 1", fotoSarya: "/foto.png" },
-    ],
-    cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-    ],
-    warna1: "#C67F4E",
-    warna2: "#DCA37D",
-    warna3: "#F4AE6E",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
-    ],
-  },
-
-
-
-  {
-    id: "5",
-    logo: "/figma/division-medis.webp",
-    name: "Janardana",
-    nameEng: "Medic",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    fotoDivisi: [
-      {
-        idSesi: "sesi-1",
-        namaSesi: "Sesi 1",
-        fotos: [
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_2.JPG",
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_4.JPG",
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG",
-        ],
-      },
-      {
-        idSesi: "sesi-2",
-        namaSesi: "Sesi 2",
-        fotos: [
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_1.JPG",
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_3.JPG",
-          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_5.JPG",
-        ],
-      },
-    ],
-    sarya: [
-      { nama: "SARYA 1", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-    ],
-    cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-    ],
-    warna1: "#0FAB70",
-    warna2: "#8ACB99",
-    warna3: "#A7F3D0",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
-    ],
-  },
-
-
-
-  {
-    id: "6",
-    logo: "/figma/division-perkap.webp",
-    name: "Daraka",
-    nameEng: "Equipment",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    fotoDivisi: [
-      {
-        fotos: [
-          "/fotoDivisi/Foto Divisi_Daraka_1.JPG",
-          "/fotoDivisi/Foto Divisi_Daraka_3.JPG",
-          "/fotoDivisi/Foto Divisi_Daraka_6.JPG",
-        ],
-      },
-    ],
-    sarya: [
-      { nama: "SARYA 1", fotoSarya: "/foto.png" },
-    ],
-    cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-    ],
-    warna1: "#84499D",
-    warna2: "#C598C8",
-    warna3: "#E9D5FF",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
-    ],
-  },
-
-
-
-  {
-    id: "7",
     logo: "/figma/division-pic.webp",
     name: "Artha",
     nameEng: "Person in Charge (PIC)",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Tujuan, maksud, arti / kepentingan",
+    tugas: "Divisi Artha membimbing dan mengarahkan anggota berdasarkan pengetahuan dan pengalaman yang dimiliki.",
     fotoDivisi: [
       {
         idSesi: "sesi-1",
@@ -358,93 +196,166 @@ export const divisions: Division[] = [
     ],
     warna1: "#F3819C",
     warna2: "#FACBDC",
-    warna3: "#FCE7F3",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
-    ],
+    warna3: "#FEF0F5",
+    galeriFoto: ["/fotoDivisi/BGARTHA.jpg"],
+    bg: "/fotoDivisi/BGARTHA.jpg",
   },
 
+
+  {
+    id: "4",
+    logo: "/figma/division-keamanan.webp",
+    name: "Birendra",
+    nameEng: "Guardians",
+    description: "Raja yang berani, pelindung",
+    tugas: "Divisi Birendra menjaga tertib dan keamanan seluruh kegiatan OMB UMN 2026 NEXT.",
+    fotoDivisi: [
+      {
+        idSesi: "sesi-1",
+        namaSesi: "Sesi 1",
+        fotos: [
+          "/fotoDivisi/Foto Divisi_Birendra_1.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_3.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_4.JPG",
+        ],
+      },
+      {
+        idSesi: "sesi-2",
+        namaSesi: "Sesi 2",
+        fotos: [
+          "/fotoDivisi/Foto Divisi_Birendra_1_2.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_3_2.JPG",
+          "/fotoDivisi/Foto Divisi_Birendra_4_2.JPG",
+        ],
+      },
+    ],
+    sarya: [
+      { nama: "SARYA 1", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
+    ],
+    cardFoto: [
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+    ],
+    warna1: "#000000",
+    warna2: "#6B6968",
+    warna3: "#D6D5D5",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Birendra_4.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Birendra_4.JPG",
+  },
+
+
+  {
+    id: "5",
+    logo: "/figma/division-perkap.webp",
+    name: "Daraka",
+    nameEng: "Equipment",
+    description: "Yang menahan, yang menopang, yang memelihara",
+    tugas: "Divisi Daraka memastikan semua kebutuhan teknis siap agar kegiatan berjalan lancar.",
+    fotoDivisi: [
+      {
+        fotos: [
+          "/fotoDivisi/Foto Divisi_Daraka_1.JPG",
+          "/fotoDivisi/Foto Divisi_Daraka_3.JPG",
+          "/fotoDivisi/Foto Divisi_Daraka_6.JPG",
+        ],
+      },
+    ],
+    sarya: [{ nama: "SARYA 1", fotoSarya: "/foto.png" }],
+    cardFoto: [
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+    ],
+    warna1: "#84499D",
+    warna2: "#C598C8",
+    warna3: "#EFE3F0",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Daraka_6.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Daraka_6.JPG",
+  },
+
+
+  {
+    id: "6",
+    logo: "/figma/division-medis.webp",
+    name: "Janardana",
+    nameEng: "Medic",
+    description: "Pelindung manusia / penyelamat.",
+    tugas: "Divisi Janardana memberikan pertolongan dan menjaga keselamatan peserta selama kegiatan berlangsung.",
+    fotoDivisi: [
+      {
+        idSesi: "sesi-1",
+        namaSesi: "Sesi 1",
+        fotos: [
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_2.JPG",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_4.JPG",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG",
+        ],
+      },
+      {
+        idSesi: "sesi-2",
+        namaSesi: "Sesi 2",
+        fotos: [
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_1.JPG",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_3.JPG",
+          "/fotoDivisi/Foto Divisi_Janardana_Sesi 2_5.JPG",
+        ],
+      },
+    ],
+    sarya: [
+      { nama: "SARYA 1", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
+    ],
+    cardFoto: [
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+    ],
+    warna1: "#0FAB70",
+    warna2: "#8ACB99",
+    warna3: "#DEF0E2",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Janardana_Sesi 1_6.JPG",
+  },
+
+
+  {
+    id: "7",
+    logo: "/figma/division-konsum.webp",
+    name: "Nayaka",
+    nameEng: "Food & Beverage",
+    description: "Baik, bermanfaat, nyaman",
+    tugas: "Divisi Nayaka memastikan semua kebutuhan konsumsi terpenuhi agar peserta nyaman selama kegiatan.",
+    fotoDivisi: [
+      {
+        fotos: [
+          "/fotoDivisi/Foto Divisi_Nayaka_1.JPG",
+          "/fotoDivisi/Foto Divisi_Nayaka_3.JPG",
+          "/fotoDivisi/Foto Divisi_Nayaka_5.JPG",
+        ],
+      },
+    ],
+    sarya: [{ nama: "SARYA 1", fotoSarya: "/foto.png" }],
+    cardFoto: [
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+    ],
+    warna1: "#C67F4E",
+    warna2: "#DCA37D",
+    warna3: "#F5E5DB",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Nayaka_5.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Nayaka_5.JPG",
+  },
 
 
   {
     id: "8",
-    logo: "/figma/division-pr.webp",
-    name: "Anantara",
-    nameEng: "Public Relations",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    fotoDivisi: [
-      {
-        fotos: [
-          "/fotoDivisi/Foto Divisi_Anantara_2.JPG",
-          "/fotoDivisi/Foto Divisi_Anantara_3.JPG",
-          "/fotoDivisi/Foto Divisi_Anantara_4.JPG",
-        ],
-      },
-    ],
-    sarya: [
-      { nama: "SARYA 1", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-    ],
-    cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-    ],
-    warna1: "#6B6968",
-    warna2: "#999DA0",
-    warna3: "#D4D6D8",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
-    ],
-  },
-
-
-
-  {
-    id: "9",
-    logo: "/figma/division-visual.webp",
-    name: "Swarna",
-    nameEng: "Visual",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    fotoDivisi: [
-      {
-        fotos: [
-          "/fotoDivisi/Foto Divisi_Swarna_1.JPG",
-          "/fotoDivisi/Foto Divisi_Swarna_2.JPG",
-          "/fotoDivisi/Foto Divisi_Swarna_3.JPG",
-        ],
-      },
-    ],
-    sarya: [
-      { nama: "SARYA 1", fotoSarya: "/foto.png" },
-      { nama: "SARYA 2", fotoSarya: "/foto.png" },
-    ],
-    cardFoto: [
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
-    ],
-    warna1: "#5EC7D0",
-    warna2: "#9FDAE2",
-    warna3: "#CFFAFE",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
-    ],
-  },
-
-
-
-  {
-    id: "10",
     logo: "/figma/division-website.webp",
     name: "Rachana",
     nameEng: "Website",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Ciptaan, karya, rancangan",
+    tugas: "Divisi Rachana menyebarkan informasi secara luas, jelas, dan tepat waktu.",
     fotoDivisi: [
       {
         fotos: [
@@ -466,21 +377,19 @@ export const divisions: Division[] = [
     ],
     warna1: "#F7CE1C",
     warna2: "#F8E58D",
-    warna3: "#FEF08A",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
-    ],
+    warna3: "#FDF8DF",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Rachana_5.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Rachana_5.JPG",
   },
 
 
-
   {
-    id: "11",
+    id: "9",
     logo: "/figma/division-acara.webp",
     name: "Sanchara",
     nameEng: "Event",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: "Pergerakan, perjalanan, alur / flow",
+    tugas: "Divisi Sanchara bertugas mengatur jalannya kegiatan agar tersusun rapi, mengalir, dan berkesan dari awal hingga akhir.",
     fotoDivisi: [
       {
         fotos: [
@@ -490,9 +399,7 @@ export const divisions: Division[] = [
         ],
       },
     ],
-    sarya: [
-      { nama: "SARYA 1", fotoSarya: "/foto.png" },
-    ],
+    sarya: [{ nama: "SARYA 1", fotoSarya: "/foto.png" }],
     cardFoto: [
       { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
       { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
@@ -500,10 +407,73 @@ export const divisions: Division[] = [
     ],
     warna1: "#EB1A3F",
     warna2: "#F05E5E",
-    warna3: "#FECDD3",
-    galeriFoto: [
-      "/galeriFotoDivisi/a/",
+    warna3: "#FBD2D2",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchara_6.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Sanchara_6.JPG",
+  },
+
+
+  {
+    id: "10",
+    logo: "/figma/division-dokum.webp",
+    name: "Sanchita",
+    nameEng: "Documentation",
+    description: "Terkumpul, tersimpan, tertata",
+    tugas: "Divisi Sanchita mengabadikan seluruh kegiatan agar dapat dikenang dan menjadi arsip OMB UMN 2026 NEXT.",
+    fotoDivisi: [
+      {
+        fotos: [
+          "/fotoDivisi/Foto Divisi_Sanchita_1.JPG",
+          "/fotoDivisi/Foto Divisi_Sanchita_2.JPG",
+          "/fotoDivisi/Foto Divisi_Sanchita_6.JPG",
+        ],
+      },
     ],
+    sarya: [
+      { nama: "SARYA 1", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
+    ],
+    cardFoto: [
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+    ],
+    warna1: "#F47421",
+    warna2: "#F4AE6E",
+    warna3: "#FCE8D6",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Sanchita_6.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Sanchita_6.JPG",
+  },
+
+
+  {
+    id: "11",
+    logo: "/figma/division-visual.webp",
+    name: "Swarna",
+    nameEng: "Visual",
+    description: "Emas, cahaya, kemilau",
+    tugas: "Divisi Swarna mengekspresikan kreativitas melalui desain dan visual kegiatan OMB UMN 2026 NEXT.",
+    fotoDivisi: [
+      {
+        fotos: [
+          "/fotoDivisi/Foto Divisi_Swarna_1.JPG",
+          "/fotoDivisi/Foto Divisi_Swarna_2.JPG",
+          "/fotoDivisi/Foto Divisi_Swarna_3.JPG",
+        ],
+      },
+    ],
+    sarya: [
+      { nama: "SARYA 1", fotoSarya: "/foto.png" },
+      { nama: "SARYA 2", fotoSarya: "/foto.png" },
+    ],
+    cardFoto: [
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+      { role: "Koor", title: "Koordinator Divisi", isi: [{ nama: "NAMA", foto: "/foto.png" }] },
+    ],
+    warna1: "#5EC7D0",
+    warna2: "#9FDAE2",
+    warna3: "#E2F3F6",
+    galeriFoto: ["/fotoDivisi/Foto Divisi_Swarna_3.JPG"],
+    bg: "/fotoDivisi/Foto Divisi_Swarna_3.JPG",
   },
 ];
 

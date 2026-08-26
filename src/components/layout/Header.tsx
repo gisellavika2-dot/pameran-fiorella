@@ -9,7 +9,7 @@ import "./Header.css";
 const links = [
   ["Beranda", "/"], 
   ["Hari Pelaksanaan", "/hari-pelaksanaan"], 
-  ["Foto Divisi", "/#divisi"],
+  ["Divisi", "/#divisi"],
   ["Dibalik Kepanitiaan", "/dibalik-kepanitiaan"], 
   ["Sayembara Visual", "/#sayembara"], 
   ["Tentang Fiorella", "/tentang-fiorella"], 

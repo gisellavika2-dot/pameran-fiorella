@@ -72,7 +72,7 @@ export default function Home() {
       {/* Foto Divisi Section */}
       <section id="divisi" className="editorial-section divisions-section">
         <p className="section-kicker">Orang-orang di balik cerita</p>
-        <h2>Foto Divisi</h2>
+        <h2>Divisi UMN NEXT 2026</h2>
         <DivisionAccordion items={divisions} />
       </section>
 
