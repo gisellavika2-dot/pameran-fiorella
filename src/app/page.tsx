@@ -61,28 +61,31 @@ export default function Home() {
       </section>
 
       {/* Hari Pelaksanaan Section */}
-      <section className="editorial-section events-section">
-        <p className="section-kicker">Linimasa kegiatan</p>
-        <h2>Hari Pelaksanaan</h2>
-        <EventCarousel items={schedule.slice(0, 5)} />
-        <Link className="text-link" href="/hari-pelaksanaan">
+      <section className="editorial-section events-section relative isolate overflow-hidden">
+        <Image src="/supergrafis/SUPERGRAFIS-01.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute -left-[16%] -top-[20%] z-0 h-auto w-[clamp(240px,32vw,500px)] opacity-[.16] max-[760px]:-left-[35%] max-[760px]:-top-[8%] max-[760px]:w-[260px] max-[760px]:opacity-[.12]" />
+        <p className="section-kicker relative z-1">Linimasa kegiatan</p>
+        <h2 className="relative z-1">Hari Pelaksanaan</h2>
+        <div className="relative z-1 flex w-full justify-center"><EventCarousel items={schedule.slice(0, 5)} /></div>
+        <Link className="text-link relative z-1" href="/hari-pelaksanaan">
           Lihat seluruh rangkaian <span>→</span>
         </Link>
       </section>
 
       {/* Foto Divisi Section */}
-      <section id="divisi" className="editorial-section divisions-section">
-        <p className="section-kicker">Orang-orang di balik cerita</p>
-        <h2>Foto Divisi</h2>
-        <DivisionAccordion items={divisions} />
+      <section id="divisi" className="editorial-section divisions-section relative isolate overflow-hidden">
+        <Image src="/supergrafis/SUPERGRAFIS-05.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute -bottom-[28%] -right-[14%] z-0 h-auto w-[clamp(280px,38vw,580px)] rotate-12 opacity-[.14] max-[760px]:-bottom-[5%] max-[760px]:-right-[38%] max-[760px]:w-[280px] max-[760px]:opacity-[.1]" />
+        <p className="section-kicker relative z-1">Orang-orang di balik cerita</p>
+        <h2 className="relative z-1">Foto Divisi</h2>
+        <div className="relative z-1 flex w-full justify-center"><DivisionAccordion items={divisions} /></div>
       </section>
 
       {/* Dibalik Kepanitiaan Section */}
-      <section className="editorial-section behind-section">
-        <p className="section-kicker">Yang tak terlihat di panggung</p>
-        <h2>Dibalik Kepanitiaan</h2>
-        <HomeBehindGallery rows={behindTheScenesRows} />
-        <Link className="figma-button dark-button" href="/dibalik-kepanitiaan">
+      <section className="editorial-section behind-section relative isolate overflow-hidden">
+        <Image src="/supergrafis/SUPERGRAFIS-09.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute -left-[12%] top-[4%] z-0 h-auto w-[clamp(220px,28vw,430px)] -rotate-12 opacity-[.14] max-[760px]:-left-[42%] max-[760px]:top-[12%] max-[760px]:w-[260px] max-[760px]:opacity-[.1]" />
+        <p className="section-kicker relative z-1">Yang tak terlihat di panggung</p>
+        <h2 className="relative z-1">Dibalik Kepanitiaan</h2>
+        <div className="relative z-1 flex w-full justify-center"><HomeBehindGallery rows={behindTheScenesRows} /></div>
+        <Link className="figma-button dark-button relative z-1" href="/dibalik-kepanitiaan">
           Hasil Dokumentasi <span>→</span>
         </Link>
       </section>

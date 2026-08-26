@@ -1,5 +1,6 @@
 .event-carousel {
   width: min(1280px, 100%);
+  margin-inline: auto;
 }
 .event-deck {
   width: 100%;
