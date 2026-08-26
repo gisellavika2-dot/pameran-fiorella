@@ -4,8 +4,17 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 const SCROLL_DURATION = 850;
 const WHEEL_THRESHOLD = 24;
+const TOUCH_AXIS_LOCK_THRESHOLD = 8;
+const TOUCH_SWIPE_THRESHOLD = 44;
 const MIN_OVERFLOW_STOP = 64;
 const SCROLL_IDLE_DELAY = 140;
+
+type TouchGesture = {
+  identifier: number;
+  startX: number;
+  startY: number;
+  axis: "pending" | "horizontal" | "vertical";
+};
 
 type SmoothSectionScrollerProps = {
   children: ReactNode;
@@ -40,6 +49,7 @@ export default function SmoothSectionScroller({
     let animationFrame: number | null = null;
     let scrollIdleTimer: number | null = null;
     let wheelDistance = 0;
+    let touchGesture: TouchGesture | null = null;
     let isAnimating = false;
     let previousSnapType = "";
     let previousScrollBehavior = "";
@@ -135,6 +145,19 @@ export default function SmoothSectionScroller({
       animationFrame = window.requestAnimationFrame(step);
     };
 
+    const moveByDirection = (direction: 1 | -1) => {
+      if (isAnimating) return;
+
+      const targets = scrollTargets();
+      const currentTop = scroller.scrollTop;
+      const target =
+        direction > 0
+          ? targets.find((position) => position > currentTop + 2)
+          : targets.findLast((position) => position < currentTop - 2);
+
+      if (target !== undefined) animateTo(target);
+    };
+
     const handleWheel = (event: WheelEvent) => {
       if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
         return;
@@ -148,16 +171,84 @@ export default function SmoothSectionScroller({
 
       const direction = wheelDistance > 0 ? 1 : -1;
       wheelDistance = 0;
+      moveByDirection(direction);
+    };
 
-      const targets = scrollTargets();
-      const currentTop = scroller.scrollTop;
-      const target =
-        direction > 0
-          ? targets.find((position) => position > currentTop + 2)
-          : targets.findLast((position) => position < currentTop - 2);
+    const handleTouchStart = (event: TouchEvent) => {
+      if (event.touches.length !== 1) {
+        touchGesture = null;
+        return;
+      }
 
-      if (target === undefined) return;
-      animateTo(target);
+      const target = event.target as HTMLElement | null;
+      if (
+        target?.closest(
+          '[data-section-scroll-ignore], [aria-modal="true"], input, textarea, select, [contenteditable="true"]',
+        )
+      ) {
+        touchGesture = null;
+        return;
+      }
+
+      const touch = event.touches[0];
+      touchGesture = {
+        identifier: touch.identifier,
+        startX: touch.clientX,
+        startY: touch.clientY,
+        axis: "pending",
+      };
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      if (!touchGesture || event.touches.length !== 1) return;
+
+      const touch = Array.from(event.touches).find(
+        (candidate) => candidate.identifier === touchGesture?.identifier,
+      );
+      if (!touch) return;
+
+      const distanceX = touch.clientX - touchGesture.startX;
+      const distanceY = touch.clientY - touchGesture.startY;
+
+      if (
+        touchGesture.axis === "pending" &&
+        Math.max(Math.abs(distanceX), Math.abs(distanceY)) >=
+          TOUCH_AXIS_LOCK_THRESHOLD
+      ) {
+        touchGesture.axis =
+          Math.abs(distanceY) > Math.abs(distanceX)
+            ? "vertical"
+            : "horizontal";
+      }
+
+      if (touchGesture.axis === "vertical" && event.cancelable) {
+        event.preventDefault();
+      }
+    };
+
+    const handleTouchEnd = (event: TouchEvent) => {
+      if (!touchGesture) return;
+
+      const touch = Array.from(event.changedTouches).find(
+        (candidate) => candidate.identifier === touchGesture?.identifier,
+      );
+      if (!touch) return;
+
+      const distanceX = touch.clientX - touchGesture.startX;
+      const distanceY = touchGesture.startY - touch.clientY;
+      const isVerticalSwipe =
+        Math.abs(distanceY) > Math.abs(distanceX) &&
+        Math.abs(distanceY) >= TOUCH_SWIPE_THRESHOLD;
+
+      touchGesture = null;
+
+      if (!isVerticalSwipe) return;
+      if (event.cancelable) event.preventDefault();
+      moveByDirection(distanceY > 0 ? 1 : -1);
+    };
+
+    const handleTouchCancel = () => {
+      touchGesture = null;
     };
 
     const handleScroll = () => {
@@ -225,6 +316,18 @@ export default function SmoothSectionScroller({
     } else {
       container.addEventListener("wheel", handleWheel, { passive: false });
     }
+    container.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
+    container.addEventListener("touchmove", handleTouchMove, {
+      passive: false,
+    });
+    container.addEventListener("touchend", handleTouchEnd, {
+      passive: false,
+    });
+    container.addEventListener("touchcancel", handleTouchCancel, {
+      passive: true,
+    });
     scroller.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("keydown", handleKeyDown);
 
@@ -234,6 +337,10 @@ export default function SmoothSectionScroller({
       } else {
         container.removeEventListener("wheel", handleWheel);
       }
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchmove", handleTouchMove);
+      container.removeEventListener("touchend", handleTouchEnd);
+      container.removeEventListener("touchcancel", handleTouchCancel);
       scroller.removeEventListener("scroll", handleScroll);
       window.removeEventListener("keydown", handleKeyDown);
       if (scrollIdleTimer !== null) window.clearTimeout(scrollIdleTimer);

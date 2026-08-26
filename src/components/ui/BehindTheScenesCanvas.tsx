@@ -2,22 +2,22 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import adhikaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/ADHIKARA_1.jpg";
-import anantaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Anantara_1.jpg";
-import arthaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_2.jpg";
-import arthaThreePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_3.jpg";
-import birendraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Birendra_1.jpg";
-import birendraTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Birendra_2.jpg";
-import darakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Daraka_2.jpg";
-import extraOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_1.jpg";
-import extraTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_2.jpg";
-import extraThreePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_3.jpg";
-import janardanaOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_1.jpg";
-import janardanaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_2.jpg";
-import nayakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Nayaka_1.jpg";
-import sancharaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SANCHARA_1.jpg";
-import sanchitaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Sanchita_1.jpg";
-import swarnaOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SWARNA_1.jpg";
+import adhikaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/ADHIKARA_1.webp";
+import anantaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Anantara_1.webp";
+import arthaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_2.webp";
+import arthaThreePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_3.webp";
+import birendraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Birendra_1.webp";
+import birendraTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Birendra_2.webp";
+import darakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Daraka_2.webp";
+import extraOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_1.webp";
+import extraTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_2.webp";
+import extraThreePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/EXTRA_3.webp";
+import janardanaOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_1.webp";
+import janardanaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_2.webp";
+import nayakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Nayaka_1.webp";
+import sancharaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SANCHARA_1.webp";
+import sanchitaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Sanchita_1.webp";
+import swarnaOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SWARNA_1.webp";
 
 const photos = [
   { id: "01", src: adhikaraPhoto, title: "Rain", message: "Asik banget liat rein bawa bawa benderaaa! semangat teruss reinn, ditunggu S3 nyaa!" },
@@ -182,7 +182,7 @@ export default function BehindTheScenesCanvas() {
   const selected = selectedPhoto === null ? null : photos[selectedPhoto];
 
   return (
-    <section className="behind-canvas-page relative isolate h-svh min-h-[620px] overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.jpg')] bg-cover bg-center bg-no-repeat font-[Figtree,Arial,sans-serif] text-[var(--paper)] max-[760px]:min-h-[520px]" aria-label="Di balik kepanitiaan">
+    <section className="behind-canvas-page relative isolate h-svh min-h-[620px] overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.webp')] bg-cover bg-center bg-no-repeat font-[Figtree,Arial,sans-serif] text-[var(--paper)] max-[760px]:min-h-[520px]" aria-label="Di balik kepanitiaan">
       <a className="absolute bottom-[52px] left-1/2 z-5 inline-flex -translate-x-1/2 items-center gap-[22px] rounded-full border border-[rgba(237,236,230,.55)] bg-[var(--paper)] px-5 py-3 text-xs font-semibold text-[var(--blue)] no-underline shadow-[0_10px_24px_rgba(0,0,0,.2)] transition-[background,transform] duration-200 hover:-translate-y-0.5 hover:bg-[var(--sky)] max-[760px]:bottom-[max(42px,env(safe-area-inset-bottom))] max-[760px]:gap-3.5 max-[760px]:px-[15px] max-[760px]:py-[9px] max-[760px]:text-[10px]" href="https://drive.google.com/drive/folders/1qHcfbiUmdQ52qsOdGLL7JW7yrAYiEDdq?usp=drive_link" target="_blank" rel="noopener noreferrer">
         Lihat Google Drive <span className="text-[17px]" aria-hidden="true">↗</span>
       </a>
@@ -209,7 +209,7 @@ export default function BehindTheScenesCanvas() {
           <button className="relative aspect-3/2 h-auto! w-[min(76vw,900px,calc((100svh-150px)*1.5))] border-0 bg-transparent p-0 text-left text-[var(--ink)] [perspective:1600px] max-[760px]:w-[min(92vw,calc((100svh-150px)*1.5))] max-[480px]:w-[min(94vw,calc((100svh-175px)*1.5))]" type="button" aria-label={viewerStage === "photo" ? "Lihat pesan postcard" : "Kembali ke foto postcard"} onClick={(event) => { event.stopPropagation(); if (viewerStage === "photo") setViewerStage("letter"); if (viewerStage === "letter") setViewerStage("photo"); }}>
             <span className="pointer-events-none absolute inset-0 z-3 grid h-full w-full place-items-center overflow-hidden rounded-xl bg-[linear-gradient(145deg,#121e42_0%,#364a8c_56%,#6590c2_100%)] opacity-100 shadow-[0_28px_62px_rgba(18,30,66,.46)] [backface-visibility:hidden]" aria-hidden="true">
               <span className={`absolute top-0 left-0 z-3 h-[62%] w-full origin-top bg-[linear-gradient(160deg,#a8c4d4_0%,#6590c2_43%,#364a8c_100%)] shadow-[0_16px_24px_rgba(18,30,66,.35)] [clip-path:polygon(0_0,100%_0,50%_100%)] transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] ${viewerStage === "photo" ? "[transform:rotateX(160deg)]" : ""}`} />
-              <span className="absolute top-[56%] left-1/2 z-4 grid aspect-square w-[clamp(58px,8vw,82px)] -translate-x-1/2 -translate-y-1/2 -rotate-3 place-items-center rounded-full border border-[rgba(18,30,66,.28)] bg-[var(--paper)] p-3 shadow-[0_4px_10px_rgba(18,30,66,.2)]"><Image className="h-full w-full object-contain" src="/logo/Pictorial w_o type.png" alt="" width={72} height={72} /></span>
+              <span className="absolute top-[56%] left-1/2 z-4 grid aspect-square w-[clamp(58px,8vw,82px)] -translate-x-1/2 -translate-y-1/2 -rotate-3 place-items-center rounded-full border border-[rgba(18,30,66,.28)] bg-[var(--paper)] p-3 shadow-[0_4px_10px_rgba(18,30,66,.2)]"><Image className="h-full w-full object-contain" src="/logo/Pictorial w_o type.webp" alt="" width={72} height={72} /></span>
             </span>
 
             <span className={`absolute inset-0 h-full w-full origin-bottom [backface-visibility:hidden] will-change-[transform,opacity,filter] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(.16,1,.3,1)] motion-reduce:transition-none ${viewerStage === "photo" ? "z-4 translate-y-0 scale-100 rotate-y-0 opacity-100 blur-none" : viewerStage === "letter" ? "pointer-events-none z-4 -rotate-y-180 scale-100 opacity-0 blur-[2px]" : "pointer-events-none z-2 translate-y-[22%] scale-[.78] opacity-0 blur-[3px]"}`} aria-hidden={viewerStage !== "photo"}>

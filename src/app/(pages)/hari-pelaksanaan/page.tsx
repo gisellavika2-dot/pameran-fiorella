@@ -6,11 +6,11 @@ import { useEffect, useRef, useState } from "react";
 import { schedule } from "@/data/schedule";
 
 const eventImages = [
-  "/figma/SIO.jpg",
-  "/figma/Penanaman.jpg",
-  "/figma/PENYINARAN.jpg",
-  "/figma/PEREKAHAN.jpg",
-  "/figma/STS.jpg",
+  "/figma/SIO.webp",
+  "/figma/Penanaman.webp",
+  "/figma/PENYINARAN.webp",
+  "/figma/PEREKAHAN.webp",
+  "/figma/STS.webp",
 ];
 
 export default function HariPelaksanaanPage() {
@@ -96,7 +96,7 @@ export default function HariPelaksanaanPage() {
   }
 
   return (
-    <section className="relative isolate h-svh min-h-[620px] touch-none overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.jpg')] bg-cover bg-center bg-no-repeat text-[var(--paper)] select-none max-[760px]:min-h-[520px]" onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
+    <section className="relative isolate h-svh min-h-[620px] touch-none overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.webp')] bg-cover bg-center bg-no-repeat text-[var(--paper)] select-none max-[760px]:min-h-[520px]" onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
       <div className="relative z-2 h-full w-full outline-none" aria-label="Daftar hari pelaksanaan. Geser ke atas atau ke bawah untuk berpindah hari." onWheel={handleWheel} role="region" tabIndex={0}>
         {schedule.map((day, index) => {
           const position = relativePosition(index);

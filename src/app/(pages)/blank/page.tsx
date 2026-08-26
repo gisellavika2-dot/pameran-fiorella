@@ -33,7 +33,7 @@ export default function BlankPage() {
 
         <div className="relative min-h-80 overflow-hidden bg-[#364a8c]">
           <Image
-            src="/figma/event-main.png"
+            src="/figma/event-main.webp"
             alt="Fiorella visual exhibition"
             fill
             priority

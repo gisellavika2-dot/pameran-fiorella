@@ -127,7 +127,7 @@ const ValueShowcase = () => {
           <div className="absolute inset-10 rounded-full bg-[#EDECE6]/12 blur-xl" />
           <div className="relative grid h-32 w-32 place-items-center rounded-full bg-[#EDECE6] p-6 shadow-2xl md:h-48 md:w-48">
             <Image
-              src="/logo/fiorella-blue-mark.png"
+              src="/logo/fiorella-blue-mark.webp"
               alt="Logo Fiorella"
               fill
               sizes="208px"
@@ -174,7 +174,7 @@ const ValueShowcase = () => {
         <div className="absolute inset-10 rounded-full bg-[#EDECE6]/12 blur-xl" />
         <div className="relative grid h-32 w-32 place-items-center rounded-full bg-[#EDECE6] p-6 shadow-2xl">
           <Image
-            src="/logo/fiorella-blue-mark.png"
+            src="/logo/fiorella-blue-mark.webp"
             alt="Logo Fiorella"
             fill
             sizes="208px"
@@ -253,11 +253,11 @@ export default function TentangFiorellaPage() {
       
       {/* 
         WRAPPER BACKGROUND UTUH 
-        Div ini membungkus semua section dan menerapkan grad5_v.png.
+        Div ini membungkus semua section dan menerapkan grad5_v.webp.
         Background ini diregangkan (size:100%_100%) dari atas section 1 sampai bawah section 3,
         sehingga akan ikut ter-scroll secara natural seiring pengguna scroll ke bawah.
       */}
-      <div className="relative w-full bg-[url('/gradients/tentang/grad1_v.png')] bg-[size:100%_100%] bg-top bg-no-repeat">
+      <div className="relative w-full bg-[url('/gradients/tentang/grad1_v.webp')] bg-[size:100%_100%] bg-top bg-no-repeat">
         
         <section id="tentang-fiorella" className="relative z-10 flex min-h-[100dvh] w-full flex-col justify-center px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
           <div className="relative z-10 mx-auto w-full max-w-6xl space-y-5 md:space-y-6">
@@ -269,7 +269,7 @@ export default function TentangFiorellaPage() {
                 <div className="mx-auto flex w-full max-w-xs flex-col items-center justify-center text-center">
                   <div className="relative aspect-[4/3] w-full max-w-[220px] sm:max-w-[280px] md:max-w-[340px]">
                     <Image
-                      src="/logo/fiorella-blue-mark.png"
+                      src="/logo/fiorella-blue-mark.webp"
                       alt="Logo Fiorella"
                       fill
                       priority

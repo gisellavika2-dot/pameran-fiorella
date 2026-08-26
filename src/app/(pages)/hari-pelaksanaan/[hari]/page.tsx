@@ -5,28 +5,28 @@ import Image, { type StaticImageData } from "next/image";
 import React, { use, useRef, useState } from 'react';
 import Link from "next/link";
 import { schedule } from "@/data/schedule";
-import sioA2 from "../SIO/SIO_a (2).jpg";
-import sioC from "../SIO/SIO_c.jpg";
-import sioC2 from "../SIO/SIO_c (2).jpg";
-import sioM from "../SIO/SIO_m.jpg";
-import sioM2 from "../SIO/SIO_m (2).jpg";
-import sioP from "../SIO/SIO_p.jpg";
-import sioP2 from "../SIO/SIO_p (2).jpg";
-import sioR from "../SIO/SIO_r.jpg";
-import sioR2 from "../SIO/SIO_r (2).jpg";
-import sioT from "../SIO/SIO_t.jpg";
-import sioT2 from "../SIO/SIO_t (2).jpg";
-import sioT3 from "../SIO/SIO_t (3).jpg";
-import sioVin from "../SIO/SIO_vin.jpg";
-import sioVin2 from "../SIO/SIO_vin (2).jpg";
+import sioA2 from "../SIO/SIO_a (2).webp";
+import sioC from "../SIO/SIO_c.webp";
+import sioC2 from "../SIO/SIO_c (2).webp";
+import sioM from "../SIO/SIO_m.webp";
+import sioM2 from "../SIO/SIO_m (2).webp";
+import sioP from "../SIO/SIO_p.webp";
+import sioP2 from "../SIO/SIO_p (2).webp";
+import sioR from "../SIO/SIO_r.webp";
+import sioR2 from "../SIO/SIO_r (2).webp";
+import sioT from "../SIO/SIO_t.webp";
+import sioT2 from "../SIO/SIO_t (2).webp";
+import sioT3 from "../SIO/SIO_t (3).webp";
+import sioVin from "../SIO/SIO_vin.webp";
+import sioVin2 from "../SIO/SIO_vin (2).webp";
 import "./hari-detail.css";
 
 const eventImages = [
-  "/figma/SIO.jpg",
-  "/figma/Penanaman.jpg",
-  "/figma/PENYINARAN.jpg",
-  "/figma/PEREKAHAN.jpg",
-  "/figma/STS.jpg",
+  "/figma/SIO.webp",
+  "/figma/Penanaman.webp",
+  "/figma/PENYINARAN.webp",
+  "/figma/PEREKAHAN.webp",
+  "/figma/STS.webp",
 ];
 
 const sioGalleryImages = [
@@ -44,7 +44,7 @@ const sioGalleryImages = [
   sioT3,
   sioVin,
   sioVin2,
-  "/figma/SIO.jpg",
+  "/figma/SIO.webp",
 ];
 
 interface PageProps {

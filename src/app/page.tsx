@@ -34,7 +34,7 @@ export default function Home() {
           {/* Logo Fiorella */}
           <div className="hero-mark flex shrink-0 items-center justify-center">
             <Image 
-              src="/logo/fiorella-blue-mark.png" 
+              src="/logo/fiorella-blue-mark.webp"
               alt="Fiorella" 
               width={432} 
               height={407} 

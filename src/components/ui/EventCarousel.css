@@ -173,30 +173,28 @@
 @media (max-width: 760px) {
   .event-deck {
     height: min(48svh, 390px);
-    overflow: visible;
+    overflow: hidden;
+    touch-action: pan-y;
   }
   .event-card {
-    width: 78vw;
+    width: min(88vw, 420px) !important;
     height: calc(100% - 20px);
     padding: 20px;
     border-radius: 28px;
+    -webkit-user-drag: none;
   }
   .event-card[data-position="0"] {
     --event-scale: 1;
     --event-shift: 0px;
+    opacity: 1 !important;
+    visibility: visible;
   }
-  .event-card[data-position="-1"] {
-    --event-scale: 0.949;
-    --event-shift: -26vw;
-  }
-  .event-card[data-position="1"] {
-    --event-scale: 0.949;
-    --event-shift: 26vw;
-  }
-  .event-card[data-position="-2"],
-  .event-card[data-position="2"] {
+  .event-card:not([data-position="0"]) {
     --event-opacity: 0;
-    pointer-events: none;
+    --event-shift: 0px;
+    opacity: 0 !important;
+    visibility: hidden;
+    pointer-events: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {

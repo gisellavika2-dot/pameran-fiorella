@@ -2,18 +2,18 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { useState } from "react";
-import adhikaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/ADHIKARA_1.jpg";
-import anantaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Anantara_1.jpg";
-import arthaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_2.jpg";
-import arthaThreePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_3.jpg";
-import birendraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Birendra_1.jpg";
-import darakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Daraka_2.jpg";
-import janardanaOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_1.jpg";
-import janardanaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_2.jpg";
-import nayakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Nayaka_1.jpg";
-import sancharaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SANCHARA_1.jpg";
-import sanchitaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Sanchita_1.jpg";
-import swarnaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SWARNA_1.jpg";
+import adhikaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/ADHIKARA_1.webp";
+import anantaraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Anantara_1.webp";
+import arthaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_2.webp";
+import arthaThreePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Artha_3.webp";
+import birendraPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Birendra_1.webp";
+import darakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Daraka_2.webp";
+import janardanaOnePhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_1.webp";
+import janardanaTwoPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Janardana_2.webp";
+import nayakaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Nayaka_1.webp";
+import sancharaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SANCHARA_1.webp";
+import sanchitaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/Sanchita_1.webp";
+import swarnaPhoto from "@/app/(pages)/dibalik-kepanitiaan/asset/SWARNA_1.webp";
 
 const photos = [adhikaraPhoto, anantaraPhoto, arthaTwoPhoto, arthaThreePhoto, birendraPhoto, darakaPhoto, janardanaOnePhoto, janardanaTwoPhoto, nayakaPhoto, sancharaPhoto, sanchitaPhoto, swarnaPhoto];
 

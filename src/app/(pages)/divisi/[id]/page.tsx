@@ -1,41 +1,19 @@
 // src/app/(pages)/divisi/[id]/page.tsx
 "use client";
 
-import { useState, use, useEffect } from "react";
+import { useState, use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getDivisionById } from "@/data/divisions";
 import Button from "@/components/ui/Button";
-import { ScrollSnapContainer, ScrollSnapSection } from "@/components/ui/ScrollSnap";
-
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+import { ScrollSnapSection } from "@/components/ui/ScrollSnap";
+import SmoothSectionScroller from "@/components/ui/SmoothSectionScroller";
 
 export default function DivisiDetailPage({ params, }: { params: Promise<{ id: string }>; }) {  
   const { id } = use(params);
   const division = getDivisionById(id);
   const [activeSesiIndex, setActiveSesiIndex] = useState(0);
   const [activeFotoIndex, setActiveFotoIndex] = useState(0);  
-
-  const [randomPhotos, setRandomPhotos] = useState<string[]>([]);
-
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (division?.galeriFoto && division.galeriFoto.length > 0) { 
-      const shuffled = [...division.galeriFoto];
-      
-      for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-      }
-      
-      setRandomPhotos(shuffled.slice(0, 9));
-    }
-  }, [division?.galeriFoto]);
 
   if (!division) {
     return (
@@ -68,51 +46,56 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
   const textColorSub = "#FFFFFF";
 
   return ( 
-    <ScrollSnapContainer>
+    <SmoothSectionScroller
+      className="division-scroller smooth-section-page"
+      scrollRoot="document"
+    >
       <ScrollSnapSection>
-        <div className="w-full min-h-screen flex flex-col justify-center" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 120%)`,}}>
+        <div className="relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden py-20 md:min-h-screen md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 120%)`,}}>
           <div className="absolute inset-0 z-0 ">
             <Image
               src={division.bg}
               alt={`Foto Divisi ${division.name}`}
               fill
               priority
+              sizes="100vw"
               className="object-cover opacity-20 mix-blend-overlay z-0"
             />
           </div>
-          <div className="section-container z-10">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div className="section-container z-10 w-full">
+            <div className="grid grid-cols-1 items-center gap-5 sm:gap-8 md:grid-cols-12">
               <div className="md:col-span-4 flex justify-center">
-                <div className="relative w-48 h-48 md:w-64 md:h-64">
+                <div className="relative h-32 w-32 sm:h-48 sm:w-48 md:h-64 md:w-64">
                   <Image
                     src={division.logo}
                     alt={`Logo ${division.name}`}
                     fill
+                    sizes="(max-width: 640px) 128px, (max-width: 768px) 192px, 256px"
                     className="object-contain"
                   />
                 </div>
               </div>
-              <div className="md:col-span-8">
+              <div className="text-left md:col-span-8">
                 <h1
-                  className="font-serif text-3xl md:text-5xl font-bold mb-2 drop-shadow-xl"
+                  className="mb-1 font-serif text-3xl font-bold leading-tight drop-shadow-xl sm:text-4xl md:mb-2 md:text-5xl"
                   style={{ color: textColorMain }}
                 >
                   {division.name}
                 </h1>
                 <h2
-                  className="font-sans text-xl md:text-2xl font-semibold mb-4 italic opacity-90"
+                  className="mb-3 font-sans text-lg font-semibold italic opacity-90 sm:text-xl md:mb-4 md:text-2xl"
                   style={{ color: textColorSub }}
                 >
                   {division.nameEng}
                 </h2>
                 <p 
-                  className="font-sans text-lg leading-relaxed font-bold mb-2"
+                  className="mb-2 font-sans text-base font-bold leading-relaxed sm:text-lg"
                   style={{ color: textColorMain }}
                 >
-                  "{division.description}"
+                  &ldquo;{division.description}&rdquo;
                 </p>
                 <p 
-                  className="font-sans text-lg leading-relaxed opacity-95"
+                  className="font-sans text-sm leading-relaxed opacity-95 sm:text-base md:text-lg"
                   style={{ color: textColorMain }}
                 >
                   {division.tugas}
@@ -125,17 +108,32 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
 
       {/* FOTO DIVISI  */}
       <ScrollSnapSection>
-        <div className="min-h-screen flex flex-wrap justify-center w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
-          <div className="section-container flex flex-col items-center z-10">
+        <div className="relative flex min-h-[100dvh] w-full flex-wrap justify-center overflow-hidden py-16 md:min-h-screen md:py-24" style={{ backgroundColor: w1 }}>
+          <Image
+            src={division.bg}
+            alt=""
+            fill
+            sizes="100vw"
+            aria-hidden="true"
+            className="z-0 object-cover opacity-20"
+          />
+          <div
+            className="absolute inset-0 z-[1]"
+            style={{
+              background: `linear-gradient(150deg, ${w1}ed 0%, ${w2}e3 50%, ${w3}d9 100%)`,
+            }}
+            aria-hidden="true"
+          />
+          <div className="section-container z-10 flex w-full flex-col items-center">
             <h2
-              className="font-serif text-2xl md:text-5xl font-bold mb-8 text-center"
+              className="mb-6 text-center font-serif text-3xl font-bold md:mb-8 md:text-5xl"
               style={{ color: "white" }}
             >
               Foto Divisi
             </h2>
 
             {division.fotoDivisi && division.fotoDivisi.length > 1 && (
-              <div className="flex flex-wrap justify-center gap-2 mb-6 p-1.5 bg-gray-100 rounded-xl">
+              <div className="mb-5 flex max-w-full flex-wrap justify-center gap-1.5 rounded-xl bg-gray-100 p-1.5 md:mb-6 md:gap-2">
                 {division.fotoDivisi.map((sesi, idx) => (
                   <button
                     key={sesi.idSesi || idx}
@@ -143,7 +141,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
                       setActiveSesiIndex(idx);
                       setActiveFotoIndex(0);
                     }}
-                    className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${
+                    className={`min-h-10 rounded-lg px-3 py-2 text-xs font-semibold transition-all sm:px-4 sm:text-sm ${
                       activeSesiIndex === idx ? "shadow-md text-white" : "text-gray-600 hover:text-gray-900"
                     }`}
                     style={{
@@ -156,20 +154,33 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
               </div>
             )}
 
-            <div className="relative w-full max-w-4xl aspect-[16/9] h-80 md:h-[480px] rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 bg-gray-100">
-              <Image
-                src={
-                  division.fotoDivisi?.[activeSesiIndex]?.fotos?.[activeFotoIndex] ||
-                  "/foto.png"
-                }
-                alt={`Foto Divisi ${division.name}`}
-                fill
-                className="object-cover"
-              />
+            <div className="relative aspect-[4/3] w-full max-w-4xl overflow-hidden rounded-xl border-2 border-gray-100 bg-gray-100 shadow-lg sm:aspect-[16/9] md:h-[480px] md:rounded-2xl">
+              {(division.fotoDivisi?.[activeSesiIndex]?.fotos?.length
+                ? division.fotoDivisi[activeSesiIndex].fotos
+                : ["/galeriFotoDivisi/foto_sementara.webp"]
+              ).map((photo, idx) => {
+                const isActive = idx === activeFotoIndex;
+
+                return (
+                  <Image
+                    key={photo}
+                    src={photo}
+                    alt={isActive ? `Foto Divisi ${division.name}` : ""}
+                    aria-hidden={!isActive}
+                    fill
+                    sizes="(max-width: 768px) calc(100vw - 48px), 896px"
+                    className={`object-cover transition-[opacity,transform] duration-500 ease-out motion-reduce:transition-none ${
+                      isActive
+                        ? "z-10 scale-100 opacity-100"
+                        : "z-0 scale-[1.035] opacity-0"
+                    }`}
+                  />
+                );
+              })}
             </div>
 
             {division.fotoDivisi?.[activeSesiIndex]?.fotos?.length > 1 && (
-              <div className="flex items-center justify-center gap-6 mt-6">
+              <div className="mt-5 flex max-w-full items-center justify-center gap-3 sm:gap-6 md:mt-6">
                 <button
                   onClick={() =>
                     setActiveFotoIndex((prev) =>
@@ -178,16 +189,18 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
                         : prev - 1
                     )
                   }
-                  className="p-2.5 w-12 rounded-full bg-white shadow border border-gray-200 text-gray-700 hover:bg-gray-50"
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-gray-200 bg-white p-2 text-gray-700 shadow transition-[transform,background-color,box-shadow] duration-200 hover:scale-105 hover:bg-gray-50 hover:shadow-md active:scale-95 motion-reduce:transition-none sm:h-12 sm:w-12 sm:p-2.5"
+                  aria-label="Foto divisi sebelumnya"
                 >
                   &#10094;
                 </button>
 
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center justify-center gap-2">
                   {division.fotoDivisi[activeSesiIndex].fotos.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveFotoIndex(idx)}
+                      aria-label={`Tampilkan foto ${idx + 1}`}
                       className={`rounded-full transition-all ${
                         activeFotoIndex === idx
                           ? "w-8 h-2.5 opacity-100"
@@ -209,7 +222,8 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
                         : prev + 1
                     )
                   }
-                  className="p-2.5 w-12 rounded-full bg-white shadow border border-gray-200 text-gray-700 hover:bg-gray-50"
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-gray-200 bg-white p-2 text-gray-700 shadow transition-[transform,background-color,box-shadow] duration-200 hover:scale-105 hover:bg-gray-50 hover:shadow-md active:scale-95 motion-reduce:transition-none sm:h-12 sm:w-12 sm:p-2.5"
+                  aria-label="Foto divisi berikutnya"
                 >
                   &#10095;
                 </button>
@@ -221,25 +235,41 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
 
 {/* SARYA  */}
       <ScrollSnapSection>
-        <div className="w-full min-h-screen flex flex-col justify-center" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
-          <div className="section-container z-10">
+        <div className="relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden py-16 md:min-h-screen md:py-24" style={{ backgroundColor: w1 }}>
+          <Image
+            src={division.bg}
+            alt=""
+            fill
+            sizes="100vw"
+            aria-hidden="true"
+            className="z-0 object-cover opacity-20"
+          />
+          <div
+            className="absolute inset-0 z-[1]"
+            style={{
+              background: `linear-gradient(150deg, ${w1}e6 0%, ${w2}d9 50%, ${w3}c7 100%)`,
+            }}
+            aria-hidden="true"
+          />
+          <div className="section-container z-10 w-full">
             <h2
-              className="flex flex-wrap justify-center font-serif text-2xl md:text-5xl font-bold mb-8"
+              className="mb-6 flex flex-wrap justify-center font-serif text-3xl font-bold md:mb-8 md:text-5xl"
               style={{ color: "white" }}
             >
               Sarya
             </h2>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="grid grid-cols-2 justify-center gap-3 sm:flex sm:flex-wrap sm:gap-6">
               {division.sarya.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl overflow-hidden shadow-md w-32 md:w-64 aspect-[3/4] flex flex-col"
+                  className="flex aspect-[3/4] w-full max-w-40 flex-col overflow-hidden rounded-xl bg-white shadow-md sm:w-40 md:w-64 md:max-w-64"
                 >
                   <div className="relative w-full h-full bg-gray-100">
                     <Image
                       src={item.fotoSarya}
                       alt={item.nama}
                       fill
+                      sizes="(max-width: 640px) calc((100vw - 60px) / 2), (max-width: 768px) 160px, 256px"
                       className="object-cover"
                     />
                   </div>
@@ -252,16 +282,31 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
       </ScrollSnapSection>
 
       <ScrollSnapSection>
-        <div className="min-h-screen flex flex-col justify-center w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
-          <div className="section-container z-10">
-            <h2 className="font-serif text-2xl md:text-5xl font-bold mb-10 text-center" style={{ color: "white" }}>
+        <div className="relative flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden py-16 md:min-h-screen md:py-24" style={{ backgroundColor: w1 }}>
+          <Image
+            src={division.bg}
+            alt=""
+            fill
+            sizes="100vw"
+            aria-hidden="true"
+            className="z-0 object-cover opacity-20"
+          />
+          <div
+            className="absolute inset-0 z-[1]"
+            style={{
+              background: `linear-gradient(150deg, ${w1}e6 0%, ${w2}d9 50%, ${w3}c7 100%)`,
+            }}
+            aria-hidden="true"
+          />
+          <div className="section-container z-10 w-full">
+            <h2 className="mb-6 text-center font-serif text-3xl font-bold md:mb-10 md:text-5xl" style={{ color: "white" }}>
               Koordinator
             </h2>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="grid grid-cols-2 justify-center gap-3 sm:flex sm:flex-wrap sm:gap-6">
               {division.cardFoto.flatMap((group) => group.isi).map((item, idx) => (
-                <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-md w-32 md:w-64 aspect-[3/4] flex flex-col">
+                <div key={idx} className="flex aspect-[3/4] w-full max-w-40 flex-col overflow-hidden rounded-xl bg-white shadow-md sm:w-40 md:w-64 md:max-w-64">
                   <div className="relative w-full h-full bg-gray-100">
-                    <Image src={item.foto} alt={item.nama} fill className="object-cover"/>
+                    <Image src={item.foto} alt={item.nama} fill sizes="(max-width: 640px) calc((100vw - 60px) / 2), (max-width: 768px) 160px, 256px" className="object-cover"/>
                   </div>
                 </div>
               ))}
@@ -271,26 +316,26 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
         </div>
       </ScrollSnapSection>
       
-      <ScrollSnapSection>
-        {division.anggota && division.anggota.length > 0 && (
-          <div className="min-h-screen flex flex-col justify-center w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
-            <div className="section-container z-10">
-              <h2 className="font-serif text-2xl md:text-5xl font-bold mb-10 text-center" style={{ color: "white" }}>
+      {division.anggota && division.anggota.length > 0 && (
+        <ScrollSnapSection>
+          <div className="flex min-h-[100dvh] w-full flex-col justify-center py-16 md:min-h-screen md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
+            <div className="section-container z-10 w-full">
+              <h2 className="mb-6 text-center font-serif text-3xl font-bold md:mb-10 md:text-5xl" style={{ color: "white" }}>
                 Anggota
               </h2>
-              <div className="flex flex-wrap justify-center gap-6">
+              <div className="grid grid-cols-2 justify-center gap-3 sm:flex sm:flex-wrap sm:gap-6">
                 {division.anggota.map((item, idx) => (
-                  <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-md w-32 md:w-64 aspect-[3/4] flex flex-col">
+                  <div key={idx} className="flex aspect-[3/4] w-full max-w-40 flex-col overflow-hidden rounded-xl bg-white shadow-md sm:w-40 md:w-64 md:max-w-64">
                     <div className="relative w-full h-full bg-gray-100">
-                      <Image src={item.fotoAnggota} alt={item.nama} fill className="object-cover"/>
+                      <Image src={item.fotoAnggota} alt={item.nama} fill sizes="(max-width: 640px) calc((100vw - 60px) / 2), (max-width: 768px) 160px, 256px" className="object-cover"/>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        )}
-      </ScrollSnapSection>
+        </ScrollSnapSection>
+      )}
 
       {/* <ScrollSnapSection>
         <div className="min-h-screen w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
@@ -352,6 +397,6 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
           </div>
         </div>
       </ScrollSnapSection> */}
-    </ScrollSnapContainer>
+    </SmoothSectionScroller>
   );
 }
