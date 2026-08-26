@@ -182,7 +182,7 @@ export default function BehindTheScenesCanvas() {
   const selected = selectedPhoto === null ? null : photos[selectedPhoto];
 
   return (
-    <section className="relative isolate h-svh min-h-[620px] overflow-hidden bg-[radial-gradient(circle_at_10%_15%,rgba(101,144,194,.62),transparent_32%),radial-gradient(circle_at_88%_31%,rgba(54,74,140,.75),transparent_39%),linear-gradient(135deg,#121e42_0%,#192a5a_48%,#364a8c_100%)] font-[Figtree,Arial,sans-serif] text-[var(--paper)] max-[760px]:min-h-[520px]" aria-label="Di balik kepanitiaan">
+    <section className="behind-canvas-page relative isolate h-svh min-h-[620px] overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.jpg')] bg-cover bg-center bg-no-repeat font-[Figtree,Arial,sans-serif] text-[var(--paper)] max-[760px]:min-h-[520px]" aria-label="Di balik kepanitiaan">
       <a className="absolute bottom-[52px] left-1/2 z-5 inline-flex -translate-x-1/2 items-center gap-[22px] rounded-full border border-[rgba(237,236,230,.55)] bg-[var(--paper)] px-5 py-3 text-xs font-semibold text-[var(--blue)] no-underline shadow-[0_10px_24px_rgba(0,0,0,.2)] transition-[background,transform] duration-200 hover:-translate-y-0.5 hover:bg-[var(--sky)] max-[760px]:bottom-[max(42px,env(safe-area-inset-bottom))] max-[760px]:gap-3.5 max-[760px]:px-[15px] max-[760px]:py-[9px] max-[760px]:text-[10px]" href="https://drive.google.com/drive/folders/1qHcfbiUmdQ52qsOdGLL7JW7yrAYiEDdq?usp=drive_link" target="_blank" rel="noopener noreferrer">
         Lihat Google Drive <span className="text-[17px]" aria-hidden="true">↗</span>
       </a>

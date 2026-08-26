@@ -219,6 +219,10 @@ html:has(.about-page) .site-footer {
   margin-top: calc(-1 * var(--footer-height));
 }
 
+.behind-canvas-page::before {
+  display: none;
+}
+
 .inline-photo-popover {
   position: fixed;
   z-index: 1200;
