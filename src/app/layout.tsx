@@ -22,9 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body>
+      <body className="flex min-h-screen flex-col">
+        <CustomCursor />
         <Header />
-        <main>{children}</main>
+        <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
       </body>
     </html>

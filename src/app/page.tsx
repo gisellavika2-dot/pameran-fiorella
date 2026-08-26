@@ -72,11 +72,10 @@ export default function Home() {
       </section>
 
       {/* Foto Divisi Section */}
-      <section id="divisi" className="editorial-section divisions-section relative isolate overflow-hidden">
-        <Image src="/supergrafis/SUPERGRAFIS-05.png" alt="" width={2000} height={2000} aria-hidden="true" className="pointer-events-none absolute -bottom-[28%] -right-[14%] z-0 h-auto w-[clamp(280px,38vw,580px)] rotate-12 opacity-[.14] max-[760px]:-bottom-[5%] max-[760px]:-right-[38%] max-[760px]:w-[280px] max-[760px]:opacity-[.1]" />
-        <p className="section-kicker relative z-1">Orang-orang di balik cerita</p>
-        <h2 className="relative z-1">Foto Divisi</h2>
-        <div className="relative z-1 flex w-full justify-center"><DivisionAccordion items={divisions} /></div>
+      <section id="divisi" className="editorial-section divisions-section">
+        <p className="section-kicker">Orang-orang di balik cerita</p>
+        <h2>Divisi UMN NEXT 2026</h2>
+        <DivisionAccordion items={divisions} />
       </section>
 
       {/* Dibalik Kepanitiaan Section */}
