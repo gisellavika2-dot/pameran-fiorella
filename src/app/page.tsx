@@ -77,7 +77,7 @@ export default function Home() {
 
       {/* Foto Divisi Section */}
       <section id="divisi" className="editorial-section divisions-section !isolation-auto !bg-[linear-gradient(to_bottom,#edf4f7_0%,rgba(237,244,247,0.72)_18%,transparent_46%)] [&>*]:!z-10">
-        <p className="section-kicker">Orang-orang di balik cerita</p>
+        {/* <p className="section-kicker">Orang-orang di balik cerita</p> */}
         <h2>Divisi UMN NEXT 2026</h2>
         <DivisionAccordion items={divisionPreviews} />
       </section>
