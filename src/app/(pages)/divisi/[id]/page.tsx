@@ -258,11 +258,11 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
             >
               Sarya
             </h2>
-            <div className="grid grid-cols-2 justify-center gap-3 sm:flex sm:flex-wrap sm:gap-6">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
               {division.sarya.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex aspect-[3/4] w-full max-w-40 flex-col overflow-hidden rounded-xl bg-white shadow-md sm:w-40 md:w-64 md:max-w-64"
+                  className=" justify-center flex aspect-[3/4] w-full max-w-40 flex-col overflow-hidden rounded-xl bg-white shadow-md sm:w-40 md:w-64 md:max-w-64"
                 >
                   <div className="relative w-full h-full bg-gray-100">
                     <Image
@@ -302,7 +302,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
             <h2 className="mb-6 text-center font-serif text-3xl font-bold md:mb-10 md:text-5xl" style={{ color: "white" }}>
               Koordinator
             </h2>
-            <div className="grid grid-cols-2 justify-center gap-3 sm:flex sm:flex-wrap sm:gap-6">
+            <div className="flex flex-wrap justify-center gap-3 sm:flex sm:flex-wrap sm:gap-6">
               {division.cardFoto.flatMap((group) => group.isi).map((item, idx) => (
                 <div key={idx} className="flex aspect-[3/4] w-full max-w-40 flex-col overflow-hidden rounded-xl bg-white shadow-md sm:w-40 md:w-64 md:max-w-64">
                   <div className="relative w-full h-full bg-gray-100">
