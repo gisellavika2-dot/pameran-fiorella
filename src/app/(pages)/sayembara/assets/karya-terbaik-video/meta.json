@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "filename": "JUARA 1_Marcel Faith Robson _34 SOTO TANGKAR_VIDEO  - Marcel faith robson.mov",
+      "title": "Marcel Faith Robson",
+      "username": "Marcel Faith Robson",
+      "juara": 1,
+      "category": "karya-terbaik-video",
+      "type": "video"
+    },
+    {
+      "filename": "JUARA 2_VENDYPRATAMA&KARYNLIVIAHANDERSON_20_VIDEO - Vendy Pratama.mov",
+      "title": "Vendy Pratama & Karyn Livia Handerson",
+      "username": "Vendy Pratama",
+      "juara": 2,
+      "category": "karya-terbaik-video",
+      "type": "video"
+    },
+    {
+      "filename": "JUARA 3_CATHERINE_CAITLIN_PATRICIA_YANSEN_DANELL_KAYLEE_SAYEMBARA VISUAL_47_VIDEO - Catherine Aurelia Lie..mp4",
+      "title": "Catherine, Caitlin, Patricia, Yansen, Danell, Kaylee",
+      "username": "Catherine Aurelia Lie",
+      "juara": 3,
+      "category": "karya-terbaik-video",
+      "type": "video"
+    }
+  ]
+}

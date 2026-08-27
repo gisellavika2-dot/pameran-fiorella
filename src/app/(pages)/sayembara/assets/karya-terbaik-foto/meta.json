@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "filename": "JUARA 1_Sayembara Visual_Fotografi_Muhammad Hadziq Herti Al Ghaniyyu_00000202053 - Hadziq Herti.webp",
+      "title": "Muhammad Hadziq Herti Al Ghaniyyu",
+      "username": "Hadziq Herti",
+      "juara": 1,
+      "category": "karya-terbaik-foto",
+      "type": "photo"
+    },
+    {
+      "filename": "JUARA 2_FIONA BEATRICE LIM_17_FOTO - Fiona Beatrice.webp",
+      "title": "Fiona Beatrice Lim",
+      "username": "Fiona Beatrice",
+      "juara": 2,
+      "category": "karya-terbaik-foto",
+      "type": "photo"
+    },
+    {
+      "filename": "JUARA 3_JULIO RICHARDO RYAN_FOTO.webp",
+      "title": "Julio Richardo Ryan",
+      "username": "Julio Richardo Ryan",
+      "juara": 3,
+      "category": "karya-terbaik-foto",
+      "type": "photo"
+    }
+  ]
+}
