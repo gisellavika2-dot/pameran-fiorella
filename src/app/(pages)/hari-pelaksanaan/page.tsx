@@ -109,8 +109,8 @@ export default function HariPelaksanaanPage() {
   }
 
   return (
-    <section className="relative isolate h-svh min-h-[620px] touch-none overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.webp')] bg-cover bg-center bg-no-repeat text-[var(--paper)] select-none max-[760px]:min-h-[520px]" onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
-      <div ref={deckRef} className="relative z-2 h-full w-full outline-none [--drag-offset:0px]" aria-label="Daftar hari pelaksanaan. Geser ke atas atau ke bawah untuk berpindah hari." onWheel={handleWheel} role="region" tabIndex={0}>
+    <section className="relative h-svh min-h-[620px] touch-pan-x overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.webp')] bg-cover bg-center bg-no-repeat text-[var(--paper)] select-none max-[760px]:min-h-[520px]" onPointerDownCapture={handlePointerDown} onPointerMoveCapture={handlePointerMove} onPointerUpCapture={handlePointerEnd} onPointerCancelCapture={handlePointerEnd} onDragStart={(event) => event.preventDefault()}>
+      <div ref={deckRef} className="relative z-2 h-full w-full outline-none [--drag-offset:0px] [&_a]:touch-manipulation" aria-label="Daftar hari pelaksanaan. Geser ke atas atau ke bawah untuk berpindah hari." onWheel={handleWheel} role="region" tabIndex={0}>
         {schedule.map((day, index) => {
           const position = relativePosition(index);
           const isVisible = Math.abs(position) <= 1;
@@ -120,8 +120,8 @@ export default function HariPelaksanaanPage() {
               ? "z-1 pointer-events-auto opacity-[.92]"
               : "z-0 pointer-events-none opacity-0";
           const direction = position > 0 ? 1 : -1;
-          const cardOffset = position === 0 ? "0px" : Math.abs(position) === 1 ? `calc(${direction * 68}svh + ${direction * 32}px)` : `${direction * 120}svh`;
-          const mobileCardOffset = position === 0 ? "0px" : Math.abs(position) === 1 ? `${direction * 60}svh` : `${direction * 120}svh`;
+          const cardOffset = position === 0 ? "0px" : Math.abs(position) === 1 ? direction > 0 ? "calc(100% + 40px)" : "calc(-100% - 40px)" : `${direction * 120}svh`;
+          const mobileCardOffset = position === 0 ? "0px" : Math.abs(position) === 1 ? direction > 0 ? "calc(100% + 24px)" : "calc(-100% - 24px)" : `${direction * 120}svh`;
           return <article key={day.id} className={`absolute top-1/2 left-1/2 h-[min(59vw,648px)] min-h-[390px] w-[min(76vw,1120px)] overflow-hidden rounded-[31px] bg-[#cdd3d2] text-[var(--ink)] shadow-[0_22px_50px_rgba(0,0,0,.34)] [transform:translate3d(-50%,calc(-50%_+_var(--card-offset)_+_var(--drag-offset)),0)_scale(var(--card-scale))] ${isVisible ? "will-change-transform" : "[content-visibility:hidden]"} ${isDragging || isJumping ? "transition-none" : "[transition:transform_.7s_cubic-bezier(.22,1,.36,1),opacity_.35s_ease]"} ${positionClass} max-[1024px]:h-[min(62vw,590px)] max-[1024px]:w-[min(84vw,820px)] max-[760px]:h-[min(58svh,520px)] max-[760px]:min-h-[350px] max-[760px]:w-[calc(100vw-12px)] max-[760px]:rounded-[22px] max-[760px]:[--card-offset:var(--mobile-card-offset)] max-[760px]:[--card-scale:var(--mobile-card-scale)] max-[380px]:h-[min(58svh,440px)] max-[380px]:min-h-[320px] [@media(max-height:650px)]:h-[min(58svh,440px)] [@media(max-height:650px)]:min-h-[320px]`} aria-current={position === 0 ? "true" : undefined} style={{ "--card-offset": cardOffset, "--mobile-card-offset": mobileCardOffset, "--card-scale": position === 0 ? 1 : Math.abs(position) === 1 ? .98 : .9, "--mobile-card-scale": position === 0 ? 1 : Math.abs(position) === 1 ? .97 : .9 } as React.CSSProperties}>
             {isVisible && <Image className="object-cover object-center" src={eventImages[index]} alt={`Dokumentasi ${day.title}`} fill draggable={false} loading={position === 0 ? "eager" : "lazy"} decoding="async" sizes="(max-width: 760px) 100vw, (max-width: 1024px) 84vw, 1120px" />}
             <div className="absolute inset-0 z-2 bg-[linear-gradient(to_bottom,transparent_34%,rgba(237,236,230,.1)_49%,rgba(101,144,194,.44)_65%,rgba(54,74,140,.84)_79%,#25366d_100%)]" />

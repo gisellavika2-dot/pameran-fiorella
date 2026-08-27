@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styles from "./SupergrafisField.module.css";
 
-const SUPERGRAFIS_SOURCE = "/supergrafis/SUPERGRAFIS-04.webp";
+const SUPERGRAFIS_SOURCES = Array.from(
+  { length: 12 },
+  (_, index) => `/supergrafis/SUPERGRAFIS-${String(index + 1).padStart(2, "0")}.webp`,
+);
 const GSM_COLORS = ["#121E42", "#364A8C", "#6590C2", "#A8C4D4"];
+const SPRITE_COUNT = SUPERGRAFIS_SOURCES.length * GSM_COLORS.length;
 const REPEL_RADIUS = 132;
 const PARTICLE_DENSITY = 0.88;
 
@@ -51,7 +54,7 @@ function createParticles(width: number, height: number): Particle[] {
       size,
       speed: 0.18 + random() * 0.22,
       spin: (random() - 0.5) * 0.002,
-      sprite: index % GSM_COLORS.length,
+      sprite: index % SPRITE_COUNT,
       vx: 0,
       vy: 0,
       x: size + random() * Math.max(1, width - size * 2),
@@ -226,7 +229,7 @@ export default function SupergrafisField() {
       image.src = source;
     });
 
-    void Promise.all([loadImage(SUPERGRAFIS_SOURCE)]).then((images) => {
+    void Promise.all(SUPERGRAFIS_SOURCES.map(loadImage)).then((images) => {
       if (disposed) return;
       sprites = createTintedSprites(
         images.filter((image): image is HTMLImageElement => image !== null),
@@ -253,5 +256,11 @@ export default function SupergrafisField() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="pointer-events-none fixed inset-0 z-0 h-full w-full motion-reduce:opacity-80"
+      aria-hidden="true"
+    />
+  );
 }
