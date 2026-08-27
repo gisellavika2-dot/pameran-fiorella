@@ -1,15 +1,13 @@
+// src/components/layout/Header.tsx
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
 const links = [
   ["Beranda", "/"], ["Hari Pelaksanaan", "/hari-pelaksanaan"], ["Foto Divisi", "/#divisi"],
-  ["Dibalik Kepanitiaan", "/dibalik-kepanitiaan"], ["Sayembara Visual", "/#sayembara"], ["Tentang Fiorella", "/tentang-fiorella"],
+  ["Dibalik Kepanitiaan", "/dibalik-kepanitiaan"], ["Sayembara Visual", "/sayembara"], ["Tentang Fiorella", "/tentang-fiorella"],
 ];
-
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();

@@ -14,3 +14,7 @@ export const COLORS = {
   secondary: "#FFFFFF",
   accent: "#FF6B6B",
 };
+
+// Ganti "no" -> "yes" saat pemenang sayembara visual sudah siap diumumkan.
+// Ini mengubah tampilan halaman /sayembara.
+export const ANNOUNCEMENT: "yes" | "no" = "no";
