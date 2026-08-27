@@ -297,14 +297,14 @@ export default function HariDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        <a
+        {/* <a
           href={driveLinks[scheduleDay.day - 1]}
           target="_blank"
           rel="noopener noreferrer"
           className="mx-auto mt-4 rounded-full bg-[#364A8C] px-8 py-3.5 font-semibold text-[#EDECE6] shadow-md transition-colors hover:bg-[#121E42] max-[760px]:mt-2 max-[760px]:inline-flex max-[760px]:min-h-[46px] max-[760px]:w-[calc(100%_-_32px)] max-[760px]:justify-center max-[760px]:px-5 max-[760px]:py-3 max-[760px]:text-[13px]"
         >
           Lihat Google Drive
-        </a>
+        </a> */}
       </div>
 
       {selectedGalleryPhoto && (

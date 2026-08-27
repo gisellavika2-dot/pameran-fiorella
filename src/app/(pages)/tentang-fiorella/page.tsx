@@ -232,13 +232,13 @@ const DocumentationCard = ({
             {title}
           </h3>
         </div>
-        <Link
+        {/* <Link
           href="#"
           className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#EDECE6] px-4 py-2 text-xs font-bold text-[#121E42] shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-white md:gap-3 md:px-6 md:py-3 md:text-sm"
         >
           Akses Drive
           <ArrowIcon />
-        </Link>
+        </Link> */}
       </div>
     </div>
   </article>
