@@ -17,8 +17,8 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
 
   if (!division) {
     return (
-      <div className="py-16 md:py-24">
-        <div className="section-container text-center">
+      <div className="relative bg-[#EDECE6] py-16 md:py-24">
+        <div className="section-container relative z-10 text-center">
           <h1 className="font-serif text-4xl font-bold text-primary-dark mb-4">
             Divisi tidak ditemukan
           </h1>
@@ -47,7 +47,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
 
   return ( 
     <SmoothSectionScroller
-      className="division-scroller smooth-section-page"
+      className="division-scroller smooth-section-page relative"
       scrollRoot="document"
     >
       <ScrollSnapSection>
@@ -118,7 +118,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
             className="z-0 object-cover opacity-20"
           />
           <div
-            className="absolute inset-0 z-[1]"
+            className="absolute inset-0 z-0"
             style={{
               background: `linear-gradient(150deg, ${w1}ed 0%, ${w2}e3 50%, ${w3}d9 100%)`,
             }}
@@ -245,7 +245,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
             className="z-0 object-cover opacity-20"
           />
           <div
-            className="absolute inset-0 z-[1]"
+            className="absolute inset-0 z-0"
             style={{
               background: `linear-gradient(150deg, ${w1}e6 0%, ${w2}d9 50%, ${w3}c7 100%)`,
             }}
@@ -292,7 +292,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
             className="z-0 object-cover opacity-20"
           />
           <div
-            className="absolute inset-0 z-[1]"
+            className="absolute inset-0 z-0"
             style={{
               background: `linear-gradient(150deg, ${w1}e6 0%, ${w2}d9 50%, ${w3}c7 100%)`,
             }}

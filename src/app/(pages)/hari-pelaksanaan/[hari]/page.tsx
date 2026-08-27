@@ -192,12 +192,12 @@ export default function HariDetailPage({ params }: PageProps) {
 
   if (!scheduleDay) {
     return (
-      <div className="min-h-screen bg-[#EDECE6] text-[#121E42] flex flex-col items-center justify-center p-6 text-center font-sans">
-        <h1 className="text-3xl font-bold font-serif mb-2">Hari tidak ditemukan</h1>
-        <p className="text-sm opacity-80 mb-6">Hari yang Anda cari tidak tersedia.</p>
+      <div className="relative min-h-screen bg-[#EDECE6] text-[#121E42] flex flex-col items-center justify-center p-6 text-center font-sans">
+        <h1 className="relative z-10 text-3xl font-bold font-serif mb-2">Hari tidak ditemukan</h1>
+        <p className="relative z-10 text-sm opacity-80 mb-6">Hari yang Anda cari tidak tersedia.</p>
         <Link 
           href="/hari-pelaksanaan" 
-          className="bg-[#364A8C] text-[#EDECE6] px-6 py-2 rounded-full text-sm font-medium hover:bg-[#121E42] transition-all shadow-md"
+          className="relative z-10 bg-[#364A8C] text-[#EDECE6] px-6 py-2 rounded-full text-sm font-medium hover:bg-[#121E42] transition-all shadow-md"
         >
           Kembali ke Hari Pelaksanaan
         </Link>

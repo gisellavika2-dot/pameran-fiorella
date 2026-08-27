@@ -7,6 +7,7 @@ import { divisionPreviews } from "@/data/divisions";
 import { schedule } from "@/data/schedule";
 import DivisionAccordion from "@/components/ui/DivisionAccordion";
 import EventCarousel from "@/components/ui/EventCarousel";
+import ViewportFadeSection from "@/components/ui/ViewportFadeSection";
 import "./home.css";
 
 const behindTheScenesRows = [
@@ -24,7 +25,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="hero-section"
+        className="hero-section !isolation-auto"
         style={{ "--hero-wave-height": "0px", background: "var(--ink)" } as CSSProperties}
       >
         <div className="hero-ornament hero-ornament-one" />
@@ -65,24 +66,24 @@ export default function Home() {
       </section>
 
       {/* Hari Pelaksanaan Section */}
-      <section className="editorial-section events-section">
+      <ViewportFadeSection className="editorial-section events-section !isolation-auto !bg-[linear-gradient(to_bottom,var(--sky)_0%,rgba(168,196,212,0.96)_58%,#dce9f0_84%,#edf4f7_100%)] max-[760px]:!h-auto max-[760px]:!min-h-[max(100svh,660px)] max-[760px]:!pt-[82px] max-[760px]:!pb-7 [&>*]:!z-10">
         <p className="section-kicker">Linimasa kegiatan</p>
         <h2>Hari Pelaksanaan</h2>
         <EventCarousel items={schedule.slice(0, 5)} />
         <Link className="text-link" href="/hari-pelaksanaan">
           Lihat seluruh rangkaian <span>→</span>
         </Link>
-      </section>
+      </ViewportFadeSection>
 
       {/* Foto Divisi Section */}
-      <section id="divisi" className="editorial-section divisions-section">
+      <section id="divisi" className="editorial-section divisions-section !isolation-auto !bg-[linear-gradient(to_bottom,#edf4f7_0%,rgba(237,244,247,0.72)_18%,transparent_46%)] [&>*]:!z-10">
         <p className="section-kicker">Orang-orang di balik cerita</p>
         <h2>Divisi UMN NEXT 2026</h2>
         <DivisionAccordion items={divisionPreviews} />
       </section>
 
       {/* Dibalik Kepanitiaan Section */}
-      <section className="editorial-section behind-section">
+      <section className="editorial-section behind-section !isolation-auto [&>*]:!z-10">
         <p className="section-kicker">Yang tak terlihat di panggung</p>
         <h2>Dibalik Kepanitiaan</h2>
         <HomeBehindGallery rows={behindTheScenesRows} />
@@ -92,7 +93,7 @@ export default function Home() {
       </section>
 
      {/* Sayembara Visual Section (Versi Sebelum Rilis) */}
-      <section id="sayembara" className="editorial-section contest-section px-4 md:px-8">
+      <section id="sayembara" className="editorial-section contest-section !isolation-auto px-4 md:px-8 [&>*]:!z-10">
         <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/70 bg-[radial-gradient(ellipse_at_top_right,rgba(237,236,230,0.98),rgba(209,226,236,0.92)_58%,rgba(168,196,212,0.95)_100%)] p-7 shadow-[0_22px_70px_rgba(18,30,66,0.14)] backdrop-blur-md md:rounded-[2.5rem] md:p-12 lg:p-16">
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center lg:gap-12">
             {/* Sisi Kiri: Judul & Keterangan */}

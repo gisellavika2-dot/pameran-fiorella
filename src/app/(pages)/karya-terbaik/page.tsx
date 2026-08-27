@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function KaryaTerbaikPage() {
   return (
-    <div className="py-16 md:py-24">
-      <div className="section-container">
+    <div className="relative bg-[#EDECE6] py-16 md:py-24">
+      <div className="section-container relative z-10">
         {/* Header */}
         <div className="mb-16">
           <Link

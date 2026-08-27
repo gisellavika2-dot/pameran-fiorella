@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function BlankPage() {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#edece6] px-5 pb-16 pt-32 text-[#121e42] sm:px-8 lg:px-12">
-      <section className="mx-auto grid max-w-6xl overflow-hidden rounded-[2.5rem] bg-[#121e42] lg:grid-cols-[1.1fr_.9fr]">
+    <div className="relative min-h-screen overflow-hidden bg-[#edece6] px-5 pb-16 pt-32 text-[#121e42] sm:px-8 lg:px-12">
+      <section className="relative z-10 mx-auto grid max-w-6xl overflow-hidden rounded-[2.5rem] bg-[#121e42] lg:grid-cols-[1.1fr_.9fr]">
         <div className="flex min-h-[32rem] flex-col justify-between p-8 sm:p-12 lg:p-16">
           <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-[#a8c4d4]">
             <span className="h-px w-10 bg-[#a8c4d4]" />
@@ -50,7 +50,7 @@ export default function BlankPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-5 pt-5 md:grid-cols-3">
+      <section className="relative z-10 mx-auto grid max-w-6xl gap-5 pt-5 md:grid-cols-3">
         {["Still", "Story", "Together"].map((word, index) => (
           <div
             key={word}

@@ -66,8 +66,8 @@ const archiveData: ArchiveItem[] = [
 
 export default function ArsipPage() {
   return (
-    <main className="min-h-screen bg-[url('/gradients/grad3.webp')] bg-cover text-white py-16 px-4 sm:px-8 lg:px-8">
-      <div className="max-w-7xl mx-auto text-center mb-12 mt-16">
+    <main className="relative min-h-screen bg-[url('/gradients/grad3.webp')] bg-cover text-white py-16 px-4 sm:px-8 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto text-center mb-12 mt-16">
         <h1 className="text-3xl md:text-6xl font-bold tracking-tight mb-3">
           Arsip OMB UMN
         </h1>
@@ -76,7 +76,7 @@ export default function ArsipPage() {
         </p>
       </div>
 
-        <div className="flex flex-wrap justify-center gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <div className="relative z-10 flex flex-wrap justify-center gap-6 lg:gap-8 max-w-7xl mx-auto">
         {archiveData.map((item, index) => (
             <a
             key={item.id}
