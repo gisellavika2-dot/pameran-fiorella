@@ -188,6 +188,7 @@
   min-height: 100svh;
   padding: 120px max(8vw, 32px) 100px;
   position: relative;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -198,6 +199,12 @@
 .editorial-section > * {
   position: relative;
   z-index: 1;
+}
+.editorial-section > .section-fade-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 .editorial-section::before,
 .editorial-section::after {
@@ -396,6 +403,90 @@
 .contest-section::before,
 .contest-section::after {
   opacity: 0.32;
+}
+.sayembara-carousel .event-card strong {
+  font-size: clamp(18px, 2.1vw, 26px);
+  line-height: 1.25;
+  margin: 6px 0;
+}
+.sayembara-carousel .event-card small {
+  font-size: 11px;
+}
+.home-sayembara-state-off {
+  background: transparent;
+}
+.contest-section .sayembara-title-color {
+  color: #121e42;
+}
+.home-sayembara-state-on .sayembara-title-color {
+  color: var(--paper);
+}
+.home-sayembara-state-on {
+  background-image: url("/gradien/gradien2.webp");
+  background-size: cover;
+  background-position: center;
+}
+.home-gradient-fade {
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(0, 0, 0, 0.04) 8vh,
+    rgba(0, 0, 0, 0.14) 16vh,
+    rgba(0, 0, 0, 0.28) 24vh,
+    rgba(0, 0, 0, 0.46) 31vh,
+    rgba(0, 0, 0, 0.66) 38vh,
+    rgba(0, 0, 0, 0.86) 45vh,
+    #000 52vh
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(0, 0, 0, 0.04) 8vh,
+    rgba(0, 0, 0, 0.14) 16vh,
+    rgba(0, 0, 0, 0.28) 24vh,
+    rgba(0, 0, 0, 0.46) 31vh,
+    rgba(0, 0, 0, 0.66) 38vh,
+    rgba(0, 0, 0, 0.86) 45vh,
+    #000 52vh
+  );
+}
+.editorial-section .home-gradient-fade {
+  position: absolute;
+  z-index: -1;
+  inset: -52vh 0 0 0;
+}
+.home-gradient-home .editorial-section {
+  overflow: visible;
+}
+.home-gradient-home .events-section,
+.home-gradient-home .divisions-section,
+.home-gradient-home .behind-section,
+.home-gradient-home .contest-section {
+  color: var(--paper);
+}
+.home-gradient-home .events-section .section-kicker,
+.home-gradient-home .divisions-section .section-kicker,
+.home-gradient-home .behind-section .section-kicker {
+  color: var(--sky-bright);
+}
+.home-gradient-home .events-section h2,
+.home-gradient-home .divisions-section h2,
+.home-gradient-home .behind-section h2,
+.home-gradient-home .contest-section h2:not(.sayembara-title-color),
+.home-gradient-home .contest-section .sayembara-heading-color {
+  color: var(--paper);
+}
+.home-gradient-home .home-sayembara-state-off,
+.home-gradient-home .home-sayembara-state-on {
+  background: transparent;
+}
+.home-gradient-home .divisions-section,
+.home-gradient-home .behind-section,
+.home-gradient-home .contest-section {
+  background: var(--ink);
 }
 .coming-card {
   width: min(1260px, 100%);

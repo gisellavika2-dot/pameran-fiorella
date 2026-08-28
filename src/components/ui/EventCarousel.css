@@ -71,6 +71,16 @@
 .event-card.is-wrapping {
   z-index: 1;
 }
+/* Safari (incl. iOS) fails to clip a rounded overflow:hidden box to
+   its own border-radius once it also has a CSS transform, letting the
+   scaled/zoomed image or the card's own transform bleed a faint
+   rectangular edge past the rounded corner. Forcing the masking
+   render path fixes it. @supports targets Safari/WebKit only. */
+@supports (-webkit-touch-callout: none) {
+  .event-card {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+}
 .event-carousel.is-jumping .event-card,
 .event-carousel.is-jumping .event-card > img {
   transition: none !important;
