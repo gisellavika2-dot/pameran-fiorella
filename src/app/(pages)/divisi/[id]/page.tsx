@@ -1,7 +1,7 @@
 // src/app/(pages)/divisi/[id]/page.tsx
 "use client";
 
-import { useState, use } from "react";
+import { useState, use, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getDivisionById } from "@/data/divisions";
@@ -44,6 +44,44 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
   // const textColorSub = adhiBiren ? "#FFFFFF" : "#364A8C";
   const textColorMain = "#FFFFFF";
   const textColorSub = "#FFFFFF";
+
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [randomPhotos, setRandomPhotos] = useState<string[]>([]);
+
+  useEffect(() => {
+  const photos = division?.galeriFoto || [];
+
+  if (photos.length > 0) {
+    const shuffled = [...photos];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    setRandomPhotos(shuffled.slice(0, 9));
+  } else {
+    setRandomPhotos([]);
+  }
+}, [division?.galeriFoto]);
+
+useEffect(() => {
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setSelectedImage(null);
+    }
+  };
+
+  if (selectedImage) {
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+  } else {
+    document.body.style.overflow = "unset";
+  }
+
+  return () => {
+    document.body.style.overflow = "unset";
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, [selectedImage]);
 
   return ( 
     <SmoothSectionScroller
@@ -337,7 +375,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
         </ScrollSnapSection>
       )}
 
-      {/* <ScrollSnapSection>
+      <ScrollSnapSection>
         <div className="min-h-screen w-full py-16 md:py-24" style={{ background: `linear-gradient(150deg, ${w1} 0%, ${w2} 50%, ${w3} 100%)`,}}>
           <div className="section-container flex flex-col items-center z-10">
             <h2 className="font-serif text-2xl md:text-5xl font-bold mb-8 text-center" style={{ color: "white" }}>
@@ -396,7 +434,7 @@ export default function DivisiDetailPage({ params, }: { params: Promise<{ id: st
 
           </div>
         </div>
-      </ScrollSnapSection> */}
+      </ScrollSnapSection>
     </SmoothSectionScroller>
   );
 }
