@@ -69,7 +69,7 @@ export default function MediaGridItem({ item, onOpen, showTitle = true }: MediaG
               </p>
               {item.username && (
                 <p className="truncate text-left font-sans text-xs text-neutral-light-bg/80">
-                  @{item.username}
+                  {item.username}
                 </p>
               )}
             </div>
