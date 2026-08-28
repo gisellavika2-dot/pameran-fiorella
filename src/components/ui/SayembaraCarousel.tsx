@@ -101,7 +101,7 @@ export default function SayembaraCarousel({
               <div className="event-caption">
                 <span>Juara {item.rank}</span>
                 <strong>{item.title}</strong>
-                {item.username && <small>@{item.username}</small>}
+                {item.username && <small>{item.username}</small>}
               </div>
             </Link>
           );

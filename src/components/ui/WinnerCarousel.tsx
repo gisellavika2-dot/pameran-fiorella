@@ -85,7 +85,7 @@ export default function WinnerCarouselSection({
                 </p>
                 {current.username && (
                   <p className="font-sans text-xs text-neutral-light-bg/80">
-                    @{current.username}
+                    {current.username}
                   </p>
                 )}
               </div>
