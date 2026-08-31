@@ -89,11 +89,11 @@ const eventImages = [
 ];
 
 const driveLinks = [
-  "https://drive.google.com/drive/folders/19HWcXhPxFbkisOLGV-_3WcfdQVg7b4W6?usp=drive_link",
-  "https://drive.google.com/drive/folders/125gFR9rp8zdmYFdBB5igxbIgdfqgnE-G?usp=drive_link",
-  "https://drive.google.com/drive/folders/1md1JxvN57WGMUDhwHRs8HAMn1yMP0a8e?usp=drive_link",
-  "https://drive.google.com/drive/folders/1frM6kgBxojOP12T0muXQs-pP2pCxa7x9?usp=drive_link",
-  "https://drive.google.com/drive/folders/1NfP66bxmNqbkz2kG2LKn7kRkq688zHEj?usp=drive_link",
+  "https://drive.google.com/drive/folders/1Iejq902SyRHPcUOGrsgh6BjF2K-39px9?usp=drive_link",
+  "https://drive.google.com/drive/folders/1VUlk96ssdVsiTF8s912mUBf8sVahtAK5?usp=drive_link",
+  "https://drive.google.com/drive/folders/1HJraaBmJUHcitxFNfyQKVKz8JEKM_EcT?usp=drive_link",
+  "https://drive.google.com/drive/folders/1dwqFDkR3i6e8Ea93V2EacTrsTu_ZxGIA?usp=drive_link",
+  "https://drive.google.com/drive/folders/1BfKjb_ZMnwkkmutAs52MkRrHGLG2KEcE?usp=drive_link",
 ];
 
 const sioGalleryImages = [
@@ -297,14 +297,14 @@ export default function HariDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* <a
+        <a
           href={driveLinks[scheduleDay.day - 1]}
           target="_blank"
           rel="noopener noreferrer"
           className="mx-auto mt-4 rounded-full bg-[#364A8C] px-8 py-3.5 font-semibold text-[#EDECE6] shadow-md transition-colors hover:bg-[#121E42] max-[760px]:mt-2 max-[760px]:inline-flex max-[760px]:min-h-[46px] max-[760px]:w-[calc(100%_-_32px)] max-[760px]:justify-center max-[760px]:px-5 max-[760px]:py-3 max-[760px]:text-[13px]"
         >
           Lihat Google Drive
-        </a> */}
+        </a>
       </div>
 
       {selectedGalleryPhoto && (

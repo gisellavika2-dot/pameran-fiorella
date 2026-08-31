@@ -4,8 +4,7 @@ import Link from "next/link";
 import Image, { type StaticImageData } from "next/image";
 import SmoothSectionScroller from "@/components/ui/SmoothSectionScroller";
 import image1 from "./images/car2.webp";
-import image2 from "./images/car3.webp";
-import image3 from "./images/car4.webp";
+
 
 const values = [
   {
@@ -35,22 +34,10 @@ const documentationCards: Array<{
   gradient: string;
 }> = [
   {
-    title: "Hari 1 Pameran Fiorella",
+    title: "Pameran Fiorella",
     label: "Arsip Foto",
     image: image1,
     gradient: "from-[#121E42]/95 via-[#364A8C]/45 to-transparent",
-  },
-  {
-    title: "Hari 2 Pameran Fiorella",
-    label: "Arsip Foto",
-    image: image2,
-    gradient: "from-[#364A8C]/95 via-[#6590C2]/35 to-transparent",
-  },
-  {
-    title: "Penayangan After Movie",
-    label: "Arsip Video",
-    image: image3,
-    gradient: "from-[#121E42]/95 via-[#121E42]/35 to-transparent",
   },
 ];
 
@@ -232,13 +219,13 @@ const DocumentationCard = ({
             {title}
           </h3>
         </div>
-        {/* <Link
-          href="#"
+        <Link
+          href="https://drive.google.com/drive/folders/1h64QpY6H7FgZK2XN9wgyldpvCtXn4De_?usp=drive_link"
           className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#EDECE6] px-4 py-2 text-xs font-bold text-[#121E42] shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-white md:gap-3 md:px-6 md:py-3 md:text-sm"
         >
           Akses Drive
           <ArrowIcon />
-        </Link> */}
+        </Link>
       </div>
     </div>
   </article>
@@ -260,7 +247,9 @@ export default function TentangFiorellaPage() {
       <div className="relative w-full bg-[url('/gradients/tentang/grad1_v.webp')] bg-[size:100%_100%] bg-top bg-no-repeat">
         
         <section id="tentang-fiorella" className="relative z-10 flex min-h-[100dvh] w-full flex-col justify-center px-5 pt-24 pb-12 sm:px-6 md:px-8 md:py-8">
+          
           <div className="relative z-10 mx-auto w-full max-w-6xl space-y-5 md:space-y-6">
+
             <div className="relative overflow-hidden rounded-[1.5rem] bg-[#EDECE6] p-6 text-[#121E42] shadow-[0_30px_90px_rgba(18,30,66,0.28)] sm:p-7 md:rounded-[2.5rem] md:p-10 lg:p-12">
               <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#A8C4D4]/55 blur-3xl" />
               <div className="absolute bottom-0 left-0 h-36 w-full bg-gradient-to-t from-white/28 to-transparent" />

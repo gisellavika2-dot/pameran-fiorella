@@ -183,9 +183,9 @@ export default function BehindTheScenesCanvas() {
 
   return (
     <section className="behind-canvas-page relative h-svh min-h-[620px] overflow-hidden bg-[url('/gradients/VARIASI%20GRADIENT-52.webp')] bg-cover bg-center bg-no-repeat font-sans text-[var(--paper)] max-[760px]:min-h-[520px]" aria-label="Di balik kepanitiaan">
-      {/* <a className="absolute bottom-[52px] left-1/2 z-5 inline-flex -translate-x-1/2 items-center gap-[22px] rounded-full border border-[rgba(237,236,230,.55)] bg-[var(--paper)] px-5 py-3 text-xs font-semibold text-[var(--blue)] no-underline shadow-[0_10px_24px_rgba(0,0,0,.2)] transition-[background,transform] duration-200 hover:-translate-y-0.5 hover:bg-[var(--sky)] max-[760px]:bottom-[max(42px,env(safe-area-inset-bottom))] max-[760px]:gap-3.5 max-[760px]:px-[15px] max-[760px]:py-[9px] max-[760px]:text-[10px]" href="https://drive.google.com/drive/folders/1qHcfbiUmdQ52qsOdGLL7JW7yrAYiEDdq?usp=drive_link" target="_blank" rel="noopener noreferrer">
+      <a className="absolute bottom-[52px] left-1/2 z-5 inline-flex -translate-x-1/2 items-center gap-[22px] rounded-full border border-[rgba(237,236,230,.55)] bg-[var(--paper)] px-5 py-3 text-xs font-semibold text-[var(--blue)] no-underline shadow-[0_10px_24px_rgba(0,0,0,.2)] transition-[background,transform] duration-200 hover:-translate-y-0.5 hover:bg-[var(--sky)] max-[760px]:bottom-[max(42px,env(safe-area-inset-bottom))] max-[760px]:gap-3.5 max-[760px]:px-[15px] max-[760px]:py-[9px] max-[760px]:text-[10px]" href="https://drive.google.com/drive/folders/1ncby9C5C4GJFF9jo9XPgs9Ad99M7egHv?usp=drive_link" target="_blank" rel="noopener noreferrer">
         Lihat Google Drive <span className="text-[17px]" aria-hidden="true">↗</span>
-      </a> */}
+      </a>
       <div className="absolute inset-0 z-2 touch-none overflow-hidden select-none" onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={cancelDrag} role="application" aria-label="Dinding foto dokumentasi panitia">
         <div className={`absolute top-1/2 left-1/2 h-px w-px will-change-transform ${centering ? "transition-transform duration-400 ease-[cubic-bezier(.22,1,.36,1)]" : ""}`} style={{ transform: `translate3d(calc(-50% + ${offset.x}px), calc(-50% + ${offset.y}px), 0)` }}>
           {[-1, 0, 1].flatMap((tileY) => [-1, 0, 1].map((tileX) => (
