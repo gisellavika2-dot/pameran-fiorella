@@ -245,7 +245,6 @@ export const divisions: Division[] = [
       "/galeriFotoDivisi/ARTHA-1.jpg",
       "/galeriFotoDivisi/ARTHA-2.jpg",
       "/galeriFotoDivisi/ARTHA-3.jpg",
-      "/galeriFotoDivisi/ARTHA-4.jpg",
       "/galeriFotoDivisi/ARTHA-5.jpg",
       "/galeriFotoDivisi/ARTHA-6.jpg",
       "/galeriFotoDivisi/ARTHA-7.jpg",

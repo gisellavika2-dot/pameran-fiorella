@@ -399,7 +399,7 @@ useEffect(() => {
                         alt={`Dokumentasi ${division.name} ${idx + 1}`}
                         fill
                         sizes="(max-width: 640px) 100vw, 33vw"
-                        className="object-cover"
+                        className="object-cover scale-110"
                       />
                     </div>
                   );
